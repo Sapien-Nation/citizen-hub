@@ -1,0 +1,48 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "jest --watch",
+    "prepare": "husky install",
+    "postinstall": "husky install && rm -rf .git/hooks && ln -s ../.husky .git/hooks",
+    "type-check": "tsc"
+  },
+  "dependencies": {
+    "next": "latest",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "lint-staged": {
+    "*/**/*.{ts,tsx}": [
+      "prettier --write",
+      "eslint --fix",
+      "jest --bail --findRelatedTests"
+    ]
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^4.0.3",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest-axe": "^3.5.3",
+    "@types/node": "16.11.6",
+    "@types/react": "17.0.33",
+    "babel-jest": "^27.3.1",
+    "eslint": "7.32.0",
+    "eslint-config-next": "12.0.2",
+    "eslint-config-prettier": "^8.3.0",
+    "husky": "^7.0.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.3.1",
+    "jest-axe": "^5.0.1",
+    "lint-staged": "^11.2.6",
+    "postcss-preset-env": "^6.7.0",
+    "prettier": "^2.4.1",
+    "react-test-renderer": "^17.0.2",
+    "tailwindcss": "^2.2.19",
+    "typescript": "4.4.4"
+  }
+}
