@@ -1,11 +1,11 @@
 import { SWRConfig } from 'swr';
-import dynamic from 'next/dynamic';
 import { ErrorBoundary } from 'react-error-boundary';
 
 // api
 import axios from 'api';
 
 // components
+import { AppLayout } from 'components';
 import { ErrorView } from 'components/common';
 
 // styles
@@ -27,7 +27,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
         revalidateOnFocus: false,
       }}
     >
-      <Component {...pageProps} />
+      <AppLayout>
+        <Component {...pageProps} />
+      </AppLayout>
     </SWRConfig>
   </ErrorBoundary>
 );

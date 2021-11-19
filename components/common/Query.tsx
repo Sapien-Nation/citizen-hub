@@ -1,11 +1,11 @@
 import useSWR, { mutate } from 'swr';
 
+// components
+import ErrorView from './views/ErrorView';
+import Spinner from './Spinner';
+
 // types
 import type { SWRConfiguration, Key } from 'swr';
-
-// components
-import ErrorView from './ErrorView';
-import Spinner from './Spinner';
 
 interface Props {
   api: Key;
