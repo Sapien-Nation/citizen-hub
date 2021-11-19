@@ -2,23 +2,20 @@ import { SWRConfig } from 'swr';
 import dynamic from 'next/dynamic';
 import { ErrorBoundary } from 'react-error-boundary';
 
-// types
-import type { AppProps } from 'next/app';
+// api
+import axios from 'api';
+
+// components
+import { ErrorView } from 'components/common';
 
 // styles
 import '../styles/index.css';
 
-// components
-const DynamicErrorView = dynamic<any>(
-  () => import('components/common').then((mod) => mod.ErrorView) as any,
-  { ssr: false }
-);
-
-// api
-import axios from 'api';
+// types
+import type { AppProps } from 'next/app';
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
-  <ErrorBoundary FallbackComponent={DynamicErrorView}>
+  <ErrorBoundary FallbackComponent={ErrorView}>
     <SWRConfig
       value={{
         provider: () => new Map(),
