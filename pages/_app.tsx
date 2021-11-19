@@ -11,6 +11,9 @@ import { ErrorView } from 'components/common';
 // styles
 import '../styles/index.css';
 
+// providers
+import { AuthenticationProvider } from 'context/user';
+
 // types
 import type { AppProps } from 'next/app';
 
@@ -27,9 +30,11 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
         revalidateOnFocus: false,
       }}
     >
-      <AppLayout>
-        <Component {...pageProps} />
-      </AppLayout>
+      <AuthenticationProvider>
+        <AppLayout>
+          <Component {...pageProps} />
+        </AppLayout>
+      </AuthenticationProvider>
     </SWRConfig>
   </ErrorBoundary>
 );

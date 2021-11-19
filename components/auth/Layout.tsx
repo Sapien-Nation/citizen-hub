@@ -4,12 +4,29 @@ import Image from 'next/image';
 import authImage from 'public/images/auth.jpeg';
 import logoImage from 'public/images/logo.png';
 
+// components
+import { Redirect } from 'components/common';
+
+// hooks
+import { useAuth } from 'context/user';
+
 interface Props {
   children: React.ReactElement;
   title: string;
 }
 
 const Layout = ({ children, title }: Props) => {
+  const { me, isLoggingIn } = useAuth();
+
+  if (isLoggingIn)
+    return (
+      <>
+        <span>Authenticating...</span>
+      </>
+    );
+
+  if (me) return <Redirect path="/" />;
+
   return (
     <>
       <div className="min-h-full flex">

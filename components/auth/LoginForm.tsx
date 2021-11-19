@@ -1,14 +1,34 @@
 import { useForm } from 'react-hook-form';
 
+// api
+import { login } from 'api/authentication';
+
+// hooks
+import { useAuth } from 'context/user';
+
 interface LoginFormValues {
   email: string;
   password: string;
 }
+
 const LoginForm = () => {
   const { register, handleSubmit } = useForm<LoginFormValues>();
 
-  const onSubmit = async (values: LoginFormValues) => {
-    console.log(values);
+  const { setSession } = useAuth();
+
+  const onSubmit = async ({ email, password }: LoginFormValues) => {
+    try {
+      const response = await login({
+        email,
+        client: window?.navigator.userAgent,
+        redirect: '/',
+        password,
+      });
+
+      setSession(response);
+    } catch (err) {
+      // err
+    }
   };
 
   return (

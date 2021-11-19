@@ -1,10 +1,15 @@
-import * as Yup from 'yup';
-import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useForm } from 'react-hook-form';
+import * as Yup from 'yup';
+
+// api
+import { register as registerAction } from 'api/authentication';
 
 // utils
 import { EmailRegex, NameRegex, UsernameRegex } from 'utils/regex';
 
+// hooks
+import { useAuth } from 'context/user';
 interface RegisterFormValues {
   displayName: string;
   email: string;
@@ -13,21 +18,46 @@ interface RegisterFormValues {
   terms: string;
   wallet: string;
 }
-const RegisterForm = () => {
-  const validationSchema = Yup.object().shape({
-    terms: Yup.bool().oneOf([true], 'You have to accept the terms'),
-    wallet: Yup.bool().oneOf(
-      [true],
-      'You have to accept that a wallet will be created for you'
-    ),
-  });
-  const formOptions = { resolver: yupResolver(validationSchema) };
 
-  const { register, handleSubmit, formState } =
-    useForm<RegisterFormValues>(formOptions);
-  const { errors } = formState;
-  const onSubmit = async (values: RegisterFormValues) => {
-    console.log(values);
+const validationSchema = Yup.object().shape({
+  terms: Yup.bool().oneOf([true], 'You have to accept the terms'),
+  wallet: Yup.bool().oneOf(
+    [true],
+    'You have to accept that a wallet will be created for you'
+  ),
+});
+
+const RegisterForm = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<RegisterFormValues>({
+    resolver: yupResolver(validationSchema),
+  });
+
+  const { setSession } = useAuth();
+
+  const onSubmit = async ({
+    displayName,
+    email,
+    password,
+    username,
+  }: RegisterFormValues) => {
+    try {
+      const response = await registerAction({
+        displayName,
+        email,
+        password,
+        username,
+        client: window?.navigator.userAgent,
+        redirect: '/',
+      });
+
+      setSession(response);
+    } catch (err) {
+      // err
+    }
   };
 
   return (

@@ -5,12 +5,26 @@ export const login = async (body: {
   password: string;
   redirect: string;
   client: string;
-}): Promise<{ token: string; torus: string; refresh: string }> =>
+}) =>
   authInstance
     .post('/api/v3/auth/login', body)
-    .then(({ data }) => ({
-      torus: data.torus,
-      token: data.token,
-      refresh: data.refresh,
-    }))
+    .then(({ data }) => data)
+    .catch((response) => Promise.reject(response.data.message));
+
+export const register = async (body: {
+  displayName: string;
+  email: string;
+  password: string;
+  username: string;
+  redirect: string;
+  client: string;
+}) =>
+  authInstance
+    .post('/api/v3/auth/signup', body)
+    .then(({ data }) => data)
+    .catch((response) => Promise.reject(response.data.message));
+
+export const logout = async (body: { email: string }) =>
+  authInstance
+    .post('/api/v3/auth/logout', body)
     .catch((response) => Promise.reject(response.data.message));
