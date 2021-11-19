@@ -1,5 +1,14 @@
-import { LoginForm } from 'components/auth';
+// components
+import { Layout, LoginForm } from 'components/auth';
+import { Head } from 'components/common';
 
-const LoginPage = () => <LoginForm />;
+const LoginPage = () => (
+  <>
+    <Head title="Access" />
+    <Layout title="Log in">
+      <LoginForm />
+    </Layout>
+  </>
+);
 
 export default LoginPage;

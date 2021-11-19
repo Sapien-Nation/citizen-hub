@@ -6,7 +6,7 @@ interface Props {
 
 const Head = ({ title }: Props) => (
   <NextHead>
-    <title>Rekluto | {title}</title>
+    <title>Sapien | {title}</title>
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
   </NextHead>
 );
