@@ -13,5 +13,5 @@ it('render correctly', async () => {
 
   expect(results).toHaveNoViolations();
 
-  expect(screen.getByText('TODO')).toBeInTheDocument();
+  expect(screen.getByText('Lorem ultrices at nec in sit.')).toBeInTheDocument();
 });
