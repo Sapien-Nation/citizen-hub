@@ -10,8 +10,13 @@ interface Props {
 const AppLayout = ({ children }: Props) => {
   const { pathname } = useRouter();
 
-  if (pathname.startsWith('/login') || pathname.startsWith('/register'))
+  if (
+    pathname.startsWith('/login') ||
+    pathname.startsWith('/register') ||
+    pathname.startsWith('/logout')
+  ) {
     return children;
+  }
 
   return (
     <div className="relative">

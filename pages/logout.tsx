@@ -14,18 +14,18 @@ const LogoutPage: NextPage = () => {
 
   useEffect(() => {
     const logoutUser = async () => {
-      try {
-        await logout({ email: me.email });
-      } catch (err) {
-        // err
+      if (me) {
+        try {
+          await logout({ email: me.email });
+        } catch (err) {
+          // err
+        }
       }
 
       clearSession();
     };
 
-    if (me) {
-      logoutUser();
-    }
+    logoutUser();
   }, [clearSession, me]);
 
   return <></>;
