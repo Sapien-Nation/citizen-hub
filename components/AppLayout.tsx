@@ -14,7 +14,7 @@ const AppLayout = ({ children }: Props) => {
     return children;
 
   return (
-    <div>
+    <div className="relative">
       <Navbar />
       <main>{children}</main>
     </div>

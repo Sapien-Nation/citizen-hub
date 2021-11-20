@@ -16,7 +16,7 @@ const PublicHero = () => {
         </h1>
         <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
           <Link href="/">
-            <a className="inline-flex items-center px-7 py-3 border border-gray-300 shadow-sm text-base font-medium rounded-full text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            <a className="inline-flex items-center px-7 py-3 border border-gray-300 shadow-sm text-base font-medium rounded-full text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
               I am interested
             </a>
           </Link>

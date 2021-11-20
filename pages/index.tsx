@@ -5,9 +5,9 @@ import { Head } from 'components/common';
 import { NextPage } from 'next';
 
 const IndexPage: NextPage = () => (
-  <div>
+  <>
     <Head title="Sapien Nation" />
-    <div className="relative bg-gray-50">
+    <div className="bg-gray-50">
       <main className="lg:relative">
         <div className="mx-auto max-w-7xl w-full pt-16 pb-20 text-center lg:py-48 lg:text-left">
           <div className="px-4 lg:w-1/2 sm:px-8 xl:pr-16">
@@ -25,7 +25,7 @@ const IndexPage: NextPage = () => (
               <div className="rounded-full shadow">
                 <a
                   href="#"
-                  className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
+                  className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white bg-purple-600 hover:bg-purple-700 md:py-4 md:text-lg md:px-10"
                 >
                   Primary Action
                 </a>
@@ -33,7 +33,7 @@ const IndexPage: NextPage = () => (
               <div className="mt-3 rounded-full shadow sm:mt-0 sm:ml-3">
                 <a
                   href="#"
-                  className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-indigo-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10"
+                  className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-purple-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10"
                 >
                   Secondary Action
                 </a>
@@ -52,7 +52,7 @@ const IndexPage: NextPage = () => (
         </div>
       </main>
     </div>
-  </div>
+  </>
 );
 
 export default IndexPage;

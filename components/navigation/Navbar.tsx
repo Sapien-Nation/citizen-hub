@@ -14,7 +14,7 @@ import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
 const classNames = (...classes) => classes.filter(Boolean).join(' ');
 
 const Navbar = () => (
-  <Disclosure as="nav" className="bg-white shadow">
+  <Disclosure as="nav" className="relative bg-white shadow">
     {({ open }) => (
       <>
         <div className="max-w-7xl mx-auto py-1 px-2 sm:px-4 lg:px-8">
@@ -25,7 +25,7 @@ const Navbar = () => (
               </div>
               <div className="hidden lg:ml-6 lg:flex lg:space-x-8">
                 <Link href="/">
-                  <a className="border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">
+                  <a className="border-purple-500 text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">
                     Home
                   </a>
                 </Link>
@@ -52,7 +52,7 @@ const Navbar = () => (
                   <input
                     id="search"
                     name="search"
-                    className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
                     placeholder="Search"
                     type="search"
                   />
@@ -61,7 +61,7 @@ const Navbar = () => (
             </div>
             <div className="flex items-center lg:hidden">
               {/* Mobile menu button */}
-              <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+              <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500">
                 <span className="sr-only">Open main menu</span>
                 {open ? (
                   <XIcon className="block h-6 w-6" aria-hidden="true" />
@@ -74,7 +74,7 @@ const Navbar = () => (
               {/* Profile dropdown */}
               <Menu as="div" className="relative flex-shrink-0">
                 <div>
-                  <Menu.Button className="bg-white rounded-full flex text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                  <Menu.Button className="bg-white rounded-full flex text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
                     <span className="sr-only">Open user menu</span>
                     <img
                       className="h-8 w-8 rounded-full"
@@ -119,7 +119,7 @@ const Navbar = () => (
             <Disclosure.Button
               as="a"
               href="#"
-              className="bg-indigo-50 border-indigo-500 text-indigo-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
+              className="bg-purple-50 border-purple-500 text-purple-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
             >
               Home
             </Disclosure.Button>
@@ -143,7 +143,7 @@ const Navbar = () => (
               </div>
               <button
                 type="button"
-                className="ml-auto flex-shrink-0 bg-white p-1 text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                className="ml-auto flex-shrink-0 bg-white p-1 text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
               >
                 <span className="sr-only">View notifications</span>
                 <BellIcon className="h-6 w-6" aria-hidden="true" />
