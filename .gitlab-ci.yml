@@ -1,0 +1,81 @@
+stages:
+ - build
+ #- push_to_ecr
+ #- deploy
+
+variables:
+  # this variable can be overriden by pipeline run variable
+  ENV: "sandbox"
+
+.sandbox_triggers: &sandbox_triggers
+  refs:
+    - sandbox
+
+.qat_triggers: &qat_triggers
+  refs:
+    - qat
+
+.poc_triggers: &poc_triggers
+  refs:
+    - poc
+
+build-sandbox:
+  stage: build
+  tags:
+    - pass-sandbox
+  script:
+    - export KUBECONFIG=~/.kube/kubeconfig_sapien-sandbox-cluster
+    - export AWS_PROFILE=sapien-sandbox
+    - export AWS_REGION=us-east-2
+    ### login to ecr
+    - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 994750220687.dkr.ecr.us-east-2.amazonaws.com
+    - docker build -t passport:latest .
+    - docker tag passport:latest 994750220687.dkr.ecr.us-east-2.amazonaws.com/passport:latest
+    - docker push 994750220687.dkr.ecr.us-east-2.amazonaws.com/passport:latest
+    - cd eks-manif &&  envsubst <  passport-dep-temp.yml > passport-dep.yml
+    - cat passport-dep.yml
+    - kubectl delete  -f passport-dep.yml && kubectl apply -f passport-dep.yml
+  only:
+    <<: *sandbox_triggers
+
+build-qat:
+  stage: build
+  tags:
+    - pass-qat
+  script:
+    - git submodule init   &&  git submodule update --remote
+    ##- git pull --recurse-submodule
+    - export KUBECONFIG=~/.kube/kubeconfig_sapien-qat-cluster
+    - export AWS_PROFILE=sapien-qat
+    - export AWS_REGION=us-east-2
+    ### login to ecr
+    - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 081984521558.dkr.ecr.us-east-2.amazonaws.com
+    - docker build -t passport:latest .
+    - docker tag passport:latest 081984521558.dkr.ecr.us-east-2.amazonaws.com/passport:latest
+    - docker push 081984521558.dkr.ecr.us-east-2.amazonaws.com/passport:latest
+    - cd eks-manif &&  envsubst <  passport-dep-temp-q.yml > passport-dep.yml
+    - cat passport-dep.yml
+    - kubectl delete  -f passport-dep.yml && kubectl apply -f passport-dep.yml
+  only:
+    <<: *qat_triggers
+
+build-poc:
+  stage: build
+  tags:
+    - pass-poc
+  script:
+    - git submodule init   &&  git submodule update --remote
+    ##- git pull --recurse-submodule
+    - export KUBECONFIG=~/.kube/kubeconfig_sapien-poc-cluster
+    - export AWS_PROFILE=sapien-poc
+    - export AWS_REGION=us-east-2
+    ### login to ecr
+    - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 081984521558.dkr.ecr.us-east-2.amazonaws.com
+    - docker build -t passport:latest .
+    - docker tag passport:latest 081984521558.dkr.ecr.us-east-2.amazonaws.com/passport:latest
+    - docker push 081984521558.dkr.ecr.us-east-2.amazonaws.com/passport:latest
+    - cd eks-manif &&  envsubst <  passport-dep-temp-q.yml > passport-dep.yml
+    - cat passport-dep.yml
+    - kubectl delete  -f passport-dep.yml && kubectl apply -f passport-dep.yml
+  only:
+    <<: *poc_triggers
