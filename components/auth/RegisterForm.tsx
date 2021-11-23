@@ -229,7 +229,15 @@ const RegisterForm = () => {
             {...register('terms')}
           />
           <label htmlFor="terms" className="ml-2 block text-sm text-gray-900">
-            I have read and agree to the Terms & Conditions
+            I have read and agree to the{' '}
+            <a
+              className="text-blue-500"
+              href="https://common.sapien.network/terms.html"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Terms & Conditions
+            </a>
           </label>
         </div>
         <p className="mt-2 text-sm text-red-600" id="terms-error">
