@@ -9,7 +9,7 @@ interface ForgotPasswordFormValues {
   email: string;
 }
 
-const LoginForm = () => {
+const ForgotPasswordForm = () => {
   const { push } = useRouter();
   const { register, handleSubmit } = useForm<ForgotPasswordFormValues>();
 
@@ -66,4 +66,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default ForgotPasswordForm;

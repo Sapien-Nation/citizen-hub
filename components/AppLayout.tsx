@@ -14,7 +14,8 @@ const AppLayout = ({ children }: Props) => {
     pathname.startsWith('/login') ||
     pathname.startsWith('/register') ||
     pathname.startsWith('/logout') ||
-    pathname.startsWith('/forgot')
+    pathname.startsWith('/forgot') ||
+    pathname.startsWith('/change-password')
   ) {
     return children;
   }

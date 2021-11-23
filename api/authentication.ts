@@ -33,3 +33,17 @@ export const forgot = async (body: { email: string }) =>
   authInstance
     .post('/api/v3/user/change-password', body)
     .catch((response) => Promise.reject(response.data.message));
+
+export const changePassword = async ({
+  password,
+  token,
+}: {
+  password: string;
+  token: string;
+}) =>
+  authInstance
+    .post('/api/v3/user/reset-password', {
+      password,
+      token,
+    })
+    .catch((response) => Promise.reject(response.data.message));
