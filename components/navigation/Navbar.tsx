@@ -93,14 +93,14 @@ const Navbar = () => {
                   )}
                 </Disclosure.Button>
               </div>
-              <div className="hidden lg:ml-2 lg:flex lg:items-center">
+              <div className="hidden lg:ml-7 lg:flex lg:items-center">
                 {/* Profile dropdown */}
                 {me ? (
                   <>
-                    <button className="ml-3 inline-flex items-center px-4 py-2 border text-sm font-medium rounded-full py-2 px-6 shadow-sm hover:bg-purple-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
+                    <button className="inline-flex items-center px-4 py-2 border text-sm font-medium rounded-full py-2 px-6 shadow-sm hover:bg-purple-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
                       Connect Wallet
                     </button>
-                    <Menu as="div" className="relative flex-shrink-0">
+                    <Menu as="div" className="relative ml-2 flex-shrink-0">
                       <div>
                         <Menu.Button className="bg-white rounded-full flex text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
                           <span className="sr-only">Open user menu</span>
@@ -145,7 +145,6 @@ const Navbar = () => {
                               </Link>
                             )}
                           </Menu.Item>
-                          LOREM
                         </Menu.Items>
                       </Transition>
                     </Menu>
@@ -153,7 +152,7 @@ const Navbar = () => {
                 ) : (
                   <>
                     <Link href="/login">
-                      <a className="ml-6 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
+                      <a className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
                         Sign in
                       </a>
                     </Link>
