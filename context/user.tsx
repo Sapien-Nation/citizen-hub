@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { createContext, useContext, useState } from 'react';
 import { useLocalStorage } from 'react-use';
-import useSWR, { mutate } from 'swr';
+import useSWR, { useSWRConfig } from 'swr';
 
 // types
 import { User } from 'tools/types/user';
@@ -34,7 +34,10 @@ const AuthenticationProvider = ({ children }: Props) => {
   }>('tokens', null);
 
   const { push } = useRouter();
-  const { data } = useSWR<User>('/api/v3/user/me', { fetcher });
+  const { mutate } = useSWRConfig();
+  const { data, mutate: authMutate } = useSWR<User>('/api/v3/user/me', {
+    fetcher,
+  });
 
   const isLoggingIn = data === undefined;
 
@@ -44,7 +47,7 @@ const AuthenticationProvider = ({ children }: Props) => {
     push('/');
   };
 
-  const setSession = ({
+  const setSession = async ({
     token,
     torus,
     refresh,
@@ -54,7 +57,7 @@ const AuthenticationProvider = ({ children }: Props) => {
     refresh: string;
   }) => {
     setTokens({ token, torus, refresh });
-    mutate('/api/v3/user/me');
+    await authMutate();
     push('/');
   };
 
