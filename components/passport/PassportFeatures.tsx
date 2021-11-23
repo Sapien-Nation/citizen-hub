@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 const mockData = [
   {
     id: 1,
@@ -28,46 +26,6 @@ const PassportFeatures = () => {
         <div className="max-w-6xl mx-auto py-6 lg:py-7 flex items-center justify-between">
           <div className="text-gray-900 sm:text-4xl text-3xl">
             Passport features
-          </div>
-          <div className="flex mt-0 lg:flex-shrink-0">
-            <button
-              type="button"
-              className="inline-flex rounded-full items-center px-1.5 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="#777E91"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M7 16l-4-4m0 0l4-4m-4 4h18"
-                />
-              </svg>
-            </button>
-            <button
-              type="button"
-              className="inline-flex rounded-full ml-1 items-center px-1.5 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="#777E91"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </button>
           </div>
         </div>
         <div className="max-w-6xl mx-auto py-2 lg:flex lg:items-center lg:justify-between">
