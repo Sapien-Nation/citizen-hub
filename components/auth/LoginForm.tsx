@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 
 // api
@@ -88,12 +89,11 @@ const LoginForm = () => {
         </div>
 
         <div className="text-sm">
-          <a
-            href="#"
-            className="font-medium text-purple-600 hover:text-purple-500"
-          >
-            Forgot your password?
-          </a>
+          <Link href="/forgot">
+            <a className="font-medium text-purple-600 hover:text-purple-500">
+              Forgot your password?
+            </a>
+          </Link>
         </div>
       </div>
 

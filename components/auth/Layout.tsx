@@ -18,12 +18,7 @@ interface Props {
 const Layout = ({ children, title }: Props) => {
   const { me, isLoggingIn } = useAuth();
 
-  if (isLoggingIn)
-    return (
-      <>
-        <span>Authenticating...</span>
-      </>
-    );
+  if (isLoggingIn) return null;
 
   if (me) return <Redirect path="/" />;
 
