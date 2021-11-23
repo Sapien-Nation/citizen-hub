@@ -1,11 +1,16 @@
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 
+// tailwind ui
+import { RefreshIcon } from '@heroicons/react/solid';
+
 // api
 import { login } from 'api/authentication';
 
 // hooks
 import { useAuth } from 'context/user';
+
+const classNames = (...classes) => classes.filter(Boolean).join(' ');
 
 interface LoginFormValues {
   email: string;
@@ -13,7 +18,11 @@ interface LoginFormValues {
 }
 
 const LoginForm = () => {
-  const { register, handleSubmit } = useForm<LoginFormValues>();
+  const {
+    formState: { isSubmitting },
+    register,
+    handleSubmit,
+  } = useForm<LoginFormValues>();
 
   const { setSession } = useAuth();
 
@@ -31,6 +40,8 @@ const LoginForm = () => {
       // err
     }
   };
+
+  console.log(isSubmitting);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -100,8 +111,15 @@ const LoginForm = () => {
       <div>
         <button
           type="submit"
-          className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
+          className={classNames(
+            isSubmitting ? 'cursor-not-allowed' : '',
+            'w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500'
+          )}
+          disabled={isSubmitting}
         >
+          {isSubmitting && (
+            <RefreshIcon className="animate-spin h-5 w-5 mr-3" />
+          )}
           Sign in
         </button>
       </div>

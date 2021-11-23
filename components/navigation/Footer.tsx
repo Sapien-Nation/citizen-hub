@@ -6,26 +6,14 @@ import { ArrowSmRightIcon } from '@heroicons/react/solid';
 
 /* This example requires Tailwind CSS v2.0+ */
 const navigation = {
-  solutions: [
+  sapien: [
     { name: 'Orci.', href: '#' },
     { name: 'Donec cursus.', href: '#' },
     { name: 'Urna.', href: '#' },
   ],
-  support: [
+  info: [
     { name: 'Urna elit.', href: '#' },
     { name: 'Erat.', href: '#' },
-  ],
-  company: [
-    { name: 'About', href: '#' },
-    { name: 'Blog', href: '#' },
-    { name: 'Jobs', href: '#' },
-    { name: 'Press', href: '#' },
-    { name: 'Partners', href: '#' },
-  ],
-  legal: [
-    { name: 'Claim', href: '#' },
-    { name: 'Privacy', href: '#' },
-    { name: 'Terms', href: '#' },
   ],
 };
 
@@ -55,7 +43,7 @@ const Footer = () => {
                   Sapien
                 </h3>
                 <ul role="list" className="mt-10 space-y-4">
-                  {navigation.solutions.map((item) => (
+                  {navigation.sapien.map((item) => (
                     <li key={item.name}>
                       <a
                         href={item.href}
@@ -72,7 +60,7 @@ const Footer = () => {
                   Info
                 </h3>
                 <ul role="list" className="mt-10 space-y-4">
-                  {navigation.support.map((item) => (
+                  {navigation.info.map((item) => (
                     <li key={item.name}>
                       <a
                         href={item.href}

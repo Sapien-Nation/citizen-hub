@@ -1,6 +1,9 @@
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 
+// tailwind ui
+import { RefreshIcon } from '@heroicons/react/solid';
+
 // api
 import { changePassword } from 'api/authentication';
 
@@ -13,9 +16,15 @@ interface Props {
   token: string;
 }
 
+const classNames = (...classes) => classes.filter(Boolean).join(' ');
+
 const ChangePasswordForm = ({ token }: Props) => {
   const { push } = useRouter();
-  const { register, handleSubmit } = useForm<ChangePasswordFormValues>();
+  const {
+    formState: { isSubmitting },
+    register,
+    handleSubmit,
+  } = useForm<ChangePasswordFormValues>();
 
   const onSubmit = async ({ password }: ChangePasswordFormValues) => {
     try {
@@ -73,8 +82,15 @@ const ChangePasswordForm = ({ token }: Props) => {
       <div>
         <button
           type="submit"
-          className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
+          className={classNames(
+            isSubmitting ? 'cursor-not-allowed' : '',
+            'w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500'
+          )}
+          disabled={isSubmitting}
         >
+          {isSubmitting && (
+            <RefreshIcon className="animate-spin h-5 w-5 mr-3" />
+          )}
           Change Password
         </button>
       </div>
