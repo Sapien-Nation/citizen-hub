@@ -1,8 +1,7 @@
-import Image from 'next/image';
 import { ArrowNarrowRightIcon } from '@heroicons/react/solid';
 
 // components
-import { Head } from 'components/common';
+import { Head, LottiePlayer } from 'components/common';
 
 // types
 import { NextPage } from 'next';
@@ -15,14 +14,14 @@ const IndexPage: NextPage = () => (
         <div className="mx-auto max-w-6xl w-full pt-16 pb-20 text-center lg:py-48 lg:text-left">
           <div className="px-4 lg:w-1/2 sm:px-8 xl:pr-16">
             <p className="mt-3 max-w-md mx-auto uppercase font-extrabold text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl">
-              Lorem ultrices at nec in sit.
+              Take the control back
             </p>
             <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
-              <span className="block xl:inline">Venenatis</span>{' '}
-              <span className="block xl:inline">consequat sit.</span>
+              <span className="block xl:inline">The social</span>{' '}
+              <span className="block xl:inline">media you/we deserve</span>
             </h1>
             <p className="mt-3 max-w-md mx-auto text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl">
-              Ut enim placerat odio eget proin ac bibendum ornare ac.
+              <b>Sapien Nation</b> now forming!
             </p>
             <div className="mt-10 sm:flex sm:justify-center lg:justify-start">
               <div className="rounded-full shadow">
@@ -30,7 +29,7 @@ const IndexPage: NextPage = () => (
                   href="#"
                   className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white bg-purple-600 hover:bg-purple-700 md:py-4 md:text-lg md:px-10"
                 >
-                  Primary Action
+                  Get Passport
                 </a>
               </div>
               <div className="mt-3 rounded-full shadow sm:mt-0 sm:ml-3">
@@ -38,17 +37,14 @@ const IndexPage: NextPage = () => (
                   href="#"
                   className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-purple-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10"
                 >
-                  Secondary Action
+                  Sign up
                 </a>
               </div>
             </div>
           </div>
         </div>
-        <div className="relative w-full h-64 sm:h-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full">
-          {/* <Image
-            alt="Passport"
-            src="https://d1bdmh0gdusw0k.cloudfront.net/images/misc/passport.png"
-          /> */}
+        <div className="relative w-full h-64 sm:h-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full flex items-center justify-center">
+          <LottiePlayer lottie="https://assets10.lottiefiles.com/private_files/lf30_tfozcvfo.json" />
         </div>
       </main>
     </div>
