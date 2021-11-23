@@ -41,7 +41,7 @@ const IndexPage: NextPage = () => {
                   </Link>
                 </div>
                 <div className="mt-3 rounded-full shadow sm:mt-0 sm:ml-3">
-                  {!me && (
+                  {me === null && (
                     <Link href="/register">
                       <a
                         href="#"
