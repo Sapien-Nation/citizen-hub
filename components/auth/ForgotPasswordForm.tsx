@@ -1,18 +1,17 @@
+import { RefreshIcon } from '@heroicons/react/solid';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 
-// tailwind ui
-import { RefreshIcon } from '@heroicons/react/solid';
-
 // api
 import { forgot } from 'api/authentication';
+
+// utils
+import { mergeClassNames } from 'utils/styles';
 
 interface ForgotPasswordFormValues {
   email: string;
 }
-
-const classNames = (...classes) => classes.filter(Boolean).join(' ');
 
 const ForgotPasswordForm = () => {
   const { push } = useRouter();
@@ -66,7 +65,7 @@ const ForgotPasswordForm = () => {
       <div>
         <button
           type="submit"
-          className={classNames(
+          className={mergeClassNames(
             isSubmitting ? 'cursor-not-allowed' : '',
             'w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500'
           )}

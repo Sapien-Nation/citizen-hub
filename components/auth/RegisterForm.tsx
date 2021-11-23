@@ -1,9 +1,7 @@
+import { RefreshIcon } from '@heroicons/react/solid';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import * as Yup from 'yup';
-
-// tailwind ui
-import { RefreshIcon } from '@heroicons/react/solid';
 
 // api
 import { register as registerAction } from 'api/authentication';
@@ -13,6 +11,10 @@ import { EmailRegex, NameRegex, UsernameRegex } from 'utils/regex';
 
 // hooks
 import { useAuth } from 'context/user';
+
+// utils
+import { mergeClassNames } from 'utils/styles';
+
 interface RegisterFormValues {
   displayName: string;
   email: string;
@@ -29,8 +31,6 @@ const validationSchema = Yup.object().shape({
     'You have to accept that a wallet will be created for you'
   ),
 });
-
-const classNames = (...classes) => classes.filter(Boolean).join(' ');
 
 const RegisterForm = () => {
   const {
@@ -273,7 +273,7 @@ const RegisterForm = () => {
       <div>
         <button
           type="submit"
-          className={classNames(
+          className={mergeClassNames(
             isSubmitting ? 'cursor-not-allowed' : '',
             'w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500'
           )}
