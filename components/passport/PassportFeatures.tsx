@@ -25,7 +25,7 @@ const PassportFeatures = () => {
   return (
     <div className="mx-auto px-4 py-10 sm:px-6 lg:px-8 bg-gray-100">
       <div className="container bg-gray-100 mx-auto">
-        <div className="max-w-7xl mx-auto py-6 lg:py-7 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto py-6 lg:py-7 flex items-center justify-between">
           <div className="text-gray-900 sm:text-4xl text-3xl">
             Passport features
           </div>
@@ -70,7 +70,7 @@ const PassportFeatures = () => {
             </button>
           </div>
         </div>
-        <div className="max-w-7xl mx-auto py-2 lg:flex lg:items-center lg:justify-between">
+        <div className="max-w-6xl mx-auto py-2 lg:flex lg:items-center lg:justify-between">
           <div className="text-3xl sm:text-4xl">
             <img
               alt="passport"

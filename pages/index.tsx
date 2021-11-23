@@ -12,7 +12,7 @@ const IndexPage: NextPage = () => (
     <Head title="Sapien Nation" />
     <div className="bg-gray-50">
       <main className="lg:relative">
-        <div className="mx-auto max-w-7xl w-full pt-16 pb-20 text-center lg:py-48 lg:text-left">
+        <div className="mx-auto max-w-6xl w-full pt-16 pb-20 text-center lg:py-48 lg:text-left">
           <div className="px-4 lg:w-1/2 sm:px-8 xl:pr-16">
             <p className="mt-3 max-w-md mx-auto uppercase font-extrabold text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl">
               Lorem ultrices at nec in sit.
@@ -53,7 +53,7 @@ const IndexPage: NextPage = () => (
       </main>
     </div>
     {/* <div className="lg:relative">
-      <div className="mx-auto max-w-7xl w-full pt-16 pb-20 text-center lg:py-48 lg:text-left">
+      <div className="mx-auto max-w-6xl w-full pt-16 pb-20 text-center lg:py-48 lg:text-left">
         <div className="px-4 sm:px-8 lg:grid lg:grid-cols-12 lg:gap-5">
           <aside className="lg:col-span-5">
             <div className="flex flex-col overflow-hidden">

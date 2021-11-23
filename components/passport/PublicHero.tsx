@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const PublicHero = () => {
   return (
-    <main className="mt-18 mx-auto max-w-7xl px-4 sm:mt-24">
+    <main className="mt-18 mx-auto max-w-6xl px-4 sm:mt-24">
       <div className="text-center">
         <p className="text-xs uppercase font-bold tracking-tight text-gray-500">
           <span className="block xl:inline">
