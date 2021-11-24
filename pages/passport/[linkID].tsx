@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 
 // components
 import { Query, Redirect } from 'components/common';
+import { ErrorView } from 'components/passport';
 
 // context
 import { useAuth } from 'context/user';
@@ -40,14 +41,7 @@ const PassportPage = () => {
     statusCode,
   }: CheckResponse) => {
     if (statusCode) {
-      switch (statusCode) {
-        case 409:
-          return 'TODO There is already a Passport linked to this account';
-        case 403:
-          return 'TODO No more passports available for this link, please try a new one';
-        case 404:
-          return 'TODO Not Valid';
-      }
+      return <ErrorView code={statusCode} />;
     }
 
     return (
