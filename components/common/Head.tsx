@@ -22,6 +22,7 @@ const Head = ({ children = null, title }: Props) => (
       property="og:url"
       content="https://passport-sandbox.sapien.network/"
     />
+    <meta property="twitter:card" content="summary_large_image" />
     <meta
       property="og:image"
       content="https://d1bdmh0gdusw0k.cloudfront.net/images/misc/passport.png"

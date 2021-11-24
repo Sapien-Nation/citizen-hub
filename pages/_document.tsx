@@ -10,6 +10,7 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
           <meta name="robots" content="index, follow" />
+          <meta name="theme-color" content="#6200eaf" />
           <link href="/static/favicon.ico" rel="icon" type="image/png" />
         </Head>
         <body className="f-full">
