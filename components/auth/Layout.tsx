@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 // assets
 import authImage from 'public/images/auth.jpeg';
-import logoImage from 'public/images/logo.png';
+import { FullLogo } from 'assets';
 
 // components
 import { Redirect } from 'components/common';
@@ -37,13 +37,9 @@ const Layout = ({ children, title }: Props) => {
         <div className="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
           <div className="mx-auto w-full max-w-sm lg:w-96">
             <div>
-              <Image
-                alt="Logo"
-                src={logoImage}
-                placeholder="blur"
-                height={100}
-                width={100}
-              />
+              <div className="flex justify-center items-center">
+                <FullLogo />
+              </div>
               <h2 className="mt-6 text-3xl font-extrabold text-gray-900">
                 {title}
               </h2>
