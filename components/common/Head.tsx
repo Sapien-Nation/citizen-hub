@@ -25,7 +25,7 @@ const Head = ({ children = null, title }: Props) => (
     <meta property="twitter:card" content="summary_large_image" />
     <meta
       property="og:image"
-      content="https://d1bdmh0gdusw0k.cloudfront.net/images/misc/passport.png"
+      content="https://d1bdmh0gdusw0k.cloudfront.net/images/misc/public_images_logo.png"
     />
 
     <meta property="og:type" content="website" />
