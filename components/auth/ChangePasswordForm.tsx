@@ -5,6 +5,12 @@ import { useForm } from 'react-hook-form';
 // api
 import { changePassword } from 'api/authentication';
 
+// constants
+import { ToastType } from 'constants/toast';
+
+// hooks
+import { useToast } from 'context/toast';
+
 // utils
 import { mergeClassNames } from 'utils/styles';
 
@@ -18,7 +24,9 @@ interface Props {
 }
 
 const ChangePasswordForm = ({ token }: Props) => {
+  const toast = useToast();
   const { push } = useRouter();
+
   const {
     formState: { isSubmitting },
     register,
@@ -33,8 +41,10 @@ const ChangePasswordForm = ({ token }: Props) => {
       });
 
       push('/change-password/success');
-    } catch (err) {
-      // err
+    } catch (error) {
+      toast({
+        message: error,
+      });
     }
   };
 

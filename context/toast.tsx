@@ -1,5 +1,8 @@
 import { createContext, useReducer, useContext } from 'react';
 
+// constants
+import { ToastType } from 'constants/toast';
+
 const ToastStateContext = createContext({ toasts: [] });
 const ToastDispatchContext = createContext(null);
 
@@ -18,9 +21,8 @@ function ToastReducer(state, action) {
         toasts: updatedToasts,
       };
     }
-    default: {
-      throw new Error('unhandled action');
-    }
+    default:
+      return state;
   }
 }
 
@@ -38,10 +40,16 @@ export function ToastProvider({ children }) {
   );
 }
 
-export function useToast(delay = 4000) {
+export const useToast = (delay = 4000) => {
   const dispatch = useToastDispatchContext();
 
-  function toast(type: string, message: string) {
+  return ({
+    type = ToastType.Error,
+    message,
+  }: {
+    type?: ToastType;
+    message: string;
+  }) => {
     const id = Math.random().toString(36).substr(2, 9);
     dispatch({
       type: 'ADD_TOAST',
@@ -55,10 +63,8 @@ export function useToast(delay = 4000) {
     setTimeout(() => {
       dispatch({ type: 'DELETE_TOAST', id });
     }, delay);
-  }
-
-  return toast;
-}
+  };
+};
 
 export const useToastStateContext = () => useContext(ToastStateContext);
 export const useToastDispatchContext = () => useContext(ToastDispatchContext);

@@ -5,6 +5,9 @@ import { useForm } from 'react-hook-form';
 // api
 import { login } from 'api/authentication';
 
+// constants
+import { ToastType } from 'constants/toast';
+
 // hooks
 import { useAuth } from 'context/user';
 import { useToast } from 'context/toast';
@@ -24,8 +27,9 @@ const LoginForm = () => {
     handleSubmit,
   } = useForm<LoginFormValues>();
 
-  const { setSession } = useAuth();
   const toast = useToast();
+  const { setSession } = useAuth();
+
   const onSubmit = async ({ email, password }: LoginFormValues) => {
     try {
       const response = await login({
@@ -36,8 +40,10 @@ const LoginForm = () => {
       });
 
       setSession(response);
-    } catch (err) {
-      toast('error', err);
+    } catch (error) {
+      toast({
+        message: error,
+      });
     }
   };
 

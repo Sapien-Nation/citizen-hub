@@ -8,7 +8,7 @@ import axios from 'api';
 import { AppLayout } from 'components';
 import { ErrorView, ToastContainer } from 'components/common';
 
-//context
+// context
 import { ToastProvider } from 'context/toast';
 
 // styles
@@ -34,12 +34,12 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
       }}
     >
       <ToastProvider>
+        <ToastContainer />
         <AuthenticationProvider>
           <AppLayout>
             <Component {...pageProps} />
           </AppLayout>
         </AuthenticationProvider>
-        <ToastContainer />
       </ToastProvider>
     </SWRConfig>
   </ErrorBoundary>

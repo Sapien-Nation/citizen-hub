@@ -6,6 +6,9 @@ import * as Yup from 'yup';
 // api
 import { register as registerAction } from 'api/authentication';
 
+// constants
+import { ToastType } from 'constants/toast';
+
 // utils
 import { EmailRegex, NameRegex, UsernameRegex } from 'utils/regex';
 
@@ -42,8 +45,9 @@ const RegisterForm = () => {
     resolver: yupResolver(validationSchema),
   });
 
-  const { setSession } = useAuth();
   const toast = useToast();
+  const { setSession } = useAuth();
+
   const onSubmit = async ({
     displayName,
     email,
@@ -61,8 +65,10 @@ const RegisterForm = () => {
       });
 
       setSession(response);
-    } catch (err) {
-      toast('error', err);
+    } catch (error) {
+      toast({
+        message: error,
+      });
     }
   };
 

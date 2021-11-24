@@ -6,6 +6,12 @@ import { useForm } from 'react-hook-form';
 // api
 import { forgot } from 'api/authentication';
 
+// constants
+import { ToastType } from 'constants/toast';
+
+// hooks
+import { useToast } from 'context/toast';
+
 // utils
 import { mergeClassNames } from 'utils/styles';
 
@@ -14,7 +20,9 @@ interface ForgotPasswordFormValues {
 }
 
 const ForgotPasswordForm = () => {
+  const toast = useToast();
   const { push } = useRouter();
+
   const {
     formState: { isSubmitting },
     register,
@@ -26,8 +34,10 @@ const ForgotPasswordForm = () => {
       await forgot({ email });
 
       push('/forgot/success');
-    } catch (err) {
-      // err
+    } catch (error) {
+      toast({
+        message: error,
+      });
     }
   };
 
