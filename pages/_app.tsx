@@ -34,12 +34,12 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
       }}
     >
       <ToastProvider>
-        <ToastContainer />
         <AuthenticationProvider>
           <AppLayout>
             <Component {...pageProps} />
           </AppLayout>
         </AuthenticationProvider>
+        <ToastContainer />
       </ToastProvider>
     </SWRConfig>
   </ErrorBoundary>
