@@ -36,7 +36,7 @@ build-sandbox:
     - docker push 994750220687.dkr.ecr.us-east-2.amazonaws.com/passport:latest
     - cd eks-manif &&  envsubst <  passport-dep-temp.yml > passport-dep.yml
     - cat passport-dep.yml
-    - kubectl delete  -f passport-dep.yml && kubectl apply -f passport-dep.yml
+    - kubectl apply -f passport-dep.yml
   only:
     <<: *sandbox_triggers
 
@@ -57,7 +57,7 @@ build-qat:
     - docker push 081984521558.dkr.ecr.us-east-2.amazonaws.com/passport:latest
     - cd eks-manif &&  envsubst <  passport-dep-temp-q.yml > passport-dep.yml
     - cat passport-dep.yml
-    - kubectl delete  -f passport-dep.yml && kubectl apply -f passport-dep.yml
+    - kubectl apply -f passport-dep.yml
   only:
     <<: *qat_triggers
 
@@ -78,6 +78,6 @@ build-poc:
     - docker push 081984521558.dkr.ecr.us-east-2.amazonaws.com/passport:latest
     - cd eks-manif &&  envsubst <  passport-dep-temp-q.yml > passport-dep.yml
     - cat passport-dep.yml
-    - kubectl delete  -f passport-dep.yml && kubectl apply -f passport-dep.yml
+    - kubectl apply -f passport-dep.yml
   only:
     <<: *poc_triggers
