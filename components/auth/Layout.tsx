@@ -1,7 +1,6 @@
 import Image from 'next/image';
 
 // assets
-import authImage from 'public/images/auth.jpeg';
 import { FullLogo } from 'assets';
 
 // components
@@ -30,8 +29,7 @@ const Layout = ({ children, title }: Props) => {
             alt="Login"
             layout="fill"
             objectFit="cover"
-            placeholder="blur"
-            src={authImage}
+            src="https://d1bdmh0gdusw0k.cloudfront.net/images/misc/public_images_auth.jpeg"
           />
         </div>
         <div className="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
