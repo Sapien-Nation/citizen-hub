@@ -5,7 +5,7 @@ export default function ToastContainer() {
   const { toasts } = useToastStateContext();
 
   return (
-    <div className="absolute bottom-5 right-5 ">
+    <div className="fixed bottom-5 right-5 ">
       <div className="max-w-xl mx-auto">
         {toasts &&
           toasts.map((toast) => (
