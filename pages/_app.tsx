@@ -6,7 +6,10 @@ import axios from 'api';
 
 // components
 import { AppLayout } from 'components';
-import { ErrorView } from 'components/common';
+import { ErrorView, ToastContainer } from 'components/common';
+
+//context
+import { ToastProvider } from 'context/toast';
 
 // styles
 import '../styles/index.css';
@@ -30,11 +33,14 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
         revalidateOnFocus: false,
       }}
     >
-      <AuthenticationProvider>
-        <AppLayout>
-          <Component {...pageProps} />
-        </AppLayout>
-      </AuthenticationProvider>
+      <ToastProvider>
+        <AuthenticationProvider>
+          <AppLayout>
+            <Component {...pageProps} />
+          </AppLayout>
+        </AuthenticationProvider>
+        <ToastContainer />
+      </ToastProvider>
     </SWRConfig>
   </ErrorBoundary>
 );

@@ -7,6 +7,7 @@ import { login } from 'api/authentication';
 
 // hooks
 import { useAuth } from 'context/user';
+import { useToast } from 'context/toast';
 
 // utils
 import { mergeClassNames } from 'utils/styles';
@@ -24,7 +25,7 @@ const LoginForm = () => {
   } = useForm<LoginFormValues>();
 
   const { setSession } = useAuth();
-
+  const toast = useToast();
   const onSubmit = async ({ email, password }: LoginFormValues) => {
     try {
       const response = await login({
@@ -36,7 +37,7 @@ const LoginForm = () => {
 
       setSession(response);
     } catch (err) {
-      // err
+      toast('error', err);
     }
   };
 

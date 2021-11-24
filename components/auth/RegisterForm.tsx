@@ -11,6 +11,7 @@ import { EmailRegex, NameRegex, UsernameRegex } from 'utils/regex';
 
 // hooks
 import { useAuth } from 'context/user';
+import { useToast } from 'context/toast';
 
 // utils
 import { mergeClassNames } from 'utils/styles';
@@ -42,7 +43,7 @@ const RegisterForm = () => {
   });
 
   const { setSession } = useAuth();
-
+  const toast = useToast();
   const onSubmit = async ({
     displayName,
     email,
@@ -61,7 +62,7 @@ const RegisterForm = () => {
 
       setSession(response);
     } catch (err) {
-      // err
+      toast('error', err);
     }
   };
 
