@@ -24,6 +24,7 @@ build-sandbox:
   tags:
     - pass-sandbox
   script:
+    - rm -rf tools
     - git clone http://$USER:$CI_TOKEN@gitlab.tooling-sapien.network/group-tools/tools.git
     - export KUBECONFIG=~/.kube/kubeconfig_sapien-sandbox-cluster
     - export AWS_PROFILE=sapien-sandbox
@@ -44,6 +45,7 @@ build-qat:
   tags:
     - pass-qat
   script:
+    - rm -rf tools
     - git clone http://$USER:$CI_TOKEN@gitlab.tooling-sapien.network/group-tools/tools.git
     - export KUBECONFIG=~/.kube/kubeconfig_sapien-qat-cluster
     - export AWS_PROFILE=sapien-qat
@@ -64,6 +66,7 @@ build-poc:
   tags:
     - pass-poc
   script:
+    - rm -rf tools
     - git clone http://$USER:$CI_TOKEN@gitlab.tooling-sapien.network/group-tools/tools.git
     - export KUBECONFIG=~/.kube/kubeconfig_sapien-poc-cluster
     - export AWS_PROFILE=sapien-poc
