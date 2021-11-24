@@ -3,6 +3,8 @@ RUN mkdir /app
 WORKDIR /app
 COPY . .
 COPY .env ./.env
+
+RUN cd ./tools/ && npm install && cd .
 RUN npm install
 RUN npm run build
 
