@@ -14,7 +14,7 @@ const IndexPage: NextPage = () => {
   const { me } = useAuth();
   return (
     <>
-      <Head title="Sapien Nation" />
+      <Head title="Nation" />
       <div className="bg-gray-50">
         <main className="lg:relative">
           <div className="mx-auto max-w-6xl w-full pt-16 pb-20 text-center lg:py-48 lg:text-left">

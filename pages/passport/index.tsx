@@ -1,4 +1,5 @@
 // components
+import { Head } from 'components/common';
 import {
   AuthHero,
   HistoricalFigures,
@@ -24,11 +25,14 @@ const PassportPage: NextPage = () => {
   };
 
   return (
-    <div>
-      {renderHeroSection()}
-      <PassportFeatures />
-      <HistoricalFigures />
-    </div>
+    <>
+      <Head title="Passport" />
+      <div>
+        {renderHeroSection()}
+        <PassportFeatures />
+        <HistoricalFigures />
+      </div>
+    </>
   );
 };
 
