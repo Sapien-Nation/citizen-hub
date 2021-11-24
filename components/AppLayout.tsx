@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 
 // components
-import { Navbar } from 'components/navigation';
+import { Navbar, Footer } from 'components/navigation';
 
 interface Props {
   children: React.ReactElement;
@@ -13,7 +13,9 @@ const AppLayout = ({ children }: Props) => {
   if (
     pathname.startsWith('/login') ||
     pathname.startsWith('/register') ||
-    pathname.startsWith('/logout')
+    pathname.startsWith('/logout') ||
+    pathname.startsWith('/forgot') ||
+    pathname.startsWith('/change-password')
   ) {
     return children;
   }
@@ -22,6 +24,7 @@ const AppLayout = ({ children }: Props) => {
     <div className="relative">
       <Navbar />
       <main>{children}</main>
+      <Footer />
     </div>
   );
 };

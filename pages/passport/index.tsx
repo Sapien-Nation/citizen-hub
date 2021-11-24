@@ -1,5 +1,10 @@
 // components
-import { AuthHero, PublicHero } from 'components/passport';
+import {
+  AuthHero,
+  HistoricalFigures,
+  PublicHero,
+  PassportFeatures,
+} from 'components/passport';
 
 // hooks
 import { useAuth } from 'context/user';
@@ -21,8 +26,8 @@ const PassportPage: NextPage = () => {
   return (
     <div>
       {renderHeroSection()}
-      <h1>Section</h1>
-      <h1>Section</h1>
+      <PassportFeatures />
+      <HistoricalFigures />
     </div>
   );
 };

@@ -1,3 +1,4 @@
+import { RefreshIcon } from '@heroicons/react/solid';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import * as Yup from 'yup';
@@ -10,6 +11,10 @@ import { EmailRegex, NameRegex, UsernameRegex } from 'utils/regex';
 
 // hooks
 import { useAuth } from 'context/user';
+
+// utils
+import { mergeClassNames } from 'utils/styles';
+
 interface RegisterFormValues {
   displayName: string;
   email: string;
@@ -31,7 +36,7 @@ const RegisterForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<RegisterFormValues>({
     resolver: yupResolver(validationSchema),
   });
@@ -229,7 +234,15 @@ const RegisterForm = () => {
             {...register('terms')}
           />
           <label htmlFor="terms" className="ml-2 block text-sm text-gray-900">
-            I have read and agree to the Terms & Conditions
+            I have read and agree to the{' '}
+            <a
+              className="text-blue-500"
+              href="https://common.sapien.network/terms.html"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Terms & Conditions
+            </a>
           </label>
         </div>
         <p className="mt-2 text-sm text-red-600" id="terms-error">
@@ -260,8 +273,15 @@ const RegisterForm = () => {
       <div>
         <button
           type="submit"
-          className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
+          className={mergeClassNames(
+            isSubmitting ? 'cursor-not-allowed' : '',
+            'w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500'
+          )}
+          disabled={isSubmitting}
         >
+          {isSubmitting && (
+            <RefreshIcon className="animate-spin h-5 w-5 mr-3" />
+          )}
           Sign up
         </button>
       </div>

@@ -1,40 +1,38 @@
 import { RefreshIcon } from '@heroicons/react/solid';
-import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 
 // api
-import { login } from 'api/authentication';
-
-// hooks
-import { useAuth } from 'context/user';
+import { changePassword } from 'api/authentication';
 
 // utils
 import { mergeClassNames } from 'utils/styles';
 
-interface LoginFormValues {
-  email: string;
+interface ChangePasswordFormValues {
   password: string;
+  repeatPassword: string;
 }
 
-const LoginForm = () => {
+interface Props {
+  token: string;
+}
+
+const ChangePasswordForm = ({ token }: Props) => {
+  const { push } = useRouter();
   const {
     formState: { isSubmitting },
     register,
     handleSubmit,
-  } = useForm<LoginFormValues>();
+  } = useForm<ChangePasswordFormValues>();
 
-  const { setSession } = useAuth();
-
-  const onSubmit = async ({ email, password }: LoginFormValues) => {
+  const onSubmit = async ({ password }: ChangePasswordFormValues) => {
     try {
-      const response = await login({
-        email,
-        client: window?.navigator.userAgent,
-        redirect: '/',
+      await changePassword({
         password,
+        token,
       });
 
-      setSession(response);
+      push('/change-password/success');
     } catch (err) {
       // err
     }
@@ -45,25 +43,6 @@ const LoginForm = () => {
       <div>
         <label
           htmlFor="email"
-          className="block text-sm font-medium text-gray-700"
-        >
-          Email address
-        </label>
-        <div className="mt-1">
-          <input
-            id="email"
-            type="email"
-            autoComplete="email"
-            required
-            className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
-            {...register('email')}
-          />
-        </div>
-      </div>
-
-      <div className="space-y-1">
-        <label
-          htmlFor="password"
           className="block text-sm font-medium text-gray-700"
         >
           Password
@@ -80,28 +59,22 @@ const LoginForm = () => {
         </div>
       </div>
 
-      <div className="flex items-center justify-between">
-        <div className="flex items-center">
+      <div className="space-y-1">
+        <label
+          htmlFor="password"
+          className="block text-sm font-medium text-gray-700"
+        >
+          Repeat Password
+        </label>
+        <div className="mt-1">
           <input
-            id="remember-me"
-            name="remember-me"
-            type="checkbox"
-            className="h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
+            id="password"
+            type="password"
+            autoComplete="repeat-password"
+            required
+            className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
+            {...register('repeatPassword')}
           />
-          <label
-            htmlFor="remember-me"
-            className="ml-2 block text-sm text-gray-900"
-          >
-            Remember me
-          </label>
-        </div>
-
-        <div className="text-sm">
-          <Link href="/forgot">
-            <a className="font-medium text-purple-600 hover:text-purple-500">
-              Forgot your password?
-            </a>
-          </Link>
         </div>
       </div>
 
@@ -117,11 +90,11 @@ const LoginForm = () => {
           {isSubmitting && (
             <RefreshIcon className="animate-spin h-5 w-5 mr-3" />
           )}
-          Sign in
+          Change Password
         </button>
       </div>
     </form>
   );
 };
 
-export default LoginForm;
+export default ChangePasswordForm;

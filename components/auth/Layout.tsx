@@ -18,18 +18,22 @@ interface Props {
 const Layout = ({ children, title }: Props) => {
   const { me, isLoggingIn } = useAuth();
 
-  if (isLoggingIn)
-    return (
-      <>
-        <span>Authenticating...</span>
-      </>
-    );
+  if (isLoggingIn) return null;
 
   if (me) return <Redirect path="/" />;
 
   return (
     <>
       <div className="min-h-full flex">
+        <div className="hidden lg:block relative w-0 flex-1">
+          <Image
+            alt="Login"
+            layout="fill"
+            objectFit="cover"
+            placeholder="blur"
+            src={authImage}
+          />
+        </div>
         <div className="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
           <div className="mx-auto w-full max-w-sm lg:w-96">
             <div>
@@ -49,15 +53,6 @@ const Layout = ({ children, title }: Props) => {
               <div className="mt-6">{children}</div>
             </div>
           </div>
-        </div>
-        <div className="hidden lg:block relative w-0 flex-1">
-          <Image
-            alt="Login"
-            layout="fill"
-            objectFit="cover"
-            placeholder="blur"
-            src={authImage}
-          />
         </div>
       </div>
     </>
