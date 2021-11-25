@@ -136,7 +136,7 @@ const HistoricalFiguresSearch = ({ linkID }: Props) => {
                     <img
                       src={image}
                       alt="Figure"
-                      className="object-cover pointer-events-none group-hover:opacity-75"
+                      className="object-cover h-full w-full pointer-events-none group-hover:opacity-75"
                     />
                   </div>
                 </li>
