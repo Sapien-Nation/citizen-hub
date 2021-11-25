@@ -21,7 +21,7 @@ import { mergeClassNames } from 'utils/styles';
 
 const navigation = [
   { name: 'Home', href: '/' },
-  { name: 'passport', href: '/passport' },
+  { name: 'Passport', href: '/passport' },
   { name: 'Protocol', href: '/protocol' },
   { name: 'Metaverse', href: '/metaverse' },
   { name: 'Partners', href: '/partners' },
