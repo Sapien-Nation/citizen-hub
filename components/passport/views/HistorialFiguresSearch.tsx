@@ -1,6 +1,5 @@
 import { ArrowSmRightIcon } from '@heroicons/react/solid';
-import { debounce } from 'lodash';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import useSWR, { useSWRConfig } from 'swr';
 
 // api
@@ -21,6 +20,8 @@ const HistoricalFiguresSearch = ({ linkID }: Props) => {
   const [manualFigureURL, setManualFigureURL] = useState(false);
   const [refreshedImages, setRefreshedImages] = useState<Array<string>>([]);
 
+  const searchInputRef = useRef(null);
+
   const toast = useToast();
   const { mutate } = useSWRConfig();
 
@@ -31,9 +32,9 @@ const HistoricalFiguresSearch = ({ linkID }: Props) => {
   const isLoadingFigures = (!error && !figures) || isValidating;
 
   //--------------------------------------------------------------------------------------------------------------------
-  const handleSearch = debounce((term) => {
-    setSearchTerm(term);
-  }, 350);
+  const handleSearch = () => {
+    setSearchTerm('');
+  };
 
   const handleFileUpload = async (file: File) => {
     setIsFetching(true);
@@ -98,18 +99,23 @@ const HistoricalFiguresSearch = ({ linkID }: Props) => {
       <div className="flex justify-center items-center">
         <div className="relative mt-6 max-w-sm w-full">
           <input
+            ref={searchInputRef}
             id="search"
             name="search"
             className="block w-full h-12 px-3 py-2 border border-gray-300 rounded-3xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
             placeholder="Name"
             type="search"
-            onChange={(event) => {
-              event.persist();
-              handleSearch(event.target.value);
+            onKeyDown={(event) => {
+              if (event.key === 'Enter') {
+                setSearchTerm((event as any).target.value);
+              }
             }}
           />
-          <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+          <div className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer">
             <ArrowSmRightIcon
+              onClick={() => {
+                setSearchTerm(searchInputRef.current.value);
+              }}
               className="h-8 w-8 text-white bg-purple-500 rounded-full"
               aria-hidden="true"
             />
