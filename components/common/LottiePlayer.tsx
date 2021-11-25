@@ -8,9 +8,11 @@ interface Props {
 
 const LottiePlayer = ({ lottie, width = '300px', height = '300px' }: Props) => {
   const ref = useRef(null);
+
   useEffect(() => {
     import('@lottiefiles/lottie-player');
   });
+
   return (
     <div>
       <main>

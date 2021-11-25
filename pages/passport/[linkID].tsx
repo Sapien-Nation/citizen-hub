@@ -2,22 +2,12 @@ import { useRouter } from 'next/router';
 
 // components
 import { Query, Redirect } from 'components/common';
-import { ErrorView } from 'components/passport';
+import { FeedbackView, HistoricalFiguresSearch } from 'components/passport';
 
 // context
 import { useAuth } from 'context/user';
 
-interface Props {
-  allowedPassports: number;
-  availablePassports: number;
-  linkID: string;
-}
-
-const Passport = ({ linkID }: Props) => {
-  return <h1>{linkID} Ready</h1>;
-};
-
-interface CheckResponse {
+interface LinkCheckResponse {
   allowedPassports?: number;
   availablePassports?: number;
   distributionId?: string;
@@ -39,13 +29,13 @@ const PassportPage = () => {
     allowedPassports,
     availablePassports,
     statusCode,
-  }: CheckResponse) => {
+  }: LinkCheckResponse) => {
     if (statusCode) {
-      return <ErrorView code={statusCode} />;
+      return <FeedbackView code={statusCode} />;
     }
 
     return (
-      <Passport
+      <HistoricalFiguresSearch
         allowedPassports={allowedPassports}
         availablePassports={availablePassports}
         linkID={String(query.linkID)}
@@ -55,7 +45,7 @@ const PassportPage = () => {
 
   return (
     <Query api={`/api/v3/passport/check-link?linkId=${query.linkID}`}>
-      {(response: CheckResponse) => <>{renderView(response)}</>}
+      {(response: LinkCheckResponse) => <>{renderView(response)}</>}
     </Query>
   );
 };

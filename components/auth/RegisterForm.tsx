@@ -6,9 +6,6 @@ import * as Yup from 'yup';
 // api
 import { register as registerAction } from 'api/authentication';
 
-// constants
-import { ToastType } from 'constants/toast';
-
 // utils
 import { EmailRegex, NameRegex, UsernameRegex } from 'utils/regex';
 

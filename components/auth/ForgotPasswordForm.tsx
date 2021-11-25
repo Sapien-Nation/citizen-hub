@@ -6,9 +6,6 @@ import { useForm } from 'react-hook-form';
 // api
 import { forgot } from 'api/authentication';
 
-// constants
-import { ToastType } from 'constants/toast';
-
 // hooks
 import { useToast } from 'context/toast';
 

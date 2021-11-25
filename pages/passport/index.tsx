@@ -11,24 +11,18 @@ import {
 import { useAuth } from 'context/user';
 
 // types
-import { NextPage } from 'next';
+import type { NextPage } from 'next';
 
 const PassportPage: NextPage = () => {
   const { me, isLoggingIn } = useAuth();
 
-  const renderHeroSection = () => {
-    if (isLoggingIn) return <span>White Section</span>;
-
-    if (me) return <AuthHero />;
-
-    return <PublicHero />;
-  };
+  if (isLoggingIn) return null;
 
   return (
     <>
       <Head title="Passport" />
       <div>
-        {renderHeroSection()}
+        {me ? <AuthHero /> : <PublicHero />}
         <PassportFeatures />
         <HistoricalFigures />
       </div>

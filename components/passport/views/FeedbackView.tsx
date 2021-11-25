@@ -13,9 +13,10 @@ const ErrorView = ({ code }: Props) => {
       case 403:
         return 'No more passports available for this link, please try a new one';
       case 404:
-        return 'Link not valid';
+        return 'Invalid Link';
     }
   };
+
   return (
     <div className="bg-gray-50">
       <div className="lg:relative py-12 lg:h-full sm:h-72">
