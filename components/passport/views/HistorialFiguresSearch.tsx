@@ -88,9 +88,9 @@ const HistoricalFiguresSearch = ({ linkID }: Props) => {
             Welcome to the Sapien Tribe!
           </h3>
           <p className="mt-3 max-w-lg mx-auto text-md font-light py-4 text-gray-500 sm:text-xl md:mt-5">
-            To claim your passport please input your favourite historical
-            figure. Your choice of figure should reflect values your yourself
-            will champion as a member of our tribe.
+            To claim your passport please input your favorite historical figure.
+            Your choice of figure should reflect values your yourself will
+            champion as a member of our tribe.
           </p>
           <div className="flex justify-center items-center">
             <div className="relative mt-6 max-w-sm w-full">
