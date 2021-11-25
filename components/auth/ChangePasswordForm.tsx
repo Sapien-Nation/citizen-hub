@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import { RefreshIcon } from '@heroicons/react/solid';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
@@ -23,17 +24,21 @@ interface Props {
 const ChangePasswordForm = ({ token }: Props) => {
   const toast = useToast();
   const { push } = useRouter();
+  const passwordField = useRef<HTMLInputElement | null>(null);
+  const confirmPasswordField = useRef<HTMLInputElement | null>(null);
 
   const {
     formState: { isSubmitting },
-    register,
     handleSubmit,
   } = useForm<ChangePasswordFormValues>();
 
-  const onSubmit = async ({ password }: ChangePasswordFormValues) => {
+  const onSubmit = async ({
+    password,
+    repeatPassword,
+  }: ChangePasswordFormValues) => {
     try {
       await changePassword({
-        password,
+        password: passwordField.current.value,
         token,
       });
 
@@ -42,6 +47,15 @@ const ChangePasswordForm = ({ token }: Props) => {
       toast({
         message: error,
       });
+    }
+  };
+
+  const validatePassword = () => {
+    if (passwordField.current.value !== confirmPasswordField.current.value) {
+      confirmPasswordField.current.setCustomValidity("Passwords Don't Match");
+      return;
+    } else {
+      confirmPasswordField.current.setCustomValidity('');
     }
   };
 
@@ -61,7 +75,8 @@ const ChangePasswordForm = ({ token }: Props) => {
             autoComplete="current-password"
             required
             className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
-            {...register('password')}
+            ref={passwordField}
+            onChange={validatePassword}
           />
         </div>
       </div>
@@ -75,12 +90,13 @@ const ChangePasswordForm = ({ token }: Props) => {
         </label>
         <div className="mt-1">
           <input
-            id="password"
+            id="confirmPassword"
             type="password"
             autoComplete="repeat-password"
             required
             className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
-            {...register('repeatPassword')}
+            ref={confirmPasswordField}
+            onKeyUp={validatePassword}
           />
         </div>
       </div>
