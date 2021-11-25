@@ -16,7 +16,18 @@ import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { SearchIcon } from '@heroicons/react/solid';
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
 
-const classNames = (...classes) => classes.filter(Boolean).join(' ');
+// utils
+import { mergeClassNames } from 'utils/styles';
+
+const navigation = [
+  { name: 'Home', href: '/' },
+  { name: 'passport', href: '/passport' },
+  { name: 'Protocol', href: '/protocol' },
+  { name: 'Metaverse', href: '/metaverse' },
+  { name: 'Partners', href: '/partners' },
+  { name: 'Blog', href: '/blog' },
+  { name: 'About Us', href: '/about' },
+];
 
 const Navbar = () => {
   const { me } = useAuth();
@@ -30,56 +41,23 @@ const Navbar = () => {
             <div className="flex justify-between h-16">
               <div className="flex px-2 lg:px-0">
                 <div className="flex-shrink-0 flex items-center">
-                  <FullLogo className="border-r border-gray-300 pr-6" />
+                  <FullLogo className="lg:border-r border-gray-300 pr-6" />
                 </div>
                 <div className="hidden lg:ml-6 lg:flex lg:space-x-8">
-                  <Link href="/">
-                    <a
-                      className={classNames(
-                        router.asPath === '/'
-                          ? 'text-gray-900'
-                          : 'text-gray-500 hover:text-gray-700',
-                        'inline-flex items-center px-1 pt-1 text-sm font-medium'
-                      )}
-                    >
-                      Home
-                    </a>
-                  </Link>
-
-                  <Link href="/passport">
-                    <a
-                      className={classNames(
-                        router.asPath === '/passport'
-                          ? 'text-gray-900'
-                          : 'text-gray-500 hover:text-gray-700',
-                        'inline-flex items-center px-1 pt-1 text-sm font-medium'
-                      )}
-                    >
-                      Passport
-                    </a>
-                  </Link>
-                </div>
-              </div>
-              <div className="flex-1 flex items-center justify-center px-2 lg:ml-6 lg:justify-end">
-                <div className="max-w-lg w-full lg:max-w-xs">
-                  <label htmlFor="search" className="sr-only">
-                    Search
-                  </label>
-                  <div className="relative">
-                    <input
-                      id="search"
-                      name="search"
-                      className="block w-full px-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
-                      placeholder="Search"
-                      type="search"
-                    />
-                    <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-                      <SearchIcon
-                        className="h-5 w-5 text-gray-400"
-                        aria-hidden="true"
-                      />
-                    </div>
-                  </div>
+                  {navigation.map((nav) => (
+                    <Link key={nav.href} href={nav.href}>
+                      <a
+                        className={mergeClassNames(
+                          router.asPath === nav.href
+                            ? 'text-gray-900'
+                            : 'text-gray-500 hover:text-gray-700',
+                          'inline-flex items-center px-1 pt-1 text-sm font-medium'
+                        )}
+                      >
+                        {nav.name}
+                      </a>
+                    </Link>
+                  ))}
                 </div>
               </div>
               <div className="flex items-center lg:hidden">
@@ -135,7 +113,7 @@ const Navbar = () => {
                             {({ active }) => (
                               <Link href="/logout">
                                 <a
-                                  className={classNames(
+                                  className={mergeClassNames(
                                     active ? 'bg-gray-100' : '',
                                     'block px-4 py-2 text-sm text-gray-700'
                                   )}
@@ -164,30 +142,21 @@ const Navbar = () => {
 
           <Disclosure.Panel className="lg:hidden">
             <div className="pt-2 pb-3 space-y-1">
-              <Disclosure.Button
-                as="a"
-                href="/"
-                className={classNames(
-                  router.asPath === '/'
-                    ? 'bg-purple-50 border-purple-500 text-purple-700'
-                    : 'border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800',
-                  'block pl-3 pr-4 py-2 border-l-4 text-base font-medium'
-                )}
-              >
-                Home
-              </Disclosure.Button>
-              <Disclosure.Button
-                as="a"
-                href="/passport"
-                className={classNames(
-                  router.asPath === '/passport'
-                    ? 'bg-purple-50 border-purple-500 text-purple-700'
-                    : 'border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800',
-                  'block pl-3 pr-4 py-2 border-l-4 text-base font-medium'
-                )}
-              >
-                Passport
-              </Disclosure.Button>
+              {navigation.map((nav) => (
+                <Disclosure.Button
+                  as="a"
+                  href={nav.href}
+                  key={nav.href}
+                  className={mergeClassNames(
+                    router.asPath === nav.href
+                      ? 'bg-purple-50 border-purple-500 text-purple-700'
+                      : 'border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800',
+                    'block pl-3 pr-4 py-2 border-l-4 text-base font-medium'
+                  )}
+                >
+                  {nav.name}
+                </Disclosure.Button>
+              ))}
             </div>
             <div className="pt-4 pb-3 border-t border-gray-200">
               {me ? (
@@ -244,7 +213,7 @@ const Navbar = () => {
                   <Disclosure.Button
                     as="a"
                     href="/login"
-                    className={classNames(
+                    className={mergeClassNames(
                       router.asPath === '/login'
                         ? 'bg-purple-50 border-purple-500 text-purple-700'
                         : 'border-transparent  text-gray-500 hover:bg-gray-100 hover:border-gray-300 hover:text-gray-800',
