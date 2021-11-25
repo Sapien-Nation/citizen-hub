@@ -133,6 +133,10 @@ const RegisterForm = () => {
                 value: 20,
                 message: 'Invalid username',
               },
+              minLength: {
+                value: 2,
+                message: 'Invalid username',
+              },
             })}
             aria-invalid="true"
             aria-describedby="username-error"
