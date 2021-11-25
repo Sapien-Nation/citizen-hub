@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 
 // components
-import { Query, Redirect } from 'components/common';
+import { Head, Query, Redirect } from 'components/common';
 import { FeedbackView, HistoricalFiguresSearch } from 'components/passport';
 
 // context
@@ -44,9 +44,19 @@ const PassportPage = () => {
   };
 
   return (
-    <Query api={`/api/v3/passport/check-link?linkId=${query.linkID}`}>
-      {(response: LinkCheckResponse) => <>{renderView(response)}</>}
-    </Query>
+    <>
+      <Head title="Create Passport" />
+
+      <div className="bg-gray-50">
+        <main className="lg:relative">
+          <div className="mx-auto max-w-6xl w-full pt-16 pb-20 text-center lg:py- lg:text-center">
+            <Query api={`/api/v3/passport/check-link?linkId=${query.linkID}`}>
+              {(response: LinkCheckResponse) => <>{renderView(response)}</>}
+            </Query>
+          </div>
+        </main>
+      </div>
+    </>
   );
 };
 
