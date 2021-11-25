@@ -2,7 +2,7 @@ import { useState } from 'react';
 import useSWR, { useSWRConfig } from 'swr';
 
 // api
-import { replaceFigure } from 'api/passport';
+import { replaceFigure, uploadManualFigure } from 'api/passport';
 
 // hooks
 import { useToast } from 'context/toast';
@@ -16,6 +16,7 @@ interface Props {
 const HistoricalFiguresSearch = ({ linkID }: Props) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [isFetching, setIsFetching] = useState(false);
+  const [manualFigureURL, setManualFigureURL] = useState(false);
   const [refreshedImages, setRefreshedImages] = useState<Array<string>>([]);
 
   const toast = useToast();
@@ -25,7 +26,24 @@ const HistoricalFiguresSearch = ({ linkID }: Props) => {
     ? `/api/v3/passport/avatar-lookup?term=${searchTerm}`
     : '';
   const { data: figures, error, isValidating } = useSWR(figureLookupAPIKey);
-  const isLoadingData = (!error && !figures) || isValidating;
+  const isLoadingFigures = (!error && !figures) || isValidating;
+
+  const handleFileUpload = async (file: File) => {
+    setIsFetching(true);
+    const formData = new FormData();
+    formData.append('figure', file);
+
+    try {
+      const { url } = await uploadManualFigure(formData);
+
+      setManualFigureURL(url);
+    } catch (error) {
+      toast({
+        message: error,
+      });
+    }
+    setIsFetching(false);
+  };
 
   const handleRefresh = async ({ url }: { url: string }) => {
     setIsFetching(true);
