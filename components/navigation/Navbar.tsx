@@ -13,7 +13,6 @@ import { useAuth } from 'context/user';
 
 // tailwind ui
 import { Disclosure, Menu, Transition } from '@headlessui/react';
-import { SearchIcon } from '@heroicons/react/solid';
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
 
 // utils
@@ -73,7 +72,16 @@ const Navbar = () => {
               </div>
               <div className="hidden lg:ml-7 lg:flex lg:items-center">
                 {/* Profile dropdown */}
-                {me ? (
+                {me === null && (
+                  <>
+                    <Link href="/login">
+                      <a className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
+                        Sign in
+                      </a>
+                    </Link>
+                  </>
+                )}
+                {me && (
                   <>
                     <button className="inline-flex items-center px-4 py-2 border text-sm font-medium rounded-full py-2 px-6 shadow-sm hover:bg-purple-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
                       Connect Wallet
@@ -127,14 +135,12 @@ const Navbar = () => {
                       </Transition>
                     </Menu>
                   </>
-                ) : (
-                  <>
-                    <Link href="/login">
-                      <a className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
-                        Sign in
-                      </a>
-                    </Link>
-                  </>
+                )}
+                {me === undefined && (
+                  <div className="animate-pulse flex items-center space-x-2">
+                    <div className="h-8 w-32 bg-gray-300 rounded-full"></div>
+                    <div className="rounded-full bg-gray-300 h-8 w-8"></div>
+                  </div>
                 )}
               </div>
             </div>
