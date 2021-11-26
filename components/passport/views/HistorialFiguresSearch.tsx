@@ -85,6 +85,23 @@ const HistoricalFiguresSearch = ({ linkID }: Props) => {
     setIsFetching(false);
   };
 
+  const renderLoading = () => (
+    <>
+      <li className="animate-pulse relative">
+        <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden"></div>
+      </li>
+      <li className="animate-pulse relative">
+        <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden"></div>
+      </li>
+      <li className="animate-pulse relative">
+        <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden"></div>
+      </li>
+      <li className="animate-pulse relative">
+        <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden"></div>
+      </li>
+    </>
+  );
+
   //--------------------------------------------------------------------------------------------------------------------
   return (
     <>
@@ -125,22 +142,24 @@ const HistoricalFiguresSearch = ({ linkID }: Props) => {
       {searchTerm && (
         <main className="lg:relative">
           <div className="mx-auto max-w-6xl w-full pt-16 pb-20 lg:py-20">
-            {isLoadingFigures && 'Loading...'}
             <ul
               role="list"
               className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8"
             >
-              {figures?.images.map((image, index) => (
-                <li key={index} className="relative">
-                  <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
-                    <img
-                      src={image}
-                      alt="Figure"
-                      className="object-cover h-full w-full pointer-events-none group-hover:opacity-75"
-                    />
-                  </div>
-                </li>
-              ))}
+              {isLoadingFigures
+                ? renderLoading()
+                : figures?.images.map((image, index) => (
+                    <li key={index} className="relative">
+                      <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
+                        <img
+                          src={image}
+                          alt="Figure"
+                          className="object-cover h-full w-full pointer-events-none group-hover:opacity-75"
+                        />
+                      </div>
+                    </li>
+                  ))}
+              {}
             </ul>
           </div>
         </main>
