@@ -141,7 +141,7 @@ const HistoricalFiguresSearch = ({ linkID }: Props) => {
       </div>
       {searchTerm && (
         <main className="lg:relative">
-          <div className="mx-auto max-w-6xl w-full pt-16 pb-20 lg:py-20">
+          <div className="mx-auto max-w-6xl w-full pt-16">
             <ul
               role="list"
               className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8"
@@ -161,6 +161,32 @@ const HistoricalFiguresSearch = ({ linkID }: Props) => {
                   ))}
               {}
             </ul>
+            <div className="mt-10 flex flex-col justify-center items-center">
+              <div className="rounded-full shadow mt-14 mb-6">
+                <a
+                  href="#"
+                  className="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white bg-purple-600 hover:bg-purple-700 md:py-4 md:text-lg md:px-10"
+                >
+                  Continue
+                </a>
+              </div>
+              <div>
+                or{' '}
+                <label
+                  htmlFor="file-upload"
+                  className="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
+                >
+                  <span>Browse</span>
+                  <input
+                    id="file-upload"
+                    name="file-upload"
+                    type="file"
+                    className="sr-only"
+                  />
+                </label>{' '}
+                files to upload your own image
+              </div>
+            </div>
           </div>
         </main>
       )}
