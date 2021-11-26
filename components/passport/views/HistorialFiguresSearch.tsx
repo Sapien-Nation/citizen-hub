@@ -1,4 +1,4 @@
-import { ArrowSmRightIcon } from '@heroicons/react/solid';
+import { ArrowSmRightIcon, RefreshIcon } from '@heroicons/react/solid';
 import { useRef, useState } from 'react';
 import useSWR, { useSWRConfig } from 'swr';
 
@@ -149,8 +149,15 @@ const HistoricalFiguresSearch = ({ linkID }: Props) => {
               {isLoadingFigures
                 ? renderLoading()
                 : figures?.images.map((image, index) => (
-                    <li key={index} className="relative">
-                      <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
+                    <li
+                      key={index}
+                      className="relative"
+                      onClick={() => handleRefresh({ url: image })}
+                    >
+                      <div className="group flex cursor-pointer	justify-center items-center w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
+                        <button className="text-white z-10 absolute opacity-0 group-hover:opacity-100">
+                          <RefreshIcon className="h-5 w-5" />
+                        </button>
                         <img
                           src={image}
                           alt="Figure"
