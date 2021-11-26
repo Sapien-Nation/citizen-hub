@@ -32,10 +32,6 @@ const HistoricalFiguresSearch = ({ linkID }: Props) => {
   const isLoadingFigures = (!error && !figures) || isValidating;
 
   //--------------------------------------------------------------------------------------------------------------------
-  const handleSearch = () => {
-    setSearchTerm('');
-  };
-
   const handleFileUpload = async (file: File) => {
     setIsFetching(true);
     const formData = new FormData();
@@ -164,6 +160,7 @@ const HistoricalFiguresSearch = ({ linkID }: Props) => {
                             }
                           />
                         </button>
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
                           src={image}
                           alt="Figure"
@@ -172,16 +169,20 @@ const HistoricalFiguresSearch = ({ linkID }: Props) => {
                       </div>
                     </li>
                   ))}
-              {}
             </ul>
             <div className="mt-10 flex flex-col justify-center items-center">
               <div className="rounded-full shadow mt-14 mb-6">
-                <a
-                  href="#"
-                  className="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white bg-purple-600 hover:bg-purple-700 md:py-4 md:text-lg md:px-10"
+                <button
+                  disabled={isLoadingFigures || isFetching}
+                  type="button"
+                  className={`flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white bg-purple-600 hover:bg-purple-700 md:py-4 md:text-lg md:px-10 ${
+                    isFetching || isLoadingFigures
+                      ? 'pointer-events-none cursor-not-allowed'
+                      : ''
+                  }`}
                 >
                   Continue
-                </a>
+                </button>
               </div>
               <div>
                 or{' '}
