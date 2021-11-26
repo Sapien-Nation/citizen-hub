@@ -156,7 +156,11 @@ const HistoricalFiguresSearch = ({ linkID }: Props) => {
                     >
                       <div className="group flex cursor-pointer	justify-center items-center w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
                         <button className="text-white z-10 absolute opacity-0 group-hover:opacity-100">
-                          <RefreshIcon className="h-5 w-5" />
+                          <RefreshIcon
+                            className={
+                              isFetching ? `animate-spin h-5 w-5` : `h-5 w-5`
+                            }
+                          />
                         </button>
                         <img
                           src={image}
