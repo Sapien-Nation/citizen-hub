@@ -105,14 +105,16 @@ const HistoricalFiguresSearch = ({ linkID }: Props) => {
   //--------------------------------------------------------------------------------------------------------------------
   return (
     <>
-      <h3 className="mt-3 max-w-sm mx-auto font-bold lg:text-2xl sm:text-xl md:mt-5">
-        Welcome to the Sapien Tribe!
-      </h3>
-      <p className="mt-3 max-w-lg mx-auto text-md font-light py-4 text-gray-500 sm:text-xl md:mt-5">
-        To claim your passport please input your favorite historical figure.
-        Your choice of figure should reflect values your yourself will champion
-        as a member of our tribe.
-      </p>
+      <div className="px-4 xl:px-0">
+        <h3 className="mt-3 max-w-sm mx-auto font-bold lg:text-2xl sm:text-xl md:mt-5">
+          Welcome to the Sapien Tribe!
+        </h3>
+        <p className="mt-3 max-w-lg mx-auto text-md font-light py-4 text-gray-500 sm:text-xl md:mt-5">
+          To claim your passport please input your favorite historical figure.
+          Your choice of figure should reflect values your yourself will
+          champion as a member of our tribe.
+        </p>
+      </div>
       <div className="flex justify-center items-center">
         <div className="relative mt-6 max-w-sm w-full">
           <input
@@ -141,7 +143,7 @@ const HistoricalFiguresSearch = ({ linkID }: Props) => {
       </div>
       {searchTerm && (
         <main className="lg:relative">
-          <div className="mx-auto max-w-6xl w-full pt-16">
+          <div className="mx-auto max-w-6xl w-full pt-16 px-4 xl:px-0">
             <ul
               role="list"
               className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8"
