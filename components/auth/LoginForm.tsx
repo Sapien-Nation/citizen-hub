@@ -125,6 +125,15 @@ const LoginForm = () => {
           )}
           Sign in
         </button>
+
+        <div className="mt-2">
+          <p className="text-sm inline">{`Don't have an account?`}</p>
+          <Link href="/register">
+            <a className="font-medium text-sm text-purple-600 hover:text-purple-500">
+              &nbsp;register
+            </a>
+          </Link>
+        </div>
       </div>
     </form>
   );

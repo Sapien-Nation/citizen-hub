@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { RefreshIcon } from '@heroicons/react/solid';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
@@ -296,6 +297,14 @@ const RegisterForm = () => {
           )}
           Sign up
         </button>
+        <div className="mt-2">
+          <p className="text-sm inline">Already have an account?</p>
+          <Link href="/login">
+            <a className="font-medium text-sm text-purple-600 hover:text-purple-500">
+              &nbsp;login
+            </a>
+          </Link>
+        </div>
       </div>
     </form>
   );
