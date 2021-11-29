@@ -1,21 +1,43 @@
 import { RefreshIcon } from '@heroicons/react/solid';
 import { useState } from 'react';
 import useSWR, { useSWRConfig } from 'swr';
+import { useKeyPressEvent } from 'react-use';
 
 // api
 import { replaceFigure, uploadManualFigure } from 'api/passport';
 
 // components
-import { Query } from 'components/common';
+import { AutocompleteInput, SuggestionsList } from 'components/common';
 
 // hooks
 import { useToast } from 'context/toast';
+
+const KEY_CODES = {
+  UP: 'ArrowUp',
+  DOWN: 'ArrowDown',
+  ENTER: 'Enter',
+};
 
 interface Props {
   allowedPassports: number;
   availablePassports: number;
   linkID: string;
 }
+
+const mockFigureSearch = [
+  {
+    name: 'Frida Khalo',
+    id: '1',
+  },
+  {
+    name: 'Pancho Villa',
+    id: '2',
+  },
+  {
+    name: 'Emiliano Zapata',
+    id: '3',
+  },
+];
 
 const renderLoading = () => (
   <>
@@ -36,7 +58,10 @@ const renderLoading = () => (
 
 const HistoricalFiguresSearch = ({ linkID }: Props) => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [suggestions, setSuggestions] = useState(mockFigureSearch);
+  const [showSuggestions, setShowSuggestions] = useState(false);
   const [isFetching, setIsFetching] = useState(false);
+  const [cursor, setCurrentCursor] = useState(null);
   const [manualFigureURL, setManualFigureURL] = useState(false);
   const [refreshedImages, setRefreshedImages] = useState<Array<string>>([]);
 
@@ -98,6 +123,41 @@ const HistoricalFiguresSearch = ({ linkID }: Props) => {
     }
     setIsFetching(false);
   };
+
+  useKeyPressEvent(KEY_CODES.UP, () => {
+    if (cursor > 0) {
+      setCurrentCursor(cursor - 1);
+    } else if (cursor === 0 || cursor === null) {
+      setCurrentCursor(mockFigureSearch?.length - 1);
+    } else {
+      setCurrentCursor(cursor - 1);
+    }
+  });
+
+  useKeyPressEvent(KEY_CODES.DOWN, () => {
+    if (cursor === null) {
+      setCurrentCursor(0);
+    } else if (cursor >= mockFigureSearch?.length - 1) {
+      setCurrentCursor(0);
+    } else {
+      setCurrentCursor(cursor + 1);
+    }
+  });
+
+  const onSuggestionClick = (figure: { name: string; id: string }) => {
+    setSearchTerm(figure.name);
+    // setFigureSearchTerm('');
+  };
+
+  const onSuggestionHover = (cursor: number) => setCurrentCursor(cursor);
+
+  // TO DO just for demo purposes
+  const setFigureFilter = (term: string) => {
+    const suggestions = mockFigureSearch.filter(({ name }) =>
+      name.toLowerCase().includes(term.toLocaleLowerCase())
+    );
+    setSuggestions(suggestions);
+  };
   //--------------------------------------------------------------------------------------------------------------------
   return (
     <>
@@ -113,11 +173,28 @@ const HistoricalFiguresSearch = ({ linkID }: Props) => {
       </div>
       <div className="flex justify-center items-center">
         <div className="relative mt-6 max-w-sm w-full">
-          <Query api="/api/v3/passport/figure-lookup">
+          <AutocompleteInput
+            setFigureTerm={setFigureFilter}
+            // @ts-ignore
+            onFocus={() => setShowSuggestions(true)}
+            onBlur={() => {
+              setShowSuggestions(false);
+              setCurrentCursor(null);
+            }}
+          />
+          {showSuggestions && (
+            <SuggestionsList
+              cursor={cursor}
+              suggestions={suggestions}
+              onSuggestionClick={onSuggestionClick}
+              onSuggestionHover={onSuggestionHover}
+            />
+          )}
+          {/* <Query api="/api/v3/passport/figure-lookup">
             {(figuresOptions: Array<{ name: string; id: string }>) => (
               <h1>TODO autocomplete</h1>
             )}
-          </Query>
+          </Query> */}
         </div>
       </div>
       {searchTerm && (

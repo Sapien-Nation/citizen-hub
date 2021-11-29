@@ -2,8 +2,8 @@ import React from 'react';
 
 interface Props {
   cursor: number;
-  suggestions: Array<string>;
-  onSuggestionClick: (value: string) => void;
+  suggestions: Array<{ name: string; id: string }>;
+  onSuggestionClick: (figure: { name: string; id: string }) => void;
   onSuggestionHover: (index: number) => void;
 }
 
@@ -17,14 +17,14 @@ const SuggestionsList = ({
     tabIndex={-1}
     className="bg-white absolute px-4 py-5 border-b border-gray-200 sm:px-6"
   >
-    {suggestions.map((suggestion, i) => (
+    {suggestions.map((figure, i) => (
       <li
         key={i}
         className={`${cursor === i ? 'bg-gray-50' : null}`}
-        onMouseDown={() => onSuggestionClick(suggestion)}
+        onMouseDown={() => onSuggestionClick(figure)}
         onMouseEnter={() => onSuggestionHover(i)}
       >
-        <span>{suggestion}</span>
+        <span>{figure.name}</span>
       </li>
     ))}
   </ul>
