@@ -1,11 +1,6 @@
 // components
 import { Head } from 'components/common';
-import {
-  AuthHero,
-  HistoricalFigures,
-  PublicHero,
-  PassportFeatures,
-} from 'components/passport';
+import { AuthHero, PublicHero, PassportFeatures } from 'components/passport';
 
 // hooks
 import { useAuth } from 'context/user';
@@ -24,7 +19,6 @@ const PassportPage: NextPage = () => {
       <div>
         {me ? <AuthHero /> : <PublicHero />}
         <PassportFeatures />
-        <HistoricalFigures />
       </div>
     </>
   );
