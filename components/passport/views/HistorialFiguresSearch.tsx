@@ -1,9 +1,12 @@
-import { ArrowSmRightIcon, RefreshIcon } from '@heroicons/react/solid';
-import { useRef, useState } from 'react';
+import { RefreshIcon } from '@heroicons/react/solid';
+import { useState } from 'react';
 import useSWR, { useSWRConfig } from 'swr';
 
 // api
 import { replaceFigure, uploadManualFigure } from 'api/passport';
+
+// components
+import { Query } from 'components/common';
 
 // hooks
 import { useToast } from 'context/toast';
@@ -14,13 +17,28 @@ interface Props {
   linkID: string;
 }
 
+const renderLoading = () => (
+  <>
+    <li className="animate-pulse relative">
+      <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden"></div>
+    </li>
+    <li className="animate-pulse relative">
+      <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden"></div>
+    </li>
+    <li className="animate-pulse relative">
+      <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden"></div>
+    </li>
+    <li className="animate-pulse relative">
+      <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden"></div>
+    </li>
+  </>
+);
+
 const HistoricalFiguresSearch = ({ linkID }: Props) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [isFetching, setIsFetching] = useState(false);
   const [manualFigureURL, setManualFigureURL] = useState(false);
   const [refreshedImages, setRefreshedImages] = useState<Array<string>>([]);
-
-  const searchInputRef = useRef(null);
 
   const toast = useToast();
   const { mutate } = useSWRConfig();
@@ -80,24 +98,6 @@ const HistoricalFiguresSearch = ({ linkID }: Props) => {
     }
     setIsFetching(false);
   };
-
-  const renderLoading = () => (
-    <>
-      <li className="animate-pulse relative">
-        <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden"></div>
-      </li>
-      <li className="animate-pulse relative">
-        <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden"></div>
-      </li>
-      <li className="animate-pulse relative">
-        <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden"></div>
-      </li>
-      <li className="animate-pulse relative">
-        <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden"></div>
-      </li>
-    </>
-  );
-
   //--------------------------------------------------------------------------------------------------------------------
   return (
     <>
@@ -113,28 +113,11 @@ const HistoricalFiguresSearch = ({ linkID }: Props) => {
       </div>
       <div className="flex justify-center items-center">
         <div className="relative mt-6 max-w-sm w-full">
-          <input
-            ref={searchInputRef}
-            id="search"
-            name="search"
-            className="block w-full h-12 px-3 py-2 border border-gray-300 rounded-3xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
-            placeholder="Name"
-            type="search"
-            onKeyDown={(event) => {
-              if (event.key === 'Enter') {
-                setSearchTerm((event as any).target.value);
-              }
-            }}
-          />
-          <div className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer">
-            <ArrowSmRightIcon
-              onClick={() => {
-                setSearchTerm(searchInputRef.current.value);
-              }}
-              className="h-8 w-8 text-white bg-purple-500 rounded-full"
-              aria-hidden="true"
-            />
-          </div>
+          <Query api="/api/v3/passport/figure-lookup">
+            {(figuresOptions: Array<{ name: string; id: string }>) => (
+              <h1>TODO autocomplete</h1>
+            )}
+          </Query>
         </div>
       </div>
       {searchTerm && (
