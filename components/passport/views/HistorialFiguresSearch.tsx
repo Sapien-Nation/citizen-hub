@@ -1,5 +1,5 @@
 import { RefreshIcon } from '@heroicons/react/solid';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import useSWR, { useSWRConfig } from 'swr';
 import { useKeyPressEvent } from 'react-use';
 
@@ -57,6 +57,7 @@ const renderLoading = () => (
 );
 
 const HistoricalFiguresSearch = ({ linkID }: Props) => {
+  const inputRef = useRef<HTMLInputElement>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [suggestions, setSuggestions] = useState(mockFigureSearch);
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -144,7 +145,16 @@ const HistoricalFiguresSearch = ({ linkID }: Props) => {
     }
   });
 
+  useKeyPressEvent(KEY_CODES.ENTER, () => {
+    inputRef.current.value = suggestions[cursor]?.name;
+    inputRef.current.blur();
+
+    setSearchTerm(suggestions[cursor]?.name);
+    setShowSuggestions(false);
+  });
+
   const onSuggestionClick = (figure: { name: string; id: string }) => {
+    inputRef.current.value = suggestions[cursor]?.name;
     setSearchTerm(figure.name);
     // setFigureSearchTerm('');
   };
@@ -174,8 +184,9 @@ const HistoricalFiguresSearch = ({ linkID }: Props) => {
       <div className="flex justify-center items-center">
         <div className="relative mt-6 max-w-sm w-full">
           <AutocompleteInput
-            setFigureTerm={setFigureFilter}
+            ref={inputRef}
             // @ts-ignore
+            setFigureTerm={setFigureFilter}
             onFocus={() => setShowSuggestions(true)}
             onBlur={() => {
               setShowSuggestions(false);
