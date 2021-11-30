@@ -225,6 +225,10 @@ const HistoricalFiguresSearch = ({ linkID }: Props) => {
                           src={image}
                           alt="Figure"
                           className="object-cover h-full w-full pointer-events-none group-hover:opacity-75"
+                          onError={(event) => {
+                            (event.target as HTMLImageElement).src =
+                              'https://d151dmflpumpzp.cloudfront.net/images/tribes/default_temp.jpeg';
+                          }}
                         />
                       </div>
                     </li>
