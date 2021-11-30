@@ -15,12 +15,14 @@ const SuggestionsList = ({
 }: Props) => (
   <ul
     tabIndex={-1}
-    className="bg-white absolute px-4 py-5 border-b border-gray-200 sm:px-6"
+    className="bg-white rounded-lg w-full mt-1 z-10 absolute px-1 py-1 border-b border-gray-200"
   >
     {suggestions.map((figure, i) => (
       <li
         key={i}
-        className={`${cursor === i ? 'bg-gray-50' : null}`}
+        className={`w-full rounder-md text-left p-2 ${
+          cursor === i ? 'bg-gray-50' : null
+        }`}
         onMouseDown={() => onSuggestionClick(figure)}
         onMouseEnter={() => onSuggestionHover(i)}
       >

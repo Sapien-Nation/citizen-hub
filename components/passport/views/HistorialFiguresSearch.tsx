@@ -163,6 +163,7 @@ const HistoricalFiguresSearch = ({ linkID }: Props) => {
 
   // TO DO just for demo purposes
   const setFigureFilter = (term: string) => {
+    if (inputRef.current.value) setShowSuggestions(true);
     const suggestions = mockFigureSearch.filter(({ name }) =>
       name.toLowerCase().includes(term.toLocaleLowerCase())
     );
@@ -187,7 +188,6 @@ const HistoricalFiguresSearch = ({ linkID }: Props) => {
             ref={inputRef}
             // @ts-ignore
             setFigureTerm={setFigureFilter}
-            onFocus={() => setShowSuggestions(true)}
             onBlur={() => {
               setShowSuggestions(false);
               setCurrentCursor(null);
