@@ -178,8 +178,8 @@ const HistoricalFiguresSearch = ({ linkID }: Props) => {
         </h3>
         <p className="mt-3 max-w-lg mx-auto text-md font-light py-4 text-gray-500 sm:text-xl md:mt-5">
           To claim your passport please input your favorite historical figure.
-          Your choice of figure should reflect values your yourself will
-          champion as a member of our tribe.
+          Your choice of figure should reflect the values you will champion as a
+          member of our tribe.
         </p>
       </div>
       <div className="flex justify-center items-center">
