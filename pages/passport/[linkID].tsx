@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 
 // components
 import { Head, Query, Redirect } from 'components/common';
-import { FeedbackView, HistoricalFiguresSearch } from 'components/passport';
+import { FeedbackView, Figure } from 'components/passport';
 
 // context
 import { useAuth } from 'context/user';
@@ -35,7 +35,7 @@ const PassportPage = () => {
     }
 
     return (
-      <HistoricalFiguresSearch
+      <Figure
         allowedPassports={allowedPassports}
         availablePassports={availablePassports}
         linkID={String(query.linkID)}
