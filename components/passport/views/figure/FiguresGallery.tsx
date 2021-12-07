@@ -20,6 +20,7 @@ interface Props {
 
 const FiguresGallery = ({ name, onSelect, setView, setIsLoading }: Props) => {
   const [refreshedImages, setRefreshedImages] = useState<Array<string>>([]);
+  const [isRefreshing, setRefreshing] = useState<boolean>(false);
   const [selectedImageToRefresh, setSelectedImageToRefresh] = useState<
     string | null
   >(null);
@@ -35,6 +36,7 @@ const FiguresGallery = ({ name, onSelect, setView, setIsLoading }: Props) => {
 
   const handleRefresh = async (url: string) => {
     setIsLoading(true);
+    setRefreshing(true);
     try {
       const newRefreshedImages = [...refreshedImages, url];
       const newFigure = await replaceFigure({
@@ -54,13 +56,14 @@ const FiguresGallery = ({ name, onSelect, setView, setIsLoading }: Props) => {
         false
       );
     } catch (err) {
-      if (err.code === 204) {
+      if (err?.code === 204) {
         setRefreshedImages([]);
       }
       toast({
         message: error.message,
       });
     }
+    setRefreshing(false);
     setSelectedImageToRefresh(null);
     setIsLoading(false);
   };
@@ -74,16 +77,16 @@ const FiguresGallery = ({ name, onSelect, setView, setIsLoading }: Props) => {
         className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8"
       >
         <li className="animate-pulse relative">
-          <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden"></div>
+          <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-200 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden"></div>
         </li>
         <li className="animate-pulse relative">
-          <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden"></div>
+          <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-200 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden"></div>
         </li>
         <li className="animate-pulse relative">
-          <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden"></div>
+          <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-200 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden"></div>
         </li>
         <li className="animate-pulse relative">
-          <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden"></div>
+          <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-200 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden"></div>
         </li>
       </ul>
     );
@@ -95,40 +98,53 @@ const FiguresGallery = ({ name, onSelect, setView, setIsLoading }: Props) => {
         className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8"
       >
         {data.images.map((image, index) => (
-          <li
-            key={index}
-            className={mergeClassNames(
-              image === selectedImageToRefresh ? 'ring-2 ring-indigo-500' : '',
-              'group flex cursor-pointer	justify-center items-center w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 overflow-hidden'
+          <div key={index}>
+            {isRefreshing && image === selectedImageToRefresh ? (
+              <li className="animate-pulse relative">
+                <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-200 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden"></div>
+              </li>
+            ) : (
+              <li
+                className={mergeClassNames(
+                  image === selectedImageToRefresh
+                    ? 'ring-2 ring-indigo-500'
+                    : '',
+                  'group flex cursor-pointer	justify-center items-center w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 overflow-hidden'
+                )}
+                onClick={async () => {
+                  const blob = await (await fetch(image)).blob();
+                  const imageFile = new File([blob], 'image.jpg', {
+                    type: blob.type,
+                  });
+                  onSelect(imageFile);
+                  setSelectedImageToRefresh(image);
+                }}
+              >
+                <button
+                  className="text-white z-10 absolute opacity-0 group-hover:opacity-100"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    setSelectedImageToRefresh(image);
+                    handleRefresh(image);
+                  }}
+                >
+                  <RefreshIcon
+                    className={isLoading ? `animate-spin h-5 w-5` : `h-5 w-5`}
+                  />
+                </button>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={image}
+                  alt={`Search Image result for search term ${name}`}
+                  className="object-cover h-full w-full pointer-events-none group-hover:opacity-75"
+                  onError={(event) => {
+                    (event.target as HTMLImageElement).src =
+                      'https://d151dmflpumpzp.cloudfront.net/images/tribes/default_temp.jpeg';
+                  }}
+                />
+              </li>
             )}
-            onClick={() => {
-              // TODO make image to a File
-              onSelect(new File(['foo'], 'TODO replace this'));
-              setSelectedImageToRefresh(image);
-            }}
-          >
-            <button
-              className="text-white z-10 absolute opacity-0 group-hover:opacity-100"
-              onClick={(event) => {
-                event.stopPropagation();
-                handleRefresh(image);
-              }}
-            >
-              <RefreshIcon
-                className={isLoading ? `animate-spin h-5 w-5` : `h-5 w-5`}
-              />
-            </button>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={image}
-              alt={`Search Image result for search term ${name}`}
-              className="object-cover h-full w-full pointer-events-none group-hover:opacity-75"
-              onError={(event) => {
-                (event.target as HTMLImageElement).src =
-                  'https://d151dmflpumpzp.cloudfront.net/images/tribes/default_temp.jpeg';
-              }}
-            />
-          </li>
+          </div>
         ))}
       </ul>
       <div className="mt-12">
