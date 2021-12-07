@@ -1,6 +1,12 @@
 import { RefreshIcon } from '@heroicons/react/solid';
-import { useEffect } from 'react';
-import useSWR from 'swr';
+import { useEffect, useState } from 'react';
+import useSWR, { useSWRConfig } from 'swr';
+
+// api
+import { replaceFigure } from 'api/passport';
+
+// context
+import { useToast } from 'context/toast';
 
 interface Props {
   name: string;
@@ -9,10 +15,52 @@ interface Props {
 }
 
 const FiguresGallery = ({ name, setView, setIsLoading }: Props) => {
-  const { data, error, isValidating } = useSWR<{ images: Array<string> }>(
-    `/api/v3/passport/avatar-lookup?term=${name}`
-  );
+  const [refreshedImages, setRefreshedImages] = useState<Array<string>>([]);
+  const [selectedImageToRefresh, setSelectedImageToRefresh] = useState<
+    string | null
+  >(null);
+
+  const toast = useToast();
+  const { mutate } = useSWRConfig();
+
+  const apiKey = `/api/v3/passport/avatar-lookup?term=${name}`;
+  const { data, error, isValidating } =
+    useSWR<{ images: Array<string> }>(apiKey);
+
   const isLoading = (!error && !data) || isValidating;
+
+  const handleRefresh = async (url: string) => {
+    setIsLoading(true);
+    setSelectedImageToRefresh(url);
+    try {
+      const newRefreshedImages = [...refreshedImages, url];
+      const newFigure = await replaceFigure({
+        term: name,
+        ignoreUrls: [...newRefreshedImages, ...data!.images],
+      });
+
+      setRefreshedImages(newRefreshedImages);
+      mutate(
+        apiKey,
+        (data: any) => ({
+          ...data,
+          images: data.images.map((image: string) =>
+            image === url ? newFigure : image
+          ),
+        }),
+        false
+      );
+    } catch (err) {
+      if (err.code === 204) {
+        setRefreshedImages([]);
+      }
+      toast({
+        message: error.message,
+      });
+    }
+    setSelectedImageToRefresh(null);
+    setIsLoading(false);
+  };
 
   useEffect(() => setIsLoading(isLoading), [isLoading, setIsLoading]);
 
@@ -46,7 +94,10 @@ const FiguresGallery = ({ name, setView, setIsLoading }: Props) => {
         {data.images.map((image, index) => (
           <li key={index} className="relative">
             <div className="group flex cursor-pointer	justify-center items-center w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
-              <button className="text-white z-10 absolute opacity-0 group-hover:opacity-100">
+              <button
+                className="text-white z-10 absolute opacity-0 group-hover:opacity-100"
+                onClick={() => handleRefresh(image)}
+              >
                 <RefreshIcon
                   className={isLoading ? `animate-spin h-5 w-5` : `h-5 w-5`}
                 />
