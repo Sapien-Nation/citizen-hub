@@ -57,8 +57,6 @@ const FiguresLookup = ({ onFigureSelect }: Props) => {
   useKeyPressEvent(KEY_CODES.ENTER, () => {
     const selectedFigure = data[cursor];
 
-    console.log(selectedFigure);
-
     clearSuggestions();
     onFigureSelect(selectedFigure);
 

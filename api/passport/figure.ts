@@ -14,3 +14,9 @@ export const uploadManualFigure = (body: FormData) =>
     .post('/api/v3/passport/figure-upload', body)
     .then(({ data }) => data)
     .catch(({ response }) => Promise.reject(response.data.message));
+
+export const createPassport = (body: FormData) =>
+  axios
+    .post('/api/v3/passport', body)
+    .then(({ data }) => data)
+    .catch(({ response }) => Promise.reject(response.data.message));

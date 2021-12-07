@@ -1,5 +1,8 @@
 import { useState } from 'react';
 
+// api
+import { createPassport } from 'api/passport';
+
 // components
 import FiguresGallery from './FiguresGallery';
 import FigureImageUpload from './FigureImageUpload';
@@ -22,7 +25,7 @@ interface Props {
   linkID: string;
 }
 
-const HistoricalFiguresSearch = (_: Props) => {
+const HistoricalFiguresSearch = ({ linkID }: Props) => {
   const [view, setView] = useState<View>(View.Gallery);
   const [figure, setFigure] = useState<Figure | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -37,6 +40,7 @@ const HistoricalFiguresSearch = (_: Props) => {
         return (
           <FiguresGallery
             name={figure.name}
+            onSelect={(file) => setPassportFile(file)}
             setView={() => setView(View.ImageUpload)}
             setIsLoading={setIsLoading}
           />
@@ -51,17 +55,21 @@ const HistoricalFiguresSearch = (_: Props) => {
     }
   };
 
-  const handleContinue = () => {
+  const handleContinue = async () => {
     try {
-      // TODO upload figure image
+      const formData = new FormData();
+
+      formData.append('distributionId', linkID);
+      formData.append('avatar', passportFile);
+      formData.append('figure', figure.name);
+
+      await createPassport(formData);
     } catch (error) {
       toast({
         message: error,
       });
     }
   };
-  const showContinueButton =
-    view === View.ImageUpload ? Boolean(passportFile) : Boolean(figure);
 
   return (
     <>
@@ -82,7 +90,7 @@ const HistoricalFiguresSearch = (_: Props) => {
         <div className="mx-auto max-w-6xl w-full pt-16 px-4 xl:px-0">
           {renderView()}
           <div className="mt-10 flex flex-col justify-center items-center">
-            {showContinueButton && (
+            {Boolean(passportFile) && (
               <div className="rounded-full shadow mt-14 mb-6">
                 <button
                   disabled={isLoading}

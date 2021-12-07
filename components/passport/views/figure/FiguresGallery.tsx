@@ -13,11 +13,12 @@ import { mergeClassNames } from 'utils/styles';
 
 interface Props {
   name: string;
+  onSelect: (file: File) => void;
   setView: () => void;
   setIsLoading: (isLoading: boolean) => void;
 }
 
-const FiguresGallery = ({ name, setView, setIsLoading }: Props) => {
+const FiguresGallery = ({ name, onSelect, setView, setIsLoading }: Props) => {
   const [refreshedImages, setRefreshedImages] = useState<Array<string>>([]);
   const [selectedImageToRefresh, setSelectedImageToRefresh] = useState<
     string | null
@@ -100,7 +101,11 @@ const FiguresGallery = ({ name, setView, setIsLoading }: Props) => {
               image === selectedImageToRefresh ? 'ring-2 ring-indigo-500' : '',
               'group flex cursor-pointer	justify-center items-center w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 overflow-hidden'
             )}
-            onClick={() => setSelectedImageToRefresh(image)}
+            onClick={() => {
+              // TODO make image to a File
+              onSelect(new File(['foo'], 'TODO replace this'));
+              setSelectedImageToRefresh(image);
+            }}
           >
             <button
               className="text-white z-10 absolute opacity-0 group-hover:opacity-100"
