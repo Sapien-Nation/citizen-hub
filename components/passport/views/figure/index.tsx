@@ -61,9 +61,7 @@ const HistoricalFiguresSearch = (_: Props) => {
     }
   };
   const showContinueButton =
-    view === View.ImageUpload
-      ? Boolean(passportFile)
-      : Boolean(figure) && isLoading === false;
+    view === View.ImageUpload ? Boolean(passportFile) : Boolean(figure);
 
   return (
     <>
@@ -87,6 +85,7 @@ const HistoricalFiguresSearch = (_: Props) => {
             {showContinueButton && (
               <div className="rounded-full shadow mt-14 mb-6">
                 <button
+                  disabled={isLoading}
                   type="button"
                   className="flex items-center bg-purple-600 hover:bg-purple-700 justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white md:py-4 md:text-lg md:px-10"
                   onClick={handleContinue}

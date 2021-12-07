@@ -1,6 +1,12 @@
 import { RefreshIcon } from '@heroicons/react/solid';
 import { useEffect, useState } from 'react';
-import useSWR from 'swr';
+import useSWR, { useSWRConfig } from 'swr';
+
+// api
+import { replaceFigure } from 'api/passport';
+
+// context
+import { useToast } from 'context/toast';
 
 // utils
 import { mergeClassNames } from 'utils/styles';
@@ -12,11 +18,51 @@ interface Props {
 }
 
 const FiguresGallery = ({ name, setView, setIsLoading }: Props) => {
-  const [selected, setSelected] = useState<string | null>(null);
-  const { data, error, isValidating } = useSWR<{ images: Array<string> }>(
-    `/api/v3/passport/avatar-lookup?term=${name}`
-  );
+  const [refreshedImages, setRefreshedImages] = useState<Array<string>>([]);
+  const [selectedImageToRefresh, setSelectedImageToRefresh] = useState<
+    string | null
+  >(null);
+
+  const toast = useToast();
+  const { mutate } = useSWRConfig();
+
+  const apiKey = `/api/v3/passport/avatar-lookup?term=${name}`;
+  const { data, error, isValidating } =
+    useSWR<{ images: Array<string> }>(apiKey);
+
   const isLoading = (!error && !data) || isValidating;
+
+  const handleRefresh = async (url: string) => {
+    setIsLoading(true);
+    try {
+      const newRefreshedImages = [...refreshedImages, url];
+      const newFigure = await replaceFigure({
+        term: name,
+        ignoreUrls: [...newRefreshedImages, ...data!.images],
+      });
+
+      setRefreshedImages(newRefreshedImages);
+      mutate(
+        apiKey,
+        (data: any) => ({
+          ...data,
+          images: data.images.map((image: string) =>
+            image === url ? newFigure : image
+          ),
+        }),
+        false
+      );
+    } catch (err) {
+      if (err.code === 204) {
+        setRefreshedImages([]);
+      }
+      toast({
+        message: error.message,
+      });
+    }
+    setSelectedImageToRefresh(null);
+    setIsLoading(false);
+  };
 
   useEffect(() => setIsLoading(isLoading), [isLoading, setIsLoading]);
 
@@ -51,14 +97,17 @@ const FiguresGallery = ({ name, setView, setIsLoading }: Props) => {
           <li
             key={index}
             className={mergeClassNames(
-              image === selected ? 'ring-2 ring-indigo-500' : '',
+              image === selectedImageToRefresh ? 'ring-2 ring-indigo-500' : '',
               'group flex cursor-pointer	justify-center items-center w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 overflow-hidden'
             )}
-            onClick={() => setSelected(image)}
+            onClick={() => setSelectedImageToRefresh(image)}
           >
             <button
               className="text-white z-10 absolute opacity-0 group-hover:opacity-100"
-              onClick={(event) => event.stopPropagation()}
+              onClick={(event) => {
+                event.stopPropagation();
+                handleRefresh(image);
+              }}
             >
               <RefreshIcon
                 className={isLoading ? `animate-spin h-5 w-5` : `h-5 w-5`}
