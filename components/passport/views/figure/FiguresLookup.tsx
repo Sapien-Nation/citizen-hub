@@ -57,10 +57,12 @@ const FiguresLookup = ({ onFigureSelect }: Props) => {
   useKeyPressEvent(KEY_CODES.ENTER, () => {
     const selectedFigure = data[cursor];
 
+    console.log(selectedFigure);
+
     clearSuggestions();
     onFigureSelect(selectedFigure);
 
-    inputRef.current.value = '';
+    inputRef.current.value = selectedFigure?.name;
   });
 
   const onSuggestionHover = (cursor: number) => setCurrentCursor(cursor);
@@ -68,7 +70,7 @@ const FiguresLookup = ({ onFigureSelect }: Props) => {
   const onSuggestionClick = (figure: Figure) => {
     onFigureSelect(figure);
 
-    inputRef.current.value = '';
+    inputRef.current.value = figure?.name;
   };
 
   //---------------------------------------------------------------------------------------------
@@ -85,29 +87,31 @@ const FiguresLookup = ({ onFigureSelect }: Props) => {
           id="search"
           name="search"
           autoComplete="off"
-          className="block w-full h-12 px-3 py-2 border border-gray-300 rounded-3xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
+          className="block w-full h-12 px-5 py-2 border border-gray-300 rounded-3xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
           placeholder="Name"
-          type="search"
+          type="text"
           onChange={handleFigureSearch}
           onBlur={() => {
             clearSuggestions();
             setCurrentCursor(null);
           }}
         />
-        <div className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer">
-          {isLoading && <RefreshIcon className="animate-spin h-5 w-5 mr-3" />}
-        </div>
+        {isLoading && (
+          <div className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer">
+            <RefreshIcon className="animate-spin h-5 w-5 mr-3" />
+          </div>
+        )}
 
         {data?.length > 0 && (
           <ul
             tabIndex={-1}
-            className="bg-white rounded-lg w-full mt-1 z-10 absolute px-1 py-1 border-b border-gray-200"
+            className="bg-white rounded-lg w-full mt-1 z-10 absolute py-1 border-b border-gray-200"
           >
             {data.map((suggestion, index) => (
               <li
                 key={suggestion.id}
-                className={`w-full rounder-md text-left p-2 ${
-                  cursor === index ? 'bg-gray-50' : null
+                className={`w-full rounder-md text-left py-2 px-5 cursor-pointer ${
+                  cursor === index ? 'bg-gray-100' : null
                 }`}
                 onMouseDown={() => onSuggestionClick(suggestion)}
                 onMouseEnter={() => onSuggestionHover(index)}
