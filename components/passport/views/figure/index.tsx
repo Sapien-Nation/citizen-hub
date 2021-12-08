@@ -62,6 +62,7 @@ const HistoricalFiguresSearch = ({ linkID }: Props) => {
       formData.append('distributionId', linkID);
       formData.append('avatar', passportFile);
       formData.append('figure', figure.name);
+      formData.append('manual', view === View.ImageUpload ? 'true' : 'false');
 
       await createPassport(formData);
     } catch (error) {
