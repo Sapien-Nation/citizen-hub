@@ -57,11 +57,18 @@ const FiguresLookup = ({ onFigureSelect }: Props) => {
 
   useKeyPressEvent(KEY_CODES.ENTER, () => {
     const selectedFigure = data[cursor];
+    const manualFigure = {
+      id: searchTerm,
+      istaken: false,
+      name: searchTerm,
+      passportId: null,
+    };
 
     clearSuggestions();
-    onFigureSelect(selectedFigure);
+    setShowSuggestions(false);
+    onFigureSelect(selectedFigure || manualFigure);
 
-    inputRef.current.value = selectedFigure?.name;
+    inputRef.current.value = selectedFigure?.name || searchTerm;
   });
 
   const onSuggestionHover = (cursor: number) => setCurrentCursor(cursor);
