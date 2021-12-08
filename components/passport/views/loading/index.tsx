@@ -1,7 +1,7 @@
 // components
 import { AnimatedAvatar, LottiePlayer } from 'components/common';
 
-const AvatarLoadingView = () => (
+const Loading = () => (
   <div className="flex-col flex justify-center items-center">
     <div className="w-64">
       <AnimatedAvatar />
@@ -22,4 +22,4 @@ const AvatarLoadingView = () => (
   </div>
 );
 
-export default AvatarLoadingView;
+export default Loading;

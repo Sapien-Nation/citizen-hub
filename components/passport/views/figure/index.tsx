@@ -27,7 +27,7 @@ interface Props {
   setPassportView: (view: PassportViews) => void;
 }
 
-const HistoricalFiguresSearch = ({ linkID, setPassportView }: Props) => {
+const FigureView = ({ linkID, setPassportView }: Props) => {
   const [view, setView] = useState<View>(View.FigureGallery);
   const [figure, setFigure] = useState<Figure | null>(null);
   const [isFetching, setIsFetching] = useState(false);
@@ -121,4 +121,4 @@ const HistoricalFiguresSearch = ({ linkID, setPassportView }: Props) => {
   );
 };
 
-export default HistoricalFiguresSearch;
+export default FigureView;
