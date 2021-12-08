@@ -31,7 +31,22 @@ const FiguresLookup = ({ onFigureSelect }: Props) => {
     : '';
   const { data, error, isValidating } = useSWR<Array<Figure>>(apiKey);
   const isLoading = (searchTerm && !error && !data) || isValidating;
+  let suggestions: Array<Figure> = [];
 
+  if (searchTerm) {
+    suggestions = [
+      {
+        id: searchTerm,
+        name: searchTerm,
+        passportId: null,
+        istaken: false, // TODO backend to fix this field
+      },
+    ];
+  }
+
+  if (data?.length > 0) {
+    suggestions = uniqBy([...suggestions, ...data], ({ name }) => name);
+  }
   //---------------------------------------------------------------------------------------------
   const clearSuggestions = () => cache.set(apiKey, () => []);
 
@@ -39,7 +54,7 @@ const FiguresLookup = ({ onFigureSelect }: Props) => {
     if (cursor > 0) {
       setCurrentCursor(cursor - 1);
     } else if (cursor === 0 || cursor === null) {
-      setCurrentCursor(data?.length - 1);
+      setCurrentCursor(suggestions.length - 1);
     } else {
       setCurrentCursor(cursor - 1);
     }
@@ -48,7 +63,7 @@ const FiguresLookup = ({ onFigureSelect }: Props) => {
   useKeyPressEvent(KEY_CODES.DOWN, () => {
     if (cursor === null) {
       setCurrentCursor(0);
-    } else if (cursor >= data?.length - 1) {
+    } else if (cursor >= suggestions.length - 1) {
       setCurrentCursor(0);
     } else {
       setCurrentCursor(cursor + 1);
@@ -56,7 +71,7 @@ const FiguresLookup = ({ onFigureSelect }: Props) => {
   });
 
   useKeyPressEvent(KEY_CODES.ENTER, () => {
-    const selectedFigure = data[cursor];
+    const selectedFigure = suggestions[cursor];
     const manualFigure = {
       id: searchTerm,
       istaken: false,
@@ -89,23 +104,6 @@ const FiguresLookup = ({ onFigureSelect }: Props) => {
       }, 300),
     []
   );
-
-  let suggestions: Array<Figure> = [];
-
-  if (searchTerm) {
-    suggestions = [
-      {
-        id: searchTerm,
-        name: searchTerm,
-        passportId: null,
-        istaken: false, // TODO backend to fix this field
-      },
-    ];
-  }
-
-  if (data?.length > 0) {
-    suggestions = uniqBy([...suggestions, ...data], ({ name }) => name);
-  }
 
   return (
     <div className="flex justify-center items-center">

@@ -17,7 +17,7 @@ const AvatarLoadingView = () => (
           tracking-wide
         "
     >
-      Generating your avatar . . .
+      Generating your avatars . . .
     </span>
   </div>
 );

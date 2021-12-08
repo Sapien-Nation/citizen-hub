@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 // components
 import { Head, Query, Redirect } from 'components/common';
-import { AvatarLoadingView, FeedbackView, Figure } from 'components/passport';
+import { FeedbackView, Figure, Loading } from 'components/passport';
 
 // context
 import { useAuth } from 'context/user';
@@ -45,9 +45,9 @@ const PassportPage = () => {
           <Figure linkID={String(query.linkID)} setPassportView={setView} />
         );
       case View.Loading:
-        return <AvatarLoadingView />;
+        return <Loading />;
       case View.Avatar:
-        return 'TODO Avatar Gallery';
+        return <h1>TODO Avatar Gallery</h1>;
     }
   };
 

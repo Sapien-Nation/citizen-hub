@@ -94,7 +94,7 @@ const FiguresGallery = ({ name, onSelect, setView, setIsFetching }: Props) => {
         setRefreshedImages([]);
       }
       toast({
-        message: error.message,
+        message: error?.message ?? 'No more relevant images found',
       });
     }
     setIsRefreshing(false);
