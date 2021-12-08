@@ -8,6 +8,9 @@ import FiguresGallery from './FiguresGallery';
 import FigureImageUpload from './FigureImageUpload';
 import FiguresLookup from './FiguresLookup';
 
+// constants
+import { View as PassportViews } from 'pages/passport/[linkID]';
+
 // context
 import { useToast } from 'context/toast';
 
@@ -15,40 +18,38 @@ import { useToast } from 'context/toast';
 import type { Figure } from 'types/figure';
 
 enum View {
-  Gallery,
-  ImageUpload,
+  FigureGallery,
+  FigureImageUpload,
 }
 
 interface Props {
-  allowedPassports: number;
-  availablePassports: number;
   linkID: string;
+  setPassportView: (view: PassportViews) => void;
 }
 
-const HistoricalFiguresSearch = ({ linkID }: Props) => {
-  const [view, setView] = useState<View>(View.Gallery);
+const HistoricalFiguresSearch = ({ linkID, setPassportView }: Props) => {
+  const [view, setView] = useState<View>(View.FigureGallery);
   const [figure, setFigure] = useState<Figure | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isFetching, setIsFetching] = useState(false);
   const [passportFile, setPassportFile] = useState<File | null>(null);
 
   const toast = useToast();
 
   const renderView = () => {
-    if (figure === null) return null;
     switch (view) {
-      case View.Gallery:
+      case View.FigureGallery:
         return (
           <FiguresGallery
             name={figure.name}
             onSelect={(file) => setPassportFile(file)}
-            setView={() => setView(View.ImageUpload)}
-            setIsLoading={setIsLoading}
+            setView={() => setView(View.FigureImageUpload)}
+            setIsFetching={setIsFetching}
           />
         );
-      case View.ImageUpload:
+      case View.FigureImageUpload:
         return (
           <FigureImageUpload
-            setView={() => setView(View.Gallery)}
+            setView={() => setView(View.FigureGallery)}
             setFile={(file) => setPassportFile(file)}
           />
         );
@@ -56,20 +57,28 @@ const HistoricalFiguresSearch = ({ linkID }: Props) => {
   };
 
   const handleContinue = async () => {
+    setPassportView(PassportViews.Loading);
     try {
       const formData = new FormData();
 
       formData.append('distributionId', linkID);
-      formData.append('avatar', passportFile);
-      formData.append('figure', figure.name);
-      formData.append('manual', view === View.ImageUpload ? 'true' : 'false');
+      formData.append('image', passportFile);
+      formData.append('figureName', figure.name);
+      formData.append(
+        'isManual',
+        view === View.FigureImageUpload ? 'true' : 'false'
+      );
 
       await createPassport(formData);
+
+      setPassportView(PassportViews.Avatar);
     } catch (error) {
       toast({
-        message: error,
+        message: error ?? 'Error Creating Passport, please try another figure',
       });
+      setPassportView(PassportViews.Figure);
     }
+    setIsFetching(false);
   };
 
   return (
@@ -89,17 +98,19 @@ const HistoricalFiguresSearch = ({ linkID }: Props) => {
       />
       <main className="lg:relative">
         <div className="mx-auto max-w-6xl w-full pt-16 px-4 xl:px-0">
-          {renderView()}
+          {figure && renderView()}
           <div className="mt-10 flex flex-col justify-center items-center">
             {Boolean(passportFile) && (
               <div className="rounded-full shadow mt-14 mb-6">
                 <button
-                  disabled={isLoading}
+                  disabled={isFetching}
                   type="button"
-                  className="flex items-center bg-purple-600 hover:bg-purple-700 justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white md:py-4 md:text-lg md:px-10"
+                  className={`flex items-center bg-purple-600 hover:bg-purple-700 justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white md:py-4 md:text-lg md:px-10 ${
+                    isFetching ? 'animate-pulse' : ''
+                  }`}
                   onClick={handleContinue}
                 >
-                  Continue
+                  Generate Avatar
                 </button>
               </div>
             )}

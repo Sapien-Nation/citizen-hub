@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import { useState } from 'react';
 
 // components
 import { Head, Query, Redirect } from 'components/common';
@@ -15,7 +16,15 @@ interface LinkCheckResponse {
   message?: string;
 }
 
+export enum View {
+  Avatar,
+  Figure,
+  Loading,
+}
+
 const PassportPage = () => {
+  const [view, setView] = useState(View.Figure);
+
   const { query } = useRouter();
   const { me, isLoggingIn } = useAuth();
 
@@ -25,22 +34,21 @@ const PassportPage = () => {
 
   if (!query.linkID) return null;
 
-  const renderView = ({
-    allowedPassports,
-    availablePassports,
-    statusCode,
-  }: LinkCheckResponse) => {
+  const renderView = ({ statusCode }: LinkCheckResponse) => {
     if (statusCode) {
       return <FeedbackView code={statusCode} />;
     }
 
-    return (
-      <Figure
-        allowedPassports={allowedPassports}
-        availablePassports={availablePassports}
-        linkID={String(query.linkID)}
-      />
-    );
+    switch (view) {
+      case View.Figure:
+        return (
+          <Figure linkID={String(query.linkID)} setPassportView={setView} />
+        );
+      case View.Loading:
+        return 'TODO Generating Avatars';
+      case View.Avatar:
+        return 'TODO Avatar Gallery';
+    }
   };
 
   return (

@@ -1,6 +1,6 @@
 import { RefreshIcon } from '@heroicons/react/solid';
 import useSWR, { useSWRConfig } from 'swr';
-import { debounce } from 'lodash';
+import { debounce, uniqBy } from 'lodash';
 import { useMemo, useRef, useState } from 'react';
 import { useKeyPressEvent } from 'react-use';
 
@@ -20,6 +20,7 @@ interface Props {
 const FiguresLookup = ({ onFigureSelect }: Props) => {
   const [cursor, setCurrentCursor] = useState<number | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
+  const [showSuggestions, setShowSuggestions] = useState(true);
 
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -66,6 +67,7 @@ const FiguresLookup = ({ onFigureSelect }: Props) => {
   const onSuggestionHover = (cursor: number) => setCurrentCursor(cursor);
 
   const onSuggestionClick = (figure: Figure) => {
+    setShowSuggestions(false);
     onFigureSelect(figure);
 
     inputRef.current.value = figure?.name;
@@ -73,9 +75,30 @@ const FiguresLookup = ({ onFigureSelect }: Props) => {
 
   //---------------------------------------------------------------------------------------------
   const handleFigureSearch = useMemo(
-    () => debounce((event) => setSearchTerm(event.target.value), 300),
+    () =>
+      debounce((event) => {
+        setSearchTerm(event.target.value);
+        setShowSuggestions(true);
+      }, 300),
     []
   );
+
+  let suggestions: Array<Figure> = [];
+
+  if (searchTerm) {
+    suggestions = [
+      {
+        id: searchTerm,
+        name: searchTerm,
+        passportId: null,
+        istaken: false, // TODO backend to fix this field
+      },
+    ];
+  }
+
+  if (data?.length > 0) {
+    suggestions = uniqBy([...suggestions, ...data], ({ name }) => name);
+  }
 
   return (
     <div className="flex justify-center items-center">
@@ -100,17 +123,17 @@ const FiguresLookup = ({ onFigureSelect }: Props) => {
           </div>
         )}
 
-        {data?.length > 0 && (
+        {suggestions.length > 0 && showSuggestions && (
           <ul
             tabIndex={-1}
             className="bg-white rounded-lg w-full mt-1 z-10 absolute py-1 border-b border-gray-200"
           >
-            {data.map((suggestion, index) => (
+            {suggestions.map((suggestion, index) => (
               <li
                 key={suggestion.id}
                 className={`w-full rounder-md text-left py-2 px-5 cursor-pointer ${
                   cursor === index ? 'bg-gray-100' : null
-                }`}
+                } ${suggestion.istaken ? 'pointer-events-none' : ''}`}
                 onMouseDown={() => onSuggestionClick(suggestion)}
                 onMouseEnter={() => onSuggestionHover(index)}
               >

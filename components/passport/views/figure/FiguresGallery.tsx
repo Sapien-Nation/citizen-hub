@@ -15,15 +15,13 @@ interface Props {
   name: string;
   onSelect: (file: File) => void;
   setView: () => void;
-  setIsLoading: (isLoading: boolean) => void;
+  setIsFetching: (isFetching: boolean) => void;
 }
 
-const FiguresGallery = ({ name, onSelect, setView, setIsLoading }: Props) => {
+const FiguresGallery = ({ name, onSelect, setView, setIsFetching }: Props) => {
+  const [isRefreshing, setIsRefreshing] = useState<boolean>(false);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [refreshedImages, setRefreshedImages] = useState<Array<string>>([]);
-  const [isRefreshing, setRefreshing] = useState<boolean>(false);
-  const [selectedImageToRefresh, setSelectedImageToRefresh] = useState<
-    string | null
-  >(null);
 
   const toast = useToast();
   const { mutate } = useSWRConfig();
@@ -32,11 +30,45 @@ const FiguresGallery = ({ name, onSelect, setView, setIsLoading }: Props) => {
   const { data, error, isValidating } =
     useSWR<{ images: Array<string> }>(apiKey);
 
-  const isLoading = (!error && !data) || isValidating;
+  const loadingData = (!error && !data) || isValidating;
+
+  const generateImageFile = async (image: string) => {
+    try {
+      const fetchedImage = await fetch(image);
+      const blob = await fetchedImage.blob();
+      return new File([blob], name, {
+        type: blob.type,
+      });
+    } catch (err) {
+      toast({
+        message: error.message,
+      });
+    }
+  };
+
+  const handleImageSelect = async (image: string, handleFetch = true) => {
+    if (handleFetch) {
+      setIsFetching(true);
+    }
+    try {
+      const imageFile = await generateImageFile(image);
+      onSelect(imageFile);
+      setSelectedImage(image);
+    } catch (error) {
+      toast({
+        message:
+          'There was an Error selecting this image, please select another one',
+      });
+      setSelectedImage(null);
+      onSelect(null);
+    }
+    if (handleFetch) {
+      setIsFetching(false);
+    }
+  };
 
   const handleRefresh = async (url: string) => {
-    setIsLoading(true);
-    setRefreshing(true);
+    setIsRefreshing(true);
     try {
       const newRefreshedImages = [...refreshedImages, url];
       const newFigure = await replaceFigure({
@@ -44,10 +76,12 @@ const FiguresGallery = ({ name, onSelect, setView, setIsLoading }: Props) => {
         ignoreUrls: [...newRefreshedImages, ...data!.images],
       });
 
+      await handleImageSelect(newFigure, false);
+
       setRefreshedImages(newRefreshedImages);
       mutate(
         apiKey,
-        (data: any) => ({
+        (data: { images: Array<string> }) => ({
           ...data,
           images: data.images.map((image: string) =>
             image === url ? newFigure : image
@@ -63,14 +97,15 @@ const FiguresGallery = ({ name, onSelect, setView, setIsLoading }: Props) => {
         message: error.message,
       });
     }
-    setRefreshing(false);
-    setSelectedImageToRefresh(null);
-    setIsLoading(false);
+    setIsRefreshing(false);
   };
 
-  useEffect(() => setIsLoading(isLoading), [isLoading, setIsLoading]);
+  useEffect(
+    () => setIsFetching(loadingData || isRefreshing),
+    [isRefreshing, loadingData, setIsFetching]
+  );
 
-  if (isLoading) {
+  if (loadingData) {
     return (
       <ul
         role="list"
@@ -91,6 +126,7 @@ const FiguresGallery = ({ name, onSelect, setView, setIsLoading }: Props) => {
       </ul>
     );
   }
+
   return (
     <>
       <ul
@@ -99,38 +135,31 @@ const FiguresGallery = ({ name, onSelect, setView, setIsLoading }: Props) => {
       >
         {data.images.map((image, index) => (
           <div key={index}>
-            {isRefreshing && image === selectedImageToRefresh ? (
+            {isRefreshing && image === selectedImage ? (
               <li className="animate-pulse relative">
-                <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-200 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden"></div>
+                <div className="absolute group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-200 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
+                  <RefreshIcon className="animate-spin h-5 w-5" />
+                </div>
               </li>
             ) : (
               <li
                 className={mergeClassNames(
-                  image === selectedImageToRefresh
-                    ? 'ring-2 ring-indigo-500'
-                    : '',
+                  image === selectedImage ? 'ring-2 ring-indigo-500' : '',
                   'group flex cursor-pointer	justify-center items-center w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 overflow-hidden'
                 )}
                 onClick={async () => {
-                  const blob = await (await fetch(image)).blob();
-                  const imageFile = new File([blob], 'image.jpg', {
-                    type: blob.type,
-                  });
-                  onSelect(imageFile);
-                  setSelectedImageToRefresh(image);
+                  await handleImageSelect(image);
                 }}
               >
                 <button
                   className="text-white z-10 absolute opacity-0 group-hover:opacity-100"
                   onClick={(event) => {
                     event.stopPropagation();
-                    setSelectedImageToRefresh(image);
+                    setSelectedImage(image);
                     handleRefresh(image);
                   }}
                 >
-                  <RefreshIcon
-                    className={isLoading ? `animate-spin h-5 w-5` : `h-5 w-5`}
-                  />
+                  <RefreshIcon className="h-5 w-5" />
                 </button>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
