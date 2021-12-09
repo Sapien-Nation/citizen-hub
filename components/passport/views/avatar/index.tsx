@@ -49,19 +49,19 @@ const HistoricalFiguresSearch = ({ linkID }: Props) => {
               api="/api/v3/passport/avatar"
               options={{
                 fetcher: () => [
-                  'https://via.placeholder.com/150',
-                  'https://via.placeholder.com/150',
-                  'https://via.placeholder.com/150',
-                  'https://via.placeholder.com/150',
-                  'https://via.placeholder.com/150',
-                  'https://via.placeholder.com/150',
+                  'https://via.placeholder.com/150?id=0',
+                  'https://via.placeholder.com/150?id=1',
+                  'https://via.placeholder.com/150?id=2',
+                  'https://via.placeholder.com/150?id=3',
+                  'https://via.placeholder.com/150?id=4',
+                  'https://via.placeholder.com/150?id=5',
                 ],
               }}
             >
               {(data: Array<string>) => (
                 <>
                   {data.map((image) => (
-                    <div
+                    <li
                       key={image}
                       className={mergeClassNames(
                         image === avatar ? 'ring-2 ring-indigo-500' : '',
@@ -69,18 +69,21 @@ const HistoricalFiguresSearch = ({ linkID }: Props) => {
                       )}
                       onClick={() => setAvatar(image)}
                     >
-                      <Image
-                        src={image}
-                        width={400}
-                        height={400}
-                        alt={'Avatar Image result for the selected figure'}
-                        className="object-cover h-full w-full pointer-events-none group-hover:opacity-75"
-                        onError={(event) => {
-                          (event.target as HTMLImageElement).src =
-                            'https://d151dmflpumpzp.cloudfront.net/images/tribes/default_temp.jpeg';
-                        }}
-                      />
-                    </div>
+                      <div className="relative w-full h-full">
+                        <Image
+                          alt={'Avatar Image result for the selected figure'}
+                          src={image}
+                          layout="fill"
+                          objectFit="cover"
+                          quality={100}
+                          className="object-cover h-full w-full pointer-events-none group-hover:opacity-75"
+                          onError={(event) => {
+                            (event.target as HTMLImageElement).src =
+                              'https://d151dmflpumpzp.cloudfront.net/images/tribes/default_temp.jpeg';
+                          }}
+                        />
+                      </div>
+                    </li>
                   ))}
                 </>
               )}
