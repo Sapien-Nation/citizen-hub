@@ -12,19 +12,21 @@ const FigureView = ({ linkID }: Props) => {
           Welcome to the Sapien Tribe!
         </h3>
         <p className="mt-3 max-w-lg mx-auto text-md font-light py-4 text-gray-500 sm:text-xl md:mt-5">
-          To claim your passport please input your favorite historical figure.
-          Your choice of figure should reflect the values you will champion as a
-          member of our tribe.
+          Please input your favorite historical figure. Your choice of figure
+          should reflect the values you will champion as a member of our tribe.
         </p>
       </div>
       <main className="lg:relative">
-        <div className="mx-auto max-w-6xl w-full pt-16 px-4 xl:px-0">
-          <Link href={`/login?redirect=/passport/${linkID}`}>
-            <a>Login</a>
-          </Link>
-          <Link href={`/register?redirect=/passport/${linkID}`}>
-            <a>Register</a>
-          </Link>
+        <div className="my-10">
+          <p className="text-base inline">
+            You are no logged in. Click
+            <Link href={`/login?redirect=/passport/${linkID}`}>
+              <a className="font-medium text-purple-600 hover:text-purple-500">
+                &nbsp;here&nbsp;
+              </a>
+            </Link>
+            to login.
+          </p>
         </div>
       </main>
     </>
