@@ -28,7 +28,7 @@ export enum View {
 }
 
 const PassportPage = () => {
-  const [view, setView] = useState(View.Avatar);
+  const [view, setView] = useState(View.Figure);
 
   const { query } = useRouter();
   const { me, isLoggingIn } = useAuth();
