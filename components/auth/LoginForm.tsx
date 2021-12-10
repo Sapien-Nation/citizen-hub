@@ -1,5 +1,6 @@
 import { RefreshIcon } from '@heroicons/react/solid';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 
 // api
@@ -18,6 +19,7 @@ interface LoginFormValues {
 }
 
 const LoginForm = () => {
+  const { push, query } = useRouter();
   const {
     formState: { isSubmitting },
     register,
@@ -36,7 +38,12 @@ const LoginForm = () => {
         password,
       });
 
-      setSession(response);
+      const { redirect } = query;
+      setSession(response, redirect ? false : true);
+
+      if (redirect) {
+        push(redirect as string);
+      }
     } catch (error) {
       toast({
         message: error,

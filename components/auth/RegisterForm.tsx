@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { RefreshIcon } from '@heroicons/react/solid';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import * as Yup from 'yup';
 
@@ -35,6 +36,8 @@ const validationSchema = Yup.object().shape({
 });
 
 const RegisterForm = () => {
+  const { push, query } = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -62,7 +65,12 @@ const RegisterForm = () => {
         redirect: '/',
       });
 
-      setSession(response);
+      const { redirect } = query;
+      setSession(response, redirect ? false : true);
+
+      if (redirect) {
+        push(redirect as string);
+      }
     } catch (error) {
       toast({
         message: error,

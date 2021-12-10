@@ -13,11 +13,14 @@ export interface Authentication {
   me: User | null;
   clearSession: () => void;
   isLoggingIn: boolean;
-  setSession: (tokens: {
-    token: string;
-    torus: string;
-    refresh: string;
-  }) => void;
+  setSession: (
+    tokens: {
+      token: string;
+      torus: string;
+      refresh: string;
+    },
+    redirect?: boolean
+  ) => void;
 }
 
 export const AuthenticationContext = createContext<Authentication>(null);
@@ -47,18 +50,24 @@ const AuthenticationProvider = ({ children }: Props) => {
     push('/');
   };
 
-  const setSession = async ({
-    token,
-    torus,
-    refresh,
-  }: {
-    token: string;
-    torus: string;
-    refresh: string;
-  }) => {
+  const setSession = async (
+    {
+      token,
+      torus,
+      refresh,
+    }: {
+      token: string;
+      torus: string;
+      refresh: string;
+    },
+    redirect = true
+  ) => {
     setTokens({ token, torus, refresh });
     await authMutate();
-    push('/');
+
+    if (redirect) {
+      push('/');
+    }
   };
 
   return (

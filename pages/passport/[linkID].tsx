@@ -4,6 +4,7 @@ import { useState } from 'react';
 // components
 import { Head, Query, Redirect } from 'components/common';
 import {
+  Auth,
   Avatar,
   FeedbackView,
   Figure as FigureView,
@@ -22,6 +23,7 @@ interface LinkCheckResponse {
 }
 
 export enum View {
+  AuthView,
   Avatar,
   Figure,
   Loading,
@@ -33,11 +35,9 @@ const PassportPage = () => {
   const { query } = useRouter();
   const { me, isLoggingIn } = useAuth();
 
-  if (isLoggingIn === true) return null;
+  if (isLoggingIn === true || !query.linkID) return null;
 
-  if (me === null) return <Redirect path="/" />;
-
-  if (!query.linkID) return null;
+  if (me === null) return <Auth linkID={query.linkID as string} />;
 
   const renderView = ({ statusCode }: LinkCheckResponse) => {
     if (statusCode) {
