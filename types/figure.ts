@@ -1,6 +1,6 @@
 export interface Figure {
   id: string;
   name: string;
-  istaken: boolean;
+  isTaken: boolean;
   passportId: string | null;
 }

@@ -39,7 +39,7 @@ const FiguresLookup = ({ onFigureSelect }: Props) => {
         id: searchTerm,
         name: searchTerm,
         passportId: null,
-        istaken: false, // TODO backend to fix this field
+        isTaken: false, // TODO backend to fix this field
       },
     ];
   }
@@ -72,27 +72,34 @@ const FiguresLookup = ({ onFigureSelect }: Props) => {
 
   useKeyPressEvent(KEY_CODES.ENTER, () => {
     const selectedFigure = suggestions[cursor];
-    const manualFigure = {
-      id: searchTerm,
-      istaken: false,
-      name: searchTerm,
-      passportId: null,
-    };
-
     clearSuggestions();
     setShowSuggestions(false);
-    onFigureSelect(selectedFigure || manualFigure);
 
-    inputRef.current.value = selectedFigure?.name || searchTerm;
+    if (selectedFigure) {
+      if (selectedFigure.isTaken === false) {
+        onFigureSelect(selectedFigure);
+        inputRef.current.value = selectedFigure?.name || searchTerm;
+      }
+    } else {
+      onFigureSelect({
+        id: searchTerm,
+        isTaken: false,
+        name: searchTerm,
+        passportId: null,
+      });
+      inputRef.current.value = selectedFigure?.name || searchTerm;
+    }
   });
 
   const onSuggestionHover = (cursor: number) => setCurrentCursor(cursor);
 
   const onSuggestionClick = (figure: Figure) => {
-    setShowSuggestions(false);
-    onFigureSelect(figure);
+    if (figure.isTaken === false) {
+      setShowSuggestions(false);
+      onFigureSelect(figure);
 
-    inputRef.current.value = figure?.name;
+      inputRef.current.value = figure?.name;
+    }
   };
 
   //---------------------------------------------------------------------------------------------
@@ -136,13 +143,16 @@ const FiguresLookup = ({ onFigureSelect }: Props) => {
             {suggestions.map((suggestion, index) => (
               <li
                 key={suggestion.id}
-                className={`w-full rounder-md text-left py-2 px-5 cursor-pointer ${
+                className={`w-full flex justify-between rounder-md text-left py-2 px-5 cursor-pointer ${
                   cursor === index ? 'bg-gray-100' : null
-                } ${suggestion.istaken ? 'pointer-events-none' : ''}`}
+                } ${suggestion.isTaken ? 'cursor-not-allowed' : ''}`}
                 onMouseDown={() => onSuggestionClick(suggestion)}
                 onMouseEnter={() => onSuggestionHover(index)}
               >
                 <span>{suggestion.name}</span>
+                {suggestion.isTaken ? (
+                  <span className="text-xs text-gray-400">Not Available</span>
+                ) : null}
               </li>
             ))}
           </ul>
