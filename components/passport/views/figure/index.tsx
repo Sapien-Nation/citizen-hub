@@ -42,14 +42,24 @@ const FigureView = ({ linkID, setPassportView }: Props) => {
           <FiguresGallery
             name={figure.name}
             onSelect={(file) => setPassportFile(file)}
-            setView={() => setView(View.FigureImageUpload)}
+            setView={() => {
+              if (passportFile) {
+                setPassportFile(null);
+              }
+              setView(View.FigureImageUpload);
+            }}
             setIsFetching={setIsFetching}
           />
         );
       case View.FigureImageUpload:
         return (
           <FigureImageUpload
-            setView={() => setView(View.FigureGallery)}
+            setView={() => {
+              if (passportFile) {
+                setPassportFile(null);
+              }
+              setView(View.FigureGallery);
+            }}
             setFile={(file) => setPassportFile(file)}
           />
         );
