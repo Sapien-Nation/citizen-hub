@@ -55,7 +55,7 @@ build-qat:
     - docker build -t passport:latest .
     - docker tag passport:latest 081984521558.dkr.ecr.us-east-2.amazonaws.com/passport:latest
     - docker push 081984521558.dkr.ecr.us-east-2.amazonaws.com/passport:latest
-    - cd eks-manif &&  envsubst <  passport-dep-temp-q.yml > passport-dep.yml
+    - cd eks-manif &&  envsubst <  passport-dep-temp-qa.yml  > passport-dep.yml
     - cat passport-dep.yml
     - kubectl apply -f passport-dep.yml
   only:
@@ -76,7 +76,7 @@ build-poc:
     - docker build -t passport:latest .
     - docker tag passport:latest 081984521558.dkr.ecr.us-east-2.amazonaws.com/passport:latest
     - docker push 081984521558.dkr.ecr.us-east-2.amazonaws.com/passport:latest
-    - cd eks-manif &&  envsubst <  passport-dep-temp-q.yml > passport-dep.yml
+    - cd eks-manif &&  envsubst <  passport-dep-temp-prd.yml > passport-dep.yml
     - cat passport-dep.yml
     - kubectl apply -f passport-dep.yml
   only:
