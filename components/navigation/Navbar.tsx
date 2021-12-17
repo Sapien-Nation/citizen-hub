@@ -39,7 +39,7 @@ const Navbar = () => {
           <div className="max-w-6xl mx-auto py-1 px-2 sm:px-4 lg:px-8">
             <div className="flex justify-between h-16">
               <div className="flex px-2 lg:px-0">
-                <div className="flex-shrink-0 flex items-center">
+                <div className="shrink-0 flex items-center">
                   <FullLogo className="lg:border-r border-gray-300 pr-6" />
                 </div>
                 <div className="hidden lg:ml-6 lg:flex lg:space-x-8">
@@ -86,7 +86,7 @@ const Navbar = () => {
                     <button className="inline-flex items-center px-4 py-2 border text-sm font-medium rounded-full py-2 px-6 shadow-sm hover:bg-purple-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
                       Connect Wallet
                     </button>
-                    <Menu as="div" className="relative ml-2 flex-shrink-0">
+                    <Menu as="div" className="relative ml-2 shrink-0">
                       <div>
                         <Menu.Button className="bg-white rounded-full flex text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
                           <span className="sr-only">Open user menu</span>
@@ -110,11 +110,11 @@ const Navbar = () => {
                       <Transition
                         as={Fragment}
                         enter="transition ease-out duration-100"
-                        enterFrom="transform opacity-0 scale-95"
-                        enterTo="transform opacity-100 scale-100"
+                        enterFrom="opacity-0 scale-95"
+                        enterTo="opacity-100 scale-100"
                         leave="transition ease-in duration-75"
-                        leaveFrom="transform opacity-100 scale-100"
-                        leaveTo="transform opacity-0 scale-95"
+                        leaveFrom="opacity-100 scale-100"
+                        leaveTo="opacity-0 scale-95"
                       >
                         <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                           <Menu.Item>
@@ -168,7 +168,7 @@ const Navbar = () => {
               {me ? (
                 <>
                   <div className="flex items-center px-4">
-                    <div className="flex-shrink-0">
+                    <div className="Wshrink-0">
                       {me.avatar ? (
                         <Image
                           alt={me.displayName}
@@ -195,7 +195,7 @@ const Navbar = () => {
                     </div>
                     <button
                       type="button"
-                      className="ml-auto flex-shrink-0 bg-white p-1 text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
+                      className="ml-auto shrink-0 bg-white p-1 text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
                     >
                       <span className="sr-only">View notifications</span>
                       <BellIcon className="h-6 w-6" aria-hidden="true" />

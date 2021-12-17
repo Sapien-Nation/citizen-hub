@@ -10,6 +10,26 @@ import { useAuth } from 'context/user';
 // types
 import { NextPage } from 'next';
 
+const contributions = [
+  {
+    title: 'Community',
+    href: '#',
+    category: { name: 'Article', href: '#' },
+    description:
+      "We're looking for existing communities that want to join our mission and be first to use our tools to organize their communities.",
+  },
+  {
+    title: 'Team',
+    description:
+      "Our project is rapidly expanding and we're always in need of new, talented people to help move our mission forward.",
+  },
+  {
+    title: 'Governance',
+    description:
+      "This is a community built project and the decisions we're making are based on input from the community. Help drive those decisions.",
+  },
+];
+
 const IndexPage: NextPage = () => {
   const { me } = useAuth();
   return (
@@ -155,6 +175,49 @@ const IndexPage: NextPage = () => {
               </dd>
             </div>
           </dl>
+        </div>
+      </div>
+
+      {/* Contribue Section */}
+      <div className="max-w-6xl mx-auto py-12 px-4 sm:px-6 lg:px-8 bg-gray-100">
+        <h3 className="text-center text-xl">Contribute</h3>
+        <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
+          <div className="flex flex-col rounded-tr-[50px] border-r shadow-lg overflow-hidden border-t-4 border-sky-500 text-white text-center">
+            <div className="flex-1 bg-purple-900 p-6 flex flex-col justify-between">
+              <div className="flex-1">
+                <h4 className="text-md font-medium text-center">Community</h4>
+                <p className="mt-3 text-base">
+                  {
+                    "We're looking for existing communities that want to join our mission and be first to use our tools to organize their communities."
+                  }
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-col rounded-br-[50px] shadow-lg overflow-hidden border-t-4 border-sky-500 text-white text-center">
+            <div className="flex-1 bg-purple-900 p-6 flex flex-col justify-between">
+              <div className="flex-1">
+                <h4 className="text-md font-medium">Team</h4>
+                <p className="mt-3 text-base">
+                  {
+                    "Our project is rapidly expanding and we're always in need of new, talented people to help move our mission forward."
+                  }
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-col rounded-tl-[50px] shadow-lg overflow-hidden border-t-4 border-sky-500 text-white text-center">
+            <div className="flex-1 bg-purple-900 p-6 flex flex-col justify-between">
+              <div className="flex-1">
+                <h4 className="text-md font-medium">Governance</h4>
+                <p className="mt-3 text-base">
+                  {
+                    "This is a community built project and the decisions we're making are based on input from the community. Help drive those decisions."
+                  }
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>

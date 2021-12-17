@@ -84,7 +84,7 @@ const PassportLinkForm = () => {
           {error ? (
             <div className="rounded-md bg-red-50 p-4">
               <div className="flex">
-                <div className="flex-shrink-0">
+                <div className="shrink-0">
                   <button type="button" onClick={() => setError(null)}>
                     <XCircleIcon
                       className="h-5 w-5 text-red-400"
