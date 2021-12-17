@@ -37,7 +37,7 @@ const IndexPage: NextPage = () => {
       <Head title="Nation" />
       <div className="bg-gray-50">
         <main className="lg:relative">
-          <div className="mx-auto max-w-6xl w-full pt-16 pb-20 text-center lg:py-48 lg:text-left">
+          <div className="flex items-center mx-auto max-w-6xl w-full pt-16 pb-20 text-center lg:py-48 lg:text-left">
             <div className="px-4 lg:w-1/2 sm:px-8 xl:pr-16">
               <p className="mt-3 max-w-md mx-auto uppercase font-extrabold text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl">
                 Take the control back
@@ -46,9 +46,6 @@ const IndexPage: NextPage = () => {
                 <span className="block xl:inline">The social</span>{' '}
                 <span className="block xl:inline">media you/we deserve</span>
               </h1>
-              <p className="mt-3 max-w-md mx-auto text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl">
-                <b>Sapien Nation</b> now forming!
-              </p>
               <div className="mt-10 sm:flex sm:justify-center lg:justify-start">
                 <div className="rounded-full shadow">
                   <Link href="/passport">
@@ -74,9 +71,13 @@ const IndexPage: NextPage = () => {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="relative w-full h-64 sm:h-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full flex items-center justify-center">
-            <LottiePlayer lottie="https://assets10.lottiefiles.com/private_files/lf30_tfozcvfo.json" />
+            <div className="lg:w-1/2 flex items-center justify-center">
+              {/*<LottiePlayer width="500" lottie="https://assets5.lottiefiles.com/packages/lf20_6x8fn1vr.json" />*/}
+              <LottiePlayer
+                width="500"
+                lottie="https://assets3.lottiefiles.com/packages/lf20_ailluhhv.json"
+              />
+            </div>
           </div>
         </main>
       </div>
