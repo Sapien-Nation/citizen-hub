@@ -40,7 +40,12 @@ const Navbar = () => {
             <div className="flex justify-between h-16">
               <div className="flex px-2 lg:px-0">
                 <div className="shrink-0 flex items-center">
-                  <FullLogo className="lg:border-r border-gray-300 pr-6" />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    className="lg:border-r border-gray-300 pr-6 w-20"
+                    src="/images/logo.png"
+                    alt="sapien"
+                  />
                 </div>
                 <div className="hidden lg:ml-6 lg:flex lg:space-x-8">
                   {navigation.map((nav) => (
@@ -83,9 +88,9 @@ const Navbar = () => {
                 )}
                 {me && (
                   <>
-                    <button className="inline-flex items-center px-4 py-2 border text-sm font-medium rounded-full py-2 px-6 shadow-sm hover:bg-purple-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
+                    {/*<button className="inline-flex items-center px-4 py-2 border text-sm font-medium rounded-full py-2 px-6 shadow-sm hover:bg-purple-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
                       Connect Wallet
-                    </button>
+                    </button>*/}
                     <Menu as="div" className="relative ml-2 shrink-0">
                       <div>
                         <Menu.Button className="bg-white rounded-full flex text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
