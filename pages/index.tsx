@@ -53,10 +53,6 @@ const IndexPage: NextPage = () => {
             </div>
             <div className="lg:w-1/2 flex items-center justify-center">
               {/*<LottiePlayer width="500" lottie="https://assets5.lottiefiles.com/packages/lf20_6x8fn1vr.json" />*/}
-              <LottiePlayer
-                width="500"
-                lottie="https://assets3.lottiefiles.com/packages/lf20_ailluhhv.json"
-              />
             </div>
           </div>
         </main>
@@ -183,7 +179,7 @@ const IndexPage: NextPage = () => {
           <div className="lg:w-1/2">
             <LottiePlayer
               width="500"
-              lottie="https://assets3.lottiefiles.com/packages/lf20_ailluhhv.json"
+              lottie="https://assets7.lottiefiles.com/packages/lf20_6x8fn1vr.json"
             />
           </div>
           <div className="lg:w-1/2">
@@ -236,7 +232,7 @@ const IndexPage: NextPage = () => {
                 </span>
               </div>
             </div>
-            <div className="bg-orange-800 px-6 py-14 rounded-xl text-white text-center">
+            <div className="bg-orange-600 px-6 py-14 rounded-xl text-white text-center">
               <p className="mt-3 text-base whitespace-pre-line">
                 {`Cooperation > Competition.
 
