@@ -28,14 +28,14 @@ const IndexPage: NextPage = () => {
               </h1>
               <div className="mt-10 flex justify-center">
                 <div className="rounded-full shadow">
-                  <Link href="/passport">
+                  {/* <Link href="/passport">
                     <a
                       href="#"
                       className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white bg-purple-600 hover:bg-purple-700 md:py-4 md:text-lg md:px-10"
                     >
                       Get Passport
                     </a>
-                  </Link>
+                  </Link> */}
                 </div>
                 <div className="mt-3 rounded-full shadow sm:mt-0 sm:ml-3">
                   {me === null && (
