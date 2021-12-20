@@ -17,16 +17,16 @@ const IndexPage: NextPage = () => {
       <Head title="Nation" />
       <div className="bg-gray-50">
         <main className="lg:relative">
-          <div className="flex items-center mx-auto max-w-6xl w-full pt-16 pb-20 text-center lg:py-48 lg:text-left">
-            <div className="px-4 lg:w-1/2 sm:px-8 xl:pr-16">
+          <div className="items-center mx-auto max-w-6xl w-full pt-16 pb-20 text-center lg:py-48 lg:text-left">
+            <div className="px-4 sm:px-8 xl:pr-16 text-center">
               <p className="mt-3 max-w-md mx-auto uppercase font-extrabold text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl">
                 Take the control back
               </p>
-              <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
+              <h1 className="text-4xl mt-5 tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
                 <span className="block xl:inline">The social</span>{' '}
                 <span className="block xl:inline">media you/we deserve</span>
               </h1>
-              <div className="mt-10 sm:flex sm:justify-center lg:justify-start">
+              <div className="mt-10 flex justify-center">
                 <div className="rounded-full shadow">
                   <Link href="/passport">
                     <a
@@ -50,9 +50,6 @@ const IndexPage: NextPage = () => {
                   )}
                 </div>
               </div>
-            </div>
-            <div className="lg:w-1/2 flex items-center justify-center">
-              {/*<LottiePlayer width="500" lottie="https://assets5.lottiefiles.com/packages/lf20_6x8fn1vr.json" />*/}
             </div>
           </div>
         </main>
@@ -158,7 +155,7 @@ const IndexPage: NextPage = () => {
       {/* Full stack section */}
       <div className="max-w-6xl mx-auto py-12 px-4 sm:px-6 lg:px-8 bg-gray-100 lg:flex">
         <div className="lg:w-1/2">
-          <p className="whitespace-pre-line leading-relaxed text-lg text-gray-600">
+          <p className="whitespace-pre-line leading-relaxed text-lg text-center lg:text-left text-gray-600">
             {`From tech empires to financial institutions, we're surrounded by big black boxes that control how society operates with zero input from average people. Because they're so large, we're left with no choice but to engage with them. Some of these institutions shroud themselves in secrecy and complexity to reduce accountability and enable exploitation.
 
               With the right tools, we can get rid of big black boxes and go back to relying on the only thing we really need, each other. 
@@ -183,7 +180,7 @@ const IndexPage: NextPage = () => {
             />
           </div>
           <div className="lg:w-1/2">
-            <p className="whitespace-pre-line text-right leading-loose text-lg">
+            <p className="whitespace-pre-line lg:text-right text-center leading-loose text-lg">
               {`We recognize that the problems we're facing run deep. There's no one tool or easy solution that's going to fix the problem. That's why we're taking a holistic approach and developing a complete stack of tools to help communities thrive and realize their true potential. The future of the internet is being built on Web 3.0 through blockchain technology and we're watching it happen in real time. Let's make sure that future is built by people with the right vision.
                 `}
             </p>
@@ -234,9 +231,7 @@ const IndexPage: NextPage = () => {
             </div>
             <div className="bg-orange-600 px-6 py-14 rounded-xl text-white text-center">
               <p className="mt-3 text-base whitespace-pre-line">
-                {`Cooperation > Competition.
-
-                  We've been conditioned to believe that the world is win-lose and the only way to get ahead is to push others down. We're here to tell you that's not true. 
+                {`We've been conditioned to believe that the world is win-lose and the only way to get ahead is to push others down. We're here to tell you that's not true. 
                   
                   Sapien is working on building a win-win economic system built on a brand new token protocol that gives communities ultimate control over their financial agency.
                    
@@ -276,7 +271,9 @@ const IndexPage: NextPage = () => {
           </div>
         </div>
         <a
-          href="#"
+          href="https://discord.gg/HQnSZZSw"
+          target="_blank"
+          rel="noreferrer"
           className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-purple-900 hover:bg-purple-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 mt-8"
         >
           Join Our Discord
