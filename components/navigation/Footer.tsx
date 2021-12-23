@@ -1,8 +1,6 @@
 // assets
 import { FullLogo } from 'assets';
-
-// tailwind ui
-import { ArrowSmRightIcon } from '@heroicons/react/solid';
+import { Cookies } from 'components/common';
 
 const Footer = () => {
   return (
@@ -36,6 +34,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <Cookies />
     </footer>
   );
 };
