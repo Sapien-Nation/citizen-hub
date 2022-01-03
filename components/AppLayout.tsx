@@ -15,7 +15,8 @@ const AppLayout = ({ children }: Props) => {
     pathname.startsWith('/register') ||
     pathname.startsWith('/logout') ||
     pathname.startsWith('/forgot') ||
-    pathname.startsWith('/change-password')
+    pathname.startsWith('/change-password') ||
+    pathname.startsWith('/cookie-policy')
   ) {
     return children;
   }
