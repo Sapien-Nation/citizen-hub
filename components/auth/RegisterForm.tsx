@@ -19,8 +19,9 @@ import { useToast } from 'context/toast';
 import { mergeClassNames } from 'utils/styles';
 
 interface RegisterFormValues {
-  displayName: string;
   email: string;
+  firstName: string;
+  lastName: string;
   password: string;
   username: string;
   terms: string;
@@ -50,15 +51,17 @@ const RegisterForm = () => {
   const { setSession } = useAuth();
 
   const onSubmit = async ({
-    displayName,
     email,
+    firstName,
+    lastName,
     password,
     username,
   }: RegisterFormValues) => {
     try {
       const response = await registerAction({
-        displayName,
         email,
+        firstName,
+        lastName,
         password,
         username,
         client: window?.navigator.userAgent,
@@ -156,42 +159,82 @@ const RegisterForm = () => {
         </p>
       </div>
 
-      <div>
-        <label
-          htmlFor="email"
-          className="block text-sm font-medium text-gray-700"
-        >
-          Name
-        </label>
-        <div className="mt-1">
-          <input
-            id="name"
-            type="text"
-            autoComplete="name"
-            required
-            placeholder="Jonathan Doe"
-            className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
-            {...register('displayName', {
-              pattern: {
-                value: NameRegex,
-                message: 'Invalid name',
-              },
-              required: {
-                value: true,
-                message: 'Invalid name',
-              },
-              maxLength: {
-                value: 40,
-                message: 'Invalid name',
-              },
-            })}
-            aria-invalid="true"
-            aria-describedby="displayName-error"
-          />
+      <div className="grid grid-cols-6 gap-6">
+        <div className="col-span-6 sm:col-span-3">
+          <label
+            htmlFor="email"
+            className="block text-sm font-medium text-gray-700"
+          >
+            First Name
+          </label>
+          <div className="mt-1">
+            <input
+              id="firstName"
+              type="text"
+              autoComplete="firstName"
+              required
+              placeholder="Jonathan"
+              className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
+              {...register('firstName', {
+                pattern: {
+                  value: NameRegex,
+                  message: 'Invalid first name',
+                },
+                required: {
+                  value: true,
+                  message: 'Invalid first name',
+                },
+                maxLength: {
+                  value: 40,
+                  message: 'Invalid first name',
+                },
+              })}
+              aria-invalid="true"
+              aria-describedby="firstName-error"
+            />
+          </div>
+          <p className="mt-2 text-sm text-red-600" id="firstName-error">
+            {errors.firstName?.message}
+          </p>
         </div>
-        <p className="mt-2 text-sm text-red-600" id="displayName-error">
-          {errors.displayName?.message}
-        </p>
+
+        <div className="col-span-6 sm:col-span-3">
+          <label
+            htmlFor="email"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Last Name
+          </label>
+          <div className="mt-1">
+            <input
+              id="lastName"
+              type="text"
+              autoComplete="lastName"
+              required
+              placeholder="Doe"
+              className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
+              {...register('lastName', {
+                pattern: {
+                  value: NameRegex,
+                  message: 'Invalid last name',
+                },
+                required: {
+                  value: true,
+                  message: 'Invalid last name',
+                },
+                maxLength: {
+                  value: 40,
+                  message: 'Invalid last name',
+                },
+              })}
+              aria-invalid="true"
+              aria-describedby="lastName-error"
+            />
+          </div>
+          <p className="mt-2 text-sm text-red-600" id="lastName-error">
+            {errors.lastName?.message}
+          </p>
+        </div>
       </div>
 
       <div className="space-y-1">

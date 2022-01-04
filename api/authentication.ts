@@ -12,8 +12,9 @@ export const login = async (body: {
     .catch(({ response }) => Promise.reject(response.data.message));
 
 export const register = async (body: {
-  displayName: string;
   email: string;
+  firstName: string;
+  lastName: string;
   password: string;
   username: string;
   redirect: string;
