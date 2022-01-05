@@ -1,51 +1,49 @@
 import Link from 'next/link';
-import { RefreshIcon } from '@heroicons/react/solid';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { useRouter } from 'next/router';
-import { useForm } from 'react-hook-form';
-import * as Yup from 'yup';
+import { useForm, FormProvider } from 'react-hook-form';
 
 // api
 import { register as registerAction } from 'api/authentication';
 
-// utils
-import { EmailRegex, NameRegex, UsernameRegex } from 'utils/regex';
+// components
+import {
+  Checkbox,
+  PasswordInput,
+  TextInput,
+  TextInputLabel,
+} from 'components/common';
 
 // hooks
 import { useAuth } from 'context/user';
 import { useToast } from 'context/toast';
 
-// utils
-import { mergeClassNames } from 'utils/styles';
-
 interface RegisterFormValues {
   email: string;
   firstName: string;
-  lastName: string;
   password: string;
   username: string;
-  terms: string;
-  wallet: string;
+  lastName: string;
+  terms: boolean;
+  wallet: boolean;
 }
 
-const validationSchema = Yup.object().shape({
-  terms: Yup.bool().oneOf([true], 'You have to accept the terms'),
-  wallet: Yup.bool().oneOf(
-    [true],
-    'You have to accept that a wallet will be created for you'
-  ),
-});
-
 const RegisterForm = () => {
-  const { push, query } = useRouter();
+  const methods = useForm<RegisterFormValues>({
+    defaultValues: {
+      email: '',
+      firstName: '',
+      password: '',
+      username: '',
+      lastName: '',
+      terms: false,
+      wallet: false,
+    },
+  });
 
   const {
-    register,
+    control,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm<RegisterFormValues>({
-    resolver: yupResolver(validationSchema),
-  });
+  } = methods;
 
   const toast = useToast();
   const { setSession } = useAuth();
@@ -59,305 +57,224 @@ const RegisterForm = () => {
   }: RegisterFormValues) => {
     try {
       const response = await registerAction({
-        email,
         firstName,
         lastName,
+        email,
         password,
         username,
         client: window?.navigator.userAgent,
         redirect: '/',
       });
 
-      const { redirect } = query;
-      setSession(response, redirect ? false : true);
-
-      if (redirect) {
-        push(redirect as string);
-      }
+      setSession(response);
     } catch (error) {
       toast({
-        message: error,
+        message: error || 'Please contact support',
       });
     }
   };
 
+  console.log(errors);
+  const termsError = errors.terms?.message;
+  const passwordError = errors.password?.message;
+  const walletError = errors.wallet?.message;
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-      <div>
-        <label
-          htmlFor="email"
-          className="block text-sm font-medium text-gray-700"
-        >
-          Email address
-        </label>
-        <div className="mt-1">
-          <input
-            id="email"
-            type="email"
-            autoComplete="email"
-            required
-            placeholder="myemailaddress@email.com"
-            className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
-            {...register('email', {
-              pattern: {
-                value: EmailRegex,
-                message: 'Invalid email address',
-              },
-              required: {
-                value: true,
-                message: 'Invalid email address',
-              },
-            })}
-            aria-invalid="true"
-            aria-describedby="email-error"
+    <FormProvider {...methods}>
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+        <div>
+          <TextInputLabel
+            label="Email"
+            name="email"
+            error={errors.email?.message}
           />
-        </div>
-        <p className="mt-2 text-sm text-red-600" id="email-error">
-          {errors.email?.message}
-        </p>
-      </div>
-
-      <div>
-        <label
-          htmlFor="email"
-          className="block text-sm font-medium text-gray-700"
-        >
-          Username
-        </label>
-        <div className="mt-1">
-          <input
-            id="username"
-            type="text"
-            autoComplete="username"
-            required
-            placeholder="johndoe"
-            className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
-            {...register('username', {
-              pattern: {
-                value: UsernameRegex,
-                message: 'Invalid username',
-              },
-              required: {
-                value: true,
-                message: 'Invalid username',
-              },
-              maxLength: {
-                value: 20,
-                message: 'Invalid username',
-              },
-              minLength: {
-                value: 2,
-                message: 'Invalid username',
-              },
-            })}
-            aria-invalid="true"
-            aria-describedby="username-error"
-          />
-        </div>
-        <p className="mt-2 text-sm text-red-600" id="username-error">
-          {errors.username?.message}
-        </p>
-      </div>
-
-      <div className="grid grid-cols-6 gap-6">
-        <div className="col-span-6 sm:col-span-3">
-          <label
-            htmlFor="email"
-            className="block text-sm font-medium text-gray-700"
-          >
-            First Name
-          </label>
           <div className="mt-1">
-            <input
-              id="firstName"
+            <TextInput
+              aria-invalid={Boolean(errors.email?.message)}
+              aria-describedby="email-error"
+              autoComplete="email"
+              name="email"
+              maxLength={100}
+              placeholder="email@example.com"
               type="text"
-              autoComplete="firstName"
-              required
-              placeholder="Jonathan"
               className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
-              {...register('firstName', {
-                pattern: {
-                  value: NameRegex,
-                  message: 'Invalid first name',
+              rules={{
+                validate: {
+                  required: (value) => value.length > 0 || 'is required',
+                  email: (value) =>
+                    /^\b[\w\.-]+@[\w\.-]+\.\w{1,15}\b$/.test(value) ||
+                    'is not valid',
                 },
-                required: {
-                  value: true,
-                  message: 'Invalid first name',
-                },
-                maxLength: {
-                  value: 40,
-                  message: 'Invalid first name',
-                },
-              })}
-              aria-invalid="true"
-              aria-describedby="firstName-error"
+              }}
             />
           </div>
-          <p className="mt-2 text-sm text-red-600" id="firstName-error">
-            {errors.firstName?.message}
-          </p>
         </div>
 
-        <div className="col-span-6 sm:col-span-3">
-          <label
-            htmlFor="email"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Last Name
-          </label>
+        <div>
+          <TextInputLabel
+            label="Username"
+            name="username"
+            error={errors.username?.message}
+          />
           <div className="mt-1">
-            <input
-              id="lastName"
-              type="text"
-              autoComplete="lastName"
-              required
-              placeholder="Doe"
+            <TextInput
+              name="username"
+              maxLength={30}
+              autoComplete="username"
+              placeholder="johndoe"
+              rules={{
+                maxLength: { value: 30, message: 'is to long' },
+                required: { value: true, message: 'is required' },
+                validate: (value) =>
+                  !/[-|\.|_]+|[-|\.|_]{2,2}/.test(value) || 'is invalid',
+              }}
+              replaceWhiteSpace
               className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
-              {...register('lastName', {
-                pattern: {
-                  value: NameRegex,
-                  message: 'Invalid last name',
-                },
-                required: {
-                  value: true,
-                  message: 'Invalid last name',
-                },
-                maxLength: {
-                  value: 40,
-                  message: 'Invalid last name',
-                },
-              })}
-              aria-invalid="true"
-              aria-describedby="lastName-error"
             />
           </div>
-          <p className="mt-2 text-sm text-red-600" id="lastName-error">
-            {errors.lastName?.message}
-          </p>
         </div>
-      </div>
 
-      <div className="space-y-1">
-        <label
-          htmlFor="password"
-          className="block text-sm font-medium text-gray-700"
-        >
-          Password
-        </label>
-        <div className="mt-1">
-          <input
-            id="password"
-            type="password"
-            autoComplete="current-password"
-            required
-            placeholder="Thisismypassword123*"
-            className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
-            {...register('password', {
-              minLength: {
-                value: 8,
-                message: 'Invalid password',
-              },
-              validate: (value: string) => {
-                if (!/[a-z]/.test(value)) {
-                  return 'At least one lowercase letter.';
-                }
+        <div className="grid grid-cols-6 gap-6">
+          <div className="col-span-6 sm:col-span-3">
+            <TextInputLabel
+              label="First Name"
+              name="firstName"
+              error={errors.firstName?.message}
+            />
+            <div className="mt-1">
+              <TextInput
+                name="firstName"
+                maxLength={50}
+                autoComplete="firstName"
+                placeholder="John"
+                pattern={/^[a-zA-Z\s]*$/}
+                rules={{
+                  validate: {
+                    required: (value) => value.length > 0 || 'is required',
+                  },
+                }}
+                className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
+              />
+            </div>
+          </div>
 
-                if (!/[A-Z]/.test(value)) {
-                  return 'At least one uppercase letter.';
-                }
+          <div className="col-span-6 sm:col-span-3">
+            <TextInputLabel
+              label="Last Name"
+              name="lastName"
+              error={errors.lastName?.message}
+            />
+            <div className="mt-1">
+              <TextInput
+                name="lastName"
+                maxLength={50}
+                autoComplete="lastName"
+                placeholder="Doe"
+                pattern={/^[a-zA-Z\s]*$/}
+                rules={{
+                  validate: {
+                    required: (value) => value.length > 0 || 'is required',
+                  },
+                }}
+                className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
+              />
+            </div>
+          </div>
+        </div>
 
-                if (!/[\d]/.test(value)) {
-                  return 'At least one number.';
-                }
-
-                if (value?.length < 8) {
-                  return 'At least 8 characters.';
-                }
-
-                return true;
-              },
-            })}
-            aria-invalid="true"
-            aria-describedby="password-error"
+        <div className="space-y-1">
+          <TextInputLabel
+            label="Password"
+            name="password"
+            error={errors.password?.message}
           />
+          <div className="mt-1">
+            <PasswordInput
+              control={control}
+              validate={(value) => value.length > 0 || 'is required'}
+              inputProps={{
+                'aria-invalid': Boolean(passwordError),
+                'aria-describedby': `password-error`,
+              }}
+            />
+          </div>
         </div>
-        <p className="mt-2 text-sm text-red-600" id="password-error">
-          {errors.password?.message}
-        </p>
-      </div>
 
-      <div className="flex items-center justify-between">
-        <div className="flex items-center">
-          <input
-            id="terms"
-            name="terms"
-            type="checkbox"
-            className="h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
-            aria-invalid="true"
-            aria-describedby="terms-error"
-            {...register('terms')}
-          />
-          <label htmlFor="terms" className="ml-2 block text-sm text-gray-900">
-            I have read and agree to the{' '}
-            <a
-              className="text-blue-500"
-              href="https://common.sapien.network/terms.html"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Terms & Conditions
-            </a>
-          </label>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center">
+            <Checkbox
+              name="terms"
+              className="h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
+              aria-invalid="true"
+              aria-describedby="terms-error"
+              label={
+                <label
+                  htmlFor="terms"
+                  className={`ml-2 block text-xs ${
+                    termsError ? 'text-red-500' : 'text-gray-900'
+                  }`}
+                  id={termsError ? 'terms-error' : ''}
+                >
+                  I have read and agree to the{' '}
+                  <a
+                    className="text-blue-500"
+                    href="https://common.sapien.network/terms.html"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Terms & Conditions
+                  </a>{' '}
+                  {termsError}
+                </label>
+              }
+            />
+          </div>
         </div>
-        <p className="mt-2 text-sm text-red-600" id="terms-error">
-          {errors.terms?.message}
-        </p>
-      </div>
 
-      <div className="flex items-center justify-between">
-        <div className="flex items-center">
-          <input
-            id="wallet"
-            name="wallet"
-            type="checkbox"
-            className="h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
-            aria-invalid="true"
-            aria-describedby="wallet-error"
-            {...register('wallet')}
-          />
-          <label htmlFor="wallet" className="ml-2 block text-sm text-gray-900">
-            I understand that a wallet will be created for me
-          </label>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center">
+            <Checkbox
+              name="wallet"
+              className="h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
+              aria-invalid="true"
+              aria-describedby="wallet-error"
+              label={
+                <label
+                  htmlFor="wallet"
+                  className={`ml-2 block text-xs ${
+                    walletError ? 'text-red-500' : 'text-gray-900'
+                  }`}
+                  id={walletError ? 'wallet-error' : ''}
+                >
+                  I understand that a wallet will be created for me{' '}
+                  {walletError}
+                </label>
+              }
+            />
+          </div>
         </div>
-        <p className="mt-2 text-sm text-red-600" id="wallet-error">
-          {errors.wallet?.message}
-        </p>
-      </div>
 
-      <div>
-        <button
-          type="submit"
-          className={mergeClassNames(
-            isSubmitting ? 'cursor-not-allowed' : '',
-            'w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500'
-          )}
-          disabled={isSubmitting}
-        >
-          {isSubmitting && (
-            <RefreshIcon className="animate-spin h-5 w-5 mr-3" />
-          )}
-          Sign up
-        </button>
-        <div className="mt-2">
-          <p className="text-sm inline">Already have an account?</p>
-          <Link href="/login">
-            <a className="font-medium text-sm text-purple-600 hover:text-purple-500">
-              &nbsp;login
-            </a>
-          </Link>
+        <div className="mt-8">
+          <button
+            type="submit"
+            className={`${
+              isSubmitting ? 'cursor-not-allowed disabled:opacity-75' : ''
+            }
+              w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500`}
+            disabled={isSubmitting}
+          >
+            Sign up
+          </button>
+          <div className="mt-8 text-center">
+            <p className="text-sm inline">Already have an account?</p>
+            <Link href="/login">
+              <a className="font-medium text-sm text-purple-600 hover:text-purple-500">
+                &nbsp;login
+              </a>
+            </Link>
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </FormProvider>
   );
 };
 
