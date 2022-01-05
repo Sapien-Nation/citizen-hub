@@ -54,6 +54,7 @@ const FigureView = ({ linkID, setPassportView }: Props) => {
       case View.FigureImageUpload:
         return (
           <FigureImageUpload
+            file={passportFile}
             setView={() => {
               if (passportFile) {
                 setPassportFile(null);
