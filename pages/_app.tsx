@@ -29,7 +29,12 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
         fetcher: (url: string) =>
           axios(url)
             .then(({ data }) => data)
-            .catch(({ response }) => Promise.reject(response.data.error)),
+            .catch(({ response }) => {
+              if (response.data.error) {
+                return Promise.reject(response.data.error);
+              }
+              return Promise.reject(response.data);
+            }),
         revalidateOnFocus: false,
       }}
     >

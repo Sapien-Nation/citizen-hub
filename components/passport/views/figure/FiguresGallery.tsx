@@ -5,6 +5,9 @@ import useSWR, { useSWRConfig } from 'swr';
 // api
 import { replaceFigure } from 'api/passport';
 
+// components
+import ErrorView from '../FeedbackView';
+
 // context
 import { useToast } from 'context/toast';
 
@@ -104,6 +107,14 @@ const FiguresGallery = ({ name, onSelect, setView, setIsFetching }: Props) => {
     () => setIsFetching(loadingData || isRefreshing),
     [isRefreshing, loadingData, setIsFetching]
   );
+
+  if (error) {
+    if (error === 'Historic Figure is not valid') {
+      return <ErrorView code={408} />;
+    }
+
+    return <ErrorView code={407} />;
+  }
 
   if (loadingData) {
     return (

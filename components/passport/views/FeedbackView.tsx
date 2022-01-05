@@ -12,6 +12,10 @@ const ErrorView = ({ code }: Props) => {
         return 'There is already a Passport linked to this account';
       case 403:
         return 'No more passports available for this link, please try a new one';
+      case 407:
+        return 'There seems to be an error with the selected historical figure, please try again, if the error persist, please contact support';
+      case 408:
+        return 'The Figure you selected its incorrect, please try another one';
       case 404:
         return 'Invalid Link';
     }
