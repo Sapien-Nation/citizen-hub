@@ -32,19 +32,11 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="mt-8 border-t border-gray-200 pt-8 sm:flex sm:items-center sm:justify-between text-center">
+        <div className="mt-8 border-t border-gray-200 pt-8 text-center">
           <p className="text-xs text-gray-400">
             Copyright &copy; {new Date().getFullYear()} Sapien LLC. All rights
             reserved
           </p>
-          <div className="text-xs mt-5 sm:mt-0">
-            <p className="text-gray-900 inline-block">
-              We use cookies for better service.
-            </p>
-            <button className="text-purple-500 inline-block">
-              &nbsp; Accept
-            </button>
-          </div>
         </div>
       </div>
       {hideBanner && <Cookies handleCookie={handleCookie} />}

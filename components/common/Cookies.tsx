@@ -8,7 +8,7 @@ interface Props {
 const Cookies = ({ handleCookie }: Props) => (
   <div className="fixed bottom-0 inset-x-0 pb-2 sm:pb-5">
     <div className="max-w-6xl mx-auto px-2 sm:px-6 lg:px-8">
-      <div className="p-2 rounded-lg bg-indigo-900 shadow-lg sm:p-3">
+      <div className="p-2 rounded-lg bg-gray-800 shadow-lg sm:p-3">
         <div className="flex items-center justify-between flex-wrap">
           <div className="w-0 flex-1 flex items-center">
             <p className="ml-3 text-sm text-gray-200">
