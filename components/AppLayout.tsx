@@ -24,7 +24,7 @@ const AppLayout = ({ children }: Props) => {
   return (
     <div className="relative h-full bg-gray-50">
       <Navbar />
-      <main>{children}</main>
+      <main className="h-full">{children}</main>
       <Footer />
     </div>
   );

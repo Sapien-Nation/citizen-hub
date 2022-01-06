@@ -10,9 +10,9 @@ interface Props {
 
 const StartView = ({ setPassportView }: Props) => {
   return (
-    <div className="w-full flex items-center justify-center">
+    <div className="w-full h-full flex items-center justify-center">
       <div className="lg:relative">
-        <div className="w-ful text-center">
+        <div className="w-full text-center">
           <h2 className="text-5xl font-extrabold mb-12 skew-y-3">
             <span className="underline decoration-4 decoration-purple-600 text-7xl">
               welcome to
