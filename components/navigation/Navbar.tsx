@@ -28,7 +28,7 @@ const Navbar = () => {
   const router = useRouter();
 
   return (
-    <Disclosure as="nav" className="relative bg-white shadow z-10">
+    <Disclosure as="nav" className="fixed w-full bg-white shadow z-10">
       {({ open }) => (
         <>
           <div className="max-w-6xl mx-auto py-1 px-2 sm:px-4 lg:px-8">
