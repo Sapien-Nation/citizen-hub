@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
+import { Transition } from '@headlessui/react';
 
 // components
 import { Head, Query, Redirect } from 'components/common';
@@ -52,7 +53,21 @@ const PassportPage = () => {
       case View.Loading:
         return <Loading />;
       case View.Avatar:
-        return <Avatar linkID={String(query.linkID)} />;
+        return (
+          <Transition
+            as={Fragment}
+            show
+            enter="transition ease-out duration-100"
+            enterFrom="transform opacity-0"
+            enterTo="transform opacity-100"
+            leave="transition ease-in duration-75"
+            leaveFrom="transform opacity-100"
+            leaveTo="transform opacity-0"
+          >
+            <Avatar linkID={String(query.linkID)} />
+          </Transition>
+        );
+        return;
     }
   };
 

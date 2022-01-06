@@ -129,11 +129,11 @@ const FigureView = ({ linkID, setPassportView }: Props) => {
             {figure && renderView()}
             <div className="mt-10 flex flex-col justify-center items-center">
               {Boolean(passportFile) && (
-                <div className="rounded-full shadow mt-14 mb-6">
+                <div className="mt-10 mb-6">
                   <button
                     disabled={isFetching}
                     type="button"
-                    className={`flex items-center bg-purple-600 hover:bg-purple-700 justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white md:py-4 md:text-lg md:px-10 ${
+                    className={`inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 ${
                       isFetching ? 'animate-pulse' : ''
                     }`}
                     onClick={handleContinue}
