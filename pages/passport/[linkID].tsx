@@ -10,6 +10,7 @@ import {
   FeedbackView,
   Figure as FigureView,
   Loading,
+  StartView,
 } from 'components/passport';
 
 // context
@@ -27,11 +28,12 @@ export enum View {
   AuthView,
   Avatar,
   Figure,
+  Start,
   Loading,
 }
 
 const PassportPage = () => {
-  const [view, setView] = useState(View.Figure);
+  const [view, setView] = useState(View.Start);
 
   const { query } = useRouter();
   const { me, isLoggingIn } = useAuth();
@@ -46,6 +48,8 @@ const PassportPage = () => {
     }
 
     switch (view) {
+      case View.Start:
+        return <StartView setPassportView={setView} />;
       case View.Figure:
         return (
           <FigureView linkID={String(query.linkID)} setPassportView={setView} />
