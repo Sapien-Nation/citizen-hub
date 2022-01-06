@@ -32,6 +32,7 @@ const FigureView = ({ linkID, setPassportView }: Props) => {
   const [figure, setFigure] = useState<Figure | null>(null);
   const [isFetching, setIsFetching] = useState(false);
   const [passportFile, setPassportFile] = useState<File | null>(null);
+  const [isSearching, setSearching] = useState(false);
 
   const toast = useToast();
 
@@ -94,52 +95,57 @@ const FigureView = ({ linkID, setPassportView }: Props) => {
 
   return (
     <>
-      <div className="px-4 xl:px-0">
+      <div
+        className={`transition delay-150 duration-300 ease-in-out ${
+          isSearching ? 'scale-75 -translate-y-1/4' : 'px-4 xl:px-0 '
+        }`}
+      >
         <h3
-          className={`mt-1 max-w-sm mx-auto font-bold ${
-            figure ? '' : 'lg:text-xl sm:text-lg'
-          }`}
+          className={`mt-3 max-w-sm mx-auto font-bold md:mt-5 lg:text-2xl sm:text-xl`}
         >
-          Welcome to the <span className="underline decoration-5">Sapien</span>{' '}
-          Tribe!
+          Welcome to the Sapien Tribe!
         </h3>
         <p
-          className={`max-w-lg mx-auto text-md font-light py-2 ${
-            figure ? '' : 'text-gray-500 sm:text-md'
+          className={`mt-3 max-w-lg mx-auto text-md font-light py-4 text-gray-500 sm:text-xl md:mt-5 transition delay-150 duration-300 ease-in-out ${
+            isSearching ? 'scale-75' : ''
           }`}
         >
-          To claim your passport please input your{' '}
-          <span className="underline decoration-5 decoration-purple-500">
-            favorite historical figure
-          </span>
-          . Your choice of figure should reflect the values you will champion as
-          a member of our tribe.
+          To claim your passport please input your favorite historical figure.
+          Your choice of figure should reflect the values you will champion as a
+          member of our tribe.
         </p>
       </div>
-      <FiguresLookup
-        onFigureSelect={(selectedFigure) => setFigure(selectedFigure)}
-      />
-      <main className="lg:relative">
-        <div className="mx-auto max-w-6xl w-full pt-16 px-4 xl:px-0">
-          {figure && renderView()}
-          <div className="mt-10 flex flex-col justify-center items-center">
-            {Boolean(passportFile) && (
-              <div className="rounded-full shadow mt-14 mb-6">
-                <button
-                  disabled={isFetching}
-                  type="button"
-                  className={`flex items-center bg-purple-600 hover:bg-purple-700 justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white md:py-4 md:text-lg md:px-10 ${
-                    isFetching ? 'animate-pulse' : ''
-                  }`}
-                  onClick={handleContinue}
-                >
-                  Generate Avatar
-                </button>
-              </div>
-            )}
+      <div
+        className={`transition delay-150 duration-300 ease-in-out ${
+          isSearching ? '-translate-y-20' : ''
+        }`}
+      >
+        <FiguresLookup
+          onFigureSelect={(selectedFigure) => setFigure(selectedFigure)}
+          setSearching={setSearching}
+        />
+        <main className="lg:relative">
+          <div className="mx-auto max-w-6xl w-full pt-16 px-4 xl:px-0">
+            {figure && renderView()}
+            <div className="mt-10 flex flex-col justify-center items-center">
+              {Boolean(passportFile) && (
+                <div className="rounded-full shadow mt-14 mb-6">
+                  <button
+                    disabled={isFetching}
+                    type="button"
+                    className={`flex items-center bg-purple-600 hover:bg-purple-700 justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white md:py-4 md:text-lg md:px-10 ${
+                      isFetching ? 'animate-pulse' : ''
+                    }`}
+                    onClick={handleContinue}
+                  >
+                    Generate Avatar
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
-        </div>
-      </main>
+        </main>
+      </div>
     </>
   );
 };

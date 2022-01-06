@@ -15,9 +15,10 @@ enum KEY_CODES {
 
 interface Props {
   onFigureSelect: (figure: Figure) => void;
+  setSearching: (state: boolean) => void;
 }
 
-const FiguresLookup = ({ onFigureSelect }: Props) => {
+const FiguresLookup = ({ onFigureSelect, setSearching }: Props) => {
   const [cursor, setCurrentCursor] = useState<number | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(true);
@@ -33,6 +34,10 @@ const FiguresLookup = ({ onFigureSelect }: Props) => {
   const isLoading = (searchTerm && !error && !data) || isValidating;
   let suggestions: Array<Figure> = [];
 
+  if (isLoading) {
+    setSearching(true);
+  }
+
   if (searchTerm) {
     suggestions = [
       {
@@ -42,6 +47,8 @@ const FiguresLookup = ({ onFigureSelect }: Props) => {
         isTaken: false, // TODO backend to fix this field
       },
     ];
+  } else {
+    setSearching(false);
   }
 
   if (data?.length > 0) {
