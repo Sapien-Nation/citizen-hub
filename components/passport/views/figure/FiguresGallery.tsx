@@ -15,11 +15,10 @@ import { useToast } from 'context/toast';
 import { mergeClassNames } from 'utils/styles';
 
 interface Props {
-  file: File;
   name: string;
   onSelect: (file: File) => void;
-  setView: () => void;
   setIsFetching: (isFetching: boolean) => void;
+  setIsManual: (isManual: boolean) => void;
 }
 
 interface ManualFile {
@@ -27,7 +26,12 @@ interface ManualFile {
   preview: string;
 }
 
-const FiguresGallery = ({ file, name, onSelect, setIsFetching }: Props) => {
+const FiguresGallery = ({
+  name,
+  onSelect,
+  setIsFetching,
+  setIsManual,
+}: Props) => {
   const [manualFiles, setManualFiles] = useState<Array<ManualFile>>([]);
   const [isRefreshing, setIsRefreshing] = useState<boolean>(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -62,8 +66,10 @@ const FiguresGallery = ({ file, name, onSelect, setIsFetching }: Props) => {
     }
     try {
       const imageFile = await generateImageFile(image);
+
       onSelect(imageFile);
       setSelectedImage(image);
+      setIsManual(false);
     } catch (error) {
       toast({
         message:
@@ -207,6 +213,7 @@ const FiguresGallery = ({ file, name, onSelect, setIsFetching }: Props) => {
               onClick={() => {
                 onSelect(file);
                 setSelectedImage(preview);
+                setIsManual(true);
               }}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -257,14 +264,18 @@ const FiguresGallery = ({ file, name, onSelect, setIsFetching }: Props) => {
                 ref={fileRef}
                 onChange={async (event) => {
                   const file = event.target.files[0];
+                  const preview = URL.createObjectURL(file);
                   try {
                     setManualFiles([
                       ...manualFiles,
                       {
-                        preview: URL.createObjectURL(file),
+                        preview,
                         file,
                       },
                     ]);
+                    onSelect(file);
+                    setSelectedImage(preview);
+                    setIsManual(true);
                   } catch (err) {
                     toast({
                       message: err?.message ?? 'No more relevant images found',

@@ -16,44 +16,19 @@ import { useToast } from 'context/toast';
 // types
 import type { Figure } from 'types/figure';
 
-enum View {
-  FigureGallery,
-  FigureImageUpload,
-}
-
 interface Props {
   linkID: string;
   setPassportView: (view: PassportViews) => void;
 }
 
 const FigureView = ({ linkID, setPassportView }: Props) => {
-  const [view, setView] = useState<View>(View.FigureGallery);
   const [figure, setFigure] = useState<Figure | null>(null);
+  const [isManual, setIsManual] = useState(false);
   const [isFetching, setIsFetching] = useState(false);
   const [isSearching, setSearching] = useState(false);
   const [passportFile, setPassportFile] = useState<File | null>(null);
 
   const toast = useToast();
-
-  const renderView = () => {
-    switch (view) {
-      case View.FigureGallery:
-        return (
-          <FiguresGallery
-            name={figure.name}
-            onSelect={(file) => setPassportFile(file)}
-            setView={() => {
-              if (passportFile) {
-                setPassportFile(null);
-              }
-              setView(View.FigureImageUpload);
-            }}
-            setIsFetching={setIsFetching}
-            file={passportFile}
-          />
-        );
-    }
-  };
 
   const handleContinue = async () => {
     setPassportView(PassportViews.Loading);
@@ -63,12 +38,9 @@ const FigureView = ({ linkID, setPassportView }: Props) => {
       formData.append('distributionId', linkID);
       formData.append('image', passportFile);
       formData.append('figureName', figure.name);
-      formData.append(
-        'isManual',
-        view === View.FigureImageUpload ? 'true' : 'false'
-      );
+      formData.append('isManual', isManual ? 'true' : 'false');
 
-      await createPassport(formData);
+      // await createPassport(formData);
 
       setPassportView(PassportViews.Avatar);
     } catch (error) {
@@ -118,7 +90,14 @@ const FigureView = ({ linkID, setPassportView }: Props) => {
         />
         <main className="lg:relative">
           <div className="mx-auto max-w-6xl w-full pt-16 px-4 xl:px-0">
-            {figure && renderView()}
+            {figure && (
+              <FiguresGallery
+                name={figure.name}
+                onSelect={(file) => setPassportFile(file)}
+                setIsFetching={setIsFetching}
+                setIsManual={setIsManual}
+              />
+            )}
             <div className="mt-10 flex flex-col justify-center items-center">
               {Boolean(passportFile) && (
                 <div className="mt-10 mb-6">
