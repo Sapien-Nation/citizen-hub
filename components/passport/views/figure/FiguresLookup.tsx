@@ -1,4 +1,5 @@
 import { RefreshIcon } from '@heroicons/react/solid';
+import { XIcon } from '@heroicons/react/outline';
 import useSWR, { useSWRConfig } from 'swr';
 import { debounce, uniqBy } from 'lodash';
 import { useMemo, useRef, useState } from 'react';
@@ -150,6 +151,12 @@ const FiguresLookup = ({ onFigureSelect, onSelect, setSearching }: Props) => {
         {isLoading && (
           <div className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer">
             <RefreshIcon className="animate-spin h-5 w-5 mr-3" />
+          </div>
+        )}
+
+        {searchTerm !== '' && !isLoading && (
+          <div className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer">
+            <XIcon className="h-5 w-5 mr-3" onClick={handleClear} />
           </div>
         )}
 
