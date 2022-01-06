@@ -53,7 +53,7 @@ const FigureImageUpload = ({ file, setView, setFile }: Props) => {
         ) : (
           <>
             <svg
-              className="mx-auto h-12 w-12 text-gray-400"
+              className="animate-bounce mx-auto h-12 w-12 text-gray-400"
               stroke="currentColor"
               fill="none"
               viewBox="0 0 48 48"

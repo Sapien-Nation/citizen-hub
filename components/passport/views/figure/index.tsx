@@ -95,13 +95,25 @@ const FigureView = ({ linkID, setPassportView }: Props) => {
   return (
     <>
       <div className="px-4 xl:px-0">
-        <h3 className="mt-1 max-w-sm mx-auto font-bold lg:text-xl sm:text-lg">
-          Welcome to the Sapien Tribe!
+        <h3
+          className={`mt-1 max-w-sm mx-auto font-bold ${
+            figure ? '' : 'lg:text-xl sm:text-lg'
+          }`}
+        >
+          Welcome to the <span className="underline decoration-5">Sapien</span>{' '}
+          Tribe!
         </h3>
-        <p className="max-w-lg mx-auto text-md font-light py-2 text-gray-500 sm:text-md">
-          To claim your passport please input your favorite historical figure.
-          Your choice of figure should reflect the values you will champion as a
-          member of our tribe.
+        <p
+          className={`max-w-lg mx-auto text-md font-light py-2 ${
+            figure ? '' : 'text-gray-500 sm:text-md'
+          }`}
+        >
+          To claim your passport please input your{' '}
+          <span className="underline decoration-5 decoration-purple-500">
+            favorite historical figure
+          </span>
+          . Your choice of figure should reflect the values you will champion as
+          a member of our tribe.
         </p>
       </div>
       <FiguresLookup

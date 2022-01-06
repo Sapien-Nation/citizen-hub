@@ -145,10 +145,7 @@ const FiguresGallery = ({ name, onSelect, setView, setIsFetching }: Props) => {
         className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8"
       >
         {data.images.map((image, index) => (
-          <li
-            key={index}
-            className="relative transition ease-in-out hover:scale-105"
-          >
+          <li key={index} className="relative hover:scale-105">
             {isRefreshing && image === selectedImage ? (
               <div className="flex justify-center items-center animate-pulse group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-200 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
                 <RefreshIcon className="animate-spin h-5 w-5" />
@@ -157,7 +154,7 @@ const FiguresGallery = ({ name, onSelect, setView, setIsFetching }: Props) => {
               <div
                 className={mergeClassNames(
                   image === selectedImage ? 'ring-2 ring-indigo-500' : '',
-                  'group flex cursor-pointer justify-center items-center w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 overflow-hidden'
+                  'group flex cursor-pointer justify-center items-center w-full aspect-w-10 h-72 aspect-h-7 rounded-lg bg-gray-100 overflow-hidden'
                 )}
                 onClick={async () => {
                   await handleImageSelect(image);
