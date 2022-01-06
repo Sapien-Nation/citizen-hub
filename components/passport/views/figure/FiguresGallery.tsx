@@ -123,16 +123,16 @@ const FiguresGallery = ({ name, onSelect, setView, setIsFetching }: Props) => {
         className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8"
       >
         <li className="animate-pulse relative">
-          <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-200 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden"></div>
+          <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gradient-to-r from-purple-900 to-indigo-800 mix-blend-multiply focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden"></div>
         </li>
         <li className="animate-pulse relative">
-          <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-200 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden"></div>
+          <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gradient-to-r from-purple-900 to-indigo-800 mix-blend-multiply focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden"></div>
         </li>
         <li className="animate-pulse relative">
-          <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-200 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden"></div>
+          <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gradient-to-r from-purple-900 to-indigo-800 mix-blend-multiply focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden"></div>
         </li>
         <li className="animate-pulse relative">
-          <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-200 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden"></div>
+          <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gradient-to-r from-purple-900 to-indigo-800 mix-blend-multiply focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden"></div>
         </li>
       </ul>
     );

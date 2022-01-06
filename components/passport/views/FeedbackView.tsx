@@ -28,9 +28,9 @@ const ErrorView = ({ code }: Props) => {
           <LottiePlayer lottie="https://assets2.lottiefiles.com/packages/lf20_8gd5woxm.json" />
         </div>
         <div className=" w-full pb-16 text-center">
-          <h2 className="w-full text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+          <p className="w-full font-extrabold tracking-tight text-gray-700 sm:text-xl">
             {renderMessage()}
-          </h2>
+          </p>
         </div>
       </div>
     </div>
