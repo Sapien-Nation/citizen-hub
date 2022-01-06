@@ -135,6 +135,11 @@ const FiguresLookup = ({ onFigureSelect, setSearching }: Props) => {
             clearSuggestions();
             setCurrentCursor(null);
           }}
+          onKeyDown={(event) => {
+            if (event.key === KEY_CODES.UP && showSuggestions) {
+              event.preventDefault();
+            }
+          }}
         />
         {isLoading && (
           <div className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer">
