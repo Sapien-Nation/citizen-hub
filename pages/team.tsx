@@ -3,11 +3,52 @@ import { NextPage } from 'next';
 
 const people = [
   {
-    name: 'Whitney Francis',
-    role: 'Copywriter',
-    imageUrl:
-      'https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
-    bio: 'Ultricies massa malesuada viverra cras lobortis. Tempor orci hac ligula dapibus mauris sit ut eu. Eget turpis urna maecenas cras. Nisl dictum.',
+    name: 'Ankit',
+    role: 'Co-CEO & Co-Founder',
+    imageUrl: '/images/team/Ankit.png',
+    bio: 'Founding Member of the Sapien Tribe, Co-CEO & Co-Founder of Sapien Network. Ankit has a passion for understanding the status quo and shaping social systems to be more aligned with Nature, Culture, and Technology. As an Indian immigrant and a believer in equal opportunity, he seeks the truth in order to create and live a mindful life that harmonizes his story with the story of his tribes.',
+  },
+  {
+    name: 'Rob',
+    role: 'Co-CEO & Co-Founder',
+    imageUrl: '/images/team/Rob.png',
+    bio: 'Founding Member of the Sapien Tribe, Co-Ceo & Co-founder of Sapien Network. Rob is a lifelong student of many disciplines and understands the vital importance of seeing the world through many different perspectives. Never content to let the status quo remain unchallenged, Rob seeks to apply his knowledge of Mathematics, Technology, Culture and History to build tools to empower people and their tribes to achieve their full potential.',
+  },
+  {
+    name: 'Teja',
+    role: 'CCO',
+    imageUrl: '/images/team/Teja.png',
+    bio: 'Founding member of the Sapien Tribe, Chief Communications Officer of the Sapien Network. Teja is dedicated to the learning process and seeks to foster curiosity in himself and others. Teja earned his BS in Computer Engineering from UC Davis in 2017. Prior to joining the Sapien Tribe, Teja was a graduate student in Computer Engineering at UC Davis, before taking a leave of absence. He has previously worked at Tesla, Xpeng Motors, and Lyft on projects in robotics and the autonomous vehicle space. Raised in Colorado, he seeks to find a synthesis between technology and nature.',
+  },
+  {
+    name: 'Greg',
+    role: 'CTO',
+    imageUrl: '/images/team/Ankit.png',
+    bio: 'Chief Technology Officer at Sapien Network. In Greg’s endeavors throughout his career, he has strived to change the status quo, to make it better, easier to understand, accessible by everyone and, importantly, decentralized. Greg approaches complexities of life and systems, and distills them into beautiful solutions (“there is elegance in simplicity” – Greg). Astrophysics, Computer Science and Mathematics form the basis of his academic learnings. His patent in peer to peer networks, extensive work in cryptography, and his gaming technologies form the basis of his beliefs and support of the crypto world. Bringing his learnings, Greg joined the Sapien tribe to contribute to create a new, better place for humans.',
+  },
+  {
+    name: 'Latif',
+    role: 'COO',
+    imageUrl: '/images/team/Latif.png',
+    bio: 'Latif is the Founding investor and COO for the Sapien Network. Latif’s attraction to adventure and the unknown started at 18 when he traveled across the world from India with simple change in his pocket. After completing his undergraduate studies in Computer Science at the University of Arizona, Latif took another risk and became a software engineer at a “not very popular” company in the Pacific Northwest named Microsoft. Latif’s tenure at Microsoft lasted nearly 16 cumulative years, finally ending up as the General Manager of the Unlimited Potential group, leading a team in India to bring benefits of technology to emerging markets. He has also been involved in many other large projects like co-founding eMemories, helping launch Norton360 for Symantec, and most recently as the managing director for eBay India.',
+  },
+  {
+    name: 'Hash',
+    role: 'CMO',
+    imageUrl: '/images/team/Hash.png',
+    bio: "Hash leads Sapien's growing marketing team as the CMO. He brings natural marketing talent as well as knowledge from his experience with both B2B and B2C marketing. As a published poet, passionate writer, musician, and graphic artist, he brings the level of creative direction needed to communicate Sapien's vision to the world. As an immigrant raised in a low-income household, Hash is passionate about leveraging emerging technologies to seek justice for underserved communities.",
+  },
+  {
+    name: 'Missy',
+    role: 'CSO',
+    imageUrl: '/images/team/Ankit.png',
+    bio: 'As Chief Sustainability Officer, Missy leads Sapien’s community building and social/environmental impact efforts. Before Sapien, Missy helped lead business development for multiple startups - a circular economy platform, Loop, and a market research firm, Vancery. She also was the VP of Member Development for the environmental nonprofit, BEACN, and managed the first global onboarding mentorship program at Tesla. In her free time, she mentors college students on their climate action projects and supports sustainable food communities. She graduated from UC Berkeley with a B.S. in Society and Environment, concentrating in US Environmental Policy and Management.',
+  },
+  {
+    name: 'Lynn',
+    role: 'Advisor',
+    imageUrl: '/images/team/Hash.png',
+    bio: 'Lynn has previously advised for Lykke Corporation, cryptocurrency exchange, compliance, risk management, ALM, trading strategies, ICO token structuring & due diligence. Chief Compliance Officer and Director of Research for Fossil Free Indexes (FFI), and structuring of investment fund strategies. +25 years in both industry and advisory services, working for firms such as Merrill Lynch, JP Morgan Chase, and Deloitte. Advisory services to global financial institutions, asset managers, and funds in compliance, risk management, regulatory requirements, portfolio analysis, strategies, and valuation. Co-author whitepaper “The Missing Link: How a Distributed Ledger System Can Support Global Climate Action.” Published in the areas of asset management, risk management and valuation. Series 65 License, Uniform Investment Advisor Law Examination. B.S. in Economics Wharton, University of Pennsylvania.',
   },
 ];
 
@@ -17,7 +58,7 @@ const TeamPage: NextPage = () => {
       <div className="mx-auto py-12 px-4 max-w-7xl sm:px-6 lg:px-8 lg:py-24">
         <div className="space-y-12">
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
-            Meet our leadership
+            Meet our Team
           </h2>
 
           <ul

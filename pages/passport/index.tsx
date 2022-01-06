@@ -101,8 +101,4 @@ const PassportPage: NextPage = () => {
   );
 };
 
-const PassportPageTeam = () => {
-  return <h1>TODO</h1>;
-};
-
-export default PassportPageTeam;
+export default PassportPage;

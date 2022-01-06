@@ -19,7 +19,7 @@ import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
 import { mergeClassNames } from 'utils/styles';
 
 const navigation = [
-  { name: 'Passport', href: '/passport', visible: false },
+  { name: 'Passport', href: '/passport', visible: true },
   { name: 'Team', href: '/team', visible: true },
 ];
 
