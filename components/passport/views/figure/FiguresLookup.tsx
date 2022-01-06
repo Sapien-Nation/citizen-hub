@@ -2,7 +2,7 @@ import { RefreshIcon } from '@heroicons/react/solid';
 import { XIcon } from '@heroicons/react/outline';
 import useSWR, { useSWRConfig } from 'swr';
 import { debounce, uniqBy } from 'lodash';
-import { useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useKeyPressEvent } from 'react-use';
 
 // types
@@ -43,12 +43,17 @@ const FiguresLookup = ({ onFigureSelect, onSelect, setSearching }: Props) => {
   if (data?.length > 0) {
     suggestions = uniqBy([...suggestions, ...data], ({ name }) => name);
   }
+
+  useEffect(() => {
+    if (searchTerm === '') {
+      setSearching(false);
+      onSelect(null);
+      onFigureSelect(null);
+      inputRef.current.value = '';
+    }
+  }, [onFigureSelect, onSelect, searchTerm, setSearching]);
+
   //---------------------------------------------------------------------------------------------
-  const handleClear = () => {
-    setSearching(false);
-    onSelect(null);
-    onFigureSelect(null);
-  };
   const clearSuggestions = () => cache.set(apiKey, () => []);
 
   useKeyPressEvent(KEY_CODES.UP, () => {
@@ -122,8 +127,6 @@ const FiguresLookup = ({ onFigureSelect, onSelect, setSearching }: Props) => {
         isTaken: false, // TODO backend to fix this field
       },
     ];
-  } else {
-    handleClear();
   }
 
   return (
@@ -156,7 +159,12 @@ const FiguresLookup = ({ onFigureSelect, onSelect, setSearching }: Props) => {
 
         {searchTerm !== '' && !isLoading && (
           <div className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer">
-            <XIcon className="h-5 w-5 mr-3" onClick={handleClear} />
+            <XIcon
+              className="h-5 w-5 mr-3"
+              onClick={() => {
+                setSearchTerm('');
+              }}
+            />
           </div>
         )}
 
