@@ -21,7 +21,7 @@ const Footer = () => {
       className="bg-white border-t-2 border-gray-200"
       aria-labelledby="footer-heading"
     >
-      <div className="mt-4 pt-8 text-center">
+      <div className="py-8 text-center">
         <p className="text-xs text-gray-400">
           Copyright &copy; {new Date().getFullYear()} Sapien LLC. All rights
           reserved

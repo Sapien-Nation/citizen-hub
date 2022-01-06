@@ -141,8 +141,8 @@ const IndexPage: NextPage = () => {
           </div>
         </div>
         {/* Contribue Section */}
-        <div className="py-12 relative lg:px-8 px-4 sm:px-6">
-          <div aria-hidden="true" className="hidden sm:block">
+        <div className="py-12 relative">
+          <div aria-hidden="true" className="hidden md:block">
             <div className="absolute inset-y-0 left-0 w-1/2 bg-gray-50 rounded-r-3xl"></div>
             <svg
               className="absolute top-8 left-1/2 -ml-3"
@@ -177,7 +177,7 @@ const IndexPage: NextPage = () => {
               ></rect>
             </svg>
           </div>
-          <div className="relative rounded-2xl px-6 py-10 bg-purple-900 overflow-hidden shadow-xl sm:px-12 sm:py-20">
+          <div className="relative px-6 py-10 bg-purple-900 overflow-hidden shadow-xl sm:px-12 sm:py-20">
             <div
               aria-hidden="true"
               className="absolute inset-0 -mt-72 sm:-mt-32 md:mt-0"

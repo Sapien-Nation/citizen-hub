@@ -119,6 +119,16 @@ const Navbar = () => {
                       >
                         <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                           <Menu.Item>
+                            <div className="border-b border-gray-200 px-4 py-2">
+                              <div className="text-base font-medium text-gray-800">
+                                {me.displayName}
+                              </div>
+                              <div className="text-sm font-medium text-gray-500">
+                                {me.email}
+                              </div>
+                            </div>
+                          </Menu.Item>
+                          <Menu.Item>
                             {({ active }) => (
                               <Link href="/logout">
                                 <a
@@ -194,25 +204,25 @@ const Navbar = () => {
                         {me.email}
                       </div>
                     </div>
-                    <button
+                    {/* <button
                       type="button"
                       className="ml-auto shrink-0 bg-white p-1 text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
                     >
                       <span className="sr-only">View notifications</span>
                       <BellIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
+                    </button> */}
+                    <Disclosure.Button
+                      as="a"
+                      href="/logout"
+                      className="ml-auto shrink-0 px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100"
+                    >
+                      Sign out
+                    </Disclosure.Button>
                   </div>
                   <div className="mt-3 space-y-1">
                     {/* <Disclosure.Button className="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100">
                       Connect Wallet
                     </Disclosure.Button> */}
-                    <Disclosure.Button
-                      as="a"
-                      href="/logout"
-                      className="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100"
-                    >
-                      Sign out
-                    </Disclosure.Button>
                   </div>
                 </>
               ) : (
