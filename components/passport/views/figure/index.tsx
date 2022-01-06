@@ -87,6 +87,7 @@ const FigureView = ({ linkID, setPassportView }: Props) => {
         <FiguresLookup
           onFigureSelect={(selectedFigure) => setFigure(selectedFigure)}
           setSearching={setSearching}
+          onSelect={setPassportFile}
         />
         <main className="lg:relative">
           <div className="mx-auto max-w-6xl w-full pt-16 px-4 xl:px-0">

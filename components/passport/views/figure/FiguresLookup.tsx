@@ -15,10 +15,11 @@ enum KEY_CODES {
 
 interface Props {
   onFigureSelect: (figure: Figure) => void;
+  onSelect: (file: File | null) => void;
   setSearching: (state: boolean) => void;
 }
 
-const FiguresLookup = ({ onFigureSelect, setSearching }: Props) => {
+const FiguresLookup = ({ onFigureSelect, onSelect, setSearching }: Props) => {
   const [cursor, setCurrentCursor] = useState<number | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(true);
@@ -38,23 +39,15 @@ const FiguresLookup = ({ onFigureSelect, setSearching }: Props) => {
     setSearching(true);
   }
 
-  if (searchTerm) {
-    suggestions = [
-      {
-        id: searchTerm,
-        name: searchTerm,
-        passportId: null,
-        isTaken: false, // TODO backend to fix this field
-      },
-    ];
-  } else {
-    setSearching(false);
-  }
-
   if (data?.length > 0) {
     suggestions = uniqBy([...suggestions, ...data], ({ name }) => name);
   }
   //---------------------------------------------------------------------------------------------
+  const handleClear = () => {
+    setSearching(false);
+    onSelect(null);
+    onFigureSelect(null);
+  };
   const clearSuggestions = () => cache.set(apiKey, () => []);
 
   useKeyPressEvent(KEY_CODES.UP, () => {
@@ -118,6 +111,19 @@ const FiguresLookup = ({ onFigureSelect, setSearching }: Props) => {
       }, 300),
     []
   );
+
+  if (searchTerm) {
+    suggestions = [
+      {
+        id: searchTerm,
+        name: searchTerm,
+        passportId: null,
+        isTaken: false, // TODO backend to fix this field
+      },
+    ];
+  } else {
+    handleClear();
+  }
 
   return (
     <div className="flex justify-center items-center">
