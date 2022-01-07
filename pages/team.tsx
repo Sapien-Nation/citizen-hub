@@ -17,7 +17,7 @@ const people = [
   {
     name: 'Teja',
     role: 'CCO',
-    imageUrl: '/images/team/Teja.png',
+    imageUrl: '/images/team/Teja.jpeg',
     bio: `Founding member of the Sapien Tribe, Chief Communications Officer of the Sapien Network. Teja is dedicated to the learning process and seeks to foster curiosity in himself and others. Teja earned his <span class='underline decoration-indigo-500 decoration-2 text-gray-900 font-medium'>BS in Computer Engineering from UC Davis in 2017</span>. Prior to joining the Sapien Tribe, Teja was a graduate student in Computer Engineering at UC Davis, before taking a leave of absence. He has previously <span class='underline decoration-indigo-500 decoration-2 text-gray-900 font-medium'>worked at Tesla, Xpeng Motors, and Lyft</span> on projects in robotics and the autonomous vehicle space. Raised in Colorado, he seeks to find a synthesis between technology and nature.`,
   },
   {
@@ -47,7 +47,7 @@ const people = [
   {
     name: 'Lynn',
     role: 'Advisor',
-    imageUrl: '/images/team/Hash.png',
+    imageUrl: '/images/team/Lynn.png',
     bio: `Lynn has previously advised for Lykke Corporation, cryptocurrency exchange, compliance, risk management, ALM, trading strategies, ICO token structuring & due diligence. Chief Compliance Officer and Director of Research for Fossil Free Indexes (FFI), and structuring of investment fund strategies. +25 years in both industry and advisory services, <span class='underline decoration-indigo-500 decoration-2 text-gray-900 font-medium'>working for firms such as Merrill Lynch, JP Morgan Chase, and Deloitte</span>. Advisory services to global financial institutions, asset managers, and funds in compliance, risk management, regulatory requirements, portfolio analysis, strategies, and valuation. Co-author whitepaper “The Missing Link: How a Distributed Ledger System Can Support Global Climate Action.” Published in the areas of asset management, risk management and valuation. Series 65 License, Uniform Investment Advisor Law Examination. <span class='underline decoration-indigo-500 decoration-2 text-gray-900 font-medium'>B.S. in Economics Wharton, University of Pennsylvania</span>.`,
   },
 ];
