@@ -70,9 +70,7 @@ const IndexPage: NextPage = () => {
               {`From tech empires to financial institutions, we're surrounded by big black boxes that control how society operates with zero input from average people. Because they're so large, we're left with no choice but to engage with them. Some of these institutions shroud themselves in secrecy and complexity to reduce accountability and enable exploitation.
 
                 With the right tools, we can get rid of big black boxes and go back to relying on the only thing we really need, each other. 
-                
-                Sapien is building the tools, community, and protocol for the next generation of human connection. 
-                `}
+              `}
             </p>
           </div>
           <div className="lg:w-1/2">
@@ -117,9 +115,9 @@ const IndexPage: NextPage = () => {
                   Social
                 </h4>
                 <p className="mt-3 text-base whitespace-pre-line text-gray-300">
-                  {`There's no endorsement more powerful than a guarantee from someone you trust. 
+                  {`It’s difficult to know what or who you can believe. Specific endorsements from communities you’re part of makes it much easier. 
 
-                    Our NFT Passports allow communities to have shared networks of trust where people you trust can sign off on another user's passport to vouch for their skills, knowledge, and character. 
+                    Our NFT Passports allow communities to have shared networks where communities can sign off on another user’s passport in support of their skills, knowledge, and history on the platform.
                     `}
                 </p>
               </div>
@@ -130,10 +128,11 @@ const IndexPage: NextPage = () => {
                   Economic
                 </h4>
                 <p className="mt-3 text-base whitespace-pre-line text-gray-300">
-                  {`We've been conditioned to believe that the world is win-lose and the only way to get ahead is to push others down. We're here to tell you that's not true. 
+                  {`Cooperation > Competition.
+
+                    It’s easy to believe that the world is win-lose and the only way to get ahead is to push others down. We’re here to tell you that’s not true. 
                     
                     Sapien is working on building a win-win economic system built on a brand new token protocol that gives communities ultimate control over their financial agency.
-                    
                     `}
                 </p>
               </div>
