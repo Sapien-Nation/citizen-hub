@@ -1,6 +1,9 @@
 // types
 import { NextPage } from 'next';
 
+// components
+import { Head } from 'components/common';
+
 const people = [
   {
     name: 'Ankit',
@@ -23,7 +26,7 @@ const people = [
   {
     name: 'Greg',
     role: 'CTO',
-    imageUrl: '/images/team/Ankit.png',
+    imageUrl: '/images/team/Greg.png',
     bio: `Chief Technology Officer at Sapien Network. In Greg’s endeavors throughout his career, he has strived to change the status quo, to make it better, easier to understand, accessible by everyone and, importantly, decentralized. Greg approaches complexities of life and systems, and distills them into beautiful solutions (“there is elegance in simplicity” – Greg). <span class='underline decoration-indigo-500 decoration-2 text-gray-900 font-medium'>Astrophysics, Computer Science and Mathematics form the basis of his academic learnings</span>. His patent in peer to peer networks, extensive work in cryptography, and his gaming technologies form the basis of his beliefs and support of the crypto world. Bringing his learnings, Greg joined the Sapien tribe to contribute to create a new, better place for humans.`,
   },
   {
@@ -41,7 +44,7 @@ const people = [
   {
     name: 'Missy',
     role: 'CSO',
-    imageUrl: '/images/team/Ankit.png',
+    imageUrl: '/images/team/Missy.png',
     bio: `As Chief Sustainability Officer, Missy leads Sapien’s community building and social/environmental impact efforts. Before Sapien, Missy helped lead business development for multiple startups - a circular economy platform, Loop, and a market research firm, Vancery. She also was the <span class='underline decoration-indigo-500 decoration-2 text-gray-900 font-medium'>VP of Member Development for the environmental nonprofit, BEACN, and managed the first global onboarding mentorship program at Tesla</span>. In her free time, she mentors college students on their climate action projects and supports sustainable food communities. She <span class='underline decoration-indigo-500 decoration-2 text-gray-900 font-medium'>graduated from UC Berkeley with a B.S. in Society and Environment</span>, concentrating in US Environmental Policy and Management.`,
   },
   {
@@ -54,48 +57,51 @@ const people = [
 
 const TeamPage: NextPage = () => {
   return (
-    <div className="bg-white">
-      <div className="mx-auto py-12 px-4 max-w-7xl sm:px-6 lg:px-8 lg:py-24">
-        <div className="space-y-12">
-          <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
-            Meet our Team
-          </h2>
+    <>
+      <Head title="Team" />
+      <div className="bg-white">
+        <div className="mx-auto py-12 px-4 max-w-7xl sm:px-6 lg:px-8 lg:py-24">
+          <div className="space-y-12">
+            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
+              Meet our Team
+            </h2>
 
-          <ul
-            role="list"
-            className="space-y-12 lg:grid lg:grid-cols-1 lg:items-start lg:gap-x-8 lg:gap-y-12 lg:space-y-0"
-          >
-            {people.map((person) => (
-              <li key={person.name}>
-                <div className="space-y-4 sm:grid sm:grid-cols-3 sm:gap-6 sm:space-y-0 lg:gap-8">
-                  <div className="h-0 aspect-w-3 aspect-h-2 sm:aspect-w-3 sm:aspect-h-3">
-                    <img
-                      className="object-cover shadow-lg rounded-lg"
-                      src={person.imageUrl}
-                      alt=""
-                    />
-                  </div>
-                  <div className="sm:col-span-2">
-                    <div className="space-y-4 flex flex-col justify-center h-full">
-                      <div className="text-lg leading-6 font-medium space-y-1">
-                        <h3>{person.name}</h3>
-                        <p className="text-indigo-600">{person.role}</p>
-                      </div>
-                      <div className="text-lg">
-                        <p
-                          className="text-gray-500"
-                          dangerouslySetInnerHTML={{ __html: person.bio }}
-                        />
+            <ul
+              role="list"
+              className="space-y-12 lg:grid lg:grid-cols-1 lg:items-start lg:gap-x-8 lg:gap-y-12 lg:space-y-0"
+            >
+              {people.map((person) => (
+                <li key={person.name}>
+                  <div className="space-y-4 sm:grid sm:grid-cols-3 sm:gap-6 sm:space-y-0 lg:gap-8">
+                    <div className="h-0 aspect-w-3 aspect-h-2 sm:aspect-w-3 sm:aspect-h-3">
+                      <img
+                        className="object-cover shadow-lg rounded-lg"
+                        src={person.imageUrl}
+                        alt=""
+                      />
+                    </div>
+                    <div className="sm:col-span-2">
+                      <div className="space-y-4 flex flex-col justify-center h-full">
+                        <div className="text-lg leading-6 font-medium space-y-1">
+                          <h3>{person.name}</h3>
+                          <p className="text-indigo-600">{person.role}</p>
+                        </div>
+                        <div className="text-lg">
+                          <p
+                            className="text-gray-500"
+                            dangerouslySetInnerHTML={{ __html: person.bio }}
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </li>
-            ))}
-          </ul>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
