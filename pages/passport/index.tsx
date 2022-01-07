@@ -15,7 +15,7 @@ const PassportPage: NextPage = () => {
     <>
       <Head title="Passport" />
       <div className="py-16">
-        <div className="mx-auto px-4 py-20 sm:px-6 lg:px-10 bg-gray-100 text-center max-w-6xl">
+        <div className="mx-auto px-4 py-20 sm:px-6 lg:px-10 text-center max-w-6xl">
           <h2 className="text-2xl font-semibold">
             The Sapien Passport is Your Ticket to:
           </h2>
