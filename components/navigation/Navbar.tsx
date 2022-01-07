@@ -13,7 +13,7 @@ import { useAuth } from 'context/user';
 
 // tailwind ui
 import { Disclosure, Menu, Transition } from '@headlessui/react';
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
+import { MenuIcon, XIcon } from '@heroicons/react/outline';
 
 // utils
 import { mergeClassNames } from 'utils/styles';
@@ -172,7 +172,7 @@ const Navbar = () => {
                     <Disclosure.Button
                       as="a"
                       href={nav.href}
-                      key={nav.href}
+                      key={nav.name}
                       className={mergeClassNames(
                         router.asPath === nav.href
                           ? 'bg-purple-50 border-purple-500 text-purple-700'

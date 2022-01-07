@@ -40,10 +40,6 @@ const FiguresLookup = ({ onFigureSelect, onSelect, setSearching }: Props) => {
     setSearching(true);
   }
 
-  if (data?.length > 0) {
-    suggestions = uniqBy([...suggestions, ...data], ({ name }) => name);
-  }
-
   useEffect(() => {
     if (searchTerm === '') {
       setSearching(false);
@@ -127,6 +123,10 @@ const FiguresLookup = ({ onFigureSelect, onSelect, setSearching }: Props) => {
         isTaken: false, // TODO backend to fix this field
       },
     ];
+  }
+
+  if (data?.length > 0) {
+    suggestions = uniqBy([...suggestions, ...data], ({ name }) => name);
   }
 
   return (
