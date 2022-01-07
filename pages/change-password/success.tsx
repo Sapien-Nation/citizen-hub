@@ -16,7 +16,7 @@ const ChangePasswordSuccessPage: NextPage = () => (
           Please{' '}
           <Link href="/login">
             <a
-              className="text-purple-700"
+              className="text-sapien-80"
               style={{ textDecoration: 'underline' }}
             >
               Login

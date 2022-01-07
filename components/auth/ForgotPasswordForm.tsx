@@ -62,7 +62,7 @@ const ForgotPasswordForm = () => {
       <div className="flex items-center justify-between">
         <div className="text-sm">
           <Link href="/login">
-            <a className="font-medium text-purple-600 hover:text-purple-500">
+            <a className="font-medium text-sapien hover:text-purple-500">
               Remember Password?
             </a>
           </Link>
@@ -74,7 +74,7 @@ const ForgotPasswordForm = () => {
           type="submit"
           className={mergeClassNames(
             isSubmitting ? 'cursor-not-allowed' : '',
-            'w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500'
+            'w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-sapien hover:bg-sapien-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500'
           )}
           disabled={isSubmitting}
         >

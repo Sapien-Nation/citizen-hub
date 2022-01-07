@@ -9,7 +9,7 @@ const ForgotSuccessPage: NextPage = () => (
   <>
     <Head title="Check Email" />
     <Layout title="Check Your Email!">
-      <p className="text-purple-700">
+      <p className="text-sapien-80">
         Please check your email and follow the instructions to reset your
         password.
       </p>

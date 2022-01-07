@@ -203,7 +203,7 @@ const RegisterForm = () => {
           <div className="flex items-center">
             <Checkbox
               name="terms"
-              className="h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
+              className="h-4 w-4 text-sapien focus:ring-purple-500 border-gray-300 rounded"
               aria-invalid="true"
               aria-describedby="terms-error"
               label={
@@ -234,7 +234,7 @@ const RegisterForm = () => {
           <div className="flex items-center">
             <Checkbox
               name="wallet"
-              className="h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
+              className="h-4 w-4 text-sapien focus:ring-purple-500 border-gray-300 rounded"
               aria-invalid="true"
               aria-describedby="wallet-error"
               label={
@@ -259,7 +259,7 @@ const RegisterForm = () => {
             className={`${
               isSubmitting ? 'cursor-not-allowed disabled:opacity-75' : ''
             }
-              w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500`}
+              w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-sapien hover:bg-sapien-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500`}
             disabled={isSubmitting}
           >
             Sign up
@@ -267,7 +267,7 @@ const RegisterForm = () => {
           <div className="mt-8 text-center">
             <p className="text-sm inline">Already have an account?</p>
             <Link href="/login">
-              <a className="font-medium text-sm text-purple-600 hover:text-purple-500">
+              <a className="font-medium text-sm text-sapien hover:text-purple-500">
                 &nbsp;login
               </a>
             </Link>

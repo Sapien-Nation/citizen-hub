@@ -14,7 +14,7 @@ const StartView = ({ setPassportView }: Props) => {
       <div className="lg:relative">
         <div className="w-full text-center">
           <h2 className="text-5xl font-extrabold font-sans mb-12 skew-y-3">
-            <span className="underline decoration-4 decoration-purple-600 text-7xl">
+            <span className="underline decoration-4 decoration-sapien text-7xl">
               welcome to
             </span>{' '}
             <br /> the Sapien tribe!

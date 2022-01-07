@@ -83,7 +83,7 @@ const Navbar = () => {
                 {me === null && (
                   <>
                     <Link href="/login">
-                      <a className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
+                      <a className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-sapien hover:bg-sapien-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
                         Sign in
                       </a>
                     </Link>
@@ -91,7 +91,7 @@ const Navbar = () => {
                 )}
                 {me && (
                   <>
-                    {/*<button className="inline-flex items-center px-4 py-2 border text-sm font-medium rounded-full py-2 px-6 shadow-sm hover:bg-purple-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
+                    {/*<button className="inline-flex items-center px-4 py-2 border text-sm font-medium rounded-full py-2 px-6 shadow-sm hover:bg-sapien-80 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
                       Connect Wallet
                     </button>*/}
                     <Menu as="div" className="relative ml-2 shrink-0">
@@ -175,7 +175,7 @@ const Navbar = () => {
                       key={nav.name}
                       className={mergeClassNames(
                         router.asPath === nav.href
-                          ? 'bg-purple-50 border-purple-500 text-purple-700'
+                          ? 'bg-purple-50 border-purple-500 text-sapien-80'
                           : 'border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800',
                         'block pl-3 pr-4 py-2 border-l-4 text-base font-medium'
                       )}
@@ -243,7 +243,7 @@ const Navbar = () => {
                     href="/login"
                     className={mergeClassNames(
                       router.asPath === '/login'
-                        ? 'bg-purple-50 border-purple-500 text-purple-700'
+                        ? 'bg-purple-50 border-purple-500 text-sapien-80'
                         : 'border-transparent  text-gray-500 hover:bg-gray-100 hover:border-gray-300 hover:text-gray-800',
                       'block px-4 py-2 text-base font-medium'
                     )}

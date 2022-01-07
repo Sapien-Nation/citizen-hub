@@ -96,7 +96,7 @@ const HistoricalFiguresSearch = ({ linkID }: Props) => {
                 <button
                   disabled={isFetching}
                   type="button"
-                  className={`flex items-center bg-purple-600 hover:bg-purple-700 justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white md:py-4 md:text-lg md:px-10 ${
+                  className={`flex items-center bg-sapien hover:bg-sapien-80 justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white md:py-4 md:text-lg md:px-10 ${
                     isFetching ? 'animate-pulse' : ''
                   }`}
                   onClick={handleContinue}

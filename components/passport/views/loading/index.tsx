@@ -13,7 +13,7 @@ const Loading = () => (
           inline-block
           py-1
           px-2
-          text-purple-600
+          text-sapien
           tracking-wide
         "
     >

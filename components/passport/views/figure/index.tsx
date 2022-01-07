@@ -63,7 +63,7 @@ const FigureView = ({ linkID, setPassportView }: Props) => {
           className={`mt-3 max-w-sm mx-auto font-bold md:mt-5 lg:text-2xl sm:text-xl`}
         >
           Welcome to the{' '}
-          <span className="underline decoration-4 decoration-purple-600">
+          <span className="underline decoration-4 decoration-sapien">
             Sapien Tribe!
           </span>
         </h3>
@@ -105,7 +105,7 @@ const FigureView = ({ linkID, setPassportView }: Props) => {
                   <button
                     disabled={isFetching}
                     type="button"
-                    className={`inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 ${
+                    className={`inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-sapien hover:bg-sapien-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 ${
                       isFetching ? 'animate-pulse' : ''
                     }`}
                     onClick={handleContinue}

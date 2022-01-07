@@ -37,7 +37,7 @@ const IndexPage: NextPage = () => {
                     {/* <Link href="/passport">
                       <a
                         href="#"
-                        className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white bg-purple-600 hover:bg-purple-700 md:py-4 md:text-lg md:px-10"
+                        className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white bg-sapien hover:bg-sapien-80 md:py-4 md:text-lg md:px-10"
                       >
                         Get Passport
                       </a>
@@ -48,7 +48,7 @@ const IndexPage: NextPage = () => {
                       <Link href="/register">
                         <a
                           href="#"
-                          className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-purple-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10"
+                          className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-sapien bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10"
                         >
                           Sign up
                         </a>

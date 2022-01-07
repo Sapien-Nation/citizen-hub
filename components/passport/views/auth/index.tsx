@@ -21,7 +21,7 @@ const FigureView = ({ linkID }: Props) => {
         <p className="text-base inline center-text">
           Click
           <Link href={`/login?redirect=/passport/${linkID}`}>
-            <a className="font-medium text-purple-600 hover:text-purple-500">
+            <a className="font-medium text-sapien hover:text-purple-500">
               &nbsp;here&nbsp;
             </a>
           </Link>

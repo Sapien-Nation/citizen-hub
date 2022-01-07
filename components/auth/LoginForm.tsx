@@ -77,7 +77,7 @@ const LoginForm = () => {
             error={errors.password?.message}
             extraLabel={
               <Link href="/forgot">
-                <a className="text-xs text-purple-600 hover:text-purple-500 float-right">
+                <a className="text-xs text-sapien hover:text-purple-500 float-right">
                   Forgot your password?
                 </a>
               </Link>
@@ -101,7 +101,7 @@ const LoginForm = () => {
             className={`${
               isSubmitting ? 'cursor-not-allowed disabled:opacity-75' : ''
             }
-            w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm  text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500`}
+            w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm  text-white bg-sapien hover:bg-sapien-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500`}
             disabled={isSubmitting}
           >
             Sign in
@@ -110,7 +110,7 @@ const LoginForm = () => {
           <div className="mt-8 text-center">
             <p className="text-sm inline">{`Don't have an account?`}</p>
             <Link href="/register">
-              <a className="font-medium text-sm text-purple-600 hover:text-purple-500">
+              <a className="font-medium text-sm text-sapien hover:text-purple-500">
                 &nbsp;register
               </a>
             </Link>
