@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { ArrowNarrowRightIcon } from '@heroicons/react/solid';
 import Link from 'next/link';
 
@@ -67,10 +68,17 @@ const IndexPage: NextPage = () => {
         <div className="py-12 bg-gray-50 lg:flex lg:px-8 px-4 sm:px-6">
           <div className="lg:w-1/2">
             <p className="whitespace-pre-line leading-relaxed text-lg text-center lg:text-left text-gray-600">
-              {`From tech empires to financial institutions, we're surrounded by big black boxes that control how society operates with zero input from average people. Because they're so large, we're left with no choice but to engage with them. Some of these institutions shroud themselves in secrecy and complexity to reduce accountability and enable exploitation.
-
-                With the right tools, we can get rid of big black boxes and go back to relying on the only thing we really need, each other. 
-              `}
+              From tech empires to financial institutions, we're surrounded by
+              big black boxes that control how society operates with zero input
+              from average people. Because they're so large, we're left with no
+              choice but to engage with them. Some of these institutions shroud
+              themselves in secrecy and complexity to reduce accountability and
+              enable exploitation.
+            </p>
+            <p className="whitespace-pre-line leading-relaxed text-lg text-center lg:text-left text-gray-600 mt-4">
+              With the right tools, we can begin to get rid of big black boxes
+              and go back to relying on the only thing we really need, each
+              other.
             </p>
           </div>
           <div className="lg:w-1/2">
@@ -90,8 +98,14 @@ const IndexPage: NextPage = () => {
             </div>
             <div className="lg:w-1/2">
               <p className="whitespace-pre-line lg:text-left text-center leading-loose text-lg text-gray-300">
-                {`We recognize that the problems we're facing run deep. There's no one tool or easy solution that's going to fix the problem. That's why we're taking a holistic approach and developing a complete stack of tools to help communities thrive and realize their true potential. The future of the internet is being built on Web 3.0 through blockchain technology and we're watching it happen in real time. Let's make sure that future is built by people with the right vision.
-                  `}
+                We recognize that the problems we’re facing run deep. There’s no
+                one tool or easy solution that’s going to fix the problem.
+                That’s why we’re taking a holistic approach and developing a
+                complete stack of tools to help communities thrive and realize
+                their true potential. The future of the internet is being built
+                on Web 3.0 through blockchain technology and we’re watching it
+                happen in real time. Let’s make sure that future is built by
+                people with the right vision.
               </p>
             </div>
           </div>
@@ -102,10 +116,14 @@ const IndexPage: NextPage = () => {
                   Informational
                 </h4>
                 <p className="mt-3 text-base whitespace-pre-line text-gray-300">
-                  {`The algorithms that power social media are failing us. In an age of endless information, people are becoming more polarized and confused.                    
-                    
-                    That's why we're putting humans at the center of our solution with human curation. The content you consume will be vetted by humans you can trust because they're endorsed by the communities you're a part of. 
-                    `}
+                  The algorithms that power social media are failing us. In an
+                  age of endless information, people are becoming increasingly
+                  polarized and confused.
+                </p>
+                <p className="mt-3 text-base whitespace-pre-line text-gray-300">
+                  That’s why we’re putting humans at the center of our solution
+                  with human curation. The content you consume will be vetted by
+                  humans that are part of the communities you’re a part of.
                 </p>
               </div>
             </div>
@@ -115,10 +133,15 @@ const IndexPage: NextPage = () => {
                   Social
                 </h4>
                 <p className="mt-3 text-base whitespace-pre-line text-gray-300">
-                  {`It’s difficult to know what or who you can believe. Specific endorsements from communities you’re part of makes it much easier. 
-
-                    Our NFT Passports allow communities to have shared networks where communities can sign off on another user’s passport in support of their skills, knowledge, and history on the platform.
-                    `}
+                  It’s difficult to know what or who you can believe. Specific
+                  endorsements from communities you’re part of makes it much
+                  easier.
+                </p>
+                <p className="mt-3 text-base whitespace-pre-line text-gray-300">
+                  Our NFT Passports allow communities to have shared networks
+                  where communities can sign off on another user’s passport in
+                  support of their skills, knowledge, and history on the
+                  platform.
                 </p>
               </div>
             </div>
@@ -128,12 +151,17 @@ const IndexPage: NextPage = () => {
                   Economic
                 </h4>
                 <p className="mt-3 text-base whitespace-pre-line text-gray-300">
-                  {`Cooperation > Competition.
-
-                    It’s easy to believe that the world is win-lose and the only way to get ahead is to push others down. We’re here to tell you that’s not true. 
-                    
-                    Sapien is working on building a win-win economic system built on a brand new token protocol that gives communities ultimate control over their financial agency.
-                    `}
+                  {`Cooperation > Competition.`}
+                </p>
+                <p className="mt-3 text-base whitespace-pre-line text-gray-300">
+                  It’s easy to believe that the world is win-lose and the only
+                  way to get ahead is to push others down. We’re here to tell
+                  you that’s not true.
+                </p>
+                <p className="mt-3 text-base whitespace-pre-line text-gray-300">
+                  Sapien is working on building a win-win economic system built
+                  on a brand new token protocol that will empower communities
+                  control over their financial agency.
                 </p>
               </div>
             </div>
@@ -208,30 +236,29 @@ const IndexPage: NextPage = () => {
                 <div className="bg-purple-900 px-6 py-14 transition-all hover:rounded-none ease-in-out flex-col rounded-tr-[50px] shadow-2xl overflow-hidden text-white text-center">
                   <h4 className="text-xl font-medium">Community</h4>
                   <p className="mt-8 text-base text-gray-300">
-                    {
-                      "We're looking for existing communities that want to join our mission and be first to use our tools to organize their communities."
-                    }
+                    We’re looking for existing communities that want to join our
+                    mission and be first to use our tools to organize their
+                    communities.
                   </p>
                 </div>
                 <div className="bg-purple-900 px-6 py-14 transition-all hover:rounded-none ease-in-out flex-col rounded-br-[50px] shadow-2xl overflow-hidden text-white text-center">
                   <h4 className="text-xl font-medium">Team</h4>
                   <p className="mt-8 text-base text-gray-300">
-                    {
-                      "Our project is rapidly expanding and we're always in need of new, talented people to help move our mission forward."
-                    }
+                    Our project is rapidly expanding and we’re always in need of
+                    new, talented people to help move our mission forward.
                   </p>
                 </div>
                 <div className="bg-purple-900 px-6 py-14 transition-all hover:rounded-none ease-in-out flex-col rounded-tl-[50px] shadow-2xl overflow-hidden text-white text-center">
                   <h4 className="text-xl font-medium">Governance</h4>
                   <p className="mt-8 text-base text-gray-300">
-                    {
-                      "This is a community built project and the decisions we're making are based on input from the community. Help drive those decisions."
-                    }
+                    This is a community built project and the decisions we’re
+                    making are based on input from the community. Help drive
+                    those decisions.
                   </p>
                 </div>
               </div>
               <a
-                href="https://discord.gg/HQnSZZSw"
+                href="https://discord.com/invite/AQvVz34H"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex shadow-2xl items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-purple-900 hover:bg-purple-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 mt-8"
