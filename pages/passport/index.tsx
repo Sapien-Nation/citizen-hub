@@ -15,7 +15,7 @@ const PassportPage: NextPage = () => {
     <>
       <Head title="Passport" />
       <div className="py-16">
-        <div className="mx-auto px-4 py-20 sm:px-6 lg:px-10 text-center max-w-6xl">
+        <div className="mx-auto px-4 py-20 sm:px-6 lg:px-10 bg-gray-100 text-center max-w-6xl">
           <h2 className="text-2xl font-semibold">
             The Sapien Passport is Your Ticket to:
           </h2>
@@ -49,7 +49,7 @@ const PassportPage: NextPage = () => {
                   in Most Social Media Today
                 </h4>
                 <p className="mt-3 text-base whitespace-pre-line text-gray-300">
-                  {`Existing platforms are plagued by trolls, astroturfing, and a whole host of different types of spam. Our NFT Passport aims to remedy this by creating a digital social ledger you carry with you everywhere you go in our ecosystem. Existing platforms are plagued by trolls, astroturfing, and a whole host of different types of spam. Our NFT Passport aims to remedy this by creating a digital social ledger you carry with you everywhere you go in our ecosystem 
+                  {`Many Existing platforms are plagued by trolls, astroturfing, and a whole host of different types of spam. Our NFT Passport aims to remedy this by creating a digital social ledger you carry with you everywhere you go in our ecosystem. Existing platforms are plagued by trolls, astroturfing, and a whole host of different types of spam. Our NFT Passport aims to remedy this by creating a digital social ledger you carry with you everywhere you go in our ecosystem 
                     `}
                 </p>
               </div>
