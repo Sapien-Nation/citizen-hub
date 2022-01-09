@@ -21,7 +21,7 @@ const StartView = ({ setPassportView }: Props) => {
           </h2>
           <button
             onClick={() => setPassportView(PassportViews.Figure)}
-            className="animate-bounce py-2 px-8 border border-transparent rounded-md shadow-sm text-xl font-bold text-white bg-sapien-purple hover:bg-sapien-purple-light focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
+            className="animate-bounce bg-sapien py-2 px-8 border border-transparent rounded-md shadow-sm text-xl font-bold text-white bg-sapien-purple hover:bg-sapien-purple-light focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
           >
             Start
           </button>
