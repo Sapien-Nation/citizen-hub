@@ -127,8 +127,9 @@ const PassportPage: NextPage = () => {
                 <div className="relative px-8">
                   <div className="relative text-lg font-medium text-white md:flex-grow">
                     <p className="relative">
-                      In The Sapien Ecosystem, Passports Will Reintroduce
-                      Accountability Without Sacrificing Your Privacy
+                      In The Sapien Ecosystem, The Sapien Passport Aims to
+                      Reintroduce Accountability Without Sacrificing Your
+                      Privacy.
                     </p>
                   </div>
                 </div>
@@ -152,11 +153,11 @@ const PassportPage: NextPage = () => {
             </div>
           </div>
         </div>
-        <div className="relative bg-gray-900 mx-auto px-4 sm:px-6 lg:px-10 bg-gray-900 text-gray-300 max-w-6xl">
+        <div className="relative mx-auto px-4 sm:px-6 lg:px-10 bg-gray-900 text-gray-300 max-w-6xl">
           <div className="relative flex flex-row items-center h-56 bg-gradient-to-r from-sky-700 to-sky-300 p-8 sm:h-72 md:absolute md:left-0 md:h-full md:w-1/2">
-            <div className="relative text-xl font-medium text-white md:flex-grow">
+            <div className="relative text-xl font-medium text-white md:flex-grow text-center">
               <p className="mt-2 text-white text-xl font-extrabold tracking-tight sm:text-4xl">
-                Passports are Being Distributed Now
+                Passports
               </p>
             </div>
           </div>
