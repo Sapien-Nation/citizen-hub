@@ -22,13 +22,9 @@ const AppLayout = ({ children }: Props) => {
   }
 
   return (
-    <div
-      className={`relative flex flex-col min-h-screen bg-gray-50 ${
-        pathname.startsWith('/passport') && 'h-full'
-      }`}
-    >
+    <div className="relative flex flex-col min-h-screen bg-gray-50">
       <Navbar />
-      <main className="h-full">{children}</main>
+      <main className="flex-1 flex flex-col">{children}</main>
       <Footer />
     </div>
   );

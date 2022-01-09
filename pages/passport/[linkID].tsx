@@ -79,8 +79,8 @@ const PassportPage = () => {
     <>
       <Head title="Create Passport" />
 
-      <div className="bg-gray-50 h-full">
-        <main className="lg:relative h-full">
+      <div className="bg-gray-50 flex-1 flex flex-row items-center justify-center">
+        <main className="lg:relative h-full w-full">
           <div className="mx-auto max-w-6xl w-full pt-16 pb-20 text-center h-full lg:text-center">
             <Query api={`/api/v3/passport/check-link?linkId=${query.linkID}`}>
               {(response: LinkCheckResponse) => <>{renderView(response)}</>}
