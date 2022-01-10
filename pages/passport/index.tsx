@@ -34,8 +34,12 @@ const PassportPage: NextPage = () => {
         <div className="mx-auto px-4 py-12 sm:px-6 lg:px-10 bg-gray-900 text-gray-300 text-center max-w-6xl">
           <h2 className="text-xl font-semibold mb-5">What It Is:</h2>
           <p className="max-w-2xl m-auto">
-            The Sapien Passport will be a first of its kind NFT that gives you a digital persona and citizenship in the Sapien ecosystem. 
-            We want the Sapien Passport to be a way for  communities to signify membership in their community and even speak to a person’s expertise on a topic, signify to others that they’re someone they w           work with, or speak in support of their talents.
+            The Sapien Passport will be a first of its kind NFT that gives you a
+            digital persona and citizenship in the Sapien ecosystem. We want the
+            Sapien Passport to be a way for communities to signify membership in
+            their community and even speak to a person’s expertise on a topic,
+            signify to others that they’re someone they work with, or speak in
+            support of their talents.
           </p>
           <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
             <div className="relative flex">
@@ -45,7 +49,7 @@ const PassportPage: NextPage = () => {
                   in Most Social Media Today
                 </h4>
                 <p className="mt-3 text-base whitespace-pre-line text-gray-300">
-                  {`Many Existing platforms are plagued by trolls, astroturfing, and a whole host of different types of spam. Our NFT Passport aims to remedy this by creating a digital social ledger you carry with you everywhere you go in our ecosystem. Existing platforms are plagued by trolls, astroturfing, and a whole host of different types of spam. Our NFT Passport aims to remedy this by creating a digital social ledger you carry with you everywhere you go in our ecosystem. 
+                  {`Many Existing platforms are plagued by trolls, astroturfing, and a whole host of different types of spam. Our NFT Passport aims to remedy this by creating a digital social ledger you carry with you everywhere you go in our ecosystem. 
                     `}
                 </p>
               </div>
@@ -58,7 +62,6 @@ const PassportPage: NextPage = () => {
                 </h4>
                 <p className="mt-3 text-base whitespace-pre-line text-gray-300">
                   {`When you post something online, you’re making yourself vulnerable and sharing a part of yourself and that’s a uniquely beautiful thing. Unfortunately, this can open the door for faceless strangers to criticize and attack you, often unfairly, with no consequences for their behavior. 
-                  When you post something online, you’re making yourself vulnerable and sharing a part of yourself and that’s a uniquely beautiful thing. Unfortunately, this can open the door for faceless strangers to criticize and attack you, often unfairly, with no consequences for their behavior. 
                     `}
                 </p>
               </div>
