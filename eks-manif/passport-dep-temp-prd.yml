@@ -59,10 +59,10 @@ metadata:
 spec:
   tls:
   - hosts:
-      - passport.sapien.network
+      - www.sapien.network
     secretName: auth-v3-tls
   rules:
-  - host: passport.sapien.network
+  - host: www.sapien.network
     http:
       paths:
         - backend:
