@@ -21,7 +21,7 @@ const PassportPage: NextPage = () => {
           </h2>
           <div className="md:flex flex-row justify-center gap-2 mt-5 space-y-4 md:space-y-0">
             <div className="h-16 bg-purple-800 text-white flex flex-row items-center px-4 -skew-x-12 min-width-10">
-              <div className="skew-x-12">Our Metaverse</div>
+              <div className="skew-x-12">The Sapien Metaverse</div>
             </div>
             <div className="h-16 bg-purple-800 text-white flex flex-row items-center px-4 -skew-x-12">
               <div className="skew-x-12">Next Generation Communities</div>
@@ -34,12 +34,8 @@ const PassportPage: NextPage = () => {
         <div className="mx-auto px-4 py-12 sm:px-6 lg:px-10 bg-gray-900 text-gray-300 text-center max-w-6xl">
           <h2 className="text-xl font-semibold mb-5">What It Is:</h2>
           <p className="max-w-2xl m-auto">
-            The Sapien Passport is a first of its kind NFT that gives you a
-            digital persona and citizenship in the Sapien ecosystem. The
-            communities you’re part of can stamp your Passport to signify your
-            membership in their community. They can also add titles and stamps
-            to speak to your expertise on a topic, signify to others that you’re
-            someone they work with, or speak in support of your talents.
+            The Sapien Passport will be a first of its kind NFT that gives you a digital persona and citizenship in the Sapien ecosystem. 
+            We want the Sapien Passport to be a way for  communities to signify membership in their community and even speak to a person’s expertise on a topic, signify to others that they’re someone they w           work with, or speak in support of their talents.
           </p>
           <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
             <div className="relative flex">
@@ -49,7 +45,7 @@ const PassportPage: NextPage = () => {
                   in Most Social Media Today
                 </h4>
                 <p className="mt-3 text-base whitespace-pre-line text-gray-300">
-                  {`Many Existing platforms are plagued by trolls, astroturfing, and a whole host of different types of spam. Our NFT Passport aims to remedy this by creating a digital social ledger you carry with you everywhere you go in our ecosystem. Existing platforms are plagued by trolls, astroturfing, and a whole host of different types of spam. Our NFT Passport aims to remedy this by creating a digital social ledger you carry with you everywhere you go in our ecosystem 
+                  {`Many Existing platforms are plagued by trolls, astroturfing, and a whole host of different types of spam. Our NFT Passport aims to remedy this by creating a digital social ledger you carry with you everywhere you go in our ecosystem. Existing platforms are plagued by trolls, astroturfing, and a whole host of different types of spam. Our NFT Passport aims to remedy this by creating a digital social ledger you carry with you everywhere you go in our ecosystem. 
                     `}
                 </p>
               </div>
@@ -74,7 +70,7 @@ const PassportPage: NextPage = () => {
                   and Web 3.0
                 </h4>
                 <p className="mt-3 text-base whitespace-pre-line text-gray-300">
-                  {`This transition presents the potential for a scary step in the wrong direction for human connection where the metaverse takes over our daily lives and these issues become even more pronounced. As we build, it’s important that what we’re building with quality and honesty in mind from the ground up
+                  {`This transition presents the potential for a scary step in the wrong direction for human connection where the metaverse takes over our daily lives and these issues become even more pronounced. As we build, it’s important that what we’re building with quality and honesty in mind from the ground up.
                   `}
                 </p>
               </div>

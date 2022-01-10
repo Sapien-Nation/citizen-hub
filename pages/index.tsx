@@ -104,7 +104,7 @@ const IndexPage: NextPage = () => {
                 complete stack of tools to help communities thrive and realize
                 their true potential. The future of the internet is being built
                 on Web 3.0 through blockchain technology and we’re watching it
-                happen in real time. Let’s make sure that future is built by
+                happen in real time. Let’s make sure that the future is built by
                 people with the right vision.
               </p>
             </div>
