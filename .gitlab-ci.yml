@@ -78,6 +78,6 @@ build-poc:
     - docker push 081984521558.dkr.ecr.us-east-2.amazonaws.com/passport:latest
     - cd eks-manif &&  envsubst <  passport-dep-temp-prd.yml > passport-dep.yml
     - cat passport-dep.yml
-    - kubectl apply -f passport-dep.yml
+    - kubectl delete -f passport-dep.yml && kubectl apply -f passport-dep.yml
   only:
     <<: *poc_triggers
