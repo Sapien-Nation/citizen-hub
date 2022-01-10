@@ -23,7 +23,7 @@ const Footer = () => {
     >
       <div className="py-8 text-center">
         <p className="text-xs text-gray-400">
-          Copyright &copy; {new Date().getFullYear()} Sapien LLC. All rights
+          Copyright &copy; {new Date().getFullYear()} Sapien Inc. All rights
           reserved
         </p>
       </div>
