@@ -68,7 +68,9 @@ const PassportPage = () => {
             leaveFrom="transform opacity-100"
             leaveTo="transform opacity-0"
           >
-            <Avatar linkID={String(query.linkID)} />
+            <div>
+              <Avatar linkID={String(query.linkID)} />
+            </div>
           </Transition>
         );
         return;

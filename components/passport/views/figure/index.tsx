@@ -99,20 +99,18 @@ const FigureView = ({ linkID, setPassportView }: Props) => {
                 setIsManual={setIsManual}
               />
             )}
-            <div className="mt-10 flex flex-col justify-center items-center">
+            <div className="mt-20 sticky -bottom-10 flex flex-col justify-center items-center">
               {Boolean(passportFile) && (
-                <div className="mt-10 mb-6">
-                  <button
-                    disabled={isFetching}
-                    type="button"
-                    className={`inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-sapien hover:bg-sapien-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 ${
-                      isFetching ? 'animate-pulse' : ''
-                    }`}
-                    onClick={handleContinue}
-                  >
-                    Generate Avatar
-                  </button>
-                </div>
+                <button
+                  disabled={isFetching}
+                  type="button"
+                  className={`inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-sapien hover:bg-sapien-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 ${
+                    isFetching ? 'animate-pulse' : ''
+                  }`}
+                  onClick={handleContinue}
+                >
+                  Generate Avatar
+                </button>
               )}
             </div>
           </div>
