@@ -48,7 +48,7 @@ const FiguresGallery = ({
 
   const generateImageFile = async (image: string) => {
     try {
-      const fetchedImage = await fetch(image);
+      const fetchedImage = await fetch(image, { mode: 'no-cors' });
       const blob = await fetchedImage.blob();
       return new File([blob], name, {
         type: blob.type,

@@ -59,24 +59,12 @@ const FigureView = ({ linkID, setPassportView }: Props) => {
           isSearching ? 'scale-75 -translate-y-1/4' : 'px-4 xl:px-0 '
         }`}
       >
-        <h3
-          className={`mt-3 max-w-sm mx-auto font-bold md:mt-5 lg:text-2xl sm:text-xl`}
-        >
-          Welcome to the{' '}
-          <span className="underline decoration-4 decoration-sapien">
-            Sapien Tribe!
-          </span>
-        </h3>
         <p
-          className={`mt-3 max-w-lg mx-auto text-md font-light py-4 text-gray-500 sm:text-xl md:mt-5 transition delay-150 duration-300 ease-in-out ${
+          className={`max-w-lg mx-auto text-md font-light text-gray-500 sm:text-xl md:mt-5 transition delay-150 duration-300 ease-in-out ${
             isSearching ? 'scale-75' : ''
           }`}
         >
           To claim your passport please input your favorite historical figure.
-          Your choice of figure should reflect the values you will champion as a{' '}
-          <span className="underline decoration-4 decoration-purple-200">
-            member of our tribe.
-          </span>
         </p>
       </div>
       <div
