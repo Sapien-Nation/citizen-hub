@@ -65,7 +65,7 @@ const HistoricalFiguresSearch = ({ linkID }: Props) => {
                       key={image}
                       className={mergeClassNames(
                         image === avatar ? 'ring-2 ring-indigo-500' : '',
-                        'group flex cursor-pointer justify-center items-center w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 overflow-hidden'
+                        'group flex cursor-pointer justify-center items-center w-full h-56 aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 overflow-hidden'
                       )}
                       onClick={() => setAvatar(image)}
                     >
