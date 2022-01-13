@@ -59,24 +59,12 @@ const FigureView = ({ linkID, setPassportView }: Props) => {
           isSearching ? 'scale-75 -translate-y-1/4' : 'px-4 xl:px-0 '
         }`}
       >
-        <h3
-          className={`mt-3 max-w-sm mx-auto font-bold md:mt-5 lg:text-2xl sm:text-xl`}
-        >
-          Welcome to the{' '}
-          <span className="underline decoration-4 decoration-sapien">
-            Sapien Tribe!
-          </span>
-        </h3>
         <p
-          className={`mt-3 max-w-lg mx-auto text-md font-light py-4 text-gray-500 sm:text-xl md:mt-5 transition delay-150 duration-300 ease-in-out ${
+          className={`max-w-lg mx-auto text-md font-light text-gray-500 sm:text-xl md:mt-5 transition delay-150 duration-300 ease-in-out ${
             isSearching ? 'scale-75' : ''
           }`}
         >
           To claim your passport please input your favorite historical figure.
-          Your choice of figure should reflect the values you will champion as a{' '}
-          <span className="underline decoration-4 decoration-purple-200">
-            member of our tribe.
-          </span>
         </p>
       </div>
       <div
@@ -99,20 +87,18 @@ const FigureView = ({ linkID, setPassportView }: Props) => {
                 setIsManual={setIsManual}
               />
             )}
-            <div className="mt-10 flex flex-col justify-center items-center">
+            <div className="mt-20 sticky -bottom-10 flex flex-col justify-center items-center">
               {Boolean(passportFile) && (
-                <div className="mt-10 mb-6">
-                  <button
-                    disabled={isFetching}
-                    type="button"
-                    className={`inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-sapien hover:bg-sapien-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 ${
-                      isFetching ? 'animate-pulse' : ''
-                    }`}
-                    onClick={handleContinue}
-                  >
-                    Generate Avatar
-                  </button>
-                </div>
+                <button
+                  disabled={isFetching}
+                  type="button"
+                  className={`inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-sapien hover:bg-sapien-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 ${
+                    isFetching ? 'animate-pulse' : ''
+                  }`}
+                  onClick={handleContinue}
+                >
+                  Generate Avatar
+                </button>
               )}
             </div>
           </div>
