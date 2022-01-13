@@ -167,7 +167,7 @@ const FiguresGallery = ({
               <div
                 className={mergeClassNames(
                   image === selectedImage ? 'ring-2 ring-indigo-500' : '',
-                  'group flex cursor-pointer justify-center items-center w-full aspect-w-10 h-56 aspect-h-7 rounded-lg bg-gray-100 overflow-hidden after:absolute hover:after:bg-black hover:after:bg-opacity-30 hover:after:w-full hover:after:h-full hover:after:top-0'
+                  'group flex cursor-pointer justify-center items-center w-full aspect-w-10 h-56 aspect-h-7 rounded-lg bg-gray-100 overflow-hidden after:absolute hover:after:sm:bg-black hover:after:sm:bg-opacity-30 hover:after:w-full hover:after:h-full hover:after:top-0'
                 )}
                 onClick={async () => {
                   await handleImageSelect(image);
@@ -191,7 +191,7 @@ const FiguresGallery = ({
                 <img
                   src={image}
                   alt={`Search Image result for search term ${name}`}
-                  className="object-cover h-full w-full pointer-events-none group-hover:opacity-75"
+                  className="object-cover h-full w-full pointer-events-none group-hover:sm:opacity-75"
                   onError={(event) => {
                     (event.target as HTMLImageElement).src =
                       'https://d151dmflpumpzp.cloudfront.net/images/tribes/default_temp.jpeg';
