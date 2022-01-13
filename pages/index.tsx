@@ -258,7 +258,7 @@ const IndexPage: NextPage = () => {
                 </div>
               </div>
               <a
-                href="https://discord.com/invite/AQvVz34H"
+                href="https://discord.com/invite/AtGS2pe"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex shadow-2xl items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-purple-900 hover:bg-purple-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 mt-8"
