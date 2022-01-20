@@ -15,7 +15,7 @@ const ErrorView = ({ code }: Props) => {
       case 407:
         return 'There seems to be an error with the selected historical figure, please try again, if the error persist, please contact support';
       case 408:
-        return 'The Figure you selected its incorrect, please try another one';
+        return 'The Historical Figure you selected is not valid, please try with a different one';
       case 404:
         return 'Invalid Link';
     }
