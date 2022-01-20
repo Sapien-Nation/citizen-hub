@@ -1,11 +1,39 @@
 import axios from 'axios';
 
+enum Envs {
+  Sandbox = 'passport-sandbox.sapien.network',
+  QAT = 'passport-qat.sapien.network',
+}
+
+const host = process.browser ? window.location.host : '';
+const getAuthURL = () => {
+  switch (host) {
+    case Envs.Sandbox:
+      return 'https://sandbox-oauth.sapien.network/';
+    case Envs.QAT:
+      return 'https://oauth-qat.sapien.network/';
+    default:
+      return 'https://oauth.sapien.network/';
+  }
+};
+
+const getTokensURL = () => {
+  switch (host) {
+    case Envs.Sandbox:
+      return 'https://token-sandbox.sapien.network/';
+    case Envs.QAT:
+      return 'https://token-qat.sapien.network/';
+    default:
+      return 'https://token-poc.sapien.network/';
+  }
+};
+
 const instance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL,
+  baseURL: getTokensURL(),
 });
 
 export const authInstance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_AUTH_URL,
+  baseURL: getAuthURL(),
 });
 
 instance.interceptors.request.use((config) => {
