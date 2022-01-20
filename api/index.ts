@@ -12,7 +12,7 @@ export const authInstance = axios.create({
   baseURL:
     host === 'passport-sandbox.sapien.network'
       ? 'https://sandbox-oauth.sapien.network/'
-      : 'https://oauth.sapien.network/ ',
+      : 'https://oauth.sapien.network/',
 });
 
 instance.interceptors.request.use((config) => {
