@@ -3,11 +3,13 @@ import axios from 'axios';
 enum Envs {
   Sandbox = 'passport-sandbox.sapien.network',
   QAT = 'passport-qat.sapien.network',
+  Localhost = 'localhost:3000',
 }
 
 const host = process.browser ? window.location.host : '';
 const getAuthURL = () => {
   switch (host) {
+    case Envs.Localhost:
     case Envs.Sandbox:
       return 'https://sandbox-oauth.sapien.network/';
     case Envs.QAT:
@@ -19,6 +21,7 @@ const getAuthURL = () => {
 
 const getTokensURL = () => {
   switch (host) {
+    case Envs.Localhost:
     case Envs.Sandbox:
       return 'https://token-sandbox.sapien.network/';
     case Envs.QAT:
