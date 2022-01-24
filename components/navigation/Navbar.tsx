@@ -22,12 +22,14 @@ import { mergeClassNames } from 'utils/styles';
 const navigation = [
   { name: 'Passport', href: '/passport', visible: true },
   { name: 'Team', href: '/team', visible: true },
+  { name: 'Protocol', href: '/protocol', visible: true },
 ];
 
 const Navbar = () => {
   const { me } = useAuth();
   const router = useRouter();
   const { theme, setTheme } = useTheme();
+
   return (
     <Disclosure as="nav" className="relative w-full shadow z-10">
       {({ open }) => (

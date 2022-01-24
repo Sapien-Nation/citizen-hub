@@ -13,6 +13,7 @@ import { ErrorView, ToastContainer } from 'components/common';
 import { ToastProvider } from 'context/toast';
 
 // styles
+import 'aos/dist/aos.css';
 import '../styles/index.css';
 
 // providers

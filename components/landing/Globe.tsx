@@ -271,8 +271,9 @@ const Globe = () => {
 
       const update = () => {
         const elapsedTime = clock.getElapsedTime();
-        // @ts-ignore
-        mesh?.rotation?.y = elapsedTime * 0.05;
+        if (mesh?.rotation?.y) {
+          mesh.rotation.y = 0.05 * elapsedTime;
+        }
 
         renderer.render(scene, camera);
 
