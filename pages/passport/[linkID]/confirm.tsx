@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 // components
 import { Head, Query } from 'components/common';
-import { Auth } from 'components/passport';
+import { Auth, Claimed, Confirm, Discord, Expired } from 'components/passport';
 
 // context
 import { useAuth } from 'context/user';
@@ -37,13 +37,13 @@ const ConfirmPassportPage = () => {
   const renderView = () => {
     switch (view) {
       case View.Claimed:
-        return 'TODO Claimed View';
+        return <Claimed />;
       case View.Confirm:
-        return 'TODO Confirm View';
+        return <Confirm />;
       case View.Discord:
-        return 'TODO Discord View';
+        return <Discord />;
       case View.Expired:
-        return 'TODO Expired View';
+        return <Expired />;
     }
   };
 
