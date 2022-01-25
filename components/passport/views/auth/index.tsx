@@ -1,10 +1,10 @@
 import Link from 'next/link';
 
 interface Props {
-  linkID: string;
+  redirect: string;
 }
 
-const FigureView = ({ linkID }: Props) => {
+const FigureView = ({ redirect }: Props) => {
   return (
     <>
       <div className="px-4 xl:px-0">
@@ -20,7 +20,7 @@ const FigureView = ({ linkID }: Props) => {
       <div className="my-10 flex justify-center">
         <p className="text-base inline center-text">
           Click
-          <Link href={`/login?redirect=/passport/${linkID}`}>
+          <Link href={`/login?redirect=${redirect}`}>
             <a className="font-medium text-sapien hover:text-purple-500">
               &nbsp;here&nbsp;
             </a>

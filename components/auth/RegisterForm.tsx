@@ -95,7 +95,6 @@ const RegisterForm = () => {
               name="email"
               maxLength={100}
               placeholder="email@example.com"
-              type="text"
               className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
               rules={{
                 validate: {
@@ -210,7 +209,7 @@ const RegisterForm = () => {
                 <label
                   htmlFor="terms"
                   className={`ml-2 block text-xs ${
-                    termsError ? 'text-red-500' : 'text-gray-900'
+                    termsError && 'text-red-500'
                   }`}
                   id={termsError ? 'terms-error' : ''}
                 >
@@ -241,7 +240,7 @@ const RegisterForm = () => {
                 <label
                   htmlFor="wallet"
                   className={`ml-2 block text-xs ${
-                    walletError ? 'text-red-500' : 'text-gray-900'
+                    walletError && 'text-red-500'
                   }`}
                   id={walletError ? 'wallet-error' : ''}
                 >

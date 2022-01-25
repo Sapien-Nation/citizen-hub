@@ -1,5 +1,9 @@
 export { default as Auth } from './auth';
 export { default as Avatar } from './avatar';
+export { default as Claimed } from './claimed';
+export { default as Confirm } from './confirm';
+export { default as Discord } from './discord';
+export { default as Expired } from './expired';
 export { default as FeedbackView } from './FeedbackView';
 export { default as Figure } from './figure';
 export { default as Loading } from './loading';
