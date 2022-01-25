@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { FormProvider, useForm } from 'react-hook-form';
 
 // components
@@ -17,6 +18,7 @@ interface LoginFormValues {
 }
 
 const LoginForm = () => {
+  const { query } = useRouter();
   const methods = useForm<LoginFormValues>();
   const {
     control,
@@ -32,11 +34,11 @@ const LoginForm = () => {
       const response = await login({
         email,
         client: window?.navigator.userAgent,
-        redirect: '/',
+        redirect: (query.redirect as string) || '/',
         password,
       });
 
-      setSession(response);
+      setSession(response, (query.redirect as string) || null);
     } catch (error) {
       toast({
         message: error || 'Invalid Credentials',

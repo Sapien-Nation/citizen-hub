@@ -40,7 +40,8 @@ const PassportPage = () => {
 
   if (isLoggingIn === true || !query.linkID) return null;
 
-  if (me === null) return <Auth linkID={query.linkID as string} />;
+  if (me === null)
+    return <Auth redirect={`/passport/${query.linkID as string}`} />;
 
   const renderView = ({ statusCode }: LinkCheckResponse) => {
     if (statusCode) {
