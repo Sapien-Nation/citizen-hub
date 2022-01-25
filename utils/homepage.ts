@@ -14,6 +14,7 @@ const preloadImages = (selector = 'img') => {
 // Preload images
 const preloadFonts = (id) => {
   return new Promise((resolve) => {
+    // @ts-ignore
     WebFont.load({
       typekit: {
         id: id,

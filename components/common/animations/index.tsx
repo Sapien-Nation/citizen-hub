@@ -69,6 +69,7 @@ export default function App() {
     <Canvas
       orthographic
       camera={{ zoom: 20 }}
+      // @ts-ignore
       colorManagement={false}
       resize={{ polyfill: ResizeObserver }}
     >
