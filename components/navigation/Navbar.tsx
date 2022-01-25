@@ -31,7 +31,10 @@ const Navbar = () => {
   const { theme, setTheme } = useTheme();
 
   return (
-    <Disclosure as="nav" className="relative w-full shadow z-10">
+    <Disclosure
+      as="nav"
+      className="relative w-full shadow z-10 backdrop-blur-md"
+    >
       {({ open }) => (
         <>
           <div className="max-w-6xl mx-auto py-2 px-2 sm:px-4 lg:px-8">
