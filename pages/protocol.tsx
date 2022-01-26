@@ -64,22 +64,13 @@ const IndexPage: NextPage = () => {
                       </a>
                     </Link> */}
                   </div>
-                  {me === null && (
-                    <div
-                      data-aos="zoom-y-out"
-                      data-aos-delay="1800"
-                      className="animate-bounce mt-3 shadow-[8px_8px_#8133EE] rounded-full border border-black dark:border-2 sm:mt-0 sm:ml-3"
-                    >
-                      <Link href="/register">
-                        <a
-                          href="#"
-                          className="w-full flex items-center font-extrabold justify-center px-8 py-3 border border-transparent text-base font-medium bg-white rounded-full text-sapien bg-white hover:bg-yellow-50 md:py-4 md:text-2xl md:px-10"
-                        >
-                          Sign up
-                        </a>
-                      </Link>
-                    </div>
-                  )}
+                  <div>
+                    <Link href="https://discord.gg/HQnSZZSw">
+                      <a className="bg-gradient-to-r from-sapien to-sapien-40 font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8">
+                        Join our Community
+                      </a>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
