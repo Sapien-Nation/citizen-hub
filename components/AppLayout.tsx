@@ -24,24 +24,36 @@ const AppLayout = ({ children }: Props) => {
     return children;
   }
 
+  if (pathname === '/') {
+    return (
+      <div className="relative flex flex-col min-h-screen">
+        <Navbar />{' '}
+        <LocomotiveScrollProvider
+          options={{
+            smooth: true,
+          }}
+          watch={[asPath]}
+          containerRef={containerRef}
+        >
+          <main
+            className="flex-1 flex flex-col"
+            data-scroll-container
+            ref={containerRef}
+          >
+            <div className="flex-1">{children}</div>
+          </main>
+          <Footer />
+        </LocomotiveScrollProvider>
+      </div>
+    );
+  }
+
   return (
     <div className="relative flex flex-col min-h-screen">
       <Navbar />
-      <LocomotiveScrollProvider
-        options={{
-          smooth: true,
-        }}
-        watch={[asPath]}
-        containerRef={containerRef}
-      >
-        <main
-          className="flex-1 flex flex-col"
-          data-scroll-container
-          ref={containerRef}
-        >
-          <div className="flex-1">{children}</div>
-        </main>
-      </LocomotiveScrollProvider>
+      <main className="flex-1 flex flex-col">
+        <div className="flex-1">{children}</div>
+      </main>
       <Footer />
     </div>
   );
