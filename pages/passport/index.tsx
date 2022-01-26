@@ -1,10 +1,9 @@
+import AOS from 'aos';
 import { useEffect } from 'react';
 
 // components
 import { Animation, Head } from 'components/common';
 
-// @ts-ignore
-import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const logos = [
@@ -19,7 +18,9 @@ import type { NextPage } from 'next';
 const PassportPage: NextPage = () => {
   useEffect(() => {
     AOS.init();
+    AOS.refresh();
   }, []);
+
   return (
     <>
       <Head title="Passport" />

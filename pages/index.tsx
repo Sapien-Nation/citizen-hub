@@ -1,9 +1,6 @@
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
-import {
-  useLocomotiveScroll,
-  LocomotiveScrollProvider,
-} from 'react-locomotive-scroll';
+import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
 
 // components
 import { Head } from 'components/common';
@@ -21,16 +18,10 @@ import { useRouter } from 'next/router';
 
 const IndexPage: NextPage = () => {
   const { me } = useAuth();
-  const { scroll } = useLocomotiveScroll();
-
-  const headerSectionRef = useRef(null);
 
   return (
     <div data-scroll-section>
-      <section
-        ref={headerSectionRef}
-        className="max-w-6xl mx-auto py-2 px-2 sm:px-4 lg:px-8 lg:py-8"
-      >
+      <section className="max-w-6xl mx-auto py-2 px-2 sm:px-4 lg:px-8 lg:py-8">
         <Globe />
         <h2 className="content__title" data-scroll data-scroll-speed="2">
           Become a Freshly Minted Citizen of the Metaverse
@@ -211,7 +202,7 @@ const IndexPage: NextPage = () => {
           >
             <div
               className="tiles__line-img rounded-xl"
-              style={{ backgroundImage: 'url(landing/Buddha4.png)' }}
+              style={{ backgroundImage: 'url(landing/buddha4.png)' }}
             ></div>
             <div
               className="tiles__line-img rounded-xl"
@@ -365,16 +356,15 @@ const IndexPage: NextPage = () => {
       </div>
 
       <section className="content">
-        <button
-          className="text-6xl font-extrabold "
+        <a
+          className="text-6xl font-extrabold"
           data-scroll
           data-scroll-speed="4"
-          onClick={() => scroll.scrollTo(headerSectionRef, { speed: 4 })}
         >
           <span className="pb-3 bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
             Be the change
           </span>
-        </button>
+        </a>
       </section>
     </div>
   );
