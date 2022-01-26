@@ -1,7 +1,7 @@
 // @ts-nocheck
 import * as THREE from 'three';
 import React, { useMemo, useEffect, useRef } from 'react';
-import { useThree, useFrame, extend } from 'react-three-fiber';
+import { useThree, useFrame, extend } from '@react-three/fiber';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
 import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass';
 import { SavePass } from 'three/examples/jsm/postprocessing/SavePass';
