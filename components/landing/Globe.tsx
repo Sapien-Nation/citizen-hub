@@ -283,6 +283,10 @@ const Globe = () => {
     update();
 
     window.addEventListener('resize', onResize);
+
+    return () => {
+      return THREE.Cache.clear();
+    };
   }, []);
 
   return <div id="globe"></div>;
