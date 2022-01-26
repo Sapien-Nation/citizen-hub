@@ -202,12 +202,12 @@ const Navbar = () => {
                     </Menu>
                   </>
                 )} */}
-                {me === undefined && (
+                {/* {me === undefined && (
                   <div className="animate-pulse flex items-center space-x-2">
                     <div className="h-8 w-32 bg-gray-300 rounded-full"></div>
                     <div className="rounded-full bg-gray-300 h-8 w-8"></div>
                   </div>
-                )}
+                )} */}
               </div>
             </div>
           </div>
