@@ -26,17 +26,17 @@ const IndexPage: NextPage = () => {
           >
             Become a Freshly Minted Citizen of the Metaverse
           </h2>
-          <div className="w-80 my-8">
+          <div className="my-8">
             <Link href="https://discord.gg/HQnSZZSw">
               <a
                 href="#"
-                className="bg-gradient-to-r from-sapien via-violet-500 to-blue-600 flex items-center font-extrabold justify-center px-6 py-3 text-base font-medium rounded-md text-white md:py-3 md:text-2xl md:px-8"
+                className="bg-sapien font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8"
               >
                 Join our Community
               </a>
             </Link>
           </div>
-          <p className="text-2xl">
+          <p className="text-lg">
             Find Your Tribes. Launch Your Own Tokens. Shape the New Renaissance.
           </p>
         </div>
@@ -44,7 +44,7 @@ const IndexPage: NextPage = () => {
       <div
         data-scroll
         data-scroll-speed="1"
-        className="mt-48 flex items-center justify-center lg:mx-auto sm:px-6 lg:px-10"
+        className="mt-48 flex items-end justify-end lg:mx-auto sm:px-6 lg:px-10"
       >
         <h2 className="text-6xl font-extrabold">
           One tool to help you do it all.
@@ -60,12 +60,12 @@ const IndexPage: NextPage = () => {
             aria-hidden="true"
             className="hidden md:block lg:absolute lg:inset-y-0 lg:right-0 lg:w-screen"
           >
-            <div className="absolute top-8 w-6/12 bg-center bg-cover h-96 left-1/2 -ml-3 lg:-right-8 lg:left-auto lg:top-12 bg-[url('https://techunwrapped.com/wp-content/uploads/2021/11/An-Asian-city-will-be-the-first-to-create-a.jpg')]"></div>
+            <div className="absolute top-8 w-6/12 bg-center bg-cover h-96 left-1/2 -ml-3 lg:-right-8 lg:left-auto lg:top-12 bg-[url('../public/landing/metaverse1.jpeg')]"></div>
           </div>
           <div className="relative mx-auto max-w-md sm:max-w-3xl px-6 lg:px-0 lg:max-w-none lg:py-20">
-            <div className="relative px-8">
-              <div className="px-4 py-2 backdrop-blur-md bg-white/30 rounded-md">
-                <p className="text-lg text-black font-extrabold">
+            <div className="relative pt-4">
+              <div className="px-4 py-2 backdrop-blur-md rounded-md">
+                <p className="text-xl  font-extrabold">
                   Join the social network of DAOs
                 </p>
               </div>
@@ -76,23 +76,23 @@ const IndexPage: NextPage = () => {
           {/* Content area */}
           <div className="pt-4">
             <div className="mt-4">
-              <p className="text-xl mb-8">
+              <p className="text-lg mb-4 mt-12">
                 Powerful utilities to navigate the Metaverse:
               </p>
 
-              <ul className="list-disc text-xl">
-                <li className="ml-6 mb-3">
+              <ul className="list-disc text-lg">
+                <li className="ml-6 mb-2">
                   Community Social Ledger to build reputation and tell the story
                   of your contributions
                 </li>
-                <li className="ml-6 mb-3">
+                <li className="ml-6 mb-2">
                   Unique ticket to Sapien Events and events from our partner
                   communities
                 </li>
-                <li className="ml-6 mb-3">
+                <li className="ml-6 mb-2">
                   Give you irrevocable access to being a Sapien Tribe Citizen{' '}
                 </li>
-                <p className="text-xl mb-8">
+                <p className="text-lg mb-8">
                   Join our{' '}
                   <Link href="https://discord.gg/HQnSZZSw">
                     <a>
@@ -103,16 +103,14 @@ const IndexPage: NextPage = () => {
                   </Link>{' '}
                   to secure your spot on the whitelist.
                 </p>
-                <div className="w-80 my-8">
-                  <Link href="/passport">
-                    <a
-                      href="#"
-                      className="bg-gradient-to-r from-sapien via-violet-500 to-blue-600 flex items-center font-extrabold justify-center px-6 py-3 text-base font-medium rounded-md text-white md:py-3 md:text-2xl md:px-8"
-                    >
-                      Learn more
-                    </a>
-                  </Link>
-                </div>
+                <Link href="/passport">
+                  <a
+                    href="#"
+                    className="bg-sapien font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8"
+                  >
+                    Learn more
+                  </a>
+                </Link>
               </ul>
             </div>
           </div>
@@ -122,26 +120,103 @@ const IndexPage: NextPage = () => {
       <div
         data-scroll
         data-scroll-speed="1"
-        className="flex flex-col mt-56 items-center justify-center lg:mx-auto sm:px-6 lg:px-10 lg:max-w-6xl"
+        className="flex flex-col my-56 items-center justify-center lg:mx-auto sm:px-6 lg:px-10 lg:max-w-6xl"
       >
-        <h2 className="text-4xl text-center">
+        <h2 className="text-xl text-center">
           Holders will have the opportunity to choose an avatar of one of their
           favorite figures from history to celebrate our diverse histories and
           unite to build our shared future.
         </h2>
-        <div className="w-96 my-12">
-          <Link href="/passport">
-            <a
-              href="#"
-              className="bg-gradient-to-r from-violet-500 via-blue to-sapien text-white flex items-center font-extrabold justify-center px-6 py-3 text-base font-medium rounded-xl md:py-3 md:text-2xl md:px-8"
-            >
-              Become a Founder
-            </a>
-          </Link>
+        <Link href="/passport">
+          <a
+            href="#"
+            className="mt-12 border font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8"
+          >
+            Become a Founder
+          </a>
+        </Link>
+      </div>
+
+      <div
+        data-scroll
+        data-scroll-speed="1"
+        className="flex flex-col items-start justify-start lg:mx-auto sm:px-6 lg:px-10"
+      >
+        <h2 className="text-6xl font-extrabold">Win-win Tokenomics.</h2>
+        <p className="text-lg">Sustainability. Scalability. Sapien.</p>
+      </div>
+
+      <div
+        data-scroll
+        data-scroll-speed="2"
+        className="lg:mx-auto sm:px-6 lg:px-10 lg:grid lg:grid-cols-2 lg:gap-24 lg:items-start"
+      >
+        <div className="relative mx-auto px-6 lg:px-0">
+          {/* Content area */}
+          <div className="pt-4">
+            <div className="mt-4">
+              <p className="text-lg mb-8">
+                Backed by their own vaults of curated digital and physical
+                assets, each community will be able to:
+              </p>
+
+              <ul className="list-disc text-lg">
+                <li className="ml-6 mb-2">
+                  Launch their own social currency collateralized by their vault
+                </li>
+                <li className="ml-6 mb-2">
+                  Invest in the people, projects, and communities that matter
+                </li>
+                <li className="ml-6 mb-2">
+                  Connect to a broader economy linked by a shared AMM liquidity
+                  network{' '}
+                </li>
+                <li className="ml-6 mb-2">
+                  Govern to pursue powerful initiatives like Universal Basic
+                  Income, Crowdfunding, and Mutual Aid{' '}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div className="relative sm:py-16 lg:py-0">
+          <div
+            aria-hidden="true"
+            className="hidden md:block lg:absolute lg:inset-y-0 lg:right-0 lg:w-screen"
+          >
+            <div className="absolute top-8 w-6/12 bg-center bg-cover h-96 left-1/2 -ml-3 lg:-right-8 lg:left-auto lg:top-12 bg-[url('../public/landing/metaverse1.jpeg')]"></div>
+          </div>
+          <div className="relative mx-auto max-w-md sm:max-w-3xl px-6 lg:px-0 lg:max-w-none lg:py-20">
+            <div className="relative pt-4">
+              <div className="px-4 py-2 backdrop-blur-md rounded-md">
+                <p className="text-xl  font-extrabold">
+                  Sapien is reinventing how we connect with others.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <section className="tiles" id="grid">
+      {/* <div
+        data-scroll
+        data-scroll-speed="1"
+        className="mt-24 flex flex-col items-end justify-end lg:mx-auto sm:px-6 lg:px-10"
+      >
+        <h2 className="text-6xl font-extrabold mb-8">Craft Your Story.</h2>
+        <p className="text-xl sm:text-2xl mb-8">
+          Let’s build a world with no limits except our own creativity, where
+          everyone can let their passions and curiosity guide who they want to
+          be.
+        </p>
+        <p className="text-xl sm:text-2xl mb-8">
+          Whether you want to be an artist, patron, investor, business owner,
+          leader, changemaker, or all of the above, bring your story to the
+          foundation of a new world.
+        </p>
+      </div> */}
+
+      {/* <section className="tiles" id="grid">
         <div className="tiles__wrap">
           <div
             className="tiles__line"
@@ -216,12 +291,12 @@ const IndexPage: NextPage = () => {
             ></div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <div
         data-scroll
         data-scroll-speed="1"
-        className="mt-1 flex lg:mx-auto sm:px-6 lg:px-10"
+        className="mt-48 flex lg:mx-auto sm:px-6 lg:px-10"
       >
         <h2 className="text-6xl font-extrabold">
           Our Vision: The United Republic of DAOs.
@@ -264,83 +339,6 @@ const IndexPage: NextPage = () => {
             />
           </div>
         </div>
-      </div>
-      <div
-        data-scroll
-        data-scroll-speed="1"
-        className="mt-48 flex flex-col items-center justify-center lg:mx-auto sm:px-6 lg:px-10"
-      >
-        <h2 className="text-6xl font-extrabold">Win-win Tokenomics.</h2>
-        <p className="text-xl sm:text-2xl mb-8">
-          Sustainability. Scalability. Sapien.
-        </p>
-      </div>
-
-      <div
-        data-scroll
-        data-scroll-speed="2"
-        className="lg:mx-auto sm:px-6 lg:px-10 lg:grid lg:grid-cols-2 lg:gap-24 lg:items-start"
-      >
-        <div className="relative mx-auto px-6 lg:px-0">
-          {/* Content area */}
-          <div className="pt-4">
-            <div className="mt-4">
-              <p className="text-xl mb-8">
-                Backed by their own vaults of curated digital and physical
-                assets, each community will be able to:
-              </p>
-
-              <ul className="list-disc text-xl">
-                <li className="ml-6 mb-3">
-                  Launch their own social currency collateralized by their vault
-                </li>
-                <li className="ml-6 mb-3">
-                  Invest in the people, projects, and communities that matter
-                </li>
-                <li className="ml-6 mb-3">
-                  Connect to a broader economy linked by a shared AMM liquidity
-                  network{' '}
-                </li>
-                <li className="ml-6 mb-3">
-                  Govern to pursue powerful initiatives like Universal Basic
-                  Income, Crowdfunding, and Mutual Aid{' '}
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div className="relative sm:py-16 lg:py-0">
-          <div className="relative mx-auto max-w-md sm:max-w-3xl px-6 lg:px-0 lg:max-w-none lg:py-20">
-            <div className="relative px-8">
-              <div className="px-8 py-12 bg-gradient-to-r from-green-500 via-teal-500 to-blue-600 rounded-3xl">
-                <p className="text-xl font-extrabold sm:text-2xl text-white">
-                  Sapien is reinventing how we connect with others.
-                </p>
-                <p className="text-xl sm:text-2xl text-white">
-                  Read more about the Sapien vision in the purple paper.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div
-        data-scroll
-        data-scroll-speed="1"
-        className="mt-24 flex flex-col items-end justify-end lg:mx-auto sm:px-6 lg:px-10"
-      >
-        <h2 className="text-6xl font-extrabold mb-8">Craft Your Story.</h2>
-        <p className="text-xl sm:text-2xl mb-8">
-          Let’s build a world with no limits except our own creativity, where
-          everyone can let their passions and curiosity guide who they want to
-          be.
-        </p>
-        <p className="text-xl sm:text-2xl mb-8">
-          Whether you want to be an artist, patron, investor, business owner,
-          leader, changemaker, or all of the above, bring your story to the
-          foundation of a new world.
-        </p>
       </div>
 
       <section className="content">
