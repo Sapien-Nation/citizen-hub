@@ -190,7 +190,7 @@ const IndexPage: NextPage = () => {
             <div className="relative pt-4">
               <div className="px-4 py-2 backdrop-blur-md rounded-md">
                 <p className="text-xl  font-extrabold">
-                  Join the social network of DAOs
+                  Sapien is reinventing how we connect with others.
                 </p>
               </div>
             </div>
