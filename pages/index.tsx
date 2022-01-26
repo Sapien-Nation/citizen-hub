@@ -28,10 +28,7 @@ const IndexPage: NextPage = () => {
           </h2>
           <div className="my-12">
             <Link href="https://discord.gg/HQnSZZSw">
-              <a
-                href="#"
-                className="bg-sapien font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8"
-              >
+              <a className="bg-sapien font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8">
                 Join our Community
               </a>
             </Link>
