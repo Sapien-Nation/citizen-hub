@@ -60,7 +60,7 @@ const Navbar = () => {
                               router.asPath === nav.href
                                 ? 'underline decoration-2 decoration-sapien'
                                 : 'hover:text-gray-500',
-                              'inline-flex items-center text-2xl px-1 pt-1 font-extrabold'
+                              'inline-flex items-center text-lg px-1 pt-1 font-extrabold'
                             )}
                           >
                             {nav.name}
