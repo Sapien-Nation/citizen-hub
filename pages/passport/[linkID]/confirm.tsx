@@ -58,11 +58,21 @@ const ConfirmPassportPage = () => {
     setView(View.Discord);
   };
 
-  const renderView = ({ code }: LinkCheckResponse) => {
+  const renderView = ({
+    code,
+    reservedFigure,
+    expiresAt,
+  }: LinkCheckResponse) => {
     if (code === null) {
       switch (view) {
         case View.Confirm:
-          return <Confirm onConfirm={handleConfirm} />;
+          return (
+            <Confirm
+              onConfirm={handleConfirm}
+              expiresAt={expiresAt}
+              reservedFigure={reservedFigure}
+            />
+          );
         case View.Discord:
           return <Discord />;
       }
