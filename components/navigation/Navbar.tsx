@@ -1,9 +1,6 @@
 import { Fragment } from 'react';
 import { useTheme } from 'next-themes';
 
-// assets
-import { FullLogo } from 'assets';
-
 // next
 import Image from 'next/image';
 import Link from 'next/link';
@@ -54,9 +51,9 @@ const Navbar = () => {
                 </div>
                 <div className="hidden lg:ml-6 lg:flex lg:space-x-8">
                   {navigation.map((nav) => (
-                    <>
+                    <Fragment key={nav.href}>
                       {nav.visible && (
-                        <Link key={nav.href} href={nav.href}>
+                        <Link href={nav.href}>
                           <a
                             className={mergeClassNames(
                               router.asPath === nav.href
@@ -69,7 +66,7 @@ const Navbar = () => {
                           </a>
                         </Link>
                       )}
-                    </>
+                    </Fragment>
                   ))}
                 </div>
               </div>
@@ -185,12 +182,11 @@ const Navbar = () => {
           <Disclosure.Panel className="lg:hidden">
             <div className="pt-2 pb-3 space-y-1">
               {navigation.map((nav) => (
-                <>
+                <Fragment key={nav.name}>
                   {nav.visible && (
                     <Disclosure.Button
                       as="a"
                       href={nav.href}
-                      key={nav.name}
                       className={mergeClassNames(
                         router.asPath === nav.href
                           ? 'bg-purple-50 border-purple-500 text-sapien-60'
@@ -201,7 +197,7 @@ const Navbar = () => {
                       {nav.name}
                     </Disclosure.Button>
                   )}
-                </>
+                </Fragment>
               ))}
             </div>
             <div className="pt-4 pb-3 border-t border-gray-200">
