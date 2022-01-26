@@ -6,9 +6,6 @@ import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
 import { Head } from 'components/common';
 import { Globe } from 'components/landing';
 
-// hooks
-import { useAuth } from 'context/user';
-
 // utils
 import { preloadImages } from 'utils/homepage';
 
@@ -17,30 +14,32 @@ import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 
 const IndexPage: NextPage = () => {
-  const { me } = useAuth();
-
   return (
-    <div data-scroll-section>
-      <section className="max-w-6xl mx-auto py-2 px-2 sm:px-4 lg:px-8 lg:py-8">
-        <Globe />
-        <h2 className="content__title" data-scroll data-scroll-speed="2">
-          Become a Freshly Minted Citizen of the Metaverse
-        </h2>
-        {me === null && (
-          <div className="w-96 mb-3">
-            <Link href="/register">
+    <div data-scroll-section className="m-auto">
+      <section className="max-w-6xl -mt-10 min-h-screen flex flex-col justify-center align-center mx-auto px-2 sm:px-4 lg:px-8">
+        <div>
+          <Globe />
+          <h2
+            className="content__title text-8xl font-extrabold"
+            data-scroll
+            data-scroll-speed="2"
+          >
+            Become a Freshly Minted Citizen of the Metaverse
+          </h2>
+          <div className="w-80 my-8">
+            <Link href="https://discord.gg/HQnSZZSw">
               <a
                 href="#"
-                className="bg-gradient-to-r from-sapien via-violet-500 to-blue-600 flex items-center font-extrabold justify-center px-6 py-3 text-base font-medium rounded-xl text-white md:py-3 md:text-2xl md:px-8"
+                className="bg-gradient-to-r from-sapien via-violet-500 to-blue-600 flex items-center font-extrabold justify-center px-6 py-3 text-base font-medium rounded-lg text-white md:py-3 md:text-2xl md:px-8"
               >
-                Join the waitlist
+                Join our Community
               </a>
             </Link>
           </div>
-        )}
-        <p className="text-2xl">
-          Find Your Tribes. Launch Your Own Tokens. Shape the New Renaissance.
-        </p>
+          <p className="text-2xl">
+            Find Your Tribes. Launch Your Own Tokens. Shape the New Renaissance.
+          </p>
+        </div>
       </section>
       <div
         data-scroll
@@ -98,8 +97,7 @@ const IndexPage: NextPage = () => {
             <div className="relative px-8">
               <div className="px-8 py-12 bg-black rounded-3xl">
                 <p className="text-xl sm:text-4xl text-white">
-                  The Passport will be a unique NFT that grants citizenship to
-                  the Sapien Tribe and the communities in the Sapien ecosystem.
+                  Join the social network of DAOs
                 </p>
               </div>
             </div>
