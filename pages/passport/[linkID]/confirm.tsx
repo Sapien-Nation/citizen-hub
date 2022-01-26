@@ -1,5 +1,9 @@
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { useTheme } from 'next-themes';
+
+// utils
+import { mergeClassNames } from 'utils/styles';
 
 // components
 import { Head, Query } from 'components/common';
@@ -28,6 +32,7 @@ const ConfirmPassportPage = () => {
 
   const { query } = useRouter();
   const { me, isLoggingIn } = useAuth();
+  const { theme } = useTheme();
 
   if (isLoggingIn === true || !query.linkID) return null;
 
@@ -51,7 +56,12 @@ const ConfirmPassportPage = () => {
     <>
       <Head title="Confirm Passport" />
 
-      <div className="bg-gray-50 flex-1 flex flex-row items-center justify-center">
+      <div
+        className={mergeClassNames(
+          theme && theme === 'light' ? 'bg-gray-50' : '',
+          'flex-1 flex flex-row items-center justify-center'
+        )}
+      >
         <main className="lg:relative h-full w-full">
           <div className="mx-auto max-w-6xl w-full pt-16 pb-20 text-center h-full lg:text-center">
             <Query api={`/api/v3/passport/check-link?linkId=${query.linkID}`}>
