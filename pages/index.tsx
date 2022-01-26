@@ -20,7 +20,7 @@ const IndexPage: NextPage = () => {
         <div>
           <Globe />
           <h2
-            className="content__title text-8xl font-extrabold"
+            className="content__title sm:text-8xl text-4xl font-extrabold"
             data-scroll
             data-scroll-speed="2"
           >
