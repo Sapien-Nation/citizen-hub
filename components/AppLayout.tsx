@@ -24,7 +24,7 @@ const AppLayout = ({ children }: Props) => {
   return (
     <div className="relative flex flex-col min-h-screen">
       <Navbar />
-      <main className="flex-1 flex flex-col">{children}</main>
+      <div className="flex-1 flex flex-col">{children}</div>
       <Footer />
     </div>
   );
