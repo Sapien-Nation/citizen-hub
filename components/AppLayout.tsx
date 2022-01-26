@@ -1,4 +1,6 @@
+import { useRef } from 'react';
 import { useRouter } from 'next/router';
+import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
 
 // components
 import { Navbar, Footer } from 'components/navigation';
@@ -8,7 +10,8 @@ interface Props {
 }
 
 const AppLayout = ({ children }: Props) => {
-  const { pathname } = useRouter();
+  const { asPath, pathname } = useRouter();
+  const containerRef = useRef(null);
 
   if (
     pathname.startsWith('/login') ||
@@ -24,7 +27,21 @@ const AppLayout = ({ children }: Props) => {
   return (
     <div className="relative flex flex-col min-h-screen">
       <Navbar />
-      <div className="flex-1 flex flex-col">{children}</div>
+      <div className="flex-1 flex flex-col">
+        <LocomotiveScrollProvider
+          options={{
+            smooth: true,
+          }}
+          watch={[asPath]}
+          containerRef={containerRef}
+        >
+          <div className="flex justify-center">
+            <main data-scroll-container ref={containerRef}>
+              {children}
+            </main>
+          </div>
+        </LocomotiveScrollProvider>
+      </div>
       <Footer />
     </div>
   );

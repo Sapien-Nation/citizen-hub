@@ -385,22 +385,10 @@ const IndexPageProxy = () => {
   }, []);
 
   return (
-    <LocomotiveScrollProvider
-      options={{
-        smooth: true,
-      }}
-      watch={[router.asPath]}
-      containerRef={containerRef}
-    >
-      <>
-        <Head title="Nation" />
-        <div className={`flex justify-center ${isLoading ? 'loading' : ''}`}>
-          <main data-scroll-container ref={containerRef}>
-            <IndexPage />
-          </main>
-        </div>
-      </>
-    </LocomotiveScrollProvider>
+    <>
+      <Head title="Nation" />
+      {isLoading ? null : <IndexPage />}
+    </>
   );
 };
 
