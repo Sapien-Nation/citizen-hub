@@ -6,7 +6,7 @@ interface Props {
 
 const FigureView = ({ redirect }: Props) => {
   return (
-    <>
+    <div className="w-full">
       <div className="px-4 xl:px-0 text-center">
         <h3 className="mt-3 max-w-sm mx-auto font-bold lg:text-2xl sm:text-xl md:mt-5">
           Welcome to the Sapien Tribe!
@@ -28,7 +28,7 @@ const FigureView = ({ redirect }: Props) => {
           to login.
         </p>
       </div>
-    </>
+    </div>
   );
 };
 

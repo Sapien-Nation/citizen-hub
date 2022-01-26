@@ -39,7 +39,7 @@ const AppLayout = ({ children }: Props) => {
           data-scroll-container
           ref={containerRef}
         >
-          <div className="flex-1">{children}</div>
+          <div className="flex-1 flex">{children}</div>
         </main>
       </LocomotiveScrollProvider>
       <Footer />
