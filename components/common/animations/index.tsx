@@ -1,13 +1,12 @@
-import { ResizeObserver } from '@juggle/resize-observer';
-import * as THREE from 'three';
-import { useMemo, useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
+import { ResizeObserver } from '@juggle/resize-observer';
+import { useMemo, useRef } from 'react';
+import * as THREE from 'three';
 
 // components
 import { Effects } from './Effect';
 
 // NON-INTERACTIVE VERSION
-
 // Equation from https://dsp.stackexchange.com/a/56529
 // Visualized here https://www.desmos.com/calculator/uakymahh4u
 const roundedSquareWave = (t, delta, a, f) => {
@@ -64,18 +63,16 @@ function Dots() {
   );
 }
 
-export default function App() {
-  return (
-    <Canvas
-      orthographic
-      camera={{ zoom: 20 }}
-      // @ts-ignore
-      colorManagement={false}
-      resize={{ polyfill: ResizeObserver }}
-    >
-      <color attach="background" args={['black']} />
-      <Effects />
-      <Dots />
-    </Canvas>
-  );
-}
+const Animations = () => (
+  <Canvas
+    orthographic
+    camera={{ zoom: 20 }}
+    resize={{ polyfill: ResizeObserver }}
+  >
+    <color attach="background" args={['black']} />
+    <Effects />
+    <Dots />
+  </Canvas>
+);
+
+export default Animations;
