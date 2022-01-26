@@ -19,8 +19,8 @@ import { useAuth } from 'context/user';
 interface LinkCheckResponse {
   allowedPassports?: number;
   availablePassports?: number;
+  code?: number;
   distributionId?: string;
-  statusCode?: number;
   message?: string;
 }
 
@@ -43,9 +43,9 @@ const PassportPage = () => {
   if (me === null)
     return <Auth redirect={`/passport/${query.linkID as string}`} />;
 
-  const renderView = ({ statusCode }: LinkCheckResponse) => {
-    if (statusCode) {
-      return <FeedbackView code={statusCode} />;
+  const renderView = ({ code }: LinkCheckResponse) => {
+    if (code) {
+      return <FeedbackView code={code} />;
     }
 
     switch (view) {

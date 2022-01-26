@@ -13,8 +13,13 @@ const ErrorView = ({ code }: Props) => {
   const { theme } = useTheme();
   const renderMessage = () => {
     switch (code) {
+      case 101:
+        return 'This Link its not active yet, please try in 24hrs';
+      case 102:
+        return 'This link has expired';
       case 409:
         return 'There is already a Passport linked to this account';
+      case 103:
       case 403:
         return 'No more passports available for this link, please try a new one';
       case 407:
