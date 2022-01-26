@@ -53,14 +53,14 @@ const IndexPage: NextPage = () => {
       <div
         data-scroll
         data-scroll-speed="2"
-        className="lg:mx-auto sm:px-6 lg:px-10 lg:grid lg:grid-cols-2 lg:gap-24 lg:items-start"
+        className="lg:mx-auto sm:px-6 lg:px-10 lg:grid lg:grid-cols-3 lg:gap-24 lg:items-start"
       >
-        <div className="relative sm:py-16 lg:py-0">
+        <div className="relative sm:py-16 lg:py-0 lg:col-span-2">
           <div
             aria-hidden="true"
             className="hidden md:block lg:absolute lg:inset-y-0 lg:right-0 lg:w-screen"
           >
-            <div className="absolute top-8 w-6/12 bg-center bg-cover h-96 left-1/2 -ml-3 lg:-right-8 lg:left-auto lg:top-12 bg-[url('../public/landing/metaverse1.jpeg')]"></div>
+            <div className="absolute top-8 w-full bg-center bg-cover h-screen left-1/2 -ml-3 lg:-right-8 lg:left-auto lg:top-12 bg-[url('../public/landing/metaverse1.jpeg')]"></div>
           </div>
           <div className="relative mx-auto max-w-md sm:max-w-3xl px-6 lg:px-0 lg:max-w-none lg:py-20">
             <div className="relative pt-4">
@@ -120,7 +120,7 @@ const IndexPage: NextPage = () => {
       <div
         data-scroll
         data-scroll-speed="1"
-        className="flex flex-col my-56 items-center justify-center lg:mx-auto sm:px-6 lg:px-10 lg:max-w-6xl"
+        className="flex flex-col mt-96 mb-36 items-center justify-center lg:mx-auto sm:px-6 lg:px-10 lg:max-w-6xl"
       >
         <h2 className="text-xl text-center">
           Holders will have the opportunity to choose an avatar of one of their
@@ -149,7 +149,7 @@ const IndexPage: NextPage = () => {
       <div
         data-scroll
         data-scroll-speed="2"
-        className="lg:mx-auto sm:px-6 lg:px-10 lg:grid lg:grid-cols-2 lg:gap-24 lg:items-start"
+        className="lg:mx-auto mb-96 sm:px-6 lg:px-10 lg:grid lg:grid-cols-3 lg:gap-24 lg:items-start"
       >
         <div className="relative mx-auto px-6 lg:px-0">
           {/* Content area */}
@@ -179,18 +179,18 @@ const IndexPage: NextPage = () => {
             </div>
           </div>
         </div>
-        <div className="relative sm:py-16 lg:py-0">
+        <div className="relative sm:py-16 lg:py-0 lg:col-span-2">
           <div
             aria-hidden="true"
-            className="hidden md:block lg:absolute lg:inset-y-0 lg:right-0 lg:w-screen"
+            className="hidden md:block lg:absolute lg:inset-y-0 lg:left-0 lg:w-screen"
           >
-            <div className="absolute top-8 w-6/12 bg-center bg-cover h-96 left-1/2 -ml-3 lg:-right-8 lg:left-auto lg:top-12 bg-[url('../public/landing/metaverse1.jpeg')]"></div>
+            <div className="absolute top-8 w-full bg-center bg-cover h-screen right-1/2 -ml-3 lg:-right-8 lg:right-auto lg:top-12 bg-[url('../public/landing/metaverse1.jpeg')]"></div>
           </div>
           <div className="relative mx-auto max-w-md sm:max-w-3xl px-6 lg:px-0 lg:max-w-none lg:py-20">
             <div className="relative pt-4">
               <div className="px-4 py-2 backdrop-blur-md rounded-md">
                 <p className="text-xl  font-extrabold">
-                  Sapien is reinventing how we connect with others.
+                  Join the social network of DAOs
                 </p>
               </div>
             </div>
@@ -296,7 +296,7 @@ const IndexPage: NextPage = () => {
       <div
         data-scroll
         data-scroll-speed="1"
-        className="mt-64 flex lg:mx-auto sm:px-6 lg:px-10"
+        className="mt-72 flex lg:mx-auto sm:px-6 lg:px-10"
       >
         <h2 className="text-6xl font-extrabold">
           Our Vision: The United Republic of DAOs.
@@ -338,17 +338,27 @@ const IndexPage: NextPage = () => {
         </div>
       </div>
 
-      <section className="content">
-        {/* <a
-          className="text-6xl font-extrabold"
-          data-scroll
-          data-scroll-speed="4"
-        >
-          <span className="pb-3 bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
-            Be the change
-          </span>
-        </a> */}
-      </section>
+      <div
+        data-scroll
+        data-scroll-speed="1"
+        className="flex flex-col mt-36 mb-72 items-center justify-center lg:mx-auto sm:px-6 lg:px-10 lg:max-w-6xl"
+      >
+        <h2 className="text-xl text-center">
+          Let’s build a world with no limits except our own creativity, where
+          everyone can let their passions and curiosity guide who they want to
+          be. Whether you want to be an artist, patron, investor, business
+          owner, leader, changemaker, or all of the above, bring your story to
+          the foundation of a new world. Be the change
+        </h2>
+        <Link href="/passport">
+          <a
+            href="#"
+            className="mt-12 border font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8"
+          >
+            Take me there
+          </a>
+        </Link>
+      </div>
     </div>
   );
 };
