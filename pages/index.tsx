@@ -26,7 +26,7 @@ const IndexPage: NextPage = () => {
           >
             Become a Freshly Minted Citizen of the Metaverse
           </h2>
-          <div className="my-8">
+          <div className="my-12">
             <Link href="https://discord.gg/HQnSZZSw">
               <a
                 href="#"
@@ -92,7 +92,7 @@ const IndexPage: NextPage = () => {
                 <li className="ml-6 mb-2">
                   Give you irrevocable access to being a Sapien Tribe Citizen{' '}
                 </li>
-                <p className="text-lg mb-8">
+                <p className="text-lg mb-12">
                   Join our{' '}
                   <Link href="https://discord.gg/HQnSZZSw">
                     <a>
@@ -296,7 +296,7 @@ const IndexPage: NextPage = () => {
       <div
         data-scroll
         data-scroll-speed="1"
-        className="mt-48 flex lg:mx-auto sm:px-6 lg:px-10"
+        className="mt-64 flex lg:mx-auto sm:px-6 lg:px-10"
       >
         <h2 className="text-6xl font-extrabold">
           Our Vision: The United Republic of DAOs.
@@ -307,42 +307,39 @@ const IndexPage: NextPage = () => {
         data-scroll-speed="2"
         className="lg:mx-auto sm:px-6 lg:px-10 lg:grid lg:grid-cols-2 lg:gap-24 lg:items-start"
       >
-        <div className="relative">
-          <div className="relative mx-auto max-w-md sm:max-w-3xl px-6 lg:px-0 lg:max-w-none lg:py-20">
-            <div className="relative">
-              <p className="text-xl">
-                Where every community is a DAO. Every DAO is sovereign. Every
-                DAO gets the tools to govern their community, mint their own
-                tokens, and own collective assets.
-              </p>
-              <div className="mt-4">
-                <Link href="/passport">
-                  <a
-                    href="#"
-                    className="bg-gradient-to-r from-yellow-500 via-yellow-200 to-yellow-600 text-black flex items-center font-extrabold justify-center px-6 py-3 text-base font-medium rounded-xl md:py-3 md:text-2xl md:px-8"
-                  >
-                    Join the first social network of DAOs.
-                  </a>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="relative mx-auto px-6 lg:px-0">
+        <div className="relative mx-auto lg:px-0">
           {/* Content area */}
           <div className="pt-4">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              className="rounded-xl"
               alt="Metavarse is coming"
               src="https://images.newindianexpress.com/uploads/user/imagelibrary/2021/11/27/w1200X800/Metaverse_is_Coming.jpg"
             />
           </div>
         </div>
+        <div className="relative">
+          <div className="relative mx-auto max-w-md sm:max-w-3xl px-6 lg:px-0 lg:max-w-none lg:py-20">
+            <div className="relative">
+              <p className="text-xl mb-12">
+                Where every community is a DAO. Every DAO is sovereign. Every
+                DAO gets the tools to govern their community, mint their own
+                tokens, and own collective assets.
+              </p>
+              <Link href="/passport">
+                <a
+                  href="#"
+                  className="bg-sapien font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8"
+                >
+                  Join the first social network of DAOs.
+                </a>
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
 
       <section className="content">
-        <a
+        {/* <a
           className="text-6xl font-extrabold"
           data-scroll
           data-scroll-speed="4"
@@ -350,7 +347,7 @@ const IndexPage: NextPage = () => {
           <span className="pb-3 bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
             Be the change
           </span>
-        </a>
+        </a> */}
       </section>
     </div>
   );
