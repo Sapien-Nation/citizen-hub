@@ -64,7 +64,10 @@ const IndexPage: NextPage = () => {
             aria-hidden="true"
             className="hidden md:block lg:absolute lg:inset-y-0 lg:right-0 lg:w-screen"
           >
-            <div className="absolute top-8 w-full bg-center bg-cover h-screen left-1/2 -ml-3 lg:-right-8 lg:left-auto lg:top-12 bg-[url('../public/landing/metaverse1.jpeg')]"></div>
+            <div
+              className="absolute top-8 w-full bg-center bg-cover h-screen left-1/2 -ml-3 lg:-right-8 lg:left-auto lg:top-12"
+              style={{ backgroundImage: "url('landing/metaverse1.jpeg')" }}
+            ></div>
           </div>
           <div className="relative mx-auto max-w-md sm:max-w-3xl px-6 lg:px-0 lg:max-w-none lg:py-20">
             <div className="relative pt-4">
@@ -194,7 +197,10 @@ const IndexPage: NextPage = () => {
             aria-hidden="true"
             className="hidden md:block lg:absolute lg:inset-y-0 lg:left-0 lg:w-screen"
           >
-            <div className="absolute top-8 w-full bg-center bg-cover h-screen right-1/2 -ml-3 lg:-right-8 lg:right-auto lg:top-12 bg-[url('../public/landing/metaverse1.jpeg')]"></div>
+            <div
+              className="absolute top-8 w-full bg-center bg-cover h-screen right-1/2 -ml-3 lg:-right-8 lg:right-auto lg:top-12"
+              style={{ backgroundImage: "url('landing/metaverse1.jpeg')" }}
+            ></div>
           </div>
           <div className="relative mx-auto max-w-md sm:max-w-3xl px-6 lg:px-0 lg:max-w-none lg:py-20">
             <div className="relative pt-4">
