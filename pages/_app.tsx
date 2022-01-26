@@ -17,6 +17,7 @@ import { ToastProvider } from 'context/toast';
 // styles
 import '../styles/index.css';
 import '../styles/aos.scss';
+import 'locomotive-scroll/dist/locomotive-scroll.css';
 
 // providers
 import { AuthenticationProvider } from 'context/user';
