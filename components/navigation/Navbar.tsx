@@ -20,6 +20,7 @@ const navigation = [
   { name: 'Passport', href: '/passport', visible: true },
   { name: 'Team', href: '/team', visible: true },
   { name: 'Protocol', href: '/protocol', visible: true },
+  { name: 'Reserved List', href: '/reserved-list', visible: true },
 ];
 
 const Navbar = () => {
