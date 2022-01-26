@@ -111,7 +111,13 @@ const LoginForm = () => {
 
           <div className="mt-8 text-center">
             <p className="text-sm inline">{`Don't have an account?`}</p>
-            <Link href="/register">
+            <Link
+              href={
+                query.redirect
+                  ? `/register?redirect=${query.redirect}`
+                  : '/register'
+              }
+            >
               <a className="font-medium text-sm text-sapien hover:text-purple-500">
                 &nbsp;register
               </a>

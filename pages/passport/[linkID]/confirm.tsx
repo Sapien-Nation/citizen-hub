@@ -7,17 +7,24 @@ import { mergeClassNames } from 'utils/styles';
 
 // components
 import { Head, Query } from 'components/common';
-import { Auth, Claimed, Confirm, Discord, Expired } from 'components/passport';
+import { Auth, Confirm, Discord, FeedbackView } from 'components/passport';
 
 // context
 import { useAuth } from 'context/user';
 
+// types
+import type { ISOString } from 'tools/types/common';
+
 interface LinkCheckResponse {
-  allowedPassports?: number;
-  availablePassports?: number;
+  allowedPassports: number;
+  availablePassports: number;
+  code?: number;
   distributionId?: string;
-  statusCode?: number;
   message?: string;
+  isValid: boolean;
+  isReserved: boolean;
+  reservedFigure: string | null;
+  expiresAt: ISOString | null;
 }
 
 export enum View {
@@ -25,10 +32,18 @@ export enum View {
   Confirm,
   Discord,
   Expired,
+  LinkNotActive,
+}
+
+enum Status {
+  UserAlreadyHavePassport = 100,
+  LinkIsNotActiveYet = 101,
+  ExpiredLink = 102,
+  NoPassportsAvailableForThisLink = 103,
 }
 
 const ConfirmPassportPage = () => {
-  const [view] = useState(View.Confirm);
+  const [view, setView] = useState(View.Confirm);
 
   const { query } = useRouter();
   const { me, isLoggingIn } = useAuth();
@@ -39,16 +54,27 @@ const ConfirmPassportPage = () => {
   if (me === null)
     return <Auth redirect={`/passport/${query.linkID as string}/confirm`} />;
 
-  const renderView = () => {
-    switch (view) {
-      case View.Claimed:
-        return <Claimed />;
-      case View.Confirm:
-        return <Confirm />;
-      case View.Discord:
+  const handleConfirm = () => {
+    setView(View.Discord);
+  };
+
+  const renderView = ({ code }: LinkCheckResponse) => {
+    if (code === null) {
+      switch (view) {
+        case View.Confirm:
+          return <Confirm onConfirm={handleConfirm} />;
+        case View.Discord:
+          return <Discord />;
+      }
+    }
+
+    switch (code) {
+      case Status.UserAlreadyHavePassport:
         return <Discord />;
-      case View.Expired:
-        return <Expired />;
+      case Status.ExpiredLink:
+      case Status.LinkIsNotActiveYet:
+      case Status.NoPassportsAvailableForThisLink:
+        return <FeedbackView code={code} />;
     }
   };
 
@@ -65,7 +91,7 @@ const ConfirmPassportPage = () => {
         <main className="lg:relative h-full w-full">
           <div className="mx-auto max-w-6xl w-full pt-16 pb-20 text-center h-full lg:text-center">
             <Query api={`/api/v3/passport/check-link?linkId=${query.linkID}`}>
-              {(response: LinkCheckResponse) => <>{renderView()}</>}
+              {(response: LinkCheckResponse) => <>{renderView(response)}</>}
             </Query>
           </div>
         </main>

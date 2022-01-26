@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useForm, FormProvider } from 'react-hook-form';
 
 // api
@@ -46,6 +47,7 @@ const RegisterForm = () => {
   } = methods;
 
   const toast = useToast();
+  const { query } = useRouter();
   const { setSession } = useAuth();
 
   const onSubmit = async ({
@@ -66,7 +68,7 @@ const RegisterForm = () => {
         redirect: '/',
       });
 
-      setSession(response);
+      setSession(response, (query.redirect as string) || null);
     } catch (error) {
       toast({
         message: error || 'Please contact support',
@@ -265,7 +267,11 @@ const RegisterForm = () => {
           </button>
           <div className="mt-8 text-center">
             <p className="text-sm inline">Already have an account?</p>
-            <Link href="/login">
+            <Link
+              href={
+                query.redirect ? `/login?redirect=${query.redirect}` : '/login'
+              }
+            >
               <a className="font-medium text-sm text-sapien hover:text-purple-500">
                 &nbsp;login
               </a>
