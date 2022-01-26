@@ -34,12 +34,14 @@ const AppLayout = ({ children }: Props) => {
         watch={[asPath]}
         containerRef={containerRef}
       >
-        <main data-scroll-container ref={containerRef}>
-          <div className="flex-1 flex flex-col">
-            <div className="flex justify-center">{children}</div>
-          </div>
-          <Footer />
+        <main
+          className="flex-1 flex flex-col"
+          data-scroll-container
+          ref={containerRef}
+        >
+          <div className="flex-1">{children}</div>
         </main>
+        <Footer />
       </LocomotiveScrollProvider>
     </div>
   );
