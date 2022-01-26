@@ -399,6 +399,8 @@ canvas {
   margin-left: 1rem;
 }
 
+/*! purgecss start ignore */
+
 /*! locomotive-scroll v3.5.4 | MIT License | https://github.com/locomotivemtl/locomotive-scroll */
 html.has-scroll-smooth {
   overflow: hidden;
@@ -500,3 +502,5 @@ html.has-scroll-dragging {
     --tiles-height: 240px;
   }
 }
+
+/*! purgecss end ignore */

@@ -69,7 +69,7 @@ const PassportPage: NextPage = () => {
               data-aos-delay="350"
               className="relative flex mb-12 rounded-3xl"
             >
-              <div className="bg-white dark:bg-black border border-black shadow-[8px_8px_#eaeaea] dark:shadow-[8px_8px_#27272a] px-8 py-12 rounded-3xl">
+              <div className="dark:bg-black border border-black shadow-[8px_8px_#eaeaea] dark:shadow-[8px_8px_#27272a] px-8 py-12 rounded-3xl">
                 <h4 className="text-2xl sm:text-3xl font-extrabold">
                   Sapien’s NFT Passport is Key to Addressing the Issues We Find
                   in Most Social Media Today
@@ -85,7 +85,7 @@ const PassportPage: NextPage = () => {
               data-aos-delay="350"
               className="relative flex mb-12 rounded-3xl"
             >
-              <div className="bg-white dark:bg-black border border-black shadow-[8px_8px_#eaeaea] dark:shadow-[8px_8px_#27272a] px-8 py-12 rounded-3xl">
+              <div className="dark:bg-black border border-black shadow-[8px_8px_#eaeaea] dark:shadow-[8px_8px_#27272a] px-8 py-12 rounded-3xl">
                 <h4 className="text-2xl sm:text-3xl font-extrabold">
                   Anonymous Participation Online Has Led to Unaccountable
                   Engagement
