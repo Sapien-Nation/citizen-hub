@@ -13,7 +13,8 @@ import { ErrorView, ToastContainer } from 'components/common';
 import { ToastProvider } from 'context/toast';
 
 // styles
-import 'styles/index.css';
+import 'aos/dist/aos.css';
+import '../styles/index.css';
 
 // providers
 import { AuthenticationProvider } from 'context/user';
