@@ -1,7 +1,7 @@
 import { ResizeObserver } from '@juggle/resize-observer';
 import * as THREE from 'three';
 import { useMemo, useRef } from 'react';
-import { Canvas, useFrame } from 'react-three-fiber';
+import { Canvas, useFrame } from '@react-three/fiber';
 
 // components
 import { Effects } from './Effect';
