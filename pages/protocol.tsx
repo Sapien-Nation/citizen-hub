@@ -27,10 +27,7 @@ const IndexPage: NextPage = () => {
               <div className="absolute inset-0 bg-black"></div>
               <Animation />
             </div>
-            <div
-              className="items-center mx-auto max-w-8xl w-full pt-20 pb-24 lg:py-28 lg:text-left relative"
-              style={{ marginTop: 80 }}
-            >
+            <div className="items-center mx-auto max-w-8xl w-full pt-20 pb-24 lg:py-28 lg:text-left relative">
               <div className="py-12 lg:px-8 px-6 sm:px-6">
                 <p
                   data-aos="zoom-y-out"

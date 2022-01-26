@@ -28,7 +28,7 @@ const IndexPage: NextPage = () => {
           </h2>
           <div className="my-12">
             <Link href="https://discord.gg/HQnSZZSw">
-              <a className="bg-sapien font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8">
+              <a className="bg-gradient-to-r from-sapien to-sapien-40 font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8">
                 Join our Community
               </a>
             </Link>
@@ -44,7 +44,14 @@ const IndexPage: NextPage = () => {
         className="mt-48 flex items-end justify-end lg:mx-auto sm:px-6 lg:px-10"
       >
         <h2 className="text-6xl font-extrabold">
-          One tool to help you do it all.
+          <span className="pb-3 bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
+            One tool
+          </span>{' '}
+          to help you do it{' '}
+          <span className="pb-3 bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
+            all
+          </span>
+          .
         </h2>
       </div>
       <div
@@ -103,7 +110,7 @@ const IndexPage: NextPage = () => {
                 <Link href="/passport">
                   <a
                     href="#"
-                    className="bg-sapien font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8"
+                    className="mt-12 border font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8"
                   >
                     Learn more
                   </a>
@@ -127,7 +134,7 @@ const IndexPage: NextPage = () => {
         <Link href="/passport">
           <a
             href="#"
-            className="mt-12 border font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8"
+            className="mt-12 bg-gradient-to-r from-sapien to-sapien-40 font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8"
           >
             Become a Founder
           </a>
@@ -139,7 +146,13 @@ const IndexPage: NextPage = () => {
         data-scroll-speed="1"
         className="flex flex-col items-start justify-start lg:mx-auto sm:px-6 lg:px-10"
       >
-        <h2 className="text-6xl font-extrabold">Win-win Tokenomics.</h2>
+        <h2 className="text-6xl font-extrabold">
+          {' '}
+          <span className="pb-3 bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
+            Win-win
+          </span>{' '}
+          Tokenomics.
+        </h2>
         <p className="text-lg">Sustainability. Scalability. Sapien.</p>
       </div>
 
@@ -293,10 +306,17 @@ const IndexPage: NextPage = () => {
       <div
         data-scroll
         data-scroll-speed="1"
-        className="mt-72 flex lg:mx-auto sm:px-6 lg:px-10"
+        className="mt-64 flex lg:mx-auto sm:px-6 lg:px-10"
       >
         <h2 className="text-6xl font-extrabold">
-          Our Vision: The United Republic of DAOs.
+          <span className="pb-3 bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
+            Our Vision
+          </span>{' '}
+          : The United Republic of{' '}
+          <span className="pb-3 bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
+            DAOs
+          </span>{' '}
+          .
         </h2>
       </div>
       <div
@@ -325,7 +345,7 @@ const IndexPage: NextPage = () => {
               <Link href="/passport">
                 <a
                   href="#"
-                  className="bg-sapien font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8"
+                  className="mt-12 border font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8"
                 >
                   Join the first social network of DAOs.
                 </a>
@@ -347,10 +367,10 @@ const IndexPage: NextPage = () => {
           owner, leader, changemaker, or all of the above, bring your story to
           the foundation of a new world. Be the change
         </h2>
-        <Link href="/passport">
+        <Link href="#">
           <a
             href="#"
-            className="mt-12 border font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8"
+            className="mt-12 bg-gradient-to-r from-sapien to-sapien-40 font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8"
           >
             Take me there
           </a>
