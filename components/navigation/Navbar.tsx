@@ -20,6 +20,7 @@ const navigation = [
   { name: 'Passport', href: '/passport', visible: true },
   { name: 'Team', href: '/team', visible: true },
   { name: 'Protocol', href: '/protocol', visible: true },
+  { name: 'Reserved List', href: '/reserved-list', visible: true },
 ];
 
 const Navbar = () => {
@@ -82,7 +83,7 @@ const Navbar = () => {
                 </Disclosure.Button>
               </div>
               <div className="hidden lg:ml-7 lg:flex lg:items-center">
-                <button
+                {/*<button
                   id="theme-toggle"
                   type="button"
                   onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
@@ -93,7 +94,7 @@ const Navbar = () => {
                   ) : (
                     <SunIcon className="h-5 w-5" aria-hidden="true" />
                   )}
-                </button>
+                  </button>*/}
                 {/* Profile dropdown */}
                 {me === null && (
                   <>
@@ -123,7 +124,7 @@ const Navbar = () => {
                             />
                           ) : (
                             <span className="inline-flex items-center justify-center h-8 w-8 rounded-full bg-gray-500">
-                              <span className="text-sm font-medium leading-none text-white dark:text-black">
+                              <span className="text-sm font-medium leading-none">
                                 {me.displayName[0]}
                               </span>
                             </span>
@@ -139,13 +140,13 @@ const Navbar = () => {
                         leaveFrom="opacity-100 scale-100"
                         leaveTo="opacity-0 scale-95"
                       >
-                        <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white dark:bg-black ring-1 ring-black ring-opacity-5 focus:outline-none">
+                        <Menu.Items className="origin-top-right absolute right-0 mt-2 rounded-md shadow-lg py-1 bg-white dark:bg-black ring-1 ring-black ring-opacity-5 focus:outline-none">
                           <Menu.Item>
                             <div className="border-b border-gray-200 px-4 py-2">
-                              <div className="text-base font-medium text-gray-800">
+                              <div className="text-base font-medium">
                                 {me.displayName}
                               </div>
-                              <div className="text-sm font-medium text-gray-500">
+                              <div className="text-sm font-medium">
                                 {me.email}
                               </div>
                             </div>
@@ -156,7 +157,7 @@ const Navbar = () => {
                                 <a
                                   className={mergeClassNames(
                                     active ? 'bg-gray-100' : '',
-                                    'block px-4 py-2 text-sm text-gray-700'
+                                    'block px-4 py-2 text-sm'
                                   )}
                                 >
                                   Sign out
