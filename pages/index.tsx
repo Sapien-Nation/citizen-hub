@@ -30,7 +30,7 @@ const IndexPage: NextPage = () => {
             <Link href="https://discord.gg/HQnSZZSw">
               <a
                 href="#"
-                className="bg-gradient-to-r from-sapien via-violet-500 to-blue-600 flex items-center font-extrabold justify-center px-6 py-3 text-base font-medium rounded-lg text-white md:py-3 md:text-2xl md:px-8"
+                className="bg-gradient-to-r from-sapien via-violet-500 to-blue-600 flex items-center font-extrabold justify-center px-6 py-3 text-base font-medium rounded-md text-white md:py-3 md:text-2xl md:px-8"
               >
                 Join our Community
               </a>
@@ -44,7 +44,7 @@ const IndexPage: NextPage = () => {
       <div
         data-scroll
         data-scroll-speed="1"
-        className="mt-48 flex items-center justify-center lg:mx-auto sm:px-6 lg:px-10 lg:max-w-6xl"
+        className="mt-48 flex items-center justify-center lg:mx-auto sm:px-6 lg:px-10"
       >
         <h2 className="text-6xl font-extrabold">
           One tool to help you do it all.
@@ -53,50 +53,19 @@ const IndexPage: NextPage = () => {
       <div
         data-scroll
         data-scroll-speed="2"
-        className="lg:mx-auto sm:px-6 lg:px-10 lg:max-w-6xl lg:grid lg:grid-cols-2 lg:gap-24 lg:items-start"
+        className="lg:mx-auto sm:px-6 lg:px-10 lg:grid lg:grid-cols-2 lg:gap-24 lg:items-start"
       >
         <div className="relative sm:py-16 lg:py-0">
           <div
             aria-hidden="true"
             className="hidden md:block lg:absolute lg:inset-y-0 lg:right-0 lg:w-screen"
           >
-            <svg
-              className="absolute top-8 left-1/2 -ml-3 lg:-right-8 lg:left-auto lg:top-12"
-              width={404}
-              height={392}
-              fill="none"
-              viewBox="0 0 404 392"
-            >
-              <defs>
-                <pattern
-                  id="02f20b47-fd69-4224-a62a-4c9de5c763f7"
-                  x={0}
-                  y={0}
-                  width={20}
-                  height={20}
-                  patternUnits="userSpaceOnUse"
-                >
-                  <rect
-                    x={0}
-                    y={0}
-                    width={4}
-                    height={4}
-                    className="text-green-500"
-                    fill="currentColor"
-                  />
-                </pattern>
-              </defs>
-              <rect
-                width={404}
-                height={392}
-                fill="url(#02f20b47-fd69-4224-a62a-4c9de5c763f7)"
-              />
-            </svg>
+            <div className="absolute top-8 w-6/12 bg-center bg-cover h-96 left-1/2 -ml-3 lg:-right-8 lg:left-auto lg:top-12 bg-[url('https://techunwrapped.com/wp-content/uploads/2021/11/An-Asian-city-will-be-the-first-to-create-a.jpg')]"></div>
           </div>
           <div className="relative mx-auto max-w-md sm:max-w-3xl px-6 lg:px-0 lg:max-w-none lg:py-20">
             <div className="relative px-8">
-              <div className="px-8 py-12 bg-black rounded-3xl">
-                <p className="text-xl sm:text-4xl text-white">
+              <div className="px-4 py-2 backdrop-blur-md bg-white/30 rounded-md">
+                <p className="text-lg text-black font-extrabold">
                   Join the social network of DAOs
                 </p>
               </div>
@@ -123,6 +92,27 @@ const IndexPage: NextPage = () => {
                 <li className="ml-6 mb-3">
                   Give you irrevocable access to being a Sapien Tribe Citizen{' '}
                 </li>
+                <p className="text-xl mb-8">
+                  Join our{' '}
+                  <Link href="https://discord.gg/HQnSZZSw">
+                    <a>
+                      <span className="underline underline-offset-4 cursor-pointer">
+                        Discord
+                      </span>{' '}
+                    </a>
+                  </Link>{' '}
+                  to secure your spot on the whitelist.
+                </p>
+                <div className="w-80 my-8">
+                  <Link href="/passport">
+                    <a
+                      href="#"
+                      className="bg-gradient-to-r from-sapien via-violet-500 to-blue-600 flex items-center font-extrabold justify-center px-6 py-3 text-base font-medium rounded-md text-white md:py-3 md:text-2xl md:px-8"
+                    >
+                      Learn more
+                    </a>
+                  </Link>
+                </div>
               </ul>
             </div>
           </div>
@@ -132,7 +122,7 @@ const IndexPage: NextPage = () => {
       <div
         data-scroll
         data-scroll-speed="1"
-        className="flex flex-col items-center justify-center lg:mx-auto sm:px-6 lg:px-10 lg:max-w-6xl"
+        className="flex flex-col mt-56 items-center justify-center lg:mx-auto sm:px-6 lg:px-10 lg:max-w-6xl"
       >
         <h2 className="text-4xl text-center">
           Holders will have the opportunity to choose an avatar of one of their
@@ -231,7 +221,7 @@ const IndexPage: NextPage = () => {
       <div
         data-scroll
         data-scroll-speed="1"
-        className="mt-1 flex items-center justify-center lg:mx-auto sm:px-6 lg:px-10 lg:max-w-6xl"
+        className="mt-1 flex lg:mx-auto sm:px-6 lg:px-10"
       >
         <h2 className="text-6xl font-extrabold">
           Our Vision: The United Republic of DAOs.
@@ -240,7 +230,7 @@ const IndexPage: NextPage = () => {
       <div
         data-scroll
         data-scroll-speed="2"
-        className="lg:mx-auto sm:px-6 lg:px-10 lg:max-w-6xl lg:grid lg:grid-cols-2 lg:gap-24 lg:items-start"
+        className="lg:mx-auto sm:px-6 lg:px-10 lg:grid lg:grid-cols-2 lg:gap-24 lg:items-start"
       >
         <div className="relative">
           <div className="relative mx-auto max-w-md sm:max-w-3xl px-6 lg:px-0 lg:max-w-none lg:py-20">
@@ -278,7 +268,7 @@ const IndexPage: NextPage = () => {
       <div
         data-scroll
         data-scroll-speed="1"
-        className="mt-48 flex flex-col items-center justify-center lg:mx-auto sm:px-6 lg:px-10 lg:max-w-6xl"
+        className="mt-48 flex flex-col items-center justify-center lg:mx-auto sm:px-6 lg:px-10"
       >
         <h2 className="text-6xl font-extrabold">Win-win Tokenomics.</h2>
         <p className="text-xl sm:text-2xl mb-8">
@@ -289,7 +279,7 @@ const IndexPage: NextPage = () => {
       <div
         data-scroll
         data-scroll-speed="2"
-        className="lg:mx-auto sm:px-6 lg:px-10 lg:max-w-6xl lg:grid lg:grid-cols-2 lg:gap-24 lg:items-start"
+        className="lg:mx-auto sm:px-6 lg:px-10 lg:grid lg:grid-cols-2 lg:gap-24 lg:items-start"
       >
         <div className="relative mx-auto px-6 lg:px-0">
           {/* Content area */}
@@ -338,7 +328,7 @@ const IndexPage: NextPage = () => {
       <div
         data-scroll
         data-scroll-speed="1"
-        className="mt-24 flex flex-col items-center justify-center lg:mx-auto sm:px-6 lg:px-10 lg:max-w-6xl"
+        className="mt-24 flex flex-col items-end justify-end lg:mx-auto sm:px-6 lg:px-10"
       >
         <h2 className="text-6xl font-extrabold mb-8">Craft Your Story.</h2>
         <p className="text-xl sm:text-2xl mb-8">
