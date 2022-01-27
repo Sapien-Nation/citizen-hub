@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 // components
 import { Animation, Head } from 'components/common';
 
@@ -210,12 +212,19 @@ const PassportPage: NextPage = () => {
               <p
                 data-aos="zoom-y-out"
                 data-aos-delay="600"
-                className="rounded-full text-xl sm:text-2xl md:mt-5 text-white font-bold"
+                className="rounded-full mb-8 text-xl sm:text-2xl md:mt-5 text-white font-bold"
               >
-                {
-                  '        Sapien is connecting with community organizers, thought leaders, and forward thinking people of all types to build the first community of passport holders.'
-                }
+                We are calling all thought leaders, sensemakers, and
+                changemakers to join us on the journey of building the Sapien
+                Nation. If you are an individual or organization looking to make
+                an impact, email us at <b>passports@sapien.network</b> to see
+                how we can collaborate.
               </p>
+              <Link href="https://discord.gg/HQnSZZSw">
+                <a className="border font-extrabold justify-center px-2 py-3 rounded-md text-white md:py-3 md:text-xl md:px-8">
+                  Join the Whitelist
+                </a>
+              </Link>
             </div>
           </div>
         </div>
