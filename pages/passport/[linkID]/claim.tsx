@@ -11,9 +11,11 @@ import { Auth, Confirm, Discord, FeedbackView } from 'components/passport';
 
 // context
 import { useAuth } from 'context/user';
+import { useToast } from 'context/toast';
 
 // types
 import type { ISOString } from 'tools/types/common';
+import { claimFigureName } from 'api/passport/claim';
 
 interface LinkCheckResponse {
   allowedPassports: number;
@@ -42,27 +44,36 @@ enum Status {
   NoPassportsAvailableForThisLink = 103,
 }
 
-const ConfirmPassportPage = () => {
+const ClaimPassportPage = () => {
   const [view, setView] = useState(View.Confirm);
 
+  const toast = useToast();
   const { query } = useRouter();
-  const { me, isLoggingIn } = useAuth();
   const { theme } = useTheme();
+  const { me, isLoggingIn } = useAuth();
 
   if (isLoggingIn === true || !query.linkID) return null;
 
   if (me === null)
-    return <Auth redirect={`/passport/${query.linkID as string}/confirm`} />;
-
-  const handleConfirm = () => {
-    setView(View.Discord);
-  };
+    return <Auth redirect={`/passport/${query.linkID as string}/claim`} />;
 
   const renderView = ({
     code,
+    distributionId,
     reservedFigure,
     expiresAt,
   }: LinkCheckResponse) => {
+    const handleConfirm = async () => {
+      try {
+        await claimFigureName(distributionId);
+        setView(View.Discord);
+      } catch (error) {
+        toast({
+          message: error,
+        });
+      }
+    };
+
     if (code === null) {
       switch (view) {
         case View.Confirm:
@@ -110,4 +121,4 @@ const ConfirmPassportPage = () => {
   );
 };
 
-export default ConfirmPassportPage;
+export default ClaimPassportPage;
