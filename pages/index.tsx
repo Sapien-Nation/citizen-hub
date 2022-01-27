@@ -19,7 +19,7 @@ const IndexPage: NextPage = () => {
     AOS.init();
   }, []);
   return (
-    <div data-scroll-section className="m-auto overflow-hidden">
+    <div data-scroll-section className="m-auto overflow-hidden relative">
       <section className="max-w-6xl -mt-10 min-h-screen flex flex-col justify-center align-center mx-auto px-8">
         <div>
           <Globe />
@@ -73,7 +73,7 @@ const IndexPage: NextPage = () => {
               style={{ backgroundImage: "url('landing/metaverse1.jpeg')" }}
             ></div>
           </div>
-          <div className="relative mx-auto max-w-md sm:max-w-3xl px-6 lg:px-0 lg:max-w-none lg:py-20">
+          {/* <div className="relative mx-auto max-w-md sm:max-w-3xl px-6 lg:px-0 lg:max-w-none lg:py-20">
             <div className="relative pt-4">
               <div className="px-4 py-2 backdrop-blur-md rounded-md">
                 <p className="text-xl  font-extrabold">
@@ -81,7 +81,7 @@ const IndexPage: NextPage = () => {
                 </p>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="relative mx-auto px-6 lg:px-0">
           {/* Content area */}
@@ -142,9 +142,9 @@ const IndexPage: NextPage = () => {
             their favorite figures from history to celebrate our diverse
             histories and unite to build our shared future.
           </h2>
-          <Link href="/passport">
+          <Link href="https://discord.gg/HQnSZZSw">
             <a className="border font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8">
-              Become a Founder
+              Join the Whitelist
             </a>
           </Link>
         </div>
