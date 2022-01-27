@@ -45,7 +45,7 @@ enum Status {
 }
 
 const ClaimPassportPage = () => {
-  const [view, setView] = useState(View.Confirm);
+  const [view, setView] = useState(View.Discord);
 
   const toast = useToast();
   const { query } = useRouter();
@@ -74,28 +74,29 @@ const ClaimPassportPage = () => {
       }
     };
 
-    if (code === null) {
-      switch (view) {
-        case View.Confirm:
-          return (
-            <Confirm
-              onConfirm={handleConfirm}
-              expiresAt={expiresAt}
-              reservedFigure={reservedFigure}
-            />
-          );
-        case View.Discord:
+    if (code) {
+      switch (code) {
+        case Status.UserAlreadyHavePassport:
           return <Discord />;
+        case Status.ExpiredLink:
+        case Status.LinkIsNotActiveYet:
+        case Status.NoPassportsAvailableForThisLink:
+          return <FeedbackView code={code} />;
       }
+      return;
     }
 
-    switch (code) {
-      case Status.UserAlreadyHavePassport:
-        return <Discord />;
-      case Status.ExpiredLink:
-      case Status.LinkIsNotActiveYet:
-      case Status.NoPassportsAvailableForThisLink:
-        return <FeedbackView code={code} />;
+    switch (view) {
+      case View.Confirm:
+        return (
+          <Confirm
+            onConfirm={handleConfirm}
+            expiresAt={expiresAt}
+            reservedFigure={reservedFigure}
+          />
+        );
+      case View.Discord:
+        return <Discord reservedFigure={reservedFigure} />;
     }
   };
 

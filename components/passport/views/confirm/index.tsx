@@ -8,7 +8,7 @@ interface Props {
   onConfirm: () => void;
 }
 
-const Confirm = ({ onConfirm }: Props) => {
+const Confirm = ({ reservedFigure, onConfirm, expiresAt }: Props) => {
   return (
     <div className="relative shadow-xl sm:rounded-2xl sm:overflow-hidden text-left">
       <div className="absolute inset-0">
@@ -21,21 +21,29 @@ const Confirm = ({ onConfirm }: Props) => {
       </div>
       <div className="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
         <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-          <span className="block text-white">Confirm your passport!</span>
+          <span className="block text-white">
+            Confirm your historical avatar!
+          </span>
         </h1>
         <p className="mt-6 max-w-lg text-xl text-white font-semibold sm:max-w-2xl">
-          TODO Confirm for this view, we need to show a message like you have
-          reserver ... and we will reserve it till xxxx/xxx/xx please click on
-          the button to confirm
+          Please Confirm that you would like to reserve{' '}
+          <span className="underline decoration-indigo-500 decoration-2 font-bold dark:text-white">
+            {reservedFigure}
+          </span>{' '}
+        </p>
+        <p className="mt-6 max-w-lg text-xl text-white font-semibold sm:max-w-2xl">
+          Please remember that you have till{' '}
+          <span className="underline decoration-indigo-500 decoration-2 font-bold dark:text-white">
+            {new Intl.DateTimeFormat().format(new Date(expiresAt))}
+          </span>
         </p>
         <div className="mt-10 max-w-sm sm:max-w-none sm:flex">
-          <a
-            href="#"
+          <button
             className="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-sapien bg-white hover:bg-indigo-50 sm:px-8"
             onClick={onConfirm}
           >
             Confirm
-          </a>
+          </button>
         </div>
       </div>
     </div>
