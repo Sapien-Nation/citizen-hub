@@ -221,7 +221,7 @@ const PassportPage: NextPage = () => {
         </div>
 
         {/* Logo cloud section */}
-        <div
+        {/* <div
           data-aos="zoom-y-out"
           data-aos-delay="350"
           className="relative mx-auto px-4 sm:px-6 lg:px-10 max-w-6xl py-12"
@@ -240,7 +240,7 @@ const PassportPage: NextPage = () => {
               ))}
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );

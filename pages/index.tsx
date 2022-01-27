@@ -19,8 +19,8 @@ const IndexPage: NextPage = () => {
     AOS.init();
   }, []);
   return (
-    <div data-scroll-section className="m-auto">
-      <section className="max-w-6xl -mt-10 min-h-screen flex flex-col justify-center align-center mx-auto px-12">
+    <div data-scroll-section className="m-auto overflow-hidden">
+      <section className="max-w-6xl -mt-10 min-h-screen flex flex-col justify-center align-center mx-auto px-8">
         <div>
           <Globe />
           <h2
@@ -134,16 +134,16 @@ const IndexPage: NextPage = () => {
       <div
         data-scroll
         data-scroll-speed="1"
-        className="relative flex justify-center mx-12 lg:mx-0 md:mt-96 mt-24 mb-36 bg-white dark:bg-black rounded-3xl"
+        className="relative flex justify-center mx-12 lg:mx-0 md:mt-96 mt-24 mb-36"
       >
-        <div className="text-center px-8 py-12 lg:max-w-6xl rounded-3xl border border-black shadow-[8px_8px_#eaeaea] dark:shadow-[8px_8px_#27272a]">
-          <h2 className="text-xl sm:text-3xl text-center mb-12">
+        <div className="px-8 py-12 lg:max-w-6xl rounded-xl bg-gradient-to-r from-sapien to-sapien-40 shadow-xl shadow-sapien/50">
+          <h2 className="text-xl sm:text-3xl mb-12">
             Holders will have the opportunity to choose an avatar of one of
             their favorite figures from history to celebrate our diverse
             histories and unite to build our shared future.
           </h2>
           <Link href="/passport">
-            <a className="bg-gradient-to-r from-sapien to-sapien-40 font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8">
+            <a className="border font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8">
               Become a Founder
             </a>
           </Link>
@@ -386,28 +386,28 @@ const IndexPage: NextPage = () => {
         </Link> */}
 
         <div className="mt-12 mx-auto grid gap-12 mx-12 lg:mx-0 lg:grid-cols-3 lg:max-w-none">
-          <div className="border border-black shadow-[8px_8px_#eaeaea] dark:shadow-[8px_8px_#27272a] bg-black px-8 py-12 rounded-3xl flex-col overflow-hidden text-white dark:text-black">
-            <p className="text-xl sm:text-2xl text-white">
+          <div className="p-8 rounded-xl bg-gradient-to-r from-sapien to-sapien-40 shadow-xl shadow-sapien/50 flex-col overflow-hidden">
+            <p className="text-xl sm:text-2xl ">
               Let’s build a world with no limits except our own creativity,
               where everyone can let their passions and curiosity guide who they
               want to be.
             </p>
           </div>
-          <div className="border border-black shadow-[8px_8px_#eaeaea] dark:shadow-[8px_8px_#27272a] bg-black px-8 py-12 rounded-3xl flex-col overflow-hidden text-white dark:text-black">
-            <p className="text-xl sm:text-2xl text-white">
+          <div className="p-8 rounded-xl bg-gradient-to-r from-sapien to-sapien-40 shadow-xl shadow-sapien/50 flex-col overflow-hidden">
+            <p className="text-xl sm:text-2xl ">
               Whether you want to be an artist, patron, investor, business
               owner, leader, changemaker, or all of the above, bring your story
               to the foundation of a new world.
             </p>
           </div>
-          <div className="border border-black shadow-[8px_8px_#eaeaea] dark:shadow-[8px_8px_#27272a] bg-black px-8 py-12 rounded-3xl flex-col overflow-hidden text-white dark:text-black">
-            <p className="text-xl sm:text-2xl text-white">Be the change</p>
+          <div className="p-8 rounded-xl bg-gradient-to-r from-sapien to-sapien-40 shadow-xl shadow-sapien/50 flex-col overflow-hidden">
+            <p className="text-xl sm:text-2xl ">Be the change</p>
           </div>
         </div>
         <Link href="#">
           <a
             href="#"
-            className="mt-12 bg-gradient-to-r from-sapien to-sapien-40 font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8"
+            className="mt-12 border font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8"
           >
             Take me there
           </a>

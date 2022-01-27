@@ -11,6 +11,10 @@ body > div {
   height: 100%;
 }
 
+#globe {
+  overflow: hidden;
+}
+
 canvas {
   top: -2rem;
   width: 100%;
@@ -18,6 +22,7 @@ canvas {
   position: absolute;
   z-index: -1;
   left: 20%;
+  overflow: hidden;
 }
 
 /* Page Loader */
