@@ -60,7 +60,7 @@ const TeamPage: NextPage = () => {
     <>
       <Head title="Team" />
       <div>
-        <div className="mx-auto py-12 px-4 max-w-7xl sm:px-6 lg:px-8 lg:py-24">
+        <div className="mx-auto py-12 px-4 sm:px-6 max-w-6xl lg:px-8 lg:py-24">
           <div className="space-y-12">
             <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
               Meet our Team
@@ -68,7 +68,7 @@ const TeamPage: NextPage = () => {
 
             <ul
               role="list"
-              className="space-y-12 lg:grid lg:grid-cols-1 lg:items-start lg:gap-x-8 lg:gap-y-12 lg:space-y-0"
+              className="space-y-12 lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8 lg:gap-y-12 lg:space-y-0"
             >
               {people.map((person) => (
                 <li key={person.name}>
@@ -84,11 +84,11 @@ const TeamPage: NextPage = () => {
                       <div className="space-y-4 flex flex-col justify-center h-full">
                         <div className="text-lg leading-6 font-medium space-y-1">
                           <h3>{person.name}</h3>
-                          <p className="text-indigo-600">{person.role}</p>
+                          <p className="text-white">{person.role}</p>
                         </div>
                         <div className="text-lg">
                           <p
-                            className="text-gray-500"
+                            className="text-white"
                             dangerouslySetInnerHTML={{ __html: person.bio }}
                           />
                         </div>

@@ -217,16 +217,13 @@ const IndexPage: NextPage = () => {
                   </p>
                 </div>
               </div>
-              <a
-                href="https://discord.gg/HQnSZZSw"
-                target="_blank"
-                rel="noreferrer"
-                data-aos="zoom-y-out"
-                data-aos-delay="350"
-                className="animate-bounce mt-16 bg-white dark:border-2 inline-flex text-sapien md:text-2xl text-base items-center px-8 py-4 font-xl font-extrabold shadow-[8px_8px_#8133EE] rounded-full border border-black hover:bg-yellow-50 focus:outline-none mt-8"
-              >
-                Join our Discord
-              </a>
+              <div className="my-12">
+                <Link href="https://discord.gg/HQnSZZSw">
+                  <a className="relative shine bg-gradient-to-r from-sapien to-sapien-40 font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8">
+                    Join our Community
+                  </a>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
