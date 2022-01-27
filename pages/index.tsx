@@ -37,7 +37,7 @@ const IndexPage: NextPage = () => {
               </a>
             </Link>
           </div>
-          <p className="text-lg md:text-2xl drop-shadow-xl md:filter-none">
+          <p className="text-lg md:text-3xl font-bold drop-shadow-xl md:filter-none">
             Find Your Tribes. Launch Your Own Tokens. Shape the New Renaissance.
           </p>
         </div>
@@ -45,7 +45,7 @@ const IndexPage: NextPage = () => {
       <div
         data-scroll
         data-scroll-speed="1"
-        className="mt-24 md:mt-48 flex items-end justify-end lg:mx-auto px-12 md:px-6 lg:px-10"
+        className="mt-24 md:mt-48 mb-12 flex items-center justify-center lg:mx-auto px-8 md:px-6 lg:px-10"
       >
         <h2 className="text-4xl md:text-6xl font-extrabold">
           <span className="pb-3 bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
@@ -134,10 +134,10 @@ const IndexPage: NextPage = () => {
       <div
         data-scroll
         data-scroll-speed="1"
-        className="relative flex justify-center mx-12 lg:mx-0 md:mt-96 mt-24 mb-36"
+        className="relative flex justify-center mx-8 lg:mx-0 md:mt-96 mt-24 mb-36"
       >
         <div className="px-8 py-12 lg:max-w-6xl rounded-xl bg-gradient-to-r from-sapien to-sapien-40 shadow-xl shadow-sapien/50">
-          <h2 className="text-xl sm:text-3xl mb-12">
+          <h2 className="text-xl font-bold sm:text-3xl mb-12">
             Holders will have the opportunity to choose an avatar of one of
             their favorite figures from history to celebrate our diverse
             histories and unite to build our shared future.
@@ -153,7 +153,7 @@ const IndexPage: NextPage = () => {
       <div
         data-scroll
         data-scroll-speed="1"
-        className="flex flex-col items-start justify-startlg:mx-auto px-12 sm:px-6 lg:px-10"
+        className="flex flex-col items-start justify-startlg:mx-auto px-8 sm:px-6 lg:px-10"
       >
         <h2 className="text-4xl md:text-6xl font-extrabold">
           {' '}
@@ -318,9 +318,9 @@ const IndexPage: NextPage = () => {
       <div
         data-scroll
         data-scroll-speed="1"
-        className="md:mt-64 flex lg:mx-auto  px-12 sm:px-6 lg:px-10"
+        className="md:mt-64 mb-12 flex justify-end lg:mx-auto  px-8 sm:px-6 lg:px-10"
       >
-        <h2 className="text-4xl md:text-6xl font-extrabold">
+        <h2 className="text-4xl text-end md:text-6xl font-extrabold">
           <span className="pb-3 bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
             Our Vision
           </span>{' '}
@@ -336,7 +336,7 @@ const IndexPage: NextPage = () => {
         data-scroll-speed="2"
         className="lg:mx-auto sm:px-6 lg:px-10 lg:grid lg:grid-cols-2 lg:gap-24 lg:items-start"
       >
-        <div className="relative mx-auto lg:px-0">
+        <div className="relative mb-12 mx-auto lg:px-0">
           {/* Content area */}
           <div className="pt-4">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -385,7 +385,7 @@ const IndexPage: NextPage = () => {
           </a>
         </Link> */}
 
-        <div className="mt-12 mx-auto grid gap-12 mx-12 lg:mx-0 lg:grid-cols-3 lg:max-w-none">
+        <div className="mt-12 mx-auto grid gap-12 mx-8 lg:mx-0 lg:grid-cols-3 lg:max-w-none">
           <div className="p-8 rounded-xl bg-gradient-to-r from-sapien to-sapien-40 shadow-xl shadow-sapien/50 flex-col overflow-hidden">
             <p className="text-xl sm:text-2xl ">
               Let’s build a world with no limits except our own creativity,

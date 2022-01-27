@@ -60,7 +60,7 @@ body > div {
   overflow: hidden;
 }
 
-canvas {
+#globe > canvas {
   top: -2rem;
   width: 100%;
   height: 100vw;

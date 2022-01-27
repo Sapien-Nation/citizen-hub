@@ -51,7 +51,7 @@ const PassportLinkForm = () => {
             <div className="sm:grid sm:grid-cols-2 sm:gap-4 sm:items-start sm:pt-5">
               <div className="mt-1 sm:mt-0 sm:col-span-2">
                 <div className="max-w-lg flex rounded-md shadow-sm">
-                  <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
+                  <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-600 bg-gray-50 text-gray-500 sm:text-sm">
                     passport/
                   </span>
                   <input
@@ -61,7 +61,7 @@ const PassportLinkForm = () => {
                     required
                     placeholder="bZVvXM9flwCgbFSy2x2cJ"
                     autoComplete="username"
-                    className="flex-1 block w-full focus:ring-indigo-500 focus:border-indigo-500 min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300"
+                    className="flex-1 block w-full focus:ring-indigo-500 focus:border-indigo-500 min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-600"
                     {...register('linkID')}
                   />
                   <button
