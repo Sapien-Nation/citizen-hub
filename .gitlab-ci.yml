@@ -24,7 +24,6 @@ build-sandbox:
   tags:
     - pass-sandbox
   script:
-    - docker images | awk '{print $3}' | xargs -l docker rmi -f
     - rm -rf tools
     - git clone http://$USER:$CI_TOKEN@gitlab.tooling-sapien.network/group-tools/tools.git
     - export KUBECONFIG=~/.kube/kubeconfig_sapien-sandbox-cluster
