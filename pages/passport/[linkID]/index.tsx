@@ -74,10 +74,10 @@ const PassportPage = () => {
             </div>
           </Transition>
         );
-        return;
     }
   };
 
+  return '';
   return (
     <>
       <Head title="Create Passport" />
