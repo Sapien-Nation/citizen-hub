@@ -55,7 +55,7 @@ const ClaimPassportPage = () => {
   if (isLoggingIn === true || !query.linkID) return null;
 
   if (me === null)
-    return <Auth redirect={`/passport/${query.linkID as string}/confirm`} />;
+    return <Auth redirect={`/passport/${query.linkID as string}/claim`} />;
 
   const renderView = ({
     code,

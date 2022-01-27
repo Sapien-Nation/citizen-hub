@@ -1,8 +1,9 @@
 const Discord = () => {
   return (
     <h1>
-      on this view we need to show a nice message to invite the user to join the
-      Discord server
+      The confirmation message is: Congratulations, you have selected [NAME
+      SELECTION] as your avatar in the Sapien Tribe! Join our Discord to keep up
+      to date on the latest news for passport holders.
     </h1>
   );
 };
