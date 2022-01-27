@@ -16,11 +16,11 @@ const PassportPage: NextPage = () => {
   return (
     <>
       <Head title="Passport" />
-      <div className="space-y-12" style={{ marginTop: 80 }}>
+      <div className="space-y-12">
         <div className="mx-auto py-20 px-6 lg:px-10 max-w-6xl">
           <h2
             data-aos="zoom-y-out"
-            data-aos-delay="600"
+            data-aos-delay="300"
             className="text-3xl font-extrabold tracking-tight sm:text-4xl"
           >
             The Sapien Passport is your ticket to:
@@ -28,22 +28,22 @@ const PassportPage: NextPage = () => {
           <div className="md:flex flex-row gap-2 mt-12 space-y-4 md:space-y-0">
             <div
               data-aos="zoom-y-out"
-              data-aos-delay="1000"
-              className="h-16 bg-gradient-to-r from-sapien to-sapien-40 rounded-lg text-white dark:text-black text-xl sm:text-2xl font-extrabold flex flex-row items-center px-4 -skew-x-12 min-width-10"
+              data-aos-delay="600"
+              className="h-16 bg-gradient-to-r from-sapien to-sapien-40 rounded-lg text-white text-xl sm:text-2xl font-extrabold flex flex-row items-center px-4 -skew-x-12 min-width-10"
             >
               <div className="skew-x-12">Our Metaverse</div>
             </div>
             <div
               data-aos="zoom-y-out"
-              data-aos-delay="2000"
-              className="h-16 bg-gradient-to-r from-sapien to-sapien-40 rounded-lg text-white dark:text-black text-xl sm:text-2xl font-extrabold flex flex-row items-center px-4 -skew-x-12"
+              data-aos-delay="900"
+              className="h-16 bg-gradient-to-r from-sapien to-sapien-40 rounded-lg text-white text-xl sm:text-2xl font-extrabold flex flex-row items-center px-4 -skew-x-12"
             >
               <div className="skew-x-12">Next Generation Communities</div>
             </div>
             <div
               data-aos="zoom-y-out"
-              data-aos-delay="3000"
-              className="h-16 bg-gradient-to-r from-sapien to-sapien-40 rounded-lg text-white dark:text-black text-xl sm:text-2xl font-extrabold flex flex-row items-center px-4 -skew-x-12"
+              data-aos-delay="1200"
+              className="h-16 bg-gradient-to-r from-sapien to-sapien-40 rounded-lg text-white text-xl sm:text-2xl font-extrabold flex flex-row items-center px-4 -skew-x-12"
             >
               <div className="skew-x-12">Digital and Real World Agency</div>
             </div>
@@ -51,7 +51,7 @@ const PassportPage: NextPage = () => {
         </div>
         <div
           data-aos="zoom-y-out"
-          data-aos-delay="3000"
+          data-aos-delay="1200"
           className="mx-auto px-6 lg:px-10 max-w-6xl rounded-3xl"
         >
           <h2 className="text-2xl sm:text-3xl font-extrabold mb-5">
@@ -212,7 +212,7 @@ const PassportPage: NextPage = () => {
               <p
                 data-aos="zoom-y-out"
                 data-aos-delay="600"
-                className="rounded-full mb-8 text-xl sm:text-2xl md:mt-5 text-white font-bold"
+                className="rounded-xl px-12 py-8 mb-8 bg-black text-xl sm:text-2xl md:mt-5 text-white font-bold"
               >
                 We are calling all thought leaders, sensemakers, and
                 changemakers to join us on the journey of building the Sapien

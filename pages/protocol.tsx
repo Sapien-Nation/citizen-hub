@@ -27,18 +27,18 @@ const IndexPage: NextPage = () => {
               <div className="absolute inset-0 bg-black"></div>
               <Animation />
             </div>
-            <div className="items-center mx-auto max-w-8xl w-full pt-20 pb-24 lg:py-28 lg:text-left relative">
+            <div className=" max-w-6xl items-center mx-auto max-w-8xl w-full pt-20 pb-24 lg:py-28 lg:text-left relative">
               <div className="py-12 lg:px-8 px-6 sm:px-6">
                 <p
                   data-aos="zoom-y-out"
-                  data-aos-delay="800"
+                  data-aos-delay="300"
                   className="mt-3 text-white font-bold rounded-full text-xl sm:text-3xl md:mt-5"
                 >
                   {"We're giving you back control. Reclaim your agency"}
                 </p>
                 <h1
                   data-aos="zoom-y-out"
-                  data-aos-delay="1400"
+                  data-aos-delay="600"
                   className="text-4xl rounded-3xl p-12 bg-black max-w-7xl text-white mt-5 tracking-tight font-extrabold sm:text-5xl md:text-6xl lg:text-5xl xl:text-5xl"
                 >
                   <span className="block xl:inline">
@@ -64,7 +64,7 @@ const IndexPage: NextPage = () => {
                       </a>
                     </Link> */}
                   </div>
-                  <div>
+                  <div data-aos="zoom-y-out" data-aos-delay="600">
                     <Link href="https://discord.gg/HQnSZZSw">
                       <a className="bg-gradient-to-r from-sapien to-sapien-40 font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8">
                         Join our Community
