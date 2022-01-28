@@ -72,7 +72,7 @@ const IndexPage: NextPage = () => {
             <img src="https://d1bdmh0gdusw0k.cloudfront.net/images/misc/asset2.jpeg" />
           </div>
         </div>
-        <div className="relative m-8 lg:m-auto mt-8 lg:mr-8 lg:px-0">
+        <div className="relative m-8 lg:m-0 mt-8 lg:mr-8 lg:px-0">
           {/* Content area */}
           <p className="text-lg mb-4">
             The Passport will be a unique NFT that grants citizenship to the
