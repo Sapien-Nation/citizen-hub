@@ -47,7 +47,7 @@ const IndexPage: NextPage = () => {
                     </span>{' '}
                     is building the tools, community, and protocol for the next
                     generation of{' '}
-                    <span className="pb-3 bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40 sm:pb-5">
+                    <span className="pb-3 bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
                       human connections
                     </span>
                     .
