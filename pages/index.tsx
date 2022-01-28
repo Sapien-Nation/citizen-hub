@@ -287,11 +287,8 @@ const IndexPage: NextPage = () => {
             </p>
           </div>
         </div>
-        <Link href="#">
-          <a
-            href="#"
-            className="mt-12 border font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8"
-          >
+        <Link href="https://discord.gg/7utyR97RNw">
+          <a className="mt-12 border font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8">
             Take me there
           </a>
         </Link>
