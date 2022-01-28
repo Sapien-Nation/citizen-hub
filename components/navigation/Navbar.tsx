@@ -18,10 +18,10 @@ import { mergeClassNames } from 'utils/styles';
 
 const navigation = [
   { name: 'Passport', href: '/passport', visible: true },
-  { name: 'Team', href: '/team', visible: true },
   { name: 'Protocol', href: '/protocol', visible: true },
   { name: 'Reserved List', href: '/reserved-list', visible: true },
   { name: 'Purple Paper', href: '/Purple_Paper_v1.0.pdf', visible: true },
+  { name: 'Team', href: '/team', visible: true },
 ];
 
 const Navbar = () => {
