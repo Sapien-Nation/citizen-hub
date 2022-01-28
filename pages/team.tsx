@@ -59,7 +59,7 @@ const TeamPage: NextPage = () => {
   return (
     <>
       <Head title="Team" />
-      <div>
+      <div className="bg-neutral-900">
         <div className="mx-auto py-12 px-4 sm:px-6 max-w-6xl lg:px-8 lg:py-24">
           <div className="space-y-12">
             <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">

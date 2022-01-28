@@ -20,7 +20,12 @@ const navigation = [
   { name: 'Passport', href: '/passport', visible: true },
   { name: 'Protocol', href: '/protocol', visible: true },
   { name: 'Reserved List', href: '/reserved-list', visible: true },
-  { name: 'Purple Paper', href: '/Purple_Paper_v1.0.pdf', visible: true },
+  {
+    name: 'Purple Paper',
+    href: '/Purple_Paper_v1.0.pdf',
+    target: true,
+    visible: true,
+  },
   { name: 'Team', href: '/team', visible: true },
 ];
 
@@ -54,7 +59,21 @@ const Navbar = () => {
                 <div className="hidden lg:ml-6 lg:flex lg:space-x-8">
                   {navigation.map((nav) => (
                     <Fragment key={nav.href}>
-                      {nav.visible && (
+                      {nav.target ? (
+                        <Link href={nav.href}>
+                          <a
+                            target="_blank"
+                            className={mergeClassNames(
+                              router.asPath === nav.href
+                                ? 'underline decoration-2 decoration-sapien'
+                                : 'hover:text-gray-500',
+                              'inline-flex items-center text-lg px-1 pt-1 font-extrabold'
+                            )}
+                          >
+                            {nav.name}
+                          </a>
+                        </Link>
+                      ) : (
                         <Link href={nav.href}>
                           <a
                             className={mergeClassNames(
@@ -217,7 +236,21 @@ const Navbar = () => {
             <div className="pt-2 pb-3 space-y-1">
               {navigation.map((nav) => (
                 <Fragment key={nav.name}>
-                  {nav.visible && (
+                  {nav.target ? (
+                    <Disclosure.Button
+                      as="a"
+                      href={nav.href}
+                      target="_blank"
+                      className={mergeClassNames(
+                        router.asPath === nav.href
+                          ? 'bg-purple-50 border-purple-500 text-sapien-60'
+                          : 'border-transparent text-white hover:bg-gray-800',
+                        'block pl-3 pr-4 py-2 border-l-4 text-base font-medium'
+                      )}
+                    >
+                      {nav.name}
+                    </Disclosure.Button>
+                  ) : (
                     <Disclosure.Button
                       as="a"
                       href={nav.href}
