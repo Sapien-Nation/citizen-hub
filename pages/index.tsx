@@ -15,7 +15,7 @@ import { useRouter } from 'next/router';
 
 // icons
 import {
-  CheckCircleIcon,
+  IdentificationIcon,
   ChartSquareBarIcon,
   KeyIcon,
   CashIcon,
@@ -85,7 +85,7 @@ const IndexPage: NextPage = () => {
 
           <ul className="list-none text-lg">
             <li className="ml-3 mb-3 flex">
-              <CheckCircleIcon className="h-10 w-10 -mt-1 mr-2 text-white" />
+              <IdentificationIcon className="h-10 w-10 -mt-1 mr-2 text-white" />
               Identify yourself while maintaining privacy and sharing only what
               you need to
             </li>
