@@ -1,4 +1,4 @@
-import { RefreshIcon, XIcon } from '@heroicons/react/solid';
+import { RefreshIcon, XIcon, CheckCircleIcon } from '@heroicons/react/solid';
 import { useEffect, useRef, useState } from 'react';
 import useSWR, { useSWRConfig } from 'swr';
 
@@ -48,7 +48,7 @@ const FiguresGallery = ({
 
   const generateImageFile = async (image: string) => {
     try {
-      const fetchedImage = await fetch(image);
+      const fetchedImage = await fetch(image, { mode: 'no-cors' });
       const blob = await fetchedImage.blob();
       return new File([blob], name, {
         type: blob.type,
@@ -155,42 +155,43 @@ const FiguresGallery = ({
     <>
       <ul
         role="list"
-        className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8"
+        className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-5 xl:gap-x-8"
       >
         {data.images.map((image, index) => (
-          <li
-            key={index}
-            className="relative transition ease-in-out hover:scale-105"
-          >
+          <li key={index} className="relative transition ease-in-out">
             {isRefreshing && image === selectedImage ? (
-              <div className="flex justify-center items-center animate-pulse group block w-full h-30 aspect-w-10 aspect-h-7 rounded-lg bg-gray-200 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
-                <RefreshIcon className="animate-spin h-5 w-5" />
+              <div className="flex justify-center items-center animate-pulse group w-full h-56 rounded-lg bg-gray-200 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
+                <RefreshIcon className="animate-spin h-5 w-5 text-gray-700" />
               </div>
             ) : (
               <div
                 className={mergeClassNames(
                   image === selectedImage ? 'ring-2 ring-indigo-500' : '',
-                  'group flex cursor-pointer justify-center items-center w-full aspect-w-10 h-72 aspect-h-7 rounded-lg bg-gray-100 overflow-hidden'
+                  'group flex cursor-pointer justify-center items-center w-full aspect-w-10 h-56 aspect-h-7 rounded-lg bg-gray-100 overflow-hidden after:absolute hover:after:sm:bg-black hover:after:sm:bg-opacity-30 hover:after:w-full hover:after:h-full hover:after:top-0'
                 )}
                 onClick={async () => {
                   await handleImageSelect(image);
                 }}
               >
+                {image === selectedImage && (
+                  <CheckCircleIcon className="h-5 w-5 text-purple-900 absolute right-2 top-2 left-auto z-10 drop-shadow-lg" />
+                )}
+
                 <button
-                  className="text-white z-10 absolute opacity-0 group-hover:opacity-100"
+                  className="text-white z-10 w-12 text-center h-12 absolute inset-y-1/2 inset-x-1/2 -translate-x-1/2 -translate-y-1/2 hidden flex-row justify-center items-center bg-black bg-opacity-30 rounded-md group-hover:flex"
                   onClick={(event) => {
                     event.stopPropagation();
                     setSelectedImage(image);
                     handleRefresh(image);
                   }}
                 >
-                  <RefreshIcon className="h-5 w-5 text-gray-300" />
+                  <RefreshIcon className="h-5 w-5 text-white" />
                 </button>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={image}
                   alt={`Search Image result for search term ${name}`}
-                  className="object-cover h-full w-full pointer-events-none group-hover:opacity-75"
+                  className="object-cover h-full w-full pointer-events-none group-hover:sm:opacity-75"
                   onError={(event) => {
                     (event.target as HTMLImageElement).src =
                       'https://d151dmflpumpzp.cloudfront.net/images/tribes/default_temp.jpeg';
@@ -208,7 +209,7 @@ const FiguresGallery = ({
             <div
               className={mergeClassNames(
                 selectedImage === preview ? 'ring-2 ring-indigo-500' : '',
-                'group flex cursor-pointer justify-center items-center w-full aspect-w-10 h-72 aspect-h-7 rounded-lg bg-gray-100 overflow-hidden'
+                'group flex cursor-pointer justify-center items-center w-full aspect-w-10 h-56 aspect-h-7 rounded-lg bg-gray-100 overflow-hidden'
               )}
               onClick={() => {
                 onSelect(file);
@@ -230,16 +231,16 @@ const FiguresGallery = ({
           </li>
         ))}
         <li
-          className="relative transition ease-in-out hover:scale-105"
+          className="relative transition ease-in-out"
           onClick={() => {
             // @ts-ignore
             fileRef.current.click();
           }}
         >
-          <div className="group flex cursor-pointer justify-center items-center w-full aspect-w-10 h-72 aspect-h-7 rounded-lg bg-gray-100 overflow-hidden">
+          <div className="group flex cursor-pointer justify-center items-center w-full h-56 rounded-lg bg-gray-100 overflow-hidden border-4 border-dashed border-gray-200">
             <div className="text-center">
               <svg
-                className="animate-bounce mx-auto h-12 w-12 text-gray-400"
+                className="animate-bounce mx-auto h-8 w-8 text-gray-400"
                 stroke="currentColor"
                 fill="none"
                 viewBox="0 0 48 48"
@@ -252,8 +253,9 @@ const FiguresGallery = ({
                   strokeLinejoin="round"
                 />
               </svg>
-              <span className="mt-2 text-base leading-normal text-sm">
-                Upload {name} image manually
+              <span className="mt-2 leading-normal text-sm text-gray-700">
+                Upload <span className="text-sapien-60">{name}</span> image
+                manually
               </span>
               <p className="text-xs text-gray-500 mt-2">
                 PNG, JPG, GIF up to 10MB

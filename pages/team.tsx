@@ -21,19 +21,19 @@ const people = [
     name: 'Teja',
     role: 'CCO',
     imageUrl: '/images/team/Teja.jpeg',
-    bio: `Founding member of the Sapien Tribe, Chief Communications Officer of the Sapien Network. Teja is dedicated to the learning process and seeks to foster curiosity in himself and others. Teja earned his <span class='underline decoration-indigo-500 decoration-2 text-gray-900 font-medium'>BS in Computer Engineering from UC Davis in 2017</span>. Prior to joining the Sapien Tribe, Teja was a graduate student in Computer Engineering at UC Davis, before taking a leave of absence. He has previously <span class='underline decoration-indigo-500 decoration-2 text-gray-900 font-medium'>worked at Tesla, Xpeng Motors, and Lyft</span> on projects in robotics and the autonomous vehicle space. Raised in Colorado, he seeks to find a synthesis between technology and nature.`,
+    bio: `Founding member of the Sapien Tribe, Chief Communications Officer of the Sapien Network. Teja is dedicated to the learning process and seeks to foster curiosity in himself and others. Teja earned his <span class='underline decoration-indigo-500 decoration-2 font-bold dark:text-white font-medium'>BS in Computer Engineering from UC Davis in 2017</span>. Prior to joining the Sapien Tribe, Teja was a graduate student in Computer Engineering at UC Davis, before taking a leave of absence. He has previously <span class='underline decoration-indigo-500 decoration-2 font-bold dark:text-white font-medium'>worked at Tesla, Xpeng Motors, and Lyft</span> on projects in robotics and the autonomous vehicle space. Raised in Colorado, he seeks to find a synthesis between technology and nature.`,
   },
   {
     name: 'Greg',
     role: 'CTO',
     imageUrl: '/images/team/Greg.png',
-    bio: `Chief Technology Officer at Sapien Network. In Greg’s endeavors throughout his career, he has strived to change the status quo, to make it better, easier to understand, accessible by everyone and, importantly, decentralized. Greg approaches complexities of life and systems, and distills them into beautiful solutions (“there is elegance in simplicity” – Greg). <span class='underline decoration-indigo-500 decoration-2 text-gray-900 font-medium'>Astrophysics, Computer Science and Mathematics form the basis of his academic learnings</span>. His patent in peer to peer networks, extensive work in cryptography, and his gaming technologies form the basis of his beliefs and support of the crypto world. Bringing his learnings, Greg joined the Sapien tribe to contribute to create a new, better place for humans.`,
+    bio: `Chief Technology Officer at Sapien Network. In Greg’s endeavors throughout his career, he has strived to change the status quo, to make it better, easier to understand, accessible by everyone and, importantly, decentralized. Greg approaches complexities of life and systems, and distills them into beautiful solutions (“there is elegance in simplicity” – Greg). <span class='underline decoration-indigo-500 decoration-2 font-bold dark:text-white font-medium'>Astrophysics, Computer Science and Mathematics form the basis of his academic learnings</span>. His patent in peer to peer networks, extensive work in cryptography, and his gaming technologies form the basis of his beliefs and support of the crypto world. Bringing his learnings, Greg joined the Sapien tribe to contribute to create a new, better place for humans.`,
   },
   {
     name: 'Latif',
     role: 'COO',
     imageUrl: '/images/team/Latif.png',
-    bio: `Latif is the Founding investor and COO for the Sapien Network. Latif’s attraction to adventure and the unknown started at 18 when he traveled across the world from India with simple change in his pocket. After completing his undergraduate studies in <span class='underline decoration-indigo-500 decoration-2 text-gray-900 font-medium'>Computer Science at the University of Arizona</span>, Latif took another risk and became a software engineer at a “not very popular” company in the Pacific Northwest named Microsoft. <span class='underline decoration-indigo-500 decoration-2 text-gray-900 font-medium'>Latif’s tenure at Microsoft lasted nearly 16 cumulative years, finally ending up as the General Manager of the Unlimited Potential group</span>, leading a team in India to bring benefits of technology to emerging markets. He has also been involved in many other large projects like <span class='underline decoration-indigo-500 decoration-2 text-gray-900 font-medium'>co-founding eMemories, helping launch Norton360 for Symantec</span>, and most recently as the managing director for eBay India.`,
+    bio: `Latif is the Founding investor and COO for the Sapien Network. Latif’s attraction to adventure and the unknown started at 18 when he traveled across the world from India with simple change in his pocket. After completing his undergraduate studies in <span class='underline decoration-indigo-500 decoration-2 font-bold dark:text-white font-medium'>Computer Science at the University of Arizona</span>, Latif took another risk and became a software engineer at a “not very popular” company in the Pacific Northwest named Microsoft. <span class='underline decoration-indigo-500 decoration-2 font-bold dark:text-white font-medium'>Latif’s tenure at Microsoft lasted nearly 16 cumulative years, finally ending up as the General Manager of the Unlimited Potential group</span>, leading a team in India to bring benefits of technology to emerging markets. He has also been involved in many other large projects like <span class='underline decoration-indigo-500 decoration-2 font-bold dark:text-white font-medium'>co-founding eMemories, helping launch Norton360 for Symantec</span>, and most recently as the managing director for eBay India.`,
   },
   {
     name: 'Hash',
@@ -45,7 +45,7 @@ const people = [
     name: 'Missy',
     role: 'CSO',
     imageUrl: '/images/team/Missy.png',
-    bio: `As Chief Sustainability Officer, Missy leads Sapien’s community building and social/environmental impact efforts. Before Sapien, Missy helped lead business development for multiple startups - a circular economy platform, Loop, and a market research firm, Vancery. She also was the <span class='underline decoration-indigo-500 decoration-2 text-gray-900 font-medium'>VP of Member Development for the environmental nonprofit, BEACN, and managed the first global onboarding mentorship program at Tesla</span>. In her free time, she mentors college students on their climate action projects and supports sustainable food communities. She <span class='underline decoration-indigo-500 decoration-2 text-gray-900 font-medium'>graduated from UC Berkeley with a B.S. in Society and Environment</span>, concentrating in US Environmental Policy and Management.`,
+    bio: `As Chief Sustainability Officer, Missy leads Sapien’s community building and social/environmental impact efforts. Before Sapien, Missy helped lead business development for multiple startups - a circular economy platform, Loop, and a market research firm, Vancery. She also was the <span class='underline decoration-indigo-500 decoration-2 font-bold dark:text-white font-medium'>VP of Member Development for the environmental nonprofit, BEACN, and managed the first global onboarding mentorship program at Tesla</span>. In her free time, she mentors college students on their climate action projects and supports sustainable food communities. She <span class='underline decoration-indigo-500 decoration-2 font-bold dark:text-white font-medium'>graduated from UC Berkeley with a B.S. in Society and Environment</span>, concentrating in US Environmental Policy and Management.`,
   },
   {
     name: 'Lynn',
@@ -59,8 +59,8 @@ const TeamPage: NextPage = () => {
   return (
     <>
       <Head title="Team" />
-      <div className="bg-white">
-        <div className="mx-auto py-12 px-4 max-w-7xl sm:px-6 lg:px-8 lg:py-24">
+      <div className="bg-neutral-900">
+        <div className="mx-auto py-12 px-4 sm:px-6 max-w-6xl lg:px-8 lg:py-24">
           <div className="space-y-12">
             <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
               Meet our Team
@@ -68,7 +68,7 @@ const TeamPage: NextPage = () => {
 
             <ul
               role="list"
-              className="space-y-12 lg:grid lg:grid-cols-1 lg:items-start lg:gap-x-8 lg:gap-y-12 lg:space-y-0"
+              className="space-y-12 lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8 lg:gap-y-12 lg:space-y-0"
             >
               {people.map((person) => (
                 <li key={person.name}>
@@ -84,11 +84,11 @@ const TeamPage: NextPage = () => {
                       <div className="space-y-4 flex flex-col justify-center h-full">
                         <div className="text-lg leading-6 font-medium space-y-1">
                           <h3>{person.name}</h3>
-                          <p className="text-indigo-600">{person.role}</p>
+                          <p className="text-white">{person.role}</p>
                         </div>
                         <div className="text-lg">
                           <p
-                            className="text-gray-500"
+                            className="text-white"
                             dangerouslySetInnerHTML={{ __html: person.bio }}
                           />
                         </div>

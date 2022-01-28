@@ -18,11 +18,11 @@ const Footer = () => {
 
   return (
     <footer
-      className="bg-white border-t-2 border-gray-200"
+      className="border-t border-gray-600"
       aria-labelledby="footer-heading"
     >
       <div className="py-8 text-center">
-        <p className="text-xs text-gray-400">
+        <p className="text-xs">
           Copyright &copy; {new Date().getFullYear()} Sapien Inc. All rights
           reserved
         </p>

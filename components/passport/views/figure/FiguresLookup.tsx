@@ -137,7 +137,7 @@ const FiguresLookup = ({ onFigureSelect, onSelect, setSearching }: Props) => {
           id="search"
           name="search"
           autoComplete="off"
-          className="block w-full h-12 px-5 py-2 border border-gray-300 rounded-3xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
+          className="block w-full h-12 px-5 py-2 border border-gray-600 rounded-3xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
           placeholder="Name"
           type="text"
           onChange={handleFigureSearch}

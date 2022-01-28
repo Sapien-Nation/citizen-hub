@@ -19,7 +19,7 @@ export interface Authentication {
       torus: string;
       refresh: string;
     },
-    redirect?: boolean
+    redirect?: string | null
   ) => void;
 }
 
@@ -60,12 +60,14 @@ const AuthenticationProvider = ({ children }: Props) => {
       torus: string;
       refresh: string;
     },
-    redirect = true
+    redirect = null
   ) => {
     setTokens({ token, torus, refresh });
     await authMutate();
 
-    if (redirect) {
+    if (redirect && process.browser) {
+      window.location.replace(`${window.location.origin}${redirect}`);
+    } else {
       push('/');
     }
   };

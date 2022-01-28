@@ -1,5 +1,9 @@
 import { useFormContext } from 'react-hook-form';
 import { InputHTMLAttributes } from 'react';
+import { useTheme } from 'next-themes';
+
+// utils
+import { mergeClassNames } from 'utils/styles';
 
 type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'pattern'>;
 interface Props extends InputProps {
@@ -11,6 +15,7 @@ interface Props extends InputProps {
 }
 
 const TextInput = ({
+  className,
   name,
   pattern,
   maxLength = 100,
@@ -20,6 +25,7 @@ const TextInput = ({
   ...rest
 }: Props) => {
   const { register } = useFormContext();
+  const { theme } = useTheme();
 
   return (
     <input
@@ -60,6 +66,10 @@ const TextInput = ({
           event.target.value = value;
         },
       })}
+      className={mergeClassNames(
+        theme && theme === 'dark' ? 'bg-gray-800' : '',
+        className
+      )}
     />
   );
 };

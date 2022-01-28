@@ -1,6 +1,10 @@
 import { EyeIcon, EyeOffIcon } from '@heroicons/react/outline';
 import { InputHTMLAttributes, useState } from 'react';
 import { Control, useController, useFormState } from 'react-hook-form';
+import { useTheme } from 'next-themes';
+
+// utils
+import { mergeClassNames } from 'utils/styles';
 
 interface Props {
   autoComplete?: string;
@@ -39,6 +43,7 @@ const PasswordInput = ({
   validate,
 }: Props) => {
   const [show, setShow] = useState<boolean>(false);
+  const { theme } = useTheme();
 
   const { field: passwordControl } = useController({
     defaultValue: '',
@@ -76,7 +81,10 @@ const PasswordInput = ({
       <div className="relative mb-2">
         <input
           autoComplete={autoComplete}
-          className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
+          className={mergeClassNames(
+            theme && theme === 'dark' ? 'bg-gray-800' : '',
+            'appearance-none block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm'
+          )}
           id={name}
           placeholder="Thisismypassword123*"
           type={show ? 'text' : 'password'}

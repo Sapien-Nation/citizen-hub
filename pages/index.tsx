@@ -1,276 +1,325 @@
-/* eslint-disable react/no-unescaped-entities */
-import { ArrowNarrowRightIcon } from '@heroicons/react/solid';
 import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
 
 // components
-import { Head, LottiePlayer } from 'components/common';
+import { Head } from 'components/common';
+import { Globe } from 'components/landing';
+import { Footer } from 'components/navigation';
 
-// hooks
-import { useAuth } from 'context/user';
+// utils
+import { preloadImages } from 'utils/homepage';
 
 // types
-import { NextPage } from 'next';
+import type { NextPage } from 'next';
+import { useRouter } from 'next/router';
+
+// icons
+import {
+  IdentificationIcon,
+  ChartSquareBarIcon,
+  KeyIcon,
+  CashIcon,
+} from '@heroicons/react/outline';
 
 const IndexPage: NextPage = () => {
-  const { me } = useAuth();
   return (
-    <>
-      <Head title="Nation" />
-      <div className="bg-gray-50">
-        <main className="lg:relative">
-          <div className="relative">
-            <div className="absolute inset-0">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-900 to-indigo-800 mix-blend-multiply"></div>
-            </div>
-            <div className="items-center mx-auto max-w-6xl w-full pt-16 pb-20 text-center lg:py-48 lg:text-left relative">
-              <div className="px-4 sm:px-8 xl:pr-16 text-center">
-                <p className="mt-3 max-w-md mx-auto uppercase font-extrabold text-lg text-gray-400 sm:text-xl md:mt-5 md:max-w-3xl">
-                  {"We're giving you back control. Reclaim your agency"}
-                </p>
-                <h1 className="text-4xl mt-5 tracking-tight font-extrabold text-gray-200 sm:text-5xl md:text-6xl lg:text-5xl xl:text-5xl">
-                  <span className="block xl:inline">
-                    Sapien is building the tools, community, and protocol for
-                    the next generation of human connection.
-                  </span>{' '}
-                </h1>
-                <div className="mt-10 flex justify-center">
-                  <div className="rounded-full shadow">
-                    {/* <Link href="/passport">
-                      <a
-                        href="#"
-                        className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white bg-sapien hover:bg-sapien-80 md:py-4 md:text-lg md:px-10"
-                      >
-                        Get Passport
-                      </a>
-                    </Link> */}
-                  </div>
-                  <div className="mt-3 rounded-full shadow sm:mt-0 sm:ml-3">
-                    {me === null && (
-                      <Link href="/register">
-                        <a
-                          href="#"
-                          className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-sapien bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10"
-                        >
-                          Sign up
-                        </a>
-                      </Link>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </div>
+    <div data-scroll-section className="m-auto overflow-hidden relative">
+      <section className="max-w-6xl -mt-10 min-h-screen flex flex-col justify-center align-center mx-auto px-8">
+        <div>
+          <Globe />
+          <h2
+            className="content__title md:text-8xl text-4xl font-extrabold drop-shadow-lg md:filter-none"
+            data-scroll
+            data-scroll-speed="2"
+          >
+            Become a Freshly Minted Citizen of the Metaverse
+          </h2>
+          <div className="my-12">
+            <Link href="https://discord.gg/7utyR97RNw">
+              <a className="relative shine bg-gradient-to-r from-sapien to-sapien-40 font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8">
+                Join our Community
+              </a>
+            </Link>
           </div>
-        </main>
+          <p className="text-lg md:text-3xl font-bold drop-shadow-xl md:filter-none">
+            Find Your Tribes. Launch Your Own Tokens. Shape the New Renaissance.
+          </p>
+        </div>
+      </section>
+      <div
+        data-scroll
+        data-scroll-speed="1"
+        className="mt-24 mb-8 flex items-center justify-center lg:mx-auto px-8 md:px-6 lg:px-10"
+      >
+        <h2 className="text-4xl md:text-6xl font-extrabold">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
+            One tool
+          </span>{' '}
+          to help you do it{' '}
+          <span className=" bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
+            all
+          </span>
+          .
+        </h2>
+      </div>
+      <div
+        data-scroll
+        data-scroll-speed="2"
+        className="lg:mx-auto lg:grid lg:grid-cols-3 lg:gap-8 lg:items-start"
+      >
+        <div className="relative sm:py-16 lg:py-0 lg:col-span-2">
+          <div className="lg:inset-y-0 lg:right-0">
+            <img src="https://d1bdmh0gdusw0k.cloudfront.net/images/misc/asset2.jpeg" />
+          </div>
+        </div>
+        <div className="relative m-8 lg:m-0 mt-8 lg:mr-8 lg:px-0">
+          {/* Content area */}
+          <p className="text-lg mb-4">
+            The Passport will be a unique NFT that grants citizenship to the
+            Sapien Tribe.
+          </p>
+          <p className="text-lg mb-4">
+            The NFT Passport will include powerful utilities to navigate the
+            Metaverse:
+          </p>
+
+          <ul className="list-none text-lg">
+            <li className="ml-3 mb-3 flex">
+              <IdentificationIcon className="h-10 w-10 -mt-1 mr-2 text-white" />
+              Identify yourself while maintaining privacy and sharing only what
+              you need to
+            </li>
+            <li className="ml-3 mb-3 flex">
+              <ChartSquareBarIcon className="h-10 w-10 -mt-1 mr-2 text-white" />
+              Build reputation and record your contributions to your tribes on a
+              Social Ledger
+            </li>
+            <li className="ml-3 mb-3 flex">
+              <KeyIcon className="h-10 w-10 -mt-1 mr-2 text-white" />
+              Access exclusive events and digital spaces in the Sapien Metaverse
+            </li>
+            <li className="ml-3 mb-3 flex">
+              <CashIcon className="h-10 w-10 -mt-1 mr-2 text-white" />
+              Create social currencies backed by a network of value-aligned
+              Tribes
+            </li>
+            <p className="text-lg mb-12">
+              Join our{' '}
+              <Link href="https://discord.gg/7utyR97RNw">
+                <a>
+                  <span className="underline underline-offset-4 cursor-pointer">
+                    Discord
+                  </span>{' '}
+                </a>
+              </Link>{' '}
+              to secure your spot on the whitelist.
+            </p>
+            <Link href="/passport">
+              <a className="mt-12 border font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8">
+                Learn more
+              </a>
+            </Link>
+          </ul>
+        </div>
       </div>
 
-      <div className="max-w-6xl mx-auto shadow-lg rounded my-8">
-        {/* Full stack section */}
-        <div className="py-12 bg-gray-50 lg:flex lg:px-8 px-4 sm:px-6">
-          <div className="lg:w-1/2">
-            <p className="whitespace-pre-line leading-relaxed text-lg text-center lg:text-left text-gray-600">
-              From tech empires to financial institutions, we're surrounded by
-              big black boxes that control how society operates with zero input
-              from average people. Because they're so large, we're left with no
-              choice but to engage with them. Some of these institutions shroud
-              themselves in secrecy and complexity to reduce accountability and
-              enable exploitation.
+      <div
+        data-scroll
+        data-scroll-speed="1"
+        className="relative flex justify-center mx-8 lg:mx-0 mt-24 mb-36"
+      >
+        <div className="px-8 py-12 lg:max-w-6xl rounded-xl bg-gradient-to-r from-sapien to-sapien-40 shadow-xl shadow-sapien/50">
+          <h2 className="text-xl font-bold sm:text-3xl mb-12">
+            Holders will have the opportunity to choose an avatar of one of
+            their favorite figures from history to celebrate our diverse
+            histories and unite to build our shared future.
+          </h2>
+          <Link href="https://discord.gg/7utyR97RNw">
+            <a className="border font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8">
+              Join the Whitelist
+            </a>
+          </Link>
+        </div>
+      </div>
+
+      <div
+        data-scroll
+        data-scroll-speed="1"
+        className="flex flex-col items-center justify-center mb-8 lg:mx-auto px-8"
+      >
+        <h2 className="text-4xl md:text-6xl font-extrabold">
+          {' '}
+          <span className="pb-3 bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
+            Win-win
+          </span>{' '}
+          Tokenomics.
+        </h2>
+      </div>
+
+      <div
+        data-scroll
+        data-scroll-speed="1"
+        className="lg:mx-auto lg:grid lg:grid-cols-3 lg:gap-8 lg:items-start"
+      >
+        <div className="relative mx-auto mb-12 px-8 lg:px-0">
+          {/* Content area */}
+          <div className="mt-4 md:pl-8">
+            <p className="text-lg mb-8">Sustainability. Scalability. Sapien.</p>
+
+            <p className="text-lg mb-8">
+              Backed by their own vaults of curated digital and physical assets,
+              each community will be able to:
             </p>
-            <p className="whitespace-pre-line leading-relaxed text-lg text-center lg:text-left text-gray-600 mt-4">
-              With the right tools, we can begin to get rid of big black boxes
-              and go back to relying on the only thing we really need, each
-              other.
-            </p>
+
+            <ul className="list-disc text-lg">
+              <li className="ml-6 mb-2">
+                Launch their own social currency collateralized by their vault
+              </li>
+              <li className="ml-6 mb-2">
+                Invest in the people, projects, and communities that matter
+              </li>
+              <li className="ml-6 mb-2">
+                Connect to a broader economy linked by a shared AMM liquidity
+                network{' '}
+              </li>
+              <li className="ml-6 mb-2">
+                Govern to pursue powerful initiatives like Universal Basic
+                Income, Crowdfunding, and Mutual Aid{' '}
+              </li>
+            </ul>
           </div>
-          <div className="lg:w-1/2">
-            <LottiePlayer
-              width="500"
-              lottie="https://assets3.lottiefiles.com/packages/lf20_ailluhhv.json"
+        </div>
+        <div className="relative lg:col-span-2">
+          <div className="lg:inset-y-0 lg:left-0">
+            <img src="https://d1bdmh0gdusw0k.cloudfront.net/images/misc/asset3.jpeg" />
+            {/* <div
+              className=" bg-center bg-cover sm:h-screen h-96 lg:top-12"
+              style={{
+                backgroundImage:
+                  "url('https://d1bdmh0gdusw0k.cloudfront.net/images/misc/asset2.jpeg')",
+              }}
+            ></div> */}
+          </div>
+          {/* <div className="relative mx-auto max-w-md sm:max-w-3xl px-6 lg:px-0 lg:max-w-none lg:py-20">
+            <div className="relative pt-4">
+              <div className="px-4 py-2 backdrop-blur-md rounded-md">
+                <p className="text-xl  font-extrabold">
+                  Sapien is reinventing how we connect with others.
+                </p>
+              </div>
+            </div>
+          </div> */}
+        </div>
+      </div>
+
+      <div
+        data-scroll
+        data-scroll-speed="1"
+        className="mt-24 flex justify-center lg:mx-auto  px-8 sm:px-6 lg:px-10"
+      >
+        <h2 className="text-4xl text-end md:text-6xl font-extrabold">
+          <span className="pb-3 bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
+            Our Vision
+          </span>{' '}
+          : The United Republic of{' '}
+          <span className="pb-3 bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
+            DAOs
+          </span>
+          .
+        </h2>
+      </div>
+      <div
+        data-scroll
+        data-scroll-speed="2"
+        className="lg:mx-auto lg:grid lg:grid-cols-3 lg:gap-8 lg:items-start"
+      >
+        <div className="relative mb-12 mx-auto lg:px-0 col-span-2">
+          {/* Content area */}
+          <div className="pt-4">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              alt="Metavarse is coming"
+              src="https://d1bdmh0gdusw0k.cloudfront.net/images/misc/asset1.jpeg"
             />
           </div>
         </div>
-        <div className="py-12 bg-gray-900 lg:px-8 px-4 sm:px-6">
-          <div className="lg:flex text-gray-300">
-            <div className="lg:w-1/2">
-              <LottiePlayer
-                width="500"
-                lottie="https://assets7.lottiefiles.com/packages/lf20_6x8fn1vr.json"
-              />
-            </div>
-            <div className="lg:w-1/2">
-              <p className="whitespace-pre-line lg:text-left text-center leading-loose text-lg text-gray-300">
-                We recognize that the problems we’re facing run deep. There’s no
-                one tool or easy solution that’s going to fix the problem.
-                That’s why we’re taking a holistic approach and developing a
-                complete stack of tools to help communities thrive and realize
-                their true potential. The future of the internet is being built
-                on Web 3.0 through blockchain technology and we’re watching it
-                happen in real time. Let’s make sure that the future is built by
-                people with the right vision.
+        <div className="relative">
+          <div className="relative lg:mx-auto mx-8 sm:max-w-3xl lg:max-w-none">
+            <div className="relative md:pr-8">
+              <p className="text-xl mb-12 mt-8">
+                Where every community is a DAO. Every DAO is sovereign. Every
+                DAO gets the tools to govern their community, mint their own
+                tokens, and own collective assets.
               </p>
-            </div>
-          </div>
-          <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
-            <div className="relative flex">
-              <div className="bg-sky-700 px-6 py-14 rounded-xl text-center">
-                <h4 className="text-md font-medium tracking-wider uppercase text-white">
-                  Informational
-                </h4>
-                <p className="mt-3 text-base whitespace-pre-line text-gray-300">
-                  The algorithms that power social media are failing us. In an
-                  age of endless information, people are becoming increasingly
-                  polarized and confused.
-                </p>
-                <p className="mt-3 text-base whitespace-pre-line text-gray-300">
-                  That’s why we’re putting humans at the center of our solution
-                  with human curation. The content you consume will be vetted by
-                  humans that are part of the communities you’re a part of.
-                </p>
-              </div>
-            </div>
-            <div className="relative flex">
-              <div className="bg-purple-900 px-6 py-14 rounded-xl text-center">
-                <h4 className="text-md font-medium tracking-wider uppercase text-white">
-                  Social
-                </h4>
-                <p className="mt-3 text-base whitespace-pre-line text-gray-300">
-                  It’s difficult to know what or who you can believe. Specific
-                  endorsements from communities you’re part of makes it much
-                  easier.
-                </p>
-                <p className="mt-3 text-base whitespace-pre-line text-gray-300">
-                  Our NFT Passports allow communities to have shared networks
-                  where communities can sign off on another user’s passport in
-                  support of their skills, knowledge, and history on the
-                  platform.
-                </p>
-              </div>
-            </div>
-            <div className="relative flex">
-              <div className="bg-orange-700 px-6 py-14 rounded-xl text-center">
-                <h4 className="text-md font-medium tracking-wider uppercase text-white">
-                  Economic
-                </h4>
-                <p className="mt-3 text-base whitespace-pre-line text-gray-300">
-                  {`Cooperation > Competition.`}
-                </p>
-                <p className="mt-3 text-base whitespace-pre-line text-gray-300">
-                  It’s easy to believe that the world is win-lose and the only
-                  way to get ahead is to push others down. We’re here to tell
-                  you that’s not true.
-                </p>
-                <p className="mt-3 text-base whitespace-pre-line text-gray-300">
-                  Sapien is working on building a win-win economic system built
-                  on a brand new token protocol that will empower communities
-                  control over their financial agency.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* Contribue Section */}
-        <div className="py-12 relative">
-          <div aria-hidden="true" className="hidden md:block">
-            <div className="absolute inset-y-0 left-0 w-1/2 bg-gray-50 rounded-r-3xl"></div>
-            <svg
-              className="absolute top-8 left-1/2 -ml-3"
-              width="404"
-              height="392"
-              fill="none"
-              viewBox="0 0 404 392"
-            >
-              <defs>
-                <pattern
-                  id="8228f071-bcee-4ec8-905a-2a059a2cc4fb"
-                  x="0"
-                  y="0"
-                  width="20"
-                  height="20"
-                  patternUnits="userSpaceOnUse"
-                >
-                  <rect
-                    x="0"
-                    y="0"
-                    width="4"
-                    height="4"
-                    className="text-gray-200"
-                    fill="currentColor"
-                  ></rect>
-                </pattern>
-              </defs>
-              <rect
-                width="404"
-                height="392"
-                fill="url(#8228f071-bcee-4ec8-905a-2a059a2cc4fb)"
-              ></rect>
-            </svg>
-          </div>
-          <div className="relative px-6 py-10 bg-purple-900 overflow-hidden shadow-xl sm:px-12 sm:py-20">
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 -mt-72 sm:-mt-32 md:mt-0"
-            >
-              <svg
-                className="absolute inset-0 h-full w-full"
-                preserveAspectRatio="xMidYMid slice"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 1463 360"
-              >
-                <path
-                  className="text-rose-400 text-opacity-40"
-                  fill="currentColor"
-                  d="M-82.673 72l1761.849 472.086-134.327 501.315-1761.85-472.086z"
-                ></path>
-                <path
-                  className="text-rose-600 text-opacity-40"
-                  fill="currentColor"
-                  d="M-217.088 544.086L1544.761 72l134.327 501.316-1761.849 472.086z"
-                ></path>
-              </svg>
-            </div>
-            <div className="relative text-center">
-              <h3 className="text-white uppercase font-bold text-lg">
-                Contribute
-              </h3>
-              <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
-                <div className="bg-purple-900 px-6 py-14 transition-all hover:rounded-none ease-in-out flex-col rounded-tr-[50px] shadow-2xl overflow-hidden text-white text-center">
-                  <h4 className="text-xl font-medium">Community</h4>
-                  <p className="mt-8 text-base text-gray-300">
-                    We’re looking for existing communities that want to join our
-                    mission and be first to use our tools to organize their
-                    communities.
-                  </p>
-                </div>
-                <div className="bg-purple-900 px-6 py-14 transition-all hover:rounded-none ease-in-out flex-col rounded-br-[50px] shadow-2xl overflow-hidden text-white text-center">
-                  <h4 className="text-xl font-medium">Team</h4>
-                  <p className="mt-8 text-base text-gray-300">
-                    Our project is rapidly expanding and we’re always in need of
-                    new, talented people to help move our mission forward.
-                  </p>
-                </div>
-                <div className="bg-purple-900 px-6 py-14 transition-all hover:rounded-none ease-in-out flex-col rounded-tl-[50px] shadow-2xl overflow-hidden text-white text-center">
-                  <h4 className="text-xl font-medium">Governance</h4>
-                  <p className="mt-8 text-base text-gray-300">
-                    This is a community built project and the decisions we’re
-                    making are based on input from the community. Help drive
-                    those decisions.
-                  </p>
-                </div>
-              </div>
-              <a
-                href="https://discord.com/invite/AtGS2pe"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex shadow-2xl items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-purple-900 hover:bg-purple-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 mt-8"
-              >
-                Join Our Discord
-              </a>
+              <Link href="https://discord.gg/7utyR97RNw">
+                <a className="mt-12 border font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8">
+                  Join the first social network of DAOs
+                </a>
+              </Link>
             </div>
           </div>
         </div>
       </div>
+
+      <div
+        data-scroll
+        data-scroll-speed="1"
+        className="flex flex-col lg:mb-32 mb-24 mt-12 items-center justify-center lg:mx-auto lg:max-w-6xl"
+      >
+        <div className=" mx-auto grid gap-12 mx-8 lg:mx-0 lg:grid-cols-3 lg:max-w-none">
+          <div className="p-8 rounded-xl bg-gradient-to-r from-sapien to-sapien-40 shadow-xl shadow-sapien/50 flex-col overflow-hidden">
+            <p className="text-xl sm:text-2xl ">
+              The Metaverse is a world woven of stories, where we can blur and
+              transcend the boundaries of the digital and physical.
+            </p>
+          </div>
+          <div className="p-8 rounded-xl bg-gradient-to-r from-sapien to-sapien-40 shadow-xl shadow-sapien/50 flex-col overflow-hidden">
+            <p className="text-xl sm:text-2xl ">
+              It’s a sandbox where the only limit is our collective creativity,
+              and where each of us can write our own story.
+            </p>
+          </div>
+          <div className="p-8 rounded-xl bg-gradient-to-r from-sapien to-sapien-40 shadow-xl shadow-sapien/50 flex-col overflow-hidden">
+            <p className="text-xl sm:text-2xl ">
+              It’s time to go back to the beginning, to find our tribes and
+              ignite a new renaissance as we build the cultures, cities and
+              nations of the future.
+            </p>
+          </div>
+        </div>
+        <Link href="https://discord.gg/7utyR97RNw">
+          <a className="mt-12 border font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8">
+            Take me there
+          </a>
+        </Link>
+      </div>
+      <div data-scroll data-scroll-speed="1" className="w-full lg:mb-28">
+        <Footer />
+      </div>
+    </div>
+  );
+};
+
+const IndexPageProxy = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  const router = useRouter();
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    if (window) {
+      Promise.allSettled([preloadImages('.tiles__line-img')]).then(() => {
+        setIsLoading(false);
+      });
+    }
+  }, []);
+
+  return (
+    <>
+      <Head title="Tribe" />
+      {isLoading ? null : <IndexPage />}
     </>
   );
 };
 
-export default IndexPage;
+export default IndexPageProxy;
