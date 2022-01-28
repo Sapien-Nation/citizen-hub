@@ -95,7 +95,7 @@ const Navbar = () => {
                     </svg>
                   </a>
                 </Link>
-                <Link href="https://discord.gg/HQnSZZSw" passHref>
+                <Link href="https://discord.gg/7utyR97RNw" passHref>
                   <a className="inline-flex items-center p-1 border border-transparent rounded-full shadow-sm text-white bg-white hover:bg-gray-600 focus:outline-none">
                     <svg
                       width="22"
@@ -297,7 +297,7 @@ const Navbar = () => {
                       </svg>
                     </div>
                   </Link>
-                  <Link href="https://discord.gg/HQnSZZSw" passHref>
+                  <Link href="https://discord.gg/7utyR97RNw" passHref>
                     <div className="inline-flex items-center p-1 border border-transparent rounded-full shadow-sm text-white bg-white hover:bg-sapien-50 focus:outline-none">
                       <svg
                         width="22"
