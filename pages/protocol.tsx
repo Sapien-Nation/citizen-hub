@@ -110,7 +110,7 @@ const IndexPage: NextPage = () => {
               data-aos-delay="350"
               className="relative flex mb-12 bg-white dark:bg-black rounded-3xl"
             >
-              <div className="px-8 py-12 rounded-3xl border border-black shadow-[8px_8px_#eaeaea] dark:shadow-[8px_8px_#27272a]">
+              <div className="px-8 py-12 rounded-3xl bg-black text-white">
                 <h4 className="text-2xl sm:text-3xl font-extrabold">
                   Informational
                 </h4>
@@ -127,7 +127,7 @@ const IndexPage: NextPage = () => {
               data-aos-delay="350"
               className="relative flex mb-12 bg-white dark:bg-black rounded-3xl"
             >
-              <div className=" px-8 py-12 rounded-3xl border border-black shadow-[8px_8px_#eaeaea] dark:shadow-[8px_8px_#27272a]">
+              <div className=" px-8 py-12 rounded-3xl bg-black text-white">
                 <h4 className="text-2xl sm:text-3xl font-extrabold">Social</h4>
                 <p className="mt-3 text-xl sm:text-2xl whitespace-pre-line">
                   {`It’s difficult to know what or who you can believe. Specific endorsements from communities you’re part of makes it much easier. 
@@ -142,7 +142,7 @@ const IndexPage: NextPage = () => {
               data-aos-delay="350"
               className="relative flex mb-12 bg-white dark:bg-black rounded-3xl"
             >
-              <div className="px-8 py-12 rounded-3xl border border-black shadow-[8px_8px_#eaeaea] dark:shadow-[8px_8px_#27272a]">
+              <div className="px-8 py-12 rounded-3xl bg-black text-white">
                 <h4 className="text-2xl sm:text-3xl font-extrabold">
                   Economic
                 </h4>
