@@ -26,12 +26,12 @@ const list = [
 const ReservedListPage: NextPage = () => {
   return (
     <>
-      <Head title="Reserved List" />
+      <Head title="Reserved Historical Figures" />
       <div className="h-full">
         <div className="mx-auto py-12 px-4 max-w-6xl sm:px-6 lg:px-8 lg:py-24">
           <div className="space-y-12">
             <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
-              Reserved List
+              Reserved Historical Figures
             </h2>
 
             <ul
