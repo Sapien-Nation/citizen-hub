@@ -45,7 +45,7 @@ const IndexPage: NextPage = () => {
       <div
         data-scroll
         data-scroll-speed="1"
-        className="mt-24 flex items-center justify-center lg:mx-auto px-8 md:px-6 lg:px-10"
+        className="mt-24 mb-8 flex items-center justify-center lg:mx-auto px-8 md:px-6 lg:px-10"
       >
         <h2 className="text-4xl md:text-6xl font-extrabold">
           <span className="pb-3 bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
@@ -64,55 +64,45 @@ const IndexPage: NextPage = () => {
         className="lg:mx-auto lg:grid lg:grid-cols-3 lg:gap-16 lg:items-start"
       >
         <div className="relative sm:py-16 lg:py-0 lg:col-span-2">
-          <div className="lg:inset-y-0 lg:right-0 lg:w-screen">
-            <div
-              className="lg:top-8 w-full bg-center bg-cover sm:h-screen h-96 lg:top-12"
-              style={{
-                backgroundImage:
-                  "url('https://d1bdmh0gdusw0k.cloudfront.net/images/misc/asset1.jpeg')",
-              }}
-            ></div>
+          <div className="lg:inset-y-0 lg:right-0">
+            <img src="https://d1bdmh0gdusw0k.cloudfront.net/images/misc/asset2.jpeg" />
           </div>
         </div>
-        <div className="relative  m-8 lg:mt-12 lg:mr-12 lg:px-0">
+        <div className="relative m-8 lg:ml-8 lg:px-0">
           {/* Content area */}
-          <div>
-            <div className="lg:backdrop-blur-md lg:rounded-xl lg:bg-black/30 lg:p-12 ">
-              <p className="text-lg mb-4">
-                Powerful utilities to navigate the Metaverse:
-              </p>
+          <p className="text-lg mb-4">
+            Powerful utilities to navigate the Metaverse:
+          </p>
 
-              <ul className="list-disc text-lg">
-                <li className="ml-6 mb-2">
-                  Community Social Ledger to build reputation and tell the story
-                  of your contributions
-                </li>
-                <li className="ml-6 mb-2">
-                  Unique ticket to Sapien Events and events from our partner
-                  communities
-                </li>
-                <li className="ml-6 mb-2">
-                  Give you irrevocable access to being a Sapien Tribe Citizen{' '}
-                </li>
-                <p className="text-lg mb-12">
-                  Join our{' '}
-                  <Link href="https://discord.gg/7utyR97RNw">
-                    <a>
-                      <span className="underline underline-offset-4 cursor-pointer">
-                        Discord
-                      </span>{' '}
-                    </a>
-                  </Link>{' '}
-                  to secure your spot on the whitelist.
-                </p>
-                <Link href="/passport">
-                  <a className="mt-12 border font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8">
-                    Learn more
-                  </a>
-                </Link>
-              </ul>
-            </div>
-          </div>
+          <ul className="list-disc text-lg">
+            <li className="ml-6 mb-2">
+              Community Social Ledger to build reputation and tell the story of
+              your contributions
+            </li>
+            <li className="ml-6 mb-2">
+              Unique ticket to Sapien Events and events from our partner
+              communities
+            </li>
+            <li className="ml-6 mb-2">
+              Give you irrevocable access to being a Sapien Tribe Citizen{' '}
+            </li>
+            <p className="text-lg mb-12">
+              Join our{' '}
+              <Link href="https://discord.gg/7utyR97RNw">
+                <a>
+                  <span className="underline underline-offset-4 cursor-pointer">
+                    Discord
+                  </span>{' '}
+                </a>
+              </Link>{' '}
+              to secure your spot on the whitelist.
+            </p>
+            <Link href="/passport">
+              <a className="mt-12 border font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8">
+                Learn more
+              </a>
+            </Link>
+          </ul>
         </div>
       </div>
 
@@ -138,7 +128,7 @@ const IndexPage: NextPage = () => {
       <div
         data-scroll
         data-scroll-speed="1"
-        className="flex flex-col items-start justify-startlg:mx-auto px-8 sm:px-6 lg:px-10"
+        className="flex flex-col items-start justify-start lg:mx-auto px-8"
       >
         <h2 className="text-4xl md:text-6xl font-extrabold">
           {' '}
@@ -155,7 +145,7 @@ const IndexPage: NextPage = () => {
         data-scroll-speed="1"
         className="lg:mx-auto lg:grid lg:grid-cols-3 lg:gap-16 lg:items-start"
       >
-        <div className="relative mx-auto mb-12 px-6 lg:px-0">
+        <div className="relative mx-auto mb-12 px-8 lg:px-0">
           {/* Content area */}
           <div className="pt-4">
             <div className="mt-4 md:pl-8">
@@ -185,7 +175,7 @@ const IndexPage: NextPage = () => {
         </div>
         <div className="relative lg:col-span-2">
           <div className="lg:inset-y-0 lg:left-0">
-            <img src="https://d1bdmh0gdusw0k.cloudfront.net/images/misc/asset2.jpeg" />
+            <img src="https://d1bdmh0gdusw0k.cloudfront.net/images/misc/asset3.jpeg" />
             {/* <div
               className=" bg-center bg-cover sm:h-screen h-96 lg:top-12"
               style={{
@@ -233,12 +223,12 @@ const IndexPage: NextPage = () => {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               alt="Metavarse is coming"
-              src="https://d1bdmh0gdusw0k.cloudfront.net/images/misc/asset3.jpeg"
+              src="https://d1bdmh0gdusw0k.cloudfront.net/images/misc/asset1.jpeg"
             />
           </div>
         </div>
         <div className="relative">
-          <div className="relative mx-auto max-w-md sm:max-w-3xl  lg:px-0 lg:max-w-none lg:py-20">
+          <div className="relative mx-auto max-w-md sm:max-w-3xl lg:px-0 lg:max-w-none lg:py-20">
             <div className="relative md:pr-8">
               <p className="text-xl mb-12">
                 Where every community is a DAO. Every DAO is sovereign. Every

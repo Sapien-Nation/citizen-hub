@@ -42,8 +42,8 @@ const AppLayout = ({ children }: Props) => {
           >
             <div className="flex-1">{children}</div>
           </main>
-          <Footer />
         </LocomotiveScrollProvider>
+        <Footer />
       </div>
     );
   }
