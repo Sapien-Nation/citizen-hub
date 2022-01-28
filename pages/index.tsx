@@ -1,11 +1,10 @@
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
-import AOS from 'aos';
-import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
 
 // components
 import { Head } from 'components/common';
 import { Globe } from 'components/landing';
+import { Footer } from 'components/navigation';
 
 // utils
 import { preloadImages } from 'utils/homepage';
@@ -14,10 +13,15 @@ import { preloadImages } from 'utils/homepage';
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 
+// icons
+import {
+  CheckCircleIcon,
+  ChartSquareBarIcon,
+  KeyIcon,
+  CashIcon,
+} from '@heroicons/react/outline';
+
 const IndexPage: NextPage = () => {
-  useEffect(() => {
-    AOS.init();
-  }, []);
   return (
     <div data-scroll-section className="m-auto overflow-hidden relative">
       <section className="max-w-6xl -mt-10 min-h-screen flex flex-col justify-center align-center mx-auto px-8">
@@ -45,7 +49,7 @@ const IndexPage: NextPage = () => {
       <div
         data-scroll
         data-scroll-speed="1"
-        className="mt-24 mb-8 flex items-center justify-center lg:mx-auto px-8 md:px-6 lg:px-10"
+        className="mt-24 mb-6 flex items-center justify-center lg:mx-auto px-8 md:px-6 lg:px-10"
       >
         <h2 className="text-4xl md:text-6xl font-extrabold">
           <span className="pb-3 bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
@@ -61,30 +65,43 @@ const IndexPage: NextPage = () => {
       <div
         data-scroll
         data-scroll-speed="2"
-        className="lg:mx-auto lg:grid lg:grid-cols-3 lg:gap-16 lg:items-start"
+        className="lg:mx-auto lg:grid lg:grid-cols-3 lg:gap-8 lg:items-start"
       >
         <div className="relative sm:py-16 lg:py-0 lg:col-span-2">
           <div className="lg:inset-y-0 lg:right-0">
             <img src="https://d1bdmh0gdusw0k.cloudfront.net/images/misc/asset2.jpeg" />
           </div>
         </div>
-        <div className="relative m-8 lg:ml-8 lg:px-0">
+        <div className="relative m-8 lg:m-auto mt-8 lg:mr-8 lg:px-0">
           {/* Content area */}
           <p className="text-lg mb-4">
-            Powerful utilities to navigate the Metaverse:
+            The Passport will be a unique NFT that grants citizenship to the
+            Sapien Tribe.
+          </p>
+          <p className="text-lg mb-4">
+            The NFT Passport will include powerful utilities to navigate the
+            Metaverse:
           </p>
 
-          <ul className="list-disc text-lg">
-            <li className="ml-6 mb-2">
-              Community Social Ledger to build reputation and tell the story of
-              your contributions
+          <ul className="list-none text-lg">
+            <li className="ml-3 mb-3 flex">
+              <CheckCircleIcon className="h-10 w-10 -mt-1 mr-2 text-white" />
+              Identify yourself while maintaining privacy and sharing only what
+              you need to
             </li>
-            <li className="ml-6 mb-2">
-              Unique ticket to Sapien Events and events from our partner
-              communities
+            <li className="ml-3 mb-3 flex">
+              <ChartSquareBarIcon className="h-10 w-10 -mt-1 mr-2 text-white" />
+              Build reputation and record your contributions to your tribes on a
+              Social Ledger
             </li>
-            <li className="ml-6 mb-2">
-              Give you irrevocable access to being a Sapien Tribe Citizen{' '}
+            <li className="ml-3 mb-3 flex">
+              <KeyIcon className="h-10 w-10 -mt-1 mr-2 text-white" />
+              Access exclusive events and digital spaces in the Sapien Metaverse
+            </li>
+            <li className="ml-3 mb-3 flex">
+              <CashIcon className="h-10 w-10 -mt-1 mr-2 text-white" />
+              Create social currencies backed by a network of value-aligned
+              Tribes
             </li>
             <p className="text-lg mb-12">
               Join our{' '}
@@ -128,7 +145,7 @@ const IndexPage: NextPage = () => {
       <div
         data-scroll
         data-scroll-speed="1"
-        className="flex flex-col items-start justify-start lg:mx-auto px-8"
+        className="flex flex-col items-center justify-center mb-8 lg:mx-auto px-8"
       >
         <h2 className="text-4xl md:text-6xl font-extrabold">
           {' '}
@@ -137,40 +154,39 @@ const IndexPage: NextPage = () => {
           </span>{' '}
           Tokenomics.
         </h2>
-        <p className="text-lg">Sustainability. Scalability. Sapien.</p>
       </div>
 
       <div
         data-scroll
         data-scroll-speed="1"
-        className="lg:mx-auto lg:grid lg:grid-cols-3 lg:gap-16 lg:items-start"
+        className="lg:mx-auto lg:grid lg:grid-cols-3 lg:gap-8 lg:items-start"
       >
         <div className="relative mx-auto mb-12 px-8 lg:px-0">
           {/* Content area */}
-          <div className="pt-4">
-            <div className="mt-4 md:pl-8">
-              <p className="text-lg mb-8">
-                Backed by their own vaults of curated digital and physical
-                assets, each community will be able to:
-              </p>
+          <div className="mt-4 md:pl-8">
+            <p className="text-lg mb-8">Sustainability. Scalability. Sapien.</p>
 
-              <ul className="list-disc text-lg">
-                <li className="ml-6 mb-2">
-                  Launch their own social currency collateralized by their vault
-                </li>
-                <li className="ml-6 mb-2">
-                  Invest in the people, projects, and communities that matter
-                </li>
-                <li className="ml-6 mb-2">
-                  Connect to a broader economy linked by a shared AMM liquidity
-                  network{' '}
-                </li>
-                <li className="ml-6 mb-2">
-                  Govern to pursue powerful initiatives like Universal Basic
-                  Income, Crowdfunding, and Mutual Aid{' '}
-                </li>
-              </ul>
-            </div>
+            <p className="text-lg mb-8">
+              Backed by their own vaults of curated digital and physical assets,
+              each community will be able to:
+            </p>
+
+            <ul className="list-disc text-lg">
+              <li className="ml-6 mb-2">
+                Launch their own social currency collateralized by their vault
+              </li>
+              <li className="ml-6 mb-2">
+                Invest in the people, projects, and communities that matter
+              </li>
+              <li className="ml-6 mb-2">
+                Connect to a broader economy linked by a shared AMM liquidity
+                network{' '}
+              </li>
+              <li className="ml-6 mb-2">
+                Govern to pursue powerful initiatives like Universal Basic
+                Income, Crowdfunding, and Mutual Aid{' '}
+              </li>
+            </ul>
           </div>
         </div>
         <div className="relative lg:col-span-2">
@@ -199,7 +215,7 @@ const IndexPage: NextPage = () => {
       <div
         data-scroll
         data-scroll-speed="1"
-        className="mt-24 flex justify-end lg:mx-auto  px-8 sm:px-6 lg:px-10"
+        className="mt-24 flex justify-center lg:mx-auto  px-8 sm:px-6 lg:px-10"
       >
         <h2 className="text-4xl text-end md:text-6xl font-extrabold">
           <span className="pb-3 bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
@@ -215,7 +231,7 @@ const IndexPage: NextPage = () => {
       <div
         data-scroll
         data-scroll-speed="2"
-        className="lg:mx-auto lg:grid lg:grid-cols-3 lg:gap-16 lg:items-start"
+        className="lg:mx-auto lg:grid lg:grid-cols-3 lg:gap-8 lg:items-start"
       >
         <div className="relative mb-12 mx-auto lg:px-0 col-span-2">
           {/* Content area */}
@@ -228,9 +244,9 @@ const IndexPage: NextPage = () => {
           </div>
         </div>
         <div className="relative">
-          <div className="relative mx-auto max-w-md sm:max-w-3xl lg:px-0 lg:max-w-none lg:py-20">
+          <div className="relative mx-auto max-w-md sm:max-w-3xl lg:max-w-none">
             <div className="relative md:pr-8">
-              <p className="text-xl mb-12">
+              <p className="text-xl mb-12 mt-8">
                 Where every community is a DAO. Every DAO is sovereign. Every
                 DAO gets the tools to govern their community, mint their own
                 tokens, and own collective assets.
@@ -248,25 +264,27 @@ const IndexPage: NextPage = () => {
       <div
         data-scroll
         data-scroll-speed="1"
-        className="flex flex-col mb-72 items-center justify-center lg:mx-auto lg:max-w-6xl"
+        className="flex flex-col lg:mb-32 mb-24 mt-12 items-center justify-center lg:mx-auto lg:max-w-6xl"
       >
         <div className=" mx-auto grid gap-12 mx-8 lg:mx-0 lg:grid-cols-3 lg:max-w-none">
           <div className="p-8 rounded-xl bg-gradient-to-r from-sapien to-sapien-40 shadow-xl shadow-sapien/50 flex-col overflow-hidden">
             <p className="text-xl sm:text-2xl ">
-              Let’s build a world with no limits except our own creativity,
-              where everyone can let their passions and curiosity guide who they
-              want to be.
+              The Metaverse is a world woven of stories, where we can blur and
+              transcend the boundaries of the digital and physical.
             </p>
           </div>
           <div className="p-8 rounded-xl bg-gradient-to-r from-sapien to-sapien-40 shadow-xl shadow-sapien/50 flex-col overflow-hidden">
             <p className="text-xl sm:text-2xl ">
-              Whether you want to be an artist, patron, investor, business
-              owner, leader, changemaker, or all of the above, bring your story
-              to the foundation of a new world.
+              It’s a sandbox where the only limit is our collective creativity,
+              and where each of us can write our own story.
             </p>
           </div>
           <div className="p-8 rounded-xl bg-gradient-to-r from-sapien to-sapien-40 shadow-xl shadow-sapien/50 flex-col overflow-hidden">
-            <p className="text-xl sm:text-2xl ">Be the change</p>
+            <p className="text-xl sm:text-2xl ">
+              It’s time to go back to the beginning, to find our tribes and
+              ignite a new renaissance as we build the cultures, cities and
+              nations of the future.
+            </p>
           </div>
         </div>
         <Link href="#">
@@ -277,6 +295,9 @@ const IndexPage: NextPage = () => {
             Take me there
           </a>
         </Link>
+      </div>
+      <div data-scroll data-scroll-speed="1" className="w-full mb-28">
+        <Footer />
       </div>
     </div>
   );
