@@ -21,6 +21,7 @@ const navigation = [
   { name: 'Team', href: '/team', visible: true },
   { name: 'Protocol', href: '/protocol', visible: true },
   { name: 'Reserved List', href: '/reserved-list', visible: true },
+  { name: 'Purple Paper', href: '/Purple_Paper_v1.0.pdf', visible: true },
 ];
 
 const Navbar = () => {
@@ -223,7 +224,7 @@ const Navbar = () => {
                       className={mergeClassNames(
                         router.asPath === nav.href
                           ? 'bg-purple-50 border-purple-500 text-sapien-60'
-                          : 'border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-600 hover:text-gray-800',
+                          : 'border-transparent text-white hover:bg-gray-800',
                         'block pl-3 pr-4 py-2 border-l-4 text-base font-medium'
                       )}
                     >
