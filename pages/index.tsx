@@ -49,14 +49,14 @@ const IndexPage: NextPage = () => {
       <div
         data-scroll
         data-scroll-speed="1"
-        className="mt-24 mb-6 flex items-center justify-center lg:mx-auto px-8 md:px-6 lg:px-10"
+        className="mt-24 mb-8 flex items-center justify-center lg:mx-auto px-8 md:px-6 lg:px-10"
       >
         <h2 className="text-4xl md:text-6xl font-extrabold">
-          <span className="pb-3 bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
             One tool
           </span>{' '}
           to help you do it{' '}
-          <span className="pb-3 bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
+          <span className=" bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
             all
           </span>
           .
@@ -244,7 +244,7 @@ const IndexPage: NextPage = () => {
           </div>
         </div>
         <div className="relative">
-          <div className="relative mx-auto max-w-md sm:max-w-3xl lg:max-w-none">
+          <div className="relative lg:mx-auto mx-8 sm:max-w-3xl lg:max-w-none">
             <div className="relative md:pr-8">
               <p className="text-xl mb-12 mt-8">
                 Where every community is a DAO. Every DAO is sovereign. Every
@@ -296,7 +296,7 @@ const IndexPage: NextPage = () => {
           </a>
         </Link>
       </div>
-      <div data-scroll data-scroll-speed="1" className="w-full mb-28">
+      <div data-scroll data-scroll-speed="1" className="w-full lg:mb-28">
         <Footer />
       </div>
     </div>
