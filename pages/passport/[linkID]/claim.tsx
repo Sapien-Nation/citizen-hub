@@ -45,7 +45,7 @@ enum Status {
 }
 
 const ClaimPassportPage = () => {
-  const [view, setView] = useState(View.Discord);
+  const [view, setView] = useState(View.Confirm);
 
   const toast = useToast();
   const { query } = useRouter();
