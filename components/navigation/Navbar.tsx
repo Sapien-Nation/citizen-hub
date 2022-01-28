@@ -22,7 +22,7 @@ const navigation = [
   { name: 'Reserved List', href: '/reserved-list', visible: true },
   {
     name: 'Purple Paper',
-    href: '/Purple_Paper_v1.0.pdf',
+    href: '/The_Purple_Paper_v1.1.pdf',
     target: true,
     visible: true,
   },
