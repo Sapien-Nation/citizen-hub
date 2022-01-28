@@ -39,15 +39,15 @@ const IndexPage: NextPage = () => {
                 <h1
                   data-aos="zoom-y-out"
                   data-aos-delay="600"
-                  className="text-4xl rounded-3xl p-12 bg-black max-w-7xl text-white mt-5 tracking-tight font-extrabold sm:text-5xl md:text-6xl lg:text-5xl xl:text-5xl"
+                  className="text-4xl rounded-3xl p-8 bg-black max-w-7xl text-white mt-5 tracking-tight font-extrabold sm:text-5xl md:text-6xl lg:text-5xl xl:text-5xl"
                 >
-                  <span className="block xl:inline">
+                  <span className="block inline">
                     <span className="pb-3 bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
                       Sapien
                     </span>{' '}
                     is building the tools, community, and protocol for the next
                     generation of{' '}
-                    <span className="pb-3 bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
+                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
                       human connections
                     </span>
                     .
