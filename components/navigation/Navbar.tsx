@@ -118,7 +118,7 @@ const Navbar = () => {
                     </svg>
                   </a>
                 </Link>
-                <Link href="https://discord.gg/7utyR97RNw" passHref>
+                <Link href="https://discord.gg/DVDe3ZwuYR" passHref>
                   <a
                     target="_blank"
                     className="inline-flex items-center p-1 border border-transparent rounded-full shadow-sm text-white bg-white hover:bg-gray-600 focus:outline-none"
@@ -340,7 +340,7 @@ const Navbar = () => {
                       </svg>
                     </a>
                   </Link>
-                  <Link href="https://discord.gg/7utyR97RNw" passHref>
+                  <Link href="https://discord.gg/DVDe3ZwuYR" passHref>
                     <a
                       target="_blank"
                       className="inline-flex items-center p-1 border border-transparent rounded-full shadow-sm text-white bg-white hover:bg-sapien-50 focus:outline-none"
