@@ -33,7 +33,7 @@ const Discord = ({ reservedFigure }: Props) => {
         </p>
         <div className="mt-10 max-w-sm sm:max-w-none sm:flex">
           <a
-            href="https://discord.gg/7utyR97RNw"
+            href="https://discord.gg/DVDe3ZwuYR"
             rel="noopener noreferrer"
             target="_blank"
             className="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-sapien bg-white hover:bg-indigo-50 sm:px-8"
