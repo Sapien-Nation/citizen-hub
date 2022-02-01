@@ -11,29 +11,29 @@ const News: NextPage = () => {
     <>
       <Head title="Team" />
       <div className="relative py-16 overflow-hidden bg-neutral-900">
-        <div className="relative px-4 sm:px-6 lg:px-8">
-          <div className="text-lg max-w-prose mx-auto mb-12">
+        <div className="relative px-4 sm:px-8 lg:px-8">
+          <div className="text-lg max-w-4xl mx-auto mb-12">
             <h1>
               <span className="block m-auto mb-12 text-base w-24 text-center text-sapien bg-white p-2 rounded-full font-extrabold tracking-wide uppercase">
                 News
               </span>
-              <span className="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-white sm:text-4xl">
+              <span className="mt-2 max-w-prose block text-3xl text-center leading-8 font-extrabold tracking-tight text-white sm:text-4xl">
                 Microsoft and eBay Veteran Latif Nathani Joins Sapien.Network as
                 Chief Operating Officer
               </span>
             </h1>
-            <img
-              className="max-w-md mx-auto rounded-xl my-12"
-              src="/images/team/Latif.jpeg"
-              alt="Latif Nathani"
-            />
-            <blockquote className="mt-8 text-xl tracking-wide text-white leading-8">
+            <blockquote className="italic text-center mt-4 text-xl tracking-wide text-white leading-8">
               He will lead all aspects of the company’s day-to-day activities
               including product, operations, marketing, organizational
               development and culture
             </blockquote>
+            <img
+              className="max-w-sm mx-auto rounded-xl my-12"
+              src="/images/team/Latif.jpeg"
+              alt="Latif Nathani"
+            />
           </div>
-          <div className="mt-6 font-light text-lg leading-9 tracking-wide gap-12 flex flex-col text-white mx-auto sm:px-6 max-w-6xl">
+          <div className="mt-6 px-8 sm:px-0 font-light text-lg leading-9 tracking-wide gap-12 flex flex-col text-white mx-auto sm:px-6 max-w-6xl">
             <p>
               <span className="font-extrabold text-xl">
                 San Francisco, CA. February 2, 2022.
