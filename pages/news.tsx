@@ -10,7 +10,7 @@ const News: NextPage = () => {
   return (
     <>
       <Head title="Team" />
-      <div className="relative py-16 overflow-hidden">
+      <div className="relative py-16 overflow-hidden bg-neutral-900">
         <div className="relative px-4 sm:px-6 lg:px-8">
           <div className="text-lg max-w-prose mx-auto mb-12">
             <h1>
