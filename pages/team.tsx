@@ -32,7 +32,7 @@ const people = [
   {
     name: 'Latif',
     role: 'COO',
-    imageUrl: '/images/team/Latif.png',
+    imageUrl: '/images/team/Latif.jpeg',
     bio: `Latif is the Founding investor and COO for the Sapien Network. Latif’s attraction to adventure and the unknown started at 18 when he traveled across the world from India with simple change in his pocket. After completing his undergraduate studies in <span class='underline decoration-indigo-500 decoration-2 font-bold dark:text-white font-medium'>Computer Science at the University of Arizona</span>, Latif took another risk and became a software engineer at a “not very popular” company in the Pacific Northwest named Microsoft. <span class='underline decoration-indigo-500 decoration-2 font-bold dark:text-white font-medium'>Latif’s tenure at Microsoft lasted nearly 16 cumulative years, finally ending up as the General Manager of the Unlimited Potential group</span>, leading a team in India to bring benefits of technology to emerging markets. He has also been involved in many other large projects like <span class='underline decoration-indigo-500 decoration-2 font-bold dark:text-white font-medium'>co-founding eMemories, helping launch Norton360 for Symantec</span>, and most recently as the managing director for eBay India.`,
   },
   {
