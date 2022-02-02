@@ -12,7 +12,7 @@ const FigureView = ({ redirect }: Props) => {
           Welcome to the Sapien Tribe!
         </h3>
         <p className="mt-3 max-w-lg mx-auto text-md font-light py-4 text-gray-500 sm:text-xl md:mt-5 text-justify">
-          We are very happy to have you here!, before we can start the
+          We are very happy to have you here! Before we can start the
           experience of creating your unique passport, we require you to be
           logged into your account.
         </p>
