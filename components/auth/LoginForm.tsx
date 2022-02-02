@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { FormProvider, useForm } from 'react-hook-form';
 
 // components
@@ -17,6 +18,7 @@ interface LoginFormValues {
 }
 
 const LoginForm = () => {
+  const { query } = useRouter();
   const methods = useForm<LoginFormValues>();
   const {
     control,
@@ -32,11 +34,11 @@ const LoginForm = () => {
       const response = await login({
         email,
         client: window?.navigator.userAgent,
-        redirect: '/',
+        redirect: (query.redirect as string) || '/',
         password,
       });
 
-      setSession(response);
+      setSession(response, (query.redirect as string) || null);
     } catch (error) {
       toast({
         message: error || 'Invalid Credentials',
@@ -57,7 +59,7 @@ const LoginForm = () => {
           <div className="mt-1">
             <TextInput
               autoComplete="email"
-              className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
+              className="appearance-none block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
               name="email"
               placeholder="email@example.com"
               type="text"
@@ -109,7 +111,13 @@ const LoginForm = () => {
 
           <div className="mt-8 text-center">
             <p className="text-sm inline">{`Don't have an account?`}</p>
-            <Link href="/register">
+            <Link
+              href={
+                query.redirect
+                  ? `/register?redirect=${query.redirect}`
+                  : '/register'
+              }
+            >
               <a className="font-medium text-sm text-sapien hover:text-purple-500">
                 &nbsp;register
               </a>

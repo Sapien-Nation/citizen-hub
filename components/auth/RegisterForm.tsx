@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useForm, FormProvider } from 'react-hook-form';
 
 // api
@@ -46,6 +47,7 @@ const RegisterForm = () => {
   } = methods;
 
   const toast = useToast();
+  const { query } = useRouter();
   const { setSession } = useAuth();
 
   const onSubmit = async ({
@@ -66,7 +68,7 @@ const RegisterForm = () => {
         redirect: '/',
       });
 
-      setSession(response);
+      setSession(response, (query.redirect as string) || null);
     } catch (error) {
       toast({
         message: error || 'Please contact support',
@@ -95,8 +97,7 @@ const RegisterForm = () => {
               name="email"
               maxLength={100}
               placeholder="email@example.com"
-              type="text"
-              className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
+              className="appearance-none block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
               rules={{
                 validate: {
                   required: (value) => value.length > 0 || 'is required',
@@ -128,7 +129,7 @@ const RegisterForm = () => {
                   !/[-|\.|_]+|[-|\.|_]{2,2}/.test(value) || 'is invalid',
               }}
               replaceWhiteSpace
-              className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
+              className="appearance-none block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
             />
           </div>
         </div>
@@ -152,7 +153,7 @@ const RegisterForm = () => {
                     required: (value) => value.length > 0 || 'is required',
                   },
                 }}
-                className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
+                className="appearance-none block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
               />
             </div>
           </div>
@@ -175,7 +176,7 @@ const RegisterForm = () => {
                     required: (value) => value.length > 0 || 'is required',
                   },
                 }}
-                className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
+                className="appearance-none block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
               />
             </div>
           </div>
@@ -203,14 +204,14 @@ const RegisterForm = () => {
           <div className="flex items-center">
             <Checkbox
               name="terms"
-              className="h-4 w-4 text-sapien focus:ring-purple-500 border-gray-300 rounded"
+              className="h-4 w-4 text-sapien focus:ring-purple-500 border-gray-600 rounded"
               aria-invalid="true"
               aria-describedby="terms-error"
               label={
                 <label
                   htmlFor="terms"
                   className={`ml-2 block text-xs ${
-                    termsError ? 'text-red-500' : 'text-gray-900'
+                    termsError && 'text-red-500'
                   }`}
                   id={termsError ? 'terms-error' : ''}
                 >
@@ -234,14 +235,14 @@ const RegisterForm = () => {
           <div className="flex items-center">
             <Checkbox
               name="wallet"
-              className="h-4 w-4 text-sapien focus:ring-purple-500 border-gray-300 rounded"
+              className="h-4 w-4 text-sapien focus:ring-purple-500 border-gray-600 rounded"
               aria-invalid="true"
               aria-describedby="wallet-error"
               label={
                 <label
                   htmlFor="wallet"
                   className={`ml-2 block text-xs ${
-                    walletError ? 'text-red-500' : 'text-gray-900'
+                    walletError && 'text-red-500'
                   }`}
                   id={walletError ? 'wallet-error' : ''}
                 >
@@ -266,7 +267,11 @@ const RegisterForm = () => {
           </button>
           <div className="mt-8 text-center">
             <p className="text-sm inline">Already have an account?</p>
-            <Link href="/login">
+            <Link
+              href={
+                query.redirect ? `/login?redirect=${query.redirect}` : '/login'
+              }
+            >
               <a className="font-medium text-sm text-sapien hover:text-purple-500">
                 &nbsp;login
               </a>

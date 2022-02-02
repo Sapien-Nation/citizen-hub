@@ -2,6 +2,7 @@ import { RefreshIcon } from '@heroicons/react/solid';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
+import { useTheme } from 'next-themes';
 
 // api
 import { forgot } from 'api/authentication';
@@ -25,6 +26,7 @@ const ForgotPasswordForm = () => {
     register,
     handleSubmit,
   } = useForm<ForgotPasswordFormValues>();
+  const { theme } = useTheme();
 
   const onSubmit = async ({ email }: ForgotPasswordFormValues) => {
     try {
@@ -53,7 +55,11 @@ const ForgotPasswordForm = () => {
             type="email"
             autoComplete="email"
             required
-            className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
+            placeholder="email@example.com"
+            className={mergeClassNames(
+              theme && theme === 'dark' ? 'bg-gray-800' : '',
+              'appearance-none block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm'
+            )}
             {...register('email')}
           />
         </div>

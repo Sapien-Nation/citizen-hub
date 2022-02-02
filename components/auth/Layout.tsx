@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { useTheme } from 'next-themes';
 
 // assets
 import { FullLogo } from 'assets';
@@ -16,6 +17,7 @@ interface Props {
 
 const Layout = ({ children, title }: Props) => {
   const { me, isLoggingIn } = useAuth();
+  const { theme } = useTheme();
 
   if (isLoggingIn) return null;
 
@@ -36,11 +38,13 @@ const Layout = ({ children, title }: Props) => {
           <div className="mx-auto w-full max-w-sm lg:w-96">
             <div>
               <div className="flex justify-center items-center">
-                <FullLogo />
+                <img
+                  className="pr-1 w-16"
+                  src="/landing/logooutlined.svg"
+                  alt="sapien"
+                />
               </div>
-              <h2 className="mt-6 text-3xl font-extrabold text-gray-900">
-                {title}
-              </h2>
+              <h2 className="mt-6 text-3xl font-extrabold">{title}</h2>
             </div>
 
             <div className="mt-8">

@@ -1,18 +1,18 @@
 import Link from 'next/link';
 
 interface Props {
-  linkID: string;
+  redirect: string;
 }
 
-const FigureView = ({ linkID }: Props) => {
+const FigureView = ({ redirect }: Props) => {
   return (
-    <>
-      <div className="px-4 xl:px-0">
+    <div className="w-full">
+      <div className="px-4 xl:px-0 text-center">
         <h3 className="mt-3 max-w-sm mx-auto font-bold lg:text-2xl sm:text-xl md:mt-5">
           Welcome to the Sapien Tribe!
         </h3>
         <p className="mt-3 max-w-lg mx-auto text-md font-light py-4 text-gray-500 sm:text-xl md:mt-5 text-justify">
-          We are very happy to have you here!, before we can start the
+          We are very happy to have you here! Before we can start the
           experience of creating your unique passport, we require you to be
           logged into your account.
         </p>
@@ -20,7 +20,7 @@ const FigureView = ({ linkID }: Props) => {
       <div className="my-10 flex justify-center">
         <p className="text-base inline center-text">
           Click
-          <Link href={`/login?redirect=/passport/${linkID}`}>
+          <Link href={`/login?redirect=${redirect}`}>
             <a className="font-medium text-sapien hover:text-purple-500">
               &nbsp;here&nbsp;
             </a>
@@ -28,7 +28,7 @@ const FigureView = ({ linkID }: Props) => {
           to login.
         </p>
       </div>
-    </>
+    </div>
   );
 };
 
