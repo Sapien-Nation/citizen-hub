@@ -3,10 +3,9 @@ import NextHead from 'next/head';
 interface Props {
   children?: React.ReactElement | null;
   title: string;
-  image?: string;
 }
 
-const Head = ({ children = null, title, image = '' }: Props) => (
+const Head = ({ children = null, title }: Props) => (
   <NextHead>
     <title>Sapien | {title}</title>
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -26,11 +25,7 @@ const Head = ({ children = null, title, image = '' }: Props) => (
     <meta property="twitter:card" content="summary_large_image" />
     <meta
       property="og:image"
-      content={
-        image
-          ? image
-          : 'https://d1bdmh0gdusw0k.cloudfront.net/images/misc/passport.png'
-      }
+      content="https://d1bdmh0gdusw0k.cloudfront.net/images/misc/passport.png"
     />
 
     <meta property="og:type" content="website" />
