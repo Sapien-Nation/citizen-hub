@@ -17,6 +17,7 @@ const ErrorView = ({ code }: Props) => {
         return 'This Link its not active yet, please try in 24hrs';
       case 102:
         return 'This link has expired';
+      case 100:
       case 409:
         return 'There is already a Passport linked to this account';
       case 103:
