@@ -9,16 +9,12 @@ import { Head } from 'components/common';
 const News: NextPage = () => {
   return (
     <>
-      <Head title="News">
-        <>
-          <meta
-            content="Microsoft and eBay Veteran Latif Nathani Joins Sapien.Network as Chief
-          Operating Officer"
-            name="description"
-          />
-          <meta property="og:image" content="/images/team/Latif.jpeg" />
-        </>
-      </Head>
+      <Head
+        title="News"
+        description="                Microsoft and eBay Veteran Latif Nathani Joins Sapien.Network as
+                Chief Operating Officer"
+        image="/images/team/Latif.jpeg"
+      />
       <div className="relative py-16 overflow-hidden bg-neutral-900">
         <div className="relative px-4 sm:px-8 lg:px-8">
           <div className="text-lg max-w-4xl mx-auto mb-12">

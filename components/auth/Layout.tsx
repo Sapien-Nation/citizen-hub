@@ -38,7 +38,11 @@ const Layout = ({ children, title }: Props) => {
           <div className="mx-auto w-full max-w-sm lg:w-96">
             <div>
               <div className="flex justify-center items-center">
-                <FullLogo theme={theme} />
+                <img
+                  className="pr-1 w-16"
+                  src="/landing/logooutlined.svg"
+                  alt="sapien"
+                />
               </div>
               <h2 className="mt-6 text-3xl font-extrabold">{title}</h2>
             </div>
