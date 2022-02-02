@@ -60,7 +60,7 @@ const ClaimPassportPage = () => {
   const renderView = ({ code, distributionId }: LinkCheckResponse) => {
     const handleConfirm = async () => {
       try {
-        await reserveFigure(distributionId);
+        await reserveFigure(distributionId, { figureName: figure.name });
 
         setView(View.Discord);
       } catch (error) {
