@@ -20,7 +20,7 @@ const Head = ({ children = null, title, image, description }: Props) => {
       }
       canonical={process.browser ? window.location.host : ''}
       openGraph={{
-        url: process.browser ? `${window.location.host}/${pathname}` : '',
+        url: process.browser ? `${window.location.host}${pathname}` : '',
         title: title ? title : 'Create your Sapien Account',
         description: description ? description : 'Come and join us at Sapien',
         images: [
