@@ -9,7 +9,12 @@ import { Head } from 'components/common';
 const News: NextPage = () => {
   return (
     <>
-      <Head title="Team" />
+      <Head title="Team" image="/images/team/Latif.jpeg">
+        <div>
+          Microsoft and eBay Veteran Latif Nathani Joins Sapien.Network as Chief
+          Operating Officer
+        </div>
+      </Head>
       <div className="relative py-16 overflow-hidden bg-neutral-900">
         <div className="relative px-4 sm:px-8 lg:px-8">
           <div className="text-lg max-w-4xl mx-auto mb-12">
