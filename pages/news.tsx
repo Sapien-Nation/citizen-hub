@@ -13,7 +13,7 @@ const News: NextPage = () => {
         title="News"
         description="                Microsoft and eBay Veteran Latif Nathani Joins Sapien.Network as
                 Chief Operating Officer"
-        image="/images/team/Latif.jpeg"
+        image="/images/team/rsz_latif.jpeg"
       />
       <div className="relative py-16 overflow-hidden bg-neutral-900">
         <div className="relative px-4 sm:px-8 lg:px-8">
