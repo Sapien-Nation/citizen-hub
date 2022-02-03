@@ -21,6 +21,7 @@ interface LinkCheckResponse {
   allowedPassports: number;
   availablePassports: number;
   code?: number;
+  statusCode?: number;
   distributionId?: string;
   message?: string;
   isValid: boolean;
@@ -62,6 +63,7 @@ const ClaimPassportPage = () => {
     distributionId,
     reservedFigure,
     expiresAt,
+    statusCode,
   }: LinkCheckResponse) => {
     const handleConfirm = async () => {
       try {
@@ -74,16 +76,14 @@ const ClaimPassportPage = () => {
       }
     };
 
-    if (code) {
-      switch (code) {
+    if (code || statusCode) {
+      const responseCode = code || statusCode;
+      switch (responseCode) {
         case Status.UserAlreadyHavePassport:
           return <Discord />;
-        case Status.ExpiredLink:
-        case Status.LinkIsNotActiveYet:
-        case Status.NoPassportsAvailableForThisLink:
-          return <FeedbackView code={code} />;
+        default:
+          return <FeedbackView code={responseCode} />;
       }
-      return;
     }
 
     switch (view) {
