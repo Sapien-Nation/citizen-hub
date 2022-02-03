@@ -191,7 +191,11 @@ const IndexPage: NextPage = () => {
         </div>
         <div className="relative lg:col-span-2">
           <div className="lg:inset-y-0 lg:left-0">
-            <img src="https://d1bdmh0gdusw0k.cloudfront.net/images/misc/asset3.jpeg" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              alt="Sustainability. Scalability. Sapien"
+              src="https://d1bdmh0gdusw0k.cloudfront.net/images/misc/Scene_2_B-01.jpeg"
+            />
             {/* <div
               className=" bg-center bg-cover sm:h-screen h-96 lg:top-12"
               style={{
@@ -239,7 +243,7 @@ const IndexPage: NextPage = () => {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               alt="Metavarse is coming"
-              src="https://d1bdmh0gdusw0k.cloudfront.net/images/misc/asset1.jpeg"
+              src="https://d1bdmh0gdusw0k.cloudfront.net/images/misc/D3_Modif_2.jpeg"
             />
           </div>
         </div>
