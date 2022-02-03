@@ -71,7 +71,9 @@ const ClaimPassportPage = () => {
         setView(View.Discord);
       } catch (error) {
         toast({
-          message: error,
+          message:
+            error ||
+            'Something Went wrong please contact passport@sapien.network',
         });
       }
     };
@@ -80,13 +82,15 @@ const ClaimPassportPage = () => {
       const responseCode = code || statusCode;
       switch (responseCode) {
         case 100:
-          return <Discord reservedFigure={figure?.name} />;
+          return <Discord />;
         default:
           return <FeedbackView code={responseCode} />;
       }
     }
 
     switch (view) {
+      case View.Discord:
+        return <Discord reservedFigure={figure?.name} />;
       case View.Reserve:
         return (
           <div className="relative shadow-xl sm:rounded-2xl sm:overflow-hidden">
