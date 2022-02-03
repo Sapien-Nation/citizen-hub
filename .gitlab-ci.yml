@@ -52,12 +52,12 @@ build-qat:
     - export AWS_REGION=us-east-2
     ### login to ecr
     - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 081984521558.dkr.ecr.us-east-2.amazonaws.com
-    - docker build -t passport:latest .
-    - docker tag passport:latest 081984521558.dkr.ecr.us-east-2.amazonaws.com/passport:latest
-    - docker push 081984521558.dkr.ecr.us-east-2.amazonaws.com/passport:latest
+    - docker build -t passport:$CI_COMMIT_SHORT_SHA .
+    - docker tag passport:$CI_COMMIT_SHORT_SHA 081984521558.dkr.ecr.us-east-2.amazonaws.com/passport:$CI_COMMIT_SHORT_SHA
+    - docker push 081984521558.dkr.ecr.us-east-2.amazonaws.com/passport:$CI_COMMIT_SHORT_SHA
     - cd eks-manif &&  envsubst <  passport-dep-temp-qa.yml  > passport-dep.yml
     - cat passport-dep.yml
-    - kubectl delete -f passport-dep.yml && kubectl apply -f passport-dep.yml
+    - kubectl apply -f passport-dep.yml
   only:
     <<: *qat_triggers
 
@@ -73,11 +73,11 @@ build-poc:
     - export AWS_REGION=us-east-2
     ### login to ecr
     - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 081984521558.dkr.ecr.us-east-2.amazonaws.com
-    - docker build -t passport:latest .
-    - docker tag passport:latest 081984521558.dkr.ecr.us-east-2.amazonaws.com/passport:latest
-    - docker push 081984521558.dkr.ecr.us-east-2.amazonaws.com/passport:latest
+    - docker build -t passport:$CI_COMMIT_SHORT_SHA .
+    - docker tag passport:$CI_COMMIT_SHORT_SHA 081984521558.dkr.ecr.us-east-2.amazonaws.com/passport:$CI_COMMIT_SHORT_SHA
+    - docker push 081984521558.dkr.ecr.us-east-2.amazonaws.com/passport:$CI_COMMIT_SHORT_SHA
     - cd eks-manif &&  envsubst <  passport-dep-temp-prd.yml > passport-dep.yml
     - cat passport-dep.yml
-    - kubectl delete -f passport-dep.yml && kubectl apply -f passport-dep.yml
+    - kubectl apply -f passport-dep.yml
   only:
     <<: *poc_triggers
