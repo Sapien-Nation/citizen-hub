@@ -11,6 +11,7 @@ interface Props {
 
 const ErrorView = ({ code }: Props) => {
   const { theme } = useTheme();
+
   const renderMessage = () => {
     switch (code) {
       case 101:
