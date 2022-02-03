@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useTheme } from 'next-themes';
@@ -45,7 +46,7 @@ export enum View {
 
 const ClaimPassportPage = () => {
   const [view, setView] = useState(View.Reserve);
-  const [_, setSearching] = useState(false);
+  const [isSearching, setSearching] = useState(false);
   const [figure, setFigure] = useState<Figure | null>(null);
 
   const toast = useToast();
@@ -88,14 +89,45 @@ const ClaimPassportPage = () => {
     switch (view) {
       case View.Reserve:
         return (
-          <>
-            <FiguresLookup
-              onFigureSelect={(selectedFigure) => setFigure(selectedFigure)}
-              setSearching={setSearching}
-              onSelect={() => {}}
-            />
-            {figure && <button onClick={handleConfirm}>Reserve</button>}
-          </>
+          <div className="relative shadow-xl sm:rounded-2xl sm:overflow-hidden">
+            <div className="absolute inset-0">
+              <img
+                className="h-full w-full object-cover"
+                src="https://images.newindianexpress.com/uploads/user/imagelibrary/2021/11/27/w1200X800/Metaverse_is_Coming.jpg"
+                alt="People working on laptops"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-gray-900 to-purple-900 mix-blend-multiply" />
+            </div>
+            <div className="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
+              <p
+                className={`max-w-lg mx-auto text-md font-light text-white sm:text-xl md:mt-5 transition delay-150 duration-300 ease-in-out ${
+                  isSearching ? 'scale-75 -translate-y-12' : ''
+                }`}
+              >
+                To claim your passport please input your favorite historical
+                figure.
+              </p>
+              <div
+                className={`transition delay-150 duration-300 ease-in-out ${
+                  isSearching ? '-translate-y-12' : ''
+                }`}
+              >
+                <FiguresLookup
+                  onFigureSelect={(selectedFigure) => setFigure(selectedFigure)}
+                  setSearching={setSearching}
+                  onSelect={() => {}}
+                />
+                {figure && (
+                  <button
+                    className="absolute left-2/4 -translate-x-2/4 mt-12 border font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8"
+                    onClick={handleConfirm}
+                  >
+                    Reserve
+                  </button>
+                )}
+              </div>
+            </div>
+          </div>
         );
     }
   };
