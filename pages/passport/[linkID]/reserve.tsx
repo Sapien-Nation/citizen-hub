@@ -80,7 +80,7 @@ const ClaimPassportPage = () => {
       const responseCode = code || statusCode;
       switch (responseCode) {
         case 100:
-          return <Discord reservedFigure={figure.name} />;
+          return <Discord reservedFigure={figure?.name} />;
         default:
           return <FeedbackView code={responseCode} />;
       }
