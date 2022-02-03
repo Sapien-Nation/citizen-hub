@@ -18,7 +18,7 @@ spec:
       spec:
         containers:
           - name: passport
-            image: 994750220687.dkr.ecr.us-east-2.amazonaws.com/passport:latest
+            image: 994750220687.dkr.ecr.us-east-2.amazonaws.com/passport:$CI_COMMIT_SHORT_SHA
             imagePullPolicy: Always
             ports:
               - containerPort: 3000
