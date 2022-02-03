@@ -29,6 +29,7 @@ interface LinkCheckResponse {
   allowedPassports: number;
   availablePassports: number;
   code?: number;
+  statusCode?: number;
   distributionId?: string;
   message?: string;
   isValid: boolean;
@@ -57,10 +58,14 @@ const ClaimPassportPage = () => {
   if (me === null)
     return <Auth redirect={`/passport/${query.linkID as string}/reserve`} />;
 
-  const renderView = ({ code, distributionId }: LinkCheckResponse) => {
+  const renderView = ({
+    code,
+    distributionId,
+    statusCode,
+  }: LinkCheckResponse) => {
     const handleConfirm = async () => {
       try {
-        await reserveFigure(distributionId);
+        await reserveFigure(distributionId, { figureName: figure.name });
 
         setView(View.Discord);
       } catch (error) {
@@ -70,12 +75,13 @@ const ClaimPassportPage = () => {
       }
     };
 
-    if (code) {
-      switch (code) {
+    if (code || statusCode) {
+      const responseCode = code || statusCode;
+      switch (responseCode) {
         case 100:
           return <Discord reservedFigure={figure.name} />;
         default:
-          return <FeedbackView code={code} />;
+          return <FeedbackView code={responseCode} />;
       }
     }
 
