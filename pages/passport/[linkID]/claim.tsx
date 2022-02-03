@@ -71,7 +71,9 @@ const ClaimPassportPage = () => {
         setView(View.Discord);
       } catch (error) {
         toast({
-          message: error,
+          message:
+            error ||
+            'Something Went wrong please contact passport@sapien.network',
         });
       }
     };
