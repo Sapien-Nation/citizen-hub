@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import JsCookies from 'js-cookie';
+import Link from 'next/link';
 
 import { Cookies } from 'components/common';
 
-// assets
-import { FullLogo } from 'assets';
+// hooks
+import { useAuth } from 'context/user';
 
 const Footer = () => {
+  const { me } = useAuth();
   const [hideBanner, setBannerVisibilty] = useState<Boolean>(
     !Boolean(JsCookies.get('cookiePolicyAccepted'))
   );
@@ -26,7 +28,15 @@ const Footer = () => {
           Copyright &copy; {new Date().getFullYear()} Sapien Inc. All rights
           reserved
         </p>
+        {me && (
+          <Link href="/logout">
+            <a className="inline-flex items-center text-md px-1 pt-1 font-extrabold hover:text-gray-500">
+              Log Out
+            </a>
+          </Link>
+        )}
       </div>
+
       {hideBanner && <Cookies handleCookie={handleCookie} />}
     </footer>
   );
