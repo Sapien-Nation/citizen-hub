@@ -92,7 +92,7 @@ const ReserverList = ({ figures = [] }: { figures: Array<Figure> }) => {
 
 const ReservedListPage: NextPage = () => {
   return (
-    <Query api="/passport/reserved/list">
+    <Query api="/api/v3/passport/reserved/list">
       {({ figures }: { figures: Array<{ name: string }> }) => (
         <ReserverList figures={figures} />
       )}
