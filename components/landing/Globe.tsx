@@ -73,6 +73,7 @@ const Globe = () => {
     renderDom.appendChild(canvas);
     // add camera
     camera.position.set(0, 0, 2.5);
+    camera.sc;
     scene.add(camera);
     // add mesh
     const geometry = new THREE.IcosahedronGeometry(1, 64);
@@ -249,6 +250,7 @@ const Globe = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     mesh = new THREE.Mesh(geometry, material);
     scene.add(mesh);
+    mesh.scale.set(0.85, 0.85, 0.85);
 
     const onResize = () => {
       // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -260,7 +262,7 @@ const Globe = () => {
       if (viewport.width < viewport.height) {
         mesh.scale.set(0.75, 0.75, 0.75);
       } else {
-        mesh.scale.set(1, 1, 1);
+        mesh.scale.set(0.85, 0.85, 0.85);
       }
 
       camera.aspect = viewport.width / viewport.height;
