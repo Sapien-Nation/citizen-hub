@@ -137,9 +137,9 @@ const IndexPage: NextPage = () => {
             their favorite figures from history to celebrate our diverse
             histories and unite to build our shared future. The Metaverse is 
             a world woven of stories, where we can blur and transcend the 
-            boundaries of the digital and the physical. It's a sandbox where
+            boundaries of the digital and the physical. Its a sandbox where
             the only limit is our collective creativity, and where each of us 
-            can write our own story. It's time to go back to the beginning, to
+            can write our own story. Its time to go back to the beginning, to
             find our tribes and ignite a new renaissance as we build the cultures,
             cities and nations of the future. 
           </h2>
