@@ -36,8 +36,11 @@ const IndexPage: NextPage = () => {
           </h2>
           <div className="my-12">
             <Link href="https://discord.gg/DVDe3ZwuYR">
-              <a className="relative shine bg-gradient-to-r from-sapien to-sapien-40 font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8">
-                Join our Community
+              <a
+                className="relative shine bg-gradient-to-r from-sapien to-sapien-40 font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8"
+                target="_blank"
+              >
+                Get your Passport
               </a>
             </Link>
           </div>
@@ -250,10 +253,15 @@ const IndexPage: NextPage = () => {
         <div className="relative">
           <div className="relative lg:mx-auto mx-8 sm:max-w-3xl lg:max-w-none">
             <div className="relative md:pr-8">
-              <p className="text-xl mb-12 mt-8">
+              <p className="text-xl mb-8 mt-8">
                 Where every community is a DAO. Every DAO is sovereign. Every
                 DAO gets the tools to govern their community, mint their own
                 tokens, and own collective assets.
+              </p>
+              <p className="text-xl mb-12">
+                It’s time to go back to the beginning, to find our tribes and
+                ignite a new renaissance as we build the cultures, cities and
+                nations of the future.
               </p>
               <Link href="https://discord.gg/DVDe3ZwuYR">
                 <a className="mt-12 border font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8">
@@ -272,22 +280,33 @@ const IndexPage: NextPage = () => {
       >
         <div className=" mx-auto grid gap-12 mx-8 lg:mx-0 lg:grid-cols-3 lg:max-w-none">
           <div className="p-8 rounded-xl bg-gradient-to-r from-sapien to-sapien-40 shadow-xl shadow-sapien/50 flex-col overflow-hidden">
-            <p className="text-xl sm:text-2xl ">
-              The Metaverse is a world woven of stories, where we can blur and
-              transcend the boundaries of the digital and physical.
+            <h4 className="text-2xl sm:text-3xl dark:text-white font-extrabold mb-2">
+              Community
+            </h4>
+            <p className="text-xl sm:text-2xl">
+              {
+                "We're looking for existing communities that want to join our mission and be first to use our tools to organize their communities."
+              }
             </p>
           </div>
           <div className="p-8 rounded-xl bg-gradient-to-r from-sapien to-sapien-40 shadow-xl shadow-sapien/50 flex-col overflow-hidden">
-            <p className="text-xl sm:text-2xl ">
-              It’s a sandbox where the only limit is our collective creativity,
-              and where each of us can write our own story.
+            <h4 className="text-2xl sm:text-3xl dark:text-white font-extrabold mb-2">
+              Team
+            </h4>
+            <p className="text-xl sm:text-2xl">
+              {
+                "Our project is rapidly expanding and we're always in need of new, talented people to help move our mission forward."
+              }
             </p>
           </div>
           <div className="p-8 rounded-xl bg-gradient-to-r from-sapien to-sapien-40 shadow-xl shadow-sapien/50 flex-col overflow-hidden">
-            <p className="text-xl sm:text-2xl ">
-              It’s time to go back to the beginning, to find our tribes and
-              ignite a new renaissance as we build the cultures, cities and
-              nations of the future.
+            <h4 className="text-2xl sm:text-3xl dark:text-white font-extrabold mb-2">
+              Governance
+            </h4>
+            <p className="text-xl sm:text-2xl">
+              {
+                "This is a community built project and the decisions we're making are based on input from the community. Help drive those decisions."
+              }
             </p>
           </div>
         </div>

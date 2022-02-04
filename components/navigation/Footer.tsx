@@ -24,7 +24,7 @@ const Footer = () => {
       aria-labelledby="footer-heading"
     >
       <div className="py-8 text-center">
-        <p className="text-xs">
+        <p className="text-sm">
           Copyright &copy; {new Date().getFullYear()} Sapien Inc. All rights
           reserved
         </p>
@@ -35,6 +35,21 @@ const Footer = () => {
             </a>
           </Link>
         )}
+        <p className="text-xs px-7 mt-4">
+          The information on this website is for informational purposes only.
+          Sapien does not guarantee the timeliness or completeness of the
+          information contained on this website and the information contained
+          within this website is subject to change without notice. This website
+          may contain forward looking statements regarding Sapien’s intent or
+          current business expectations and business model which are subject to
+          revision, and Sapien does not undertake any obligation to publicly
+          release the result of any revisions to these forward looking
+          statements. Any and all information contained herein does not
+          constitute any purchase or other advice, does not constitute an offer
+          to purchase or sell, nor does it constitute a promotion or
+          recommendation of any token or cryptocurrency or any other type of
+          product
+        </p>
       </div>
 
       {hideBanner && <Cookies handleCookie={handleCookie} />}
