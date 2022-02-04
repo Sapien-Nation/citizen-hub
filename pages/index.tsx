@@ -135,13 +135,7 @@ const IndexPage: NextPage = () => {
           <h2 className="text-xl font-bold sm:text-3xl mb-12">
             Holders will have the opportunity to choose an avatar of one of
             their favorite figures from history to celebrate our diverse
-            histories and unite to build our shared future. The Metaverse is 
-            a world woven of stories, where we can blur and transcend the 
-            boundaries of the digital and the physical. Its a sandbox where
-            the only limit is our collective creativity, and where each of us 
-            can write our own story. Its time to go back to the beginning, to
-            find our tribes and ignite a new renaissance as we build the cultures,
-            cities and nations of the future. 
+            histories and unite to build our shared future.  
           </h2>
           <Link href="https://discord.gg/DVDe3ZwuYR">
             <a className="border font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8">
@@ -267,7 +261,13 @@ const IndexPage: NextPage = () => {
               <p className="text-xl mb-12">
                 It’s time to go back to the beginning, to find our tribes and
                 ignite a new renaissance as we build the cultures, cities and
-                nations of the future.
+                nations of the future. The Metaverse is 
+                a world woven of stories, where we can blur and transcend the 
+                boundaries of the digital and the physical. Its a sandbox where
+                the only limit is our collective creativity, and where each of us 
+                can write our own story. Its time to go back to the beginning, to
+                find our tribes and ignite a new renaissance as we build the cultures,
+                cities and nations of the future.
               </p>
               <Link href="https://discord.gg/DVDe3ZwuYR">
                 <a className="mt-12 border font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8">
