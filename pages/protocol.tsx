@@ -66,8 +66,11 @@ const IndexPage: NextPage = () => {
                   </div>
                   <div data-aos="zoom-y-out" data-aos-delay="600">
                     <Link href="https://discord.gg/DVDe3ZwuYR">
-                      <a className="relative shine bg-gradient-to-r from-sapien to-sapien-40 font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8">
-                        Join our Community
+                      <a
+                        className="relative shine bg-gradient-to-r from-sapien to-sapien-40 font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8"
+                        target="_blank"
+                      >
+                        Get your Passport
                       </a>
                     </Link>
                   </div>
@@ -219,8 +222,11 @@ const IndexPage: NextPage = () => {
               </div>
               <div className="my-12">
                 <Link href="https://discord.gg/DVDe3ZwuYR">
-                  <a className="relative shine bg-gradient-to-r from-sapien to-sapien-40 font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8">
-                    Join our Community
+                  <a
+                    className="relative shine bg-gradient-to-r from-sapien to-sapien-40 font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8"
+                    target="_blank"
+                  >
+                    Get your Passport
                   </a>
                 </Link>
               </div>
