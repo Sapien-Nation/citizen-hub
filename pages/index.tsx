@@ -259,9 +259,7 @@ const IndexPage: NextPage = () => {
                 tokens, and own collective assets.
               </p>
               <p className="text-xl mb-12">
-                It’s time to go back to the beginning, to find our tribes and
-                ignite a new renaissance as we build the cultures, cities and
-                nations of the future. The Metaverse is 
+                The Metaverse is 
                 a world woven of stories, where we can blur and transcend the 
                 boundaries of the digital and the physical. Its a sandbox where
                 the only limit is our collective creativity, and where each of us 
