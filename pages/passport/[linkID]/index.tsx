@@ -77,7 +77,7 @@ const PassportPage = () => {
     }
   };
 
-  return '';
+  return 'Work in progress!';
   return (
     <>
       <Head title="Create Passport" />

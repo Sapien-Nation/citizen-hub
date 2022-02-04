@@ -47,6 +47,7 @@ export enum View {
 const ClaimPassportPage = () => {
   const [view, setView] = useState(View.Reserve);
   const [isSearching, setSearching] = useState(false);
+  const [isLoading, setLoading] = useState(false);
   const [figure, setFigure] = useState<Figure | null>(null);
 
   const toast = useToast();
@@ -66,10 +67,12 @@ const ClaimPassportPage = () => {
   }: LinkCheckResponse) => {
     const handleConfirm = async () => {
       try {
+        setLoading(true);
         await reserveFigure(distributionId, { figureName: figure.name });
-
+        setLoading(false);
         setView(View.Discord);
       } catch (error) {
+        setLoading(false);
         toast({
           message:
             error ||
@@ -123,9 +126,15 @@ const ClaimPassportPage = () => {
                 />
                 {figure && (
                   <button
-                    className="absolute left-2/4 -translate-x-2/4 mt-12 border font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8"
+                    className="absolute left-2/4 -translate-x-2/4 flex items-center mt-12 px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-sapien bg-white hover:bg-indigo-50 sm:px-8"
                     onClick={handleConfirm}
                   >
+                    {isLoading && (
+                      <div
+                        style={{ borderTopColor: 'transparent' }}
+                        className="w-4 h-4 border-2 border-purple-400 border-solid rounded-full animate-spin mr-2"
+                      />
+                    )}
                     Reserve
                   </button>
                 )}
