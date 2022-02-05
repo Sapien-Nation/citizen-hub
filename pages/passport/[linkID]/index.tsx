@@ -1,9 +1,10 @@
+import Error from 'next/error';
 import { useRouter } from 'next/router';
 import { Fragment, useState } from 'react';
 import { Transition } from '@headlessui/react';
 
 // components
-import { Head, Query, Redirect } from 'components/common';
+import { Head, Query } from 'components/common';
 import {
   Auth,
   Avatar,
@@ -77,7 +78,6 @@ const PassportPage = () => {
     }
   };
 
-  return '';
   return (
     <>
       <Head title="Create Passport" />
@@ -95,4 +95,7 @@ const PassportPage = () => {
   );
 };
 
-export default PassportPage;
+const WIPPage = () => {
+  return <Error statusCode={404} />;
+};
+export default WIPPage;

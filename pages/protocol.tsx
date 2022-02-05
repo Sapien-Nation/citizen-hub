@@ -54,20 +54,14 @@ const IndexPage: NextPage = () => {
                   </span>{' '}
                 </h1>
                 <div className="mt-10 flex">
-                  <div className="rounded-full shadow">
-                    {/* <Link href="/passport">
-                      <a
-                        href="#"
-                        className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white dark:text-black bg-sapien hover:bg-sapien-60 md:py-4 md:text-lg md:px-10"
-                      >
-                        Get Passport
-                      </a>
-                    </Link> */}
-                  </div>
+                  <div className="rounded-full shadow"></div>
                   <div data-aos="zoom-y-out" data-aos-delay="600">
                     <Link href="https://discord.gg/DVDe3ZwuYR">
-                      <a className="relative shine bg-gradient-to-r from-sapien to-sapien-40 font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8">
-                        Join our Community
+                      <a
+                        className="relative shine bg-gradient-to-r from-sapien to-sapien-40 font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8"
+                        target="_blank"
+                      >
+                        Get your Passport
                       </a>
                     </Link>
                   </div>
@@ -219,8 +213,11 @@ const IndexPage: NextPage = () => {
               </div>
               <div className="my-12">
                 <Link href="https://discord.gg/DVDe3ZwuYR">
-                  <a className="relative shine bg-gradient-to-r from-sapien to-sapien-40 font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8">
-                    Join our Community
+                  <a
+                    className="relative shine bg-gradient-to-r from-sapien to-sapien-40 font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8"
+                    target="_blank"
+                  >
+                    Get your Passport
                   </a>
                 </Link>
               </div>
