@@ -259,16 +259,16 @@ const IndexPage: NextPage = () => {
         <div className="relative">
           <div className="relative lg:mx-auto mx-8 sm:max-w-3xl lg:max-w-none">
             <div className="relative md:pr-8">
-              <p className="text-xl mb-8 mt-8">
+              <p className="text-xl mb-4 mt-8">
                 Where every community is a DAO. Every DAO is sovereign. Every
                 DAO gets the tools to govern their community, mint their own
                 tokens, and own collective assets.
               </p>
-              <p className="text-xl mb-12">
+              <p className="text-xl mb-4">
                 The Metaverse is a world woven of stories, where we can blur and
                 transcend the boundaries of the digital and the physical.{' '}
               </p>
-              <p className="text-xl mb-12">
+              <p className="text-xl mb-4">
                 It&apos;s a sandbox where the only limit is our collective
                 creativity, and where each of us can write our own story.
               </p>
