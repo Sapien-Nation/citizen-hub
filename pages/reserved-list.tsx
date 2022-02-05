@@ -1,8 +1,12 @@
+import AOS from 'aos';
+import { useEffect, useState } from 'react';
+import { matchSorter } from 'match-sorter';
+
 // types
 import { NextPage } from 'next';
 
 // components
-import { Head } from 'components/common';
+import { Head, Query } from 'components/common';
 
 const list = [
   { name: 'Arminius' },
@@ -23,7 +27,17 @@ const list = [
   { name: 'Benoit Mandelbrot' },
 ];
 
-const ReservedListPage: NextPage = () => {
+interface Figure {
+  name: string;
+}
+
+const ReserverList = ({ figures = [] }: { figures: Array<Figure> }) => {
+  const [searchTerm, setSearchTerm] = useState('');
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <>
       <Head title="Reserved Historical Figures" />
@@ -33,27 +47,41 @@ const ReservedListPage: NextPage = () => {
             <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
               Reserved Historical Figures
             </h2>
+            <input
+              id="search"
+              name="search"
+              autoComplete="off"
+              className="block text-gray-900 w-full h-12 px-5 py-2 border border-gray-600 rounded-3xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
+              placeholder="Search by Name"
+              type="text"
+              onChange={(event) => setSearchTerm(event.target.value)}
+            />
 
             <ul
               role="list"
-              className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+              className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2"
             >
-              {list?.map((person) => (
-                <li
-                  key={person.name}
-                  className="col-span-1 p-2 border border-gray-400 rounded-lg shadow-sm shadow-[4px_4px_#eaeaea] dark:shadow-[4px_4px_#27272a] divide-y divide-gray-200"
-                >
-                  <div className="space-y-4 sm:grid sm:grid-cols-3 sm:gap-6 sm:space-y-0 lg:gap-8">
-                    <div className="sm:col-span-2">
-                      <div className="space-y-4 flex flex-col justify-center h-full">
-                        <div className="text-lg leading-6 font-medium space-y-1">
-                          <h3>{person.name}</h3>
+              {matchSorter(figures, searchTerm, { keys: ['name'] }).map(
+                (person) => (
+                  <div
+                    key={person.name}
+                    data-aos="zoom-y-out"
+                    data-aos-delay="450"
+                  >
+                    <li className="bg-black px-4 text-center py-5 rounded-2xl overflow-hidden text-white">
+                      <div className="space-y-4">
+                        <div className="sm:col-span-2">
+                          <div className="space-y-4 flex flex-col justify-center h-full">
+                            <div className="text-lg font-extrabold leading-6 font-medium space-y-1">
+                              <h3>{person.name}</h3>
+                            </div>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    </li>
                   </div>
-                </li>
-              ))}
+                )
+              )}
             </ul>
           </div>
         </div>
@@ -62,4 +90,13 @@ const ReservedListPage: NextPage = () => {
   );
 };
 
+const ReservedListPage: NextPage = () => {
+  return (
+    <Query api="/api/v3/passport/reserved/list">
+      {({ figures }: { figures: Array<{ name: string }> }) => (
+        <ReserverList figures={figures} />
+      )}
+    </Query>
+  );
+};
 export default ReservedListPage;

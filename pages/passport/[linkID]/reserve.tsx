@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useTheme } from 'next-themes';
@@ -45,7 +46,8 @@ export enum View {
 
 const ClaimPassportPage = () => {
   const [view, setView] = useState(View.Reserve);
-  const [_, setSearching] = useState(false);
+  const [isSearching, setSearching] = useState(false);
+  const [isLoading, setLoading] = useState(false);
   const [figure, setFigure] = useState<Figure | null>(null);
 
   const toast = useToast();
@@ -65,12 +67,16 @@ const ClaimPassportPage = () => {
   }: LinkCheckResponse) => {
     const handleConfirm = async () => {
       try {
+        setLoading(true);
         await reserveFigure(distributionId, { figureName: figure.name });
-
+        setLoading(false);
         setView(View.Discord);
       } catch (error) {
+        setLoading(false);
         toast({
-          message: error,
+          message:
+            error ||
+            'Something Went wrong please contact passport@sapien.network',
         });
       }
     };
@@ -79,23 +85,62 @@ const ClaimPassportPage = () => {
       const responseCode = code || statusCode;
       switch (responseCode) {
         case 100:
-          return <Discord reservedFigure={figure.name} />;
+          return <Discord />;
         default:
           return <FeedbackView code={responseCode} />;
       }
     }
 
     switch (view) {
+      case View.Discord:
+        return <Discord reservedFigure={figure?.name} />;
       case View.Reserve:
         return (
-          <>
-            <FiguresLookup
-              onFigureSelect={(selectedFigure) => setFigure(selectedFigure)}
-              setSearching={setSearching}
-              onSelect={() => {}}
-            />
-            {figure && <button onClick={handleConfirm}>Reserve</button>}
-          </>
+          <div className="relative shadow-xl sm:rounded-2xl sm:overflow-hidden">
+            <div className="absolute inset-0">
+              <img
+                className="h-full w-full object-cover"
+                src="https://images.newindianexpress.com/uploads/user/imagelibrary/2021/11/27/w1200X800/Metaverse_is_Coming.jpg"
+                alt="People working on laptops"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-gray-900 to-purple-900 mix-blend-multiply" />
+            </div>
+            <div className="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
+              <p
+                className={`max-w-lg mx-auto text-md font-light text-white sm:text-xl md:mt-5 transition delay-150 duration-300 ease-in-out ${
+                  isSearching ? 'scale-75 -translate-y-12' : ''
+                }`}
+              >
+                To claim your passport please input your favorite historical
+                figure.
+              </p>
+              <div
+                className={`transition delay-150 duration-300 ease-in-out ${
+                  isSearching ? '-translate-y-12' : ''
+                }`}
+              >
+                <FiguresLookup
+                  onFigureSelect={(selectedFigure) => setFigure(selectedFigure)}
+                  setSearching={setSearching}
+                  onSelect={() => {}}
+                />
+                {figure && (
+                  <button
+                    className="absolute left-2/4 -translate-x-2/4 flex items-center mt-12 px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-sapien bg-white hover:bg-indigo-50 sm:px-8"
+                    onClick={handleConfirm}
+                  >
+                    {isLoading && (
+                      <div
+                        style={{ borderTopColor: 'transparent' }}
+                        className="w-4 h-4 border-2 border-purple-400 border-solid rounded-full animate-spin mr-2"
+                      />
+                    )}
+                    Reserve
+                  </button>
+                )}
+              </div>
+            </div>
+          </div>
         );
     }
   };
