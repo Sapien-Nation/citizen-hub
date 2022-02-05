@@ -109,7 +109,7 @@ const IndexPage: NextPage = () => {
             <p className="text-lg mb-12">
               Join our{' '}
               <Link href="https://discord.gg/DVDe3ZwuYR">
-                <a>
+                <a target="_blank">
                   <span className="underline underline-offset-4 cursor-pointer">
                     Discord
                   </span>{' '}
@@ -118,7 +118,10 @@ const IndexPage: NextPage = () => {
               to secure your spot on the whitelist.
             </p>
             <Link href="/passport">
-              <a className="mt-12 border font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8">
+              <a
+                target="_blank"
+                className="mt-12 border font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8"
+              >
                 Learn more
               </a>
             </Link>
@@ -135,10 +138,13 @@ const IndexPage: NextPage = () => {
           <h2 className="text-xl font-bold sm:text-3xl mb-12">
             Holders will have the opportunity to choose an avatar of one of
             their favorite figures from history to celebrate our diverse
-            histories and unite to build our shared future.  
+            histories and unite to build our shared future.
           </h2>
           <Link href="https://discord.gg/DVDe3ZwuYR">
-            <a className="border font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8">
+            <a
+              target="_blank"
+              className="border font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8"
+            >
               Join the Whitelist
             </a>
           </Link>
@@ -259,20 +265,23 @@ const IndexPage: NextPage = () => {
                 tokens, and own collective assets.
               </p>
               <p className="text-xl mb-12">
-                The Metaverse is 
-                a world woven of stories, where we can blur and transcend the 
-                boundaries of the digital and the physical. </p> 
-                <p className="text-xl mb-12">
-                It's a sandbox where
-                the only limit is our collective creativity, and where each of us 
-                can write our own story.</p>
-                <p className="text-xl mb-12"> 
-                It's time to go back to the beginning, to
-                find our tribes and ignite a new renaissance as we build the cultures,
-                cities and nations of the future.
+                The Metaverse is a world woven of stories, where we can blur and
+                transcend the boundaries of the digital and the physical.{' '}
+              </p>
+              <p className="text-xl mb-12">
+                It&apos;s a sandbox where the only limit is our collective
+                creativity, and where each of us can write our own story.
+              </p>
+              <p className="text-xl mb-12">
+                It&apos;s time to go back to the beginning, to find our tribes
+                and ignite a new renaissance as we build the cultures, cities
+                and nations of the future.
               </p>
               <Link href="https://discord.gg/DVDe3ZwuYR">
-                <a className="mt-12 border font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8">
+                <a
+                  target="_blank"
+                  className="mt-12 border font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8"
+                >
                   Join the first social network of DAOs
                 </a>
               </Link>
@@ -319,7 +328,10 @@ const IndexPage: NextPage = () => {
           </div>
         </div>
         <Link href="https://discord.gg/DVDe3ZwuYR">
-          <a className="mt-12 border font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8">
+          <a
+            target="_blank"
+            className="mt-12 border font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8"
+          >
             Take me there
           </a>
         </Link>

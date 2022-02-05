@@ -221,7 +221,10 @@ const PassportPage: NextPage = () => {
                 how we can collaborate.
               </p>
               <Link href="https://discord.gg/DVDe3ZwuYR">
-                <a className="border font-extrabold justify-center px-2 py-3 rounded-md text-white md:py-3 md:text-xl md:px-8">
+                <a
+                  target="_blank"
+                  className="border font-extrabold justify-center px-2 py-3 rounded-md text-white md:py-3 md:text-xl md:px-8"
+                >
                   Join the Whitelist
                 </a>
               </Link>
