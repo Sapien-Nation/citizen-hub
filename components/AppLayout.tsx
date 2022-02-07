@@ -24,7 +24,7 @@ const AppLayout = ({ children }: Props) => {
     return children;
   }
 
-  if (pathname === '/') {
+  if (pathname === '/' || pathname === '/passport') {
     return (
       <div className="relative flex flex-col min-h-screen">
         <Navbar />{' '}
