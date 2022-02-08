@@ -31,13 +31,17 @@ import type { NextPage } from 'next';
 const PassportPage: NextPage = () => {
   return (
     <>
-      {/* <Head title="Passport" /> */}
+      <Head
+        title="Passport"
+        description="Sapien is building the world’s first sovereign digital nation, a Republic of DAOs powered by Sapien’s first-of-its-kind NFT passport."
+        image="/landing/Human.png"
+      />
       <main
         id="main"
         data-scroll-container
         className="bg-neutral-900 text-white"
       >
-        <section className="tiles tiles--perspective tiles--darker max-w-6xl -mt-10 min-h-screen flex flex-col justify-center align-center mx-auto px-8">
+        <section className="tiles tiles--perspective max-w-6xl -mt-10 min-h-screen flex flex-col justify-center align-center mx-auto px-8">
           <div className="tiles__wrap">
             <div
               className="tiles__line"
@@ -277,27 +281,28 @@ const PassportPage: NextPage = () => {
           data-scroll-speed="2"
           className="max-w-6xl relative gap-6 flex flex-col mx-auto justify-center mt-24 mb-36 px-8"
         >
-          <p className="text-lg">
+          <p className="sm:text-2xl text-xl">
             The future is murky, but it’s easier to see the path forward when
             you’re standing on the shoulders of giants. The collective
             achievements and contributions of our heroes from history have
             brought us to where we stand now.
           </p>
-          <p className="text-lg">
+          <p className="sm:text-2xl text-xl">
             As we embark on this journey of building the future, we’re looking
             back at where we came from with avatars of our favorite historical
             figures to help us blaze a new path forward as we launch the Sapien
             Tribe, the world’s first Digital Nation in the metaverse.
           </p>
-          <p className="text-lg">
+          <p className="sm:text-2xl text-xl">
             Celebrate history with an avatar of one of your favorite historical
             figures and join us in our mission to empower people to reclaim
             their individual and collective agency.
           </p>
-          <p className="text-lg">
+          <p className="sm:text-2xl text-xl">
             The NFT Passport is a new class of digital asset that represents a
-            holder’s citizenship within a Sovereign Tribe (read more in the
-            <Link href="https://discord.gg/DVDe3ZwuYR">
+            holder’s citizenship within a Sovereign Tribe. <br /> <br /> (Read
+            more in the
+            <Link href="/The_Purple_Paper_v1.1.pdf">
               <a
                 target="_blank"
                 className="text-sapien-80 ml-2 underline font-extrabold"
@@ -318,7 +323,7 @@ const PassportPage: NextPage = () => {
               The Sapien Tribe Passport is a unique NFT with unparalleled
               utility. As a holder, you will have the opportunity to:
             </h2>
-            <ul className="list-disc text-lg mb-12">
+            <ul className="list-disc sm:text-2xl text-xl mb-12">
               <li className="ml-6 mb-2">
                 Choose a photo of one of your favorite historical figures to
                 mint a 1-of-1 NFT
@@ -346,31 +351,31 @@ const PassportPage: NextPage = () => {
                         <tr>
                           <th
                             scope="col"
-                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                            className="px-6 py-3 text-left text-xs font-extrabold text-black uppercase tracking-wider"
                           >
                             Initial Batch
                           </th>
                           <th
                             scope="col"
-                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                            className="px-6 py-3 text-left text-xs font-extrabold text-black uppercase tracking-wider"
                           >
                             Max Supply
                           </th>
                           <th
                             scope="col"
-                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                            className="px-6 py-3 text-left text-xs font-extrabold text-black uppercase tracking-wider"
                           >
                             Initial Price
                           </th>
                           <th
                             scope="col"
-                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                            className="px-6 py-3 text-left text-xs font-extrabold text-black uppercase tracking-wider"
                           >
                             NFT Sale
                           </th>
                           <th
                             scope="col"
-                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                            className="px-6 py-3 text-left text-xs font-extrabold text-black uppercase tracking-wider"
                           >
                             Mint Date
                           </th>
@@ -596,7 +601,7 @@ const PassportPage: NextPage = () => {
           <p className="text-lg">
             We are calling all thought leaders, sensemakers, and changemakers to
             join us on the journey of building the Sapien Nation. If you are an
-            individual or organization looking to make an impact, email us at
+            individual or organization looking to make an impact, email us at{' '}
             <b>passports@sapien.network</b> to see how we can collaborate.
           </p>
           <Link href="https://discord.gg/DVDe3ZwuYR">

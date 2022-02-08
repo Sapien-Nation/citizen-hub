@@ -58,7 +58,10 @@ const people = [
 const TeamPage: NextPage = () => {
   return (
     <>
-      <Head title="Team" />
+      <Head
+        title="Team"
+        description="The Sapien team is composed of some truly talented and driven people. Get to know our team and learn about the people behind this exciting crypto project."
+      />
       <div className="bg-neutral-900">
         <div className="mx-auto py-12 px-4 sm:px-6 max-w-6xl lg:px-8 lg:py-24">
           <div className="space-y-12">

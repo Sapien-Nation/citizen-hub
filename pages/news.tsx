@@ -11,7 +11,7 @@ const News: NextPage = () => {
     <>
       <Head
         title="News"
-        description="Microsoft and eBay Veteran Latif Nathani Joins Sapien.Network as COO"
+        description="Sapien is doing some groundbreaking work and naturally the news follows. When that news breaks, we’ll keep you updated here."
         image="/images/Sapien_Logo.png"
       />
       <div className="relative py-16 overflow-hidden bg-neutral-900">
