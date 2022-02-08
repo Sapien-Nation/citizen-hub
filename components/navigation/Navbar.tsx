@@ -38,7 +38,7 @@ const Navbar = () => {
   return (
     <Disclosure
       as="nav"
-      className="relative w-full shadow z-10 backdrop-blur-md"
+      className="relative w-full shadow z-10 backdrop-blur-md bg-neutral-900/50 text-white"
     >
       {({ open }) => (
         <>
