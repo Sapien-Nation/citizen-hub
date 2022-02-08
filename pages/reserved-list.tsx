@@ -85,6 +85,16 @@ const ReserverList = ({ figures = [] }: { figures: Array<Figure> }) => {
             </ul>
           </div>
         </div>
+        <div className="mx-auto py-12 px-4 max-w-6xl sm:px-6 lg:px-8 lg:py-24">
+          <p className="text-lg">
+            The future is murky, but it’s easier to see the path forward when
+            you’re standing on the shoulders of giants. The collective
+            achievements and contributions of our heroes from history have
+            brought us to where we stand now. It is time to choose your avatar
+            and be their champion as we blaze a new path with the{' '}
+            <i>Sapien Tribe</i>.
+          </p>
+        </div>
       </div>
     </>
   );
