@@ -32,7 +32,11 @@ const PassportPage: NextPage = () => {
   return (
     <>
       {/* <Head title="Passport" /> */}
-      <main id="main" data-scroll-container>
+      <main
+        id="main"
+        data-scroll-container
+        className="bg-neutral-900 text-white"
+      >
         <section className="tiles tiles--perspective tiles--darker max-w-6xl -mt-10 min-h-screen flex flex-col justify-center align-center mx-auto px-8">
           <div className="tiles__wrap">
             <div
