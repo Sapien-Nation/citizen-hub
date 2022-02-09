@@ -28,8 +28,8 @@ const Discord = ({ reservedFigure }: Props) => {
           </p>
         )}
         <p className="mt-6 max-w-lg text-xl text-white font-semibold sm:max-w-3xl">
-          Please join our community and add yourself to the whitelist to secure
-          your historical pick.
+          Please join our community to stay up to date on the next steps to get
+          your NFT passport.
         </p>
         <div className="mt-10 max-w-sm sm:max-w-none sm:flex">
           <a
