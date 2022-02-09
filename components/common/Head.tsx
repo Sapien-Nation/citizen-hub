@@ -16,7 +16,7 @@ const Head = ({ children = null, title, image, description }: Props) => {
       description={
         description
           ? description
-          : 'Sapien is a Web3 social network that rewards content creators and puts users back in control of their data. Built on Ethereum ♥️.'
+          : 'From the utility of our NFT Passport to our unique curation token to our new crypto token protocol, learn everything you need to know about what we’re doing.'
       }
       canonical={process.browser ? window.location.host : ''}
       openGraph={{

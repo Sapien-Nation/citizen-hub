@@ -19,7 +19,10 @@ const IndexPage: NextPage = () => {
   }, []);
   return (
     <>
-      <Head title="Nation" />
+      <Head
+        title="Protocol"
+        description="Our mission is to build social and economic tools that can help individuals and communities reclaim their agency. Our protocol outlines how our solution can make this mission a reality."
+      />
       <div className="bg-gray-100">
         <main className="lg:relative">
           <div className="relative bg-white dark:bg-black border-b">
