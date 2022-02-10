@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useTheme } from 'next-themes';
 
 // api
-import { reserveFigure } from 'api/passport/reserve';
+import { reserveFigure, resubmitReserveFigure } from 'api/passport/reserve';
 
 // utils
 import { mergeClassNames } from 'utils/styles';
@@ -37,6 +37,7 @@ interface LinkCheckResponse {
   isReserved: boolean;
   reservedFigure: string | null;
   expiresAt: ISOString | null;
+  passportId?: string | null;
 }
 
 export enum View {
@@ -64,11 +65,18 @@ const ClaimPassportPage = () => {
     code,
     distributionId,
     statusCode,
+    passportId,
   }: LinkCheckResponse) => {
     const handleConfirm = async () => {
       try {
         setLoading(true);
-        await reserveFigure(distributionId, { figureName: figure.name });
+
+        const body = { figureName: figure.name };
+        if (passportId) {
+          await resubmitReserveFigure(passportId, body);
+        } else {
+          await reserveFigure(distributionId, body);
+        }
         setLoading(false);
         setView(View.Discord);
       } catch (error) {
