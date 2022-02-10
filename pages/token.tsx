@@ -16,6 +16,7 @@ const News: NextPage = () => {
     controls: true,
     responsive: true,
     fluid: true,
+    muted: true,
     poster: '/landing/3dCoin.jpeg',
     sources: [
       {
