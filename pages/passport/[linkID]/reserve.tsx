@@ -16,6 +16,7 @@ import {
   Discord,
   FeedbackView,
   FiguresLookup,
+  Pending,
 } from 'components/passport';
 
 // context
@@ -43,6 +44,7 @@ interface LinkCheckResponse {
 export enum View {
   Discord,
   Reserve,
+  Pending,
 }
 
 const ClaimPassportPage = () => {
@@ -69,16 +71,19 @@ const ClaimPassportPage = () => {
   }: LinkCheckResponse) => {
     const handleConfirm = async () => {
       try {
+        let isPending = false;
         setLoading(true);
 
         const body = { figureName: figure.name };
         if (passportId) {
-          await resubmitReserveFigure(passportId, body);
+          const response = await resubmitReserveFigure(passportId, body);
+          isPending = response.isPending;
         } else {
-          await reserveFigure(distributionId, body);
+          const response = await reserveFigure(distributionId, body);
+          isPending = response.isPending;
         }
         setLoading(false);
-        setView(View.Discord);
+        setView(isPending ? View.Pending : View.Discord);
       } catch (error) {
         setLoading(false);
         toast({
@@ -90,10 +95,17 @@ const ClaimPassportPage = () => {
     };
 
     if (code || statusCode) {
-      return <FeedbackView code={code || statusCode} />;
+      const responseCode = code || statusCode;
+
+      if (responseCode === 104) {
+        return <Pending />;
+      }
+      return <FeedbackView code={responseCode} />;
     }
 
     switch (view) {
+      case View.Pending:
+        return <Pending />;
       case View.Discord:
         return <Discord reservedFigure={figure?.name} />;
       case View.Reserve:
