@@ -27,6 +27,7 @@ const navigation = [
     target: true,
     visible: true,
   },
+  { name: 'Roadmap', href: '/roadmap', visible: true },
   { name: 'News', href: '/news', visible: true },
   { name: 'Team', href: '/team', visible: true },
 ];

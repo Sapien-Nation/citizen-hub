@@ -48,7 +48,7 @@ const News: NextPage = () => {
       />
       <div className="max-w-6xl mx-auto px-8 sm:px-6 lg:px-8 my-12">
         <h2 className="text-2xl md:text-4xl font-extrabold">
-          Cooming soon:{' '}
+          Coming soon:{' '}
           <span className=" bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
             The Sovereign.
           </span>
