@@ -287,12 +287,15 @@ const IndexPage: NextPage = () => {
                   and ignite a new renaissance as we build the cultures, cities
                   and nations of the future.
                 </p>
+                <p className="text-xl mb-12">
+                  Join the first social network of DAOs
+                </p>
                 <Link href="https://discord.gg/DVDe3ZwuYR">
                   <a
                     target="_blank"
                     className="mt-12 border font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8"
                   >
-                    Join the first social network of DAOs
+                    Join
                   </a>
                 </Link>
               </div>
