@@ -13,6 +13,6 @@ export const resubmitReserveFigure = (
   body: { figureName: string }
 ) =>
   axios
-    .post(`/api/v3/passport/${passportId}/figure`, body)
+    .patch(`/api/v3/passport/${passportId}/figure`, body)
     .then(({ data }) => data)
     .catch(({ response }) => Promise.reject(response.data.message));
