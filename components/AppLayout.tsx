@@ -26,7 +26,7 @@ const AppLayout = ({ children }: Props) => {
 
   if (pathname === '/' || pathname === '/passport') {
     return (
-      <div className="relative flex flex-col min-h-screen">
+      <div className="relative flex flex-col min-h-screen bg-neutral-900 text-white">
         <Navbar />{' '}
         <LocomotiveScrollProvider
           options={{
@@ -48,7 +48,7 @@ const AppLayout = ({ children }: Props) => {
   }
 
   return (
-    <div className="relative flex flex-col min-h-screen">
+    <div className="relative flex flex-col min-h-screen bg-neutral-900 text-white">
       <Navbar />
       <main className="flex-1 flex flex-col">
         <div className="flex-1">{children}</div>
