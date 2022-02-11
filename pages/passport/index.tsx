@@ -613,7 +613,7 @@ const PassportPage: NextPage = () => {
             </a>
           </Link>
         </section>
-        <div data-scroll data-scroll-speed="1" className="w-full lg:mb-28">
+        <div data-scroll data-scroll-speed="1" className="w-full lg:mb-44">
           <Footer />
         </div>
       </main>
