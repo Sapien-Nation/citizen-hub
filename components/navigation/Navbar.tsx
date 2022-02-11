@@ -20,12 +20,14 @@ const navigation = [
   { name: 'Passport', href: '/passport', visible: true },
   { name: 'Protocol', href: '/protocol', visible: true },
   { name: 'Reserved List', href: '/reserved-list', visible: true },
+  // { name: 'Token', href: '/token', visible: false },
   {
     name: 'Purple Paper',
     href: '/The_Purple_Paper_v1.1.pdf',
     target: true,
     visible: true,
   },
+  { name: 'Roadmap', href: '/roadmap', visible: true },
   { name: 'News', href: '/news', visible: true },
   { name: 'Team', href: '/team', visible: true },
 ];
@@ -38,7 +40,7 @@ const Navbar = () => {
   return (
     <Disclosure
       as="nav"
-      className="relative w-full shadow z-10 backdrop-blur-md"
+      className="relative w-full shadow z-10 backdrop-blur-md bg-neutral-900/50 text-white"
     >
       {({ open }) => (
         <>

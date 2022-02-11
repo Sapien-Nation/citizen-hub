@@ -6,4 +6,5 @@ export { default as FeedbackView } from './FeedbackView';
 export { default as FiguresLookup } from './figure/FiguresLookup';
 export { default as Figure } from './figure';
 export { default as Loading } from './loading';
+export { default as Pending } from './pending';
 export { default as StartView } from './StartView';

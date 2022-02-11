@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useTheme } from 'next-themes';
 
 // api
-import { reserveFigure } from 'api/passport/reserve';
+import { reserveFigure, resubmitReserveFigure } from 'api/passport/reserve';
 
 // utils
 import { mergeClassNames } from 'utils/styles';
@@ -16,6 +16,7 @@ import {
   Discord,
   FeedbackView,
   FiguresLookup,
+  Pending,
 } from 'components/passport';
 
 // context
@@ -37,11 +38,13 @@ interface LinkCheckResponse {
   isReserved: boolean;
   reservedFigure: string | null;
   expiresAt: ISOString | null;
+  passportId?: string | null;
 }
 
 export enum View {
   Discord,
   Reserve,
+  Pending,
 }
 
 const ClaimPassportPage = () => {
@@ -64,13 +67,23 @@ const ClaimPassportPage = () => {
     code,
     distributionId,
     statusCode,
+    passportId,
   }: LinkCheckResponse) => {
     const handleConfirm = async () => {
       try {
+        let isPending = false;
         setLoading(true);
-        await reserveFigure(distributionId, { figureName: figure.name });
+
+        const body = { figureName: figure.name };
+        if (passportId) {
+          const response = await resubmitReserveFigure(passportId, body);
+          isPending = response.isPending;
+        } else {
+          const response = await reserveFigure(distributionId, body);
+          isPending = response.isPending;
+        }
         setLoading(false);
-        setView(View.Discord);
+        setView(isPending ? View.Pending : View.Discord);
       } catch (error) {
         setLoading(false);
         toast({
@@ -83,15 +96,16 @@ const ClaimPassportPage = () => {
 
     if (code || statusCode) {
       const responseCode = code || statusCode;
-      switch (responseCode) {
-        case 100:
-          return <Discord />;
-        default:
-          return <FeedbackView code={responseCode} />;
+
+      if (responseCode === 104) {
+        return <Pending />;
       }
+      return <FeedbackView code={responseCode} />;
     }
 
     switch (view) {
+      case View.Pending:
+        return <Pending />;
       case View.Discord:
         return <Discord reservedFigure={figure?.name} />;
       case View.Reserve:

@@ -40,13 +40,26 @@ const ReserverList = ({ figures = [] }: { figures: Array<Figure> }) => {
 
   return (
     <>
-      <Head title="Reserved Historical Figures" />
+      <Head
+        title="Reserved Historical Figures"
+        description="View the list of reserved historical figures on our NFT passports. See which figures have been claimed and pick your avatar during an NFT drop before it’s gone!"
+      />
       <div className="h-full">
         <div className="mx-auto py-12 px-4 max-w-6xl sm:px-6 lg:px-8 lg:py-24">
           <div className="space-y-12">
             <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
               Reserved Historical Figures
             </h2>
+            <div className="mx-auto px-8 max-w-6xl sm:px-6 lg:px-0">
+              <p className="text-lg">
+                The future is murky, but it’s easier to see the path forward
+                when you’re standing on the shoulders of giants. The collective
+                achievements and contributions of our heroes from history have
+                brought us to where we stand now. It is time to choose your
+                avatar and be their champion as we blaze a new path with the{' '}
+                <i>Sapien Tribe</i>.
+              </p>
+            </div>
             <input
               id="search"
               name="search"
@@ -56,7 +69,6 @@ const ReserverList = ({ figures = [] }: { figures: Array<Figure> }) => {
               type="text"
               onChange={(event) => setSearchTerm(event.target.value)}
             />
-
             <ul
               role="list"
               className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2"

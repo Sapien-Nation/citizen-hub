@@ -1,12 +1,28 @@
 import Link from 'next/link';
+import { useRef, useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 // components
-import { Animation, Head } from 'components/common';
+import { Head } from 'components/common';
 
-const logos = [
-  { name: 'Harambe', url: '/images/partners/harambe.png' },
-  { name: 'DoinGud', url: '/images/partners/doingud.png' },
-  { name: 'Polygon', url: '/images/partners/polygon.png' },
+// tailwind ui
+import { Disclosure } from '@headlessui/react';
+import { ChevronUpIcon } from '@heroicons/react/solid';
+
+// utils
+import { preloadImages } from 'utils/homepage';
+
+// components
+import { Footer } from 'components/navigation';
+
+const roadMap = [
+  {
+    initialBatch: '1,500',
+    maxSupply: '10,000',
+    initialPrice: '0.25 ETH',
+    nftSale: 'February 28th, 2022',
+    mintDate: 'March 30, 2022',
+  },
 ];
 
 // types
@@ -15,247 +31,616 @@ import type { NextPage } from 'next';
 const PassportPage: NextPage = () => {
   return (
     <>
-      <Head title="Passport" />
-      <div className="space-y-12">
-        <div className="mx-auto py-20 px-6 lg:px-10 max-w-6xl">
+      <Head
+        title="Passport"
+        description="Sapien is building the world’s first sovereign digital nation, a Republic of DAOs powered by Sapien’s first-of-its-kind NFT passport."
+        image="/landing/Human.png"
+      />
+      <main
+        id="main"
+        data-scroll-container
+        className="bg-neutral-900 text-white overflow-hidden"
+      >
+        <section className="tiles tiles--perspective max-w-6xl -mt-10 min-h-screen flex flex-col justify-center align-center mx-auto px-8">
+          <div className="tiles__wrap">
+            <div
+              className="tiles__line"
+              data-scroll
+              data-scroll-speed="2"
+              data-scroll-direction="horizontal"
+            >
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Abraham_Lincoln.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Adam_Smith.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Alexander_Hamilton.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Arminius.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Bob_Marley.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Buddha.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Charles_Darwin.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Che_Guevara.png')",
+                }}
+              ></div>
+            </div>
+            <div
+              className="tiles__line"
+              data-scroll
+              data-scroll-speed="-2"
+              data-scroll-direction="horizontal"
+            >
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Clara_Barton.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Diogenes.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Edsger_Dijkstra.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/George_Washington.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Harriet_Tunman.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/John_F_Kennedy.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/John_von_Neumann.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Karl_Marx.png')",
+                }}
+              ></div>
+            </div>
+            <div
+              className="tiles__line"
+              data-scroll
+              data-scroll-speed="2"
+              data-scroll-direction="horizontal"
+            >
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Kobe_Bryant.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Mozart.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Muhammad_Ali.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Nikola_Tesla.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Oda_Nobunaga.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Plato.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Pocahontas.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Rachel_Carson.png')",
+                }}
+              ></div>
+            </div>
+            <div
+              className="tiles__line"
+              data-scroll
+              data-scroll-speed="-2"
+              data-scroll-direction="horizontal"
+            >
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Ruth_Bader_Ginsburg.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Salvador_Dali.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Santiago_Ramon_y_Cajal.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/stephen-hawking.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Terence_Mckenna.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/ts_eliot.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Tupac_Shakur.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Michaelangelo.png')",
+                }}
+              ></div>
+            </div>
+          </div>
           <h2
-            data-aos="zoom-y-out"
-            data-aos-delay="300"
-            className="text-3xl font-extrabold tracking-tight sm:text-4xl"
+            className="content__title md:text-8xl text-4xl font-extrabold drop-shadow-lg md:filter-none"
+            data-scroll
+            data-scroll-speed="2"
           >
-            The Sapien Passport is your ticket to:
+            Choose Your Avatar and Blaze a Path Forward
           </h2>
-          <div className="md:flex flex-row gap-2 mt-12 space-y-4 md:space-y-0">
-            <div
-              data-aos="zoom-y-out"
-              data-aos-delay="600"
-              className="h-16 bg-gradient-to-r from-sapien to-sapien-40 rounded-lg text-white text-xl sm:text-2xl font-extrabold flex flex-row items-center px-4 -skew-x-12 min-width-10"
-            >
-              <div className="skew-x-12">Our Metaverse</div>
-            </div>
-            <div
-              data-aos="zoom-y-out"
-              data-aos-delay="900"
-              className="h-16 bg-gradient-to-r from-sapien to-sapien-40 rounded-lg text-white text-xl sm:text-2xl font-extrabold flex flex-row items-center px-4 -skew-x-12"
-            >
-              <div className="skew-x-12">Next Generation Communities</div>
-            </div>
-            <div
-              data-aos="zoom-y-out"
-              data-aos-delay="1200"
-              className="h-16 bg-gradient-to-r from-sapien to-sapien-40 rounded-lg text-white text-xl sm:text-2xl font-extrabold flex flex-row items-center px-4 -skew-x-12"
-            >
-              <div className="skew-x-12">Digital and Real World Agency</div>
-            </div>
-          </div>
-        </div>
-        <div
-          data-aos="zoom-y-out"
-          data-aos-delay="1200"
-          className="mx-auto px-6 lg:px-10 max-w-6xl rounded-3xl"
-        >
-          <h2 className="text-2xl sm:text-3xl font-extrabold mb-5">
-            What it is
-          </h2>
-          <p className="text-xl sm:text-2xl mb-24">
-            The Sapien Passport is a first of its kind NFT that gives you a
-            digital persona and citizenship in the Sapien ecosystem. The
-            communities you’re part of can stamp your Passport to signify your
-            membership in their community. They can also add titles and stamps
-            to speak to your expertise on a topic, signify to others that you’re
-            someone they work with, or speak in support of your talents.
+          <p className="text-lg md:text-3xl font-bold z-10">
+            The NFT Passport is the tool to navigate next-gen communities in the
+            metaverse.
           </p>
-          <div className="mt-12 max-w-lg mx-auto lg:max-w-none">
-            <div
-              data-aos="zoom-y-out"
-              data-aos-delay="350"
-              className="relative flex mb-12 rounded-3xl"
-            >
-              <div className="dark:bg-black bg-black text-white px-8 py-12 rounded-3xl">
-                <h4 className="text-2xl sm:text-3xl font-extrabold">
-                  Sapien’s NFT Passport is Key to Addressing the Issues We Find
-                  in Most Social Media Today
-                </h4>
-                <p className="mt-3 text-xl sm:text-2xl">
-                  {`Existing platforms are plagued by trolls, astroturfing, and a whole host of different types of spam. Our NFT Passport aims to remedy this by creating a digital social ledger you carry with you everywhere you go in our ecosystem.
-                    `}
-                </p>
-              </div>
-            </div>
-            <div
-              data-aos="zoom-y-out"
-              data-aos-delay="350"
-              className="relative flex mb-12 rounded-3xl"
-            >
-              <div className="dark:bg-black bg-black text-white px-8 py-12 rounded-3xl">
-                <h4 className="text-2xl sm:text-3xl font-extrabold">
-                  Anonymous Participation Online Has Led to Unaccountable
-                  Engagement
-                </h4>
-                <p className="mt-3 text-xl sm:text-2xl">
-                  {`When you post something online, you’re making yourself vulnerable and sharing a part of yourself and that’s a uniquely beautiful thing. Unfortunately, this can open the door for faceless strangers to criticize and attack you, often unfairly, with no consequences for their behavior.
-                    `}
-                </p>
-              </div>
-            </div>
-            <div
-              data-aos="zoom-y-out"
-              data-aos-delay="350"
-              className="relative flex rounded-3xl"
-            >
-              <div className="bg-white dark:bg-black bg-black text-white px-8 py-12 rounded-3xl">
-                <h4 className="text-2xl sm:text-3xl font-extrabold">
-                  Now, The Internet Is Changing as We Move Towards the Metaverse
-                  and Web 3.0
-                </h4>
-                <p className="mt-3 text-xl sm:text-2xl">
-                  {`This transition presents the potential for a scary step in the wrong direction for human connection where the metaverse takes over our daily lives and these issues become even more pronounced. As we build, it’s important that what we’re building with quality and honesty in mind from the ground up
-                  `}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="mb-24 lg:mx-auto py-12 sm:px-6 lg:px-10 lg:max-w-6xl lg:grid lg:grid-cols-2 lg:gap-24 lg:items-start">
-          <div className="relative sm:py-16 lg:py-0">
-            <div
-              aria-hidden="true"
-              className="hidden md:block lg:absolute lg:inset-y-0 lg:right-0 lg:w-screen"
-            >
-              <svg
-                className="absolute top-8 left-1/2 -ml-3 lg:-right-8 lg:left-auto lg:top-12"
-                width={404}
-                height={392}
-                fill="none"
-                viewBox="0 0 404 392"
-              >
-                <defs>
-                  <pattern
-                    id="02f20b47-fd69-4224-a62a-4c9de5c763f7"
-                    x={0}
-                    y={0}
-                    width={20}
-                    height={20}
-                    patternUnits="userSpaceOnUse"
-                  >
-                    <rect
-                      x={0}
-                      y={0}
-                      width={4}
-                      height={4}
-                      className="text-sapien-20"
-                      fill="currentColor"
-                    />
-                  </pattern>
-                </defs>
-                <rect
-                  width={404}
-                  height={392}
-                  fill="url(#02f20b47-fd69-4224-a62a-4c9de5c763f7)"
-                />
-              </svg>
-            </div>
-            <div className="relative mx-auto max-w-md sm:max-w-3xl px-6 lg:px-0 lg:max-w-none lg:py-20">
-              <div className="relative px-8">
-                <div
-                  data-aos="zoom-y-out"
-                  data-aos-delay="350"
-                  className="px-8 py-12 bg-black rounded-3xl"
-                >
-                  <p className="text-xl sm:text-2xl text-white">
-                    In the Sapien Ecosystem, passports will reintroduce
-                    accountability without sacrificing your privacy.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="relative mx-auto px-6 lg:px-0">
-            {/* Content area */}
-            <div className="pt-12 sm:pt-16 lg:pt-20">
-              <div data-aos="zoom-y-out" data-aos-delay="800" className="mt-4">
-                <p className="text-xl sm:text-2xl">
-                  Our vision for the Passport is a form of digital identity that
-                  allows communities to create networks and share these networks
-                  with other communities. These networks will represent an
-                  entire community’s support of an individual and their
-                  contributions. Through these networks we can help begin to
-                  solve the issues with anonymous participation without
-                  sacrificing anonymity itself.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="relative bg-white dark:bg-black border-b mb-4">
-          <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-black"></div>
-            <Animation />
-          </div>
-          <div className="items-center mx-auto max-w-6xl w-full pt-24 pb-24 lg:py-36 lg:text-left relative">
-            <div className="py-12 lg:px-8 px-6 sm:px-6">
-              <h1
-                data-aos="zoom-y-out"
-                data-aos-delay="350"
-                className="text-4xl text-white mt-5 tracking-tight font-extrabold sm:text-5xl md:text-6xl lg:text-6xl xl:text-6xl"
-              >
-                <span className="block xl:inline">
-                  <span className="pb-3 bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
-                    Passports
-                  </span>{' '}
-                  are being distributed{' '}
-                  <span className="pb-3 bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
-                    Now
-                  </span>
-                </span>{' '}
-              </h1>
-              <p
-                data-aos="zoom-y-out"
-                data-aos-delay="600"
-                className="rounded-xl px-12 py-8 mb-8 bg-black text-xl sm:text-2xl md:mt-5 text-white font-bold"
-              >
-                We are calling all thought leaders, sensemakers, and
-                changemakers to join us on the journey of building the Sapien
-                Nation. If you are an individual or organization looking to make
-                an impact, email us at <b>passports@sapien.network</b> to see
-                how we can collaborate.
-              </p>
-              <Link href="https://discord.gg/DVDe3ZwuYR">
-                <a
-                  target="_blank"
-                  className="border font-extrabold justify-center px-2 py-3 rounded-md text-white md:py-3 md:text-xl md:px-8"
-                >
-                  Join the Whitelist
-                </a>
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Logo cloud section */}
-        {/* <div
-          data-aos="zoom-y-out"
-          data-aos-delay="350"
-          className="relative mx-auto px-4 sm:px-6 lg:px-10 max-w-6xl py-12"
+        </section>
+        <section
+          data-scroll
+          data-scroll-speed="2"
+          className="max-w-6xl relative gap-6 flex flex-col mx-auto justify-center mt-24 mb-36 px-8"
         >
-          <div className="">
-            <div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold mb-12">
-                {`Who's on board`}
-              </h2>
-            </div>
-            <div className="mt-12 gap-0.5 lg:mt-0 flex flex-row justify-center items-center">
-              {logos.map((logo) => (
-                <div key={logo.name} className="">
-                  <img src={logo.url} alt={logo.name} />
+          <p className="sm:text-2xl text-xl">
+            The future is murky, but it’s easier to see the path forward when
+            you’re standing on the shoulders of giants. The collective
+            achievements and contributions of our heroes from history have
+            brought us to where we stand now.
+          </p>
+          <p className="sm:text-2xl text-xl">
+            As we embark on this journey of building the future, we’re looking
+            back at where we came from with avatars of our favorite historical
+            figures to help us blaze a new path forward as we launch the Sapien
+            Tribe, the world’s first Digital Nation in the metaverse.
+          </p>
+          <p className="sm:text-2xl text-xl">
+            Celebrate history with an avatar of one of your favorite historical
+            figures and join us in our mission to empower people to reclaim
+            their individual and collective agency.
+          </p>
+          <p className="sm:text-2xl text-xl">
+            The NFT Passport is a new class of digital asset that represents a
+            holder’s citizenship within a Sovereign Tribe. <br /> <br /> (Read
+            more in the
+            <Link href="/The_Purple_Paper_v1.1.pdf">
+              <a
+                target="_blank"
+                className="text-sapien-80 ml-2 underline font-extrabold"
+              >
+                Purple Paper
+              </a>
+            </Link>
+            ).
+          </p>
+        </section>
+        <div
+          data-scroll
+          data-scroll-speed="1"
+          className="relative flex justify-center mx-8 lg:mx-0 mt-24 mb-36"
+        >
+          <div className="px-8 py-12 lg:max-w-6xl rounded-xl bg-gradient-to-r from-sapien to-sapien-40 shadow-xl shadow-sapien/50">
+            <h2 className="text-xl font-bold sm:text-3xl mb-12">
+              The Sapien Tribe Passport is a unique NFT with unparalleled
+              utility. As a holder, you will have the opportunity to:
+            </h2>
+            <ul className="list-disc sm:text-2xl text-xl mb-12">
+              <li className="ml-6 mb-2">
+                Choose a photo of one of your favorite historical figures to
+                mint a 1-of-1 NFT
+              </li>
+              <li className="ml-6 mb-2">
+                Add to a bespoke, limited art collection generated with Machine
+                Learning
+              </li>
+              <li className="ml-6 mb-2">
+                Get early access to the Sapien platform and powerful utilities
+                within the ecosystem
+              </li>
+              <li className="ml-6 mb-2">
+                Become a Founding Member of the Sapien Tribe when you sign your
+                passport
+              </li>
+            </ul>
+
+            <div className="flex flex-col mb-12">
+              <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                  <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                    <table className="min-w-full divide-y divide-gray-200 zoom-50">
+                      <thead className="bg-gray-50">
+                        <tr>
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-left text-xs font-extrabold text-black uppercase tracking-wider"
+                          >
+                            Initial Batch
+                          </th>
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-left text-xs font-extrabold text-black uppercase tracking-wider"
+                          >
+                            Max Supply
+                          </th>
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-left text-xs font-extrabold text-black uppercase tracking-wider"
+                          >
+                            Initial Price
+                          </th>
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-left text-xs font-extrabold text-black uppercase tracking-wider"
+                          >
+                            NFT Sale
+                          </th>
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-left text-xs font-extrabold text-black uppercase tracking-wider"
+                          >
+                            Mint Date
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody className="bg-white divide-y divide-gray-200">
+                        {roadMap.map((date, index) => (
+                          <tr key={index}>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                              {date.initialBatch}
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                              {date.maxSupply}
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                              {date.initialPrice}
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                              {date.nftSale}
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                              {date.mintDate}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
-              ))}
+              </div>
+            </div>
+
+            <Link href="https://discord.gg/DVDe3ZwuYR">
+              <a
+                target="_blank"
+                className="border font-extrabold justify-center px-2 py-3 mt-12 rounded-md text-white md:py-3 md:text-xl md:px-8"
+              >
+                Join the Whitelist
+              </a>
+            </Link>
+          </div>
+        </div>
+        <section
+          data-scroll
+          data-scroll-speed="1"
+          className="max-w-6xl relative gap-6 flex flex-col mx-auto justify-center mt-24 mb-24 px-8"
+        >
+          <h2 className="text-4xl text-end md:text-6xl font-extrabold">
+            Liquid{' '}
+            <span className="pb-3 bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
+              Citizenship
+            </span>
+            .
+          </h2>
+          <p className="text-lg">
+            The Sapien Tribe Passport is an essential tool for finding the right
+            people around the globe to unite and lead the first digital nation
+            in the metaverse. NFT Passports can be signed or unsigned: Unsigned
+            Passports are free to transfer or trade, whereas Signed Passports
+            are non-transferable and tied to a wallet address.
+          </p>
+          <p className="text-lg">
+            Passport holders will have the opportunity to sign their passports
+            with the <i>Declaration of Sovereignty</i>, a seminal document
+            outlining the rights of <i>Sapien Tribe</i> citizens, or at the{' '}
+            <i>Constitutional Convention</i>, a holder exclusive event to ratify
+            the governance framework of the <i>Sapien Tribe</i>. Upon signature,
+            the holder will become a Founding Member of the Sapien Tribe and the
+            passport will become non-transferable.
+          </p>
+          <p className="text-lg">
+            Every passport holder will have to choose between the market value
+            of their passport and the social value of participation in the{' '}
+            <i>Sapien Tribe</i>.
+          </p>
+        </section>
+
+        <section
+          data-scroll
+          data-scroll-speed="1"
+          className="max-w-6xl relative gap-6 flex flex-col mx-auto justify-center mb-48 px-8"
+        >
+          <h2 className="text-4xl text-end md:text-6xl font-extrabold">
+            <span className="pb-3 bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
+              Passport Utilities
+            </span>
+          </h2>
+          <div className="w-full px-4">
+            <div className="w-full p-8 mx-auto bg-neutral-800 text-white rounded-2xl">
+              <Disclosure defaultOpen>
+                {({ open }) => (
+                  <>
+                    <Disclosure.Button className="flex mb-6 justify-between w-full px-4 py-2 text-sm font-medium text-left text-sapien bg-purple-100 rounded-lg hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                      <span className="text-lg font-extrabold">Identity</span>
+                      <ChevronUpIcon
+                        className={`${
+                          open ? 'transform rotate-180' : ''
+                        } w-5 h-5 text-purple-500`}
+                      />
+                    </Disclosure.Button>
+                    <Disclosure.Panel className="mb-6 px-4 gap-6 flex flex-col pt-4 pb-2 text-lg text-white">
+                      <p>
+                        Identity is a fundamental part of participating in any
+                        community. Proof of ownership of an NFT passport serves
+                        as a basis for identity but certain types of
+                        participation require varying degrees of personal
+                        information to be shared (e.g. an age-restricted event
+                        might require one to share one’s age to enter).{' '}
+                      </p>
+                      <p>
+                        In order to facilitate all types of interactions and to
+                        preserve privacy, the NFT passport will implement a
+                        “share-only-what-you-need” identity system based on
+                        Zero-knowledge proofs so that each individual can
+                        participate fully while only sharing private information
+                        with trusted entities.{' '}
+                      </p>
+                      <p>
+                        Each Tribe can determine what information must be shared
+                        publicly in order to participate within their community.
+                        This information can include personal information
+                        voluntarily shared by an individual as well as a record
+                        of their interactions contained within a social ledger.
+                      </p>
+                    </Disclosure.Panel>
+                  </>
+                )}
+              </Disclosure>
+              <Disclosure>
+                {({ open }) => (
+                  <>
+                    <Disclosure.Button className="mb-6 flex justify-between w-full px-4 py-2 text-sm font-medium text-left text-sapien bg-purple-100 rounded-lg hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                      <span className="text-lg font-extrabold">
+                        Social Ledger
+                      </span>
+                      <ChevronUpIcon
+                        className={`${
+                          open ? 'transform rotate-180' : ''
+                        } w-5 h-5 text-purple-500`}
+                      />
+                    </Disclosure.Button>
+                    <Disclosure.Panel className="mb-6 px-4 gap-6 flex flex-col pt-4 pb-2 text-lg text-white">
+                      <p>
+                        The social ledger will be a record of social
+                        interactions associated with an NFT passport. This
+                        record can include positive and negative interactions,
+                        and these interactions can be recorded by any individual
+                        or Tribe.
+                      </p>
+                      <p>
+                        Interactions on the social ledger will be recorded
+                        privately by default and only made public at the
+                        discretion of the individual. Certain communities may
+                        require public display of certain sections of the social
+                        ledger for participation. For example, a Tribe may
+                        require public display of all interactions recorded
+                        within other communities that it trusts. A Tribe may
+                        also choose to accept or deny submissions to the social
+                        ledger from other communities.
+                      </p>
+                      <p>
+                        The social ledger is a key component of the network of
+                        trust facilitated by the passport — this network of
+                        trust is enhanced and given tangible value by an access
+                        control layer.
+                      </p>
+                    </Disclosure.Panel>
+                  </>
+                )}
+              </Disclosure>
+              <Disclosure>
+                {({ open }) => (
+                  <>
+                    <Disclosure.Button className="mb-6 flex justify-between w-full px-4 py-2 text-sm font-medium text-left text-sapien bg-purple-100 rounded-lg hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                      <span className="text-lg font-extrabold">
+                        Access Control
+                      </span>
+                      <ChevronUpIcon
+                        className={`${
+                          open ? 'transform rotate-180' : ''
+                        } w-5 h-5 text-purple-500`}
+                      />
+                    </Disclosure.Button>
+                    <Disclosure.Panel className="mb-6 px-4 gap-6 flex flex-col pt-4 pb-2 text-lg text-white">
+                      <p>
+                        Access control on the NFT passport will be managed by a
+                        system of titles associated with certain privileges
+                        within a given Tribe. This system is designed to
+                        facilitate the complex hierarchy of roles that is
+                        essential for the functioning of complex organizations.
+                      </p>
+                      <p>
+                        The access control layer is being developed with
+                        interoperability of the physical and digital worlds in
+                        mind to support the communities of the future which,
+                        whether physically or digitally native will need a
+                        strong presence in both worlds. The NFT passport can be
+                        used to gate access to physical spaces and events or a
+                        wide variety of digital resources and tools that
+                        facilitate the operations of a Tribe, including the
+                        powerful new economic primitives being introduced to the
+                        Sapien ecosystem.
+                      </p>
+                    </Disclosure.Panel>
+                  </>
+                )}
+              </Disclosure>
             </div>
           </div>
-        </div> */}
-      </div>
+        </section>
+        <section
+          data-scroll
+          data-scroll-speed="2"
+          className="max-w-6xl relative gap-6 flex flex-wrap mx-auto justify-center mt-24 mb-36 px-8"
+        >
+          <h2 className="text-4xl text-end md:text-6xl font-extrabold">
+            New to{' '}
+            <span className="pb-3 bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
+              web3
+            </span>
+            ?
+          </h2>
+          <p className="text-lg">
+            We are calling all thought leaders, sensemakers, and changemakers to
+            join us on the journey of building the Sapien Nation. If you are an
+            individual or organization looking to make an impact, email us at{' '}
+            <b>passports@sapien.network</b> to see how we can collaborate.
+          </p>
+          <Link href="https://discord.gg/DVDe3ZwuYR">
+            <a
+              target="_blank"
+              className="mt-12 border font-extrabold justify-center px-2 py-3 rounded-md text-white md:py-3 md:text-xl md:px-8"
+            >
+              Join our Community
+            </a>
+          </Link>
+        </section>
+        <div data-scroll data-scroll-speed="1" className="w-full lg:mb-44">
+          <Footer />
+        </div>
+      </main>
     </>
   );
 };
 
-export default PassportPage;
+const PassportPageProxy = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  const router = useRouter();
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    if (window) {
+      Promise.allSettled([preloadImages('.tiles__line-img')]).then(() => {
+        setIsLoading(false);
+      });
+    }
+  }, []);
+
+  return (
+    <>
+      <Head title="Passport" />
+      {isLoading ? null : <PassportPage />}
+    </>
+  );
+};
+
+export default PassportPageProxy;
