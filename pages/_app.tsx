@@ -15,9 +15,9 @@ import { ErrorView, ToastContainer } from 'components/common';
 import { ToastProvider } from 'context/toast';
 
 // styles
+import 'video.js/dist/video-js.css';
 import '../styles/index.css';
 import '../styles/aos.scss';
-import 'video.js/dist/video-js.css';
 
 // providers
 import { AuthenticationProvider } from 'context/user';

@@ -7,7 +7,7 @@ import { NextPage } from 'next';
 // components
 import { Head, VideoPlayer } from 'components/common';
 
-const News: NextPage = () => {
+const Token: NextPage = () => {
   const playerRef = useRef(null);
 
   const videoJsOptions = {
@@ -42,7 +42,7 @@ const News: NextPage = () => {
   return (
     <>
       <Head
-        title="News"
+        title="Token"
         description="Sapien is doing some groundbreaking work and naturally the news follows. When that news breaks, we’ll keep you updated here."
         image="/images/Sapien_Logo.png"
       />
@@ -109,4 +109,4 @@ const News: NextPage = () => {
   );
 };
 
-export default News;
+export default Token;
