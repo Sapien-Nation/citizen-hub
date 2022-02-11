@@ -9,7 +9,7 @@ const people = [
     name: 'Ankit',
     role: 'Co-CEO & Co-Founder',
     imageUrl: '/images/team/Ankit.png',
-    bio: 'Founding Member of the Sapien Tribe, Co-CEO & Co-Founder of Sapien Network. Ankit has a passion for understanding the status quo and shaping social systems to be more aligned with Nature, Culture, and Technology. As an Indian immigrant and a believer in equal opportunity, he seeks the truth in order to create and live a mindful life that harmonizes his story with the story of his tribes.',
+    bio: 'Founding Member of the Sapien Tribe, Co-CEO & Co-Founder of Sapien Network. Ankit has a passion for understanding the status quo and shaping social systems to be more aligned with nature, culture, and human-centered technology. He graduated with a degree in Electrical Engineering and Computer Science from UC Berkeley and quickly fell in love with the ethos, design, and potential of decentralized technologies to revolutionize the way we connect with each other. As an Indian immigrant and a believer in equal opportunity, he seeks the truth in order to create and live a mindful life that harmonizes his story with the story of his tribes.',
   },
   {
     name: 'Rob',

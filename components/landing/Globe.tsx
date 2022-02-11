@@ -259,11 +259,12 @@ const Globe = () => {
         height: window.innerHeight,
       };
 
-      if (viewport.width < viewport.height) {
-        mesh.scale.set(0.75, 0.75, 0.75);
-      } else {
-        mesh.scale.set(0.85, 0.85, 0.85);
-      }
+      // if (viewport.width < viewport.height) {
+      //   console.log('entro!');
+      //   mesh.scale.set(0.75, 0.75, 0.75);
+      // } else {
+      //   mesh.scale.set(0.85, 0.85, 0.85);
+      // }
 
       camera.aspect = viewport.width / viewport.height;
       camera.updateProjectionMatrix();
