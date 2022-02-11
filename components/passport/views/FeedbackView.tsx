@@ -1,6 +1,7 @@
 // components
 import { LottiePlayer } from 'components/common';
 import { useTheme } from 'next-themes';
+import { Discord } from 'components/passport';
 
 // utils
 import { mergeClassNames } from 'utils/styles';
@@ -47,6 +48,7 @@ const ErrorView = ({ code }: Props) => {
             )}
           >
             {renderMessage()}
+            {code === 100 && <Discord />}
           </p>
         </div>
       </div>
