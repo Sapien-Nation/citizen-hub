@@ -4,6 +4,7 @@ import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
 
 // components
 import { Navbar, Footer } from 'components/navigation';
+import { Banner } from './common';
 
 interface Props {
   children: React.ReactElement;
@@ -27,6 +28,10 @@ const AppLayout = ({ children }: Props) => {
   if (pathname === '/' || pathname === '/passport') {
     return (
       <div className="relative flex flex-col min-h-screen bg-neutral-900 text-white">
+        <Banner
+          title="The Sapien Tribe NFT Passport sale will begin on March 14, 2022. "
+          message="The Sapien Tribe NFT Passport sale will begin on March 14, 2022. "
+        />
         <Navbar />{' '}
         <LocomotiveScrollProvider
           options={{
@@ -49,6 +54,10 @@ const AppLayout = ({ children }: Props) => {
 
   return (
     <div className="relative flex flex-col min-h-screen bg-neutral-900 text-white">
+      <Banner
+        title="The Sapien Tribe NFT Passport sale will begin on March 14, 2022. "
+        message="The Sapien Tribe NFT Passport sale will begin on March 14, 2022. "
+      />
       <Navbar />
       <main className="flex-1 flex flex-col">
         <div className="flex-1">{children}</div>

@@ -12,3 +12,4 @@ export { default as Spinner } from './Spinner';
 export { default as Query } from './Query';
 export { default as LottiePlayer } from './LottiePlayer';
 export { default as VideoPlayer } from './VideoPlayer';
+export { default as Banner } from './Banner';
