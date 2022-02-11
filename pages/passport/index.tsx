@@ -20,8 +20,8 @@ const roadMap = [
     initialBatch: '1,500',
     maxSupply: '10,000',
     initialPrice: '0.25 ETH',
-    nftSale: 'February 28th, 2022',
-    mintDate: 'March 30, 2022',
+    nftSale: 'March 14, 2022',
+    mintDate: 'April 13, 2022',
   },
 ];
 
