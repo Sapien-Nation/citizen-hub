@@ -15,7 +15,6 @@ import { ErrorView, ToastContainer } from 'components/common';
 import { ToastProvider } from 'context/toast';
 
 // styles
-import '../styles/video-js.css';
 import '../styles/index.css';
 import '../styles/aos.scss';
 
