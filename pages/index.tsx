@@ -349,7 +349,7 @@ const IndexPage: NextPage = () => {
             </a>
           </Link>
         </div>
-        <div data-scroll data-scroll-speed="1" className="w-full lg:mb-28">
+        <div data-scroll data-scroll-speed="1" className="w-full lg:mb-44">
           <Footer />
         </div>
       </div>
