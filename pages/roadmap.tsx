@@ -17,9 +17,6 @@ const Roadmap: NextPage = () => {
       />
       <div className="max-w-6xl mx-auto px-8 sm:px-6 lg:px-8 my-12">
         <h1>
-          <span className="block m-auto mb-12 text-base w-48 text-center text-sapien bg-white p-2 rounded-full font-extrabold tracking-wide">
-            Sapien Roadmap
-          </span>
           <span className="mt-2 max-w-prose block text-3xl text-center leading-8 font-extrabold tracking-tight text-white sm:text-4xl">
             We’ll be publicly posting key dates each quarter as we carve out our
             path for the Tribal Renaissance. Stay tuned for updates!
@@ -65,7 +62,7 @@ const Roadmap: NextPage = () => {
               </ul>
             </li>
             <li className="ml-6 mb-2">
-              <span className="font-extrabold">February 28, 2022</span>
+              <span className="font-extrabold">March 14, 2022</span>
               <ul className="list-disc sm:text-2xl text-xl mb-12">
                 <li className="ml-6 mb-2">
                   Passport picks can be claimed with ETH
@@ -73,12 +70,11 @@ const Roadmap: NextPage = () => {
               </ul>
             </li>
             <li className="ml-6 mb-2">
-              <span className="font-extrabold">March 30, 2022</span>
+              <span className="font-extrabold">April 13, 2022</span>
               <ul className="list-disc sm:text-2xl text-xl mb-12">
                 <li className="ml-6 mb-2">Sapien NFT Passport Mint Day</li>
                 <li className="ml-6 mb-2">
-                  Early Access to the Sapien Tribe Protocol with marketplace
-                  beta
+                  Early Access to the Sapien Tribe Protocol
                 </li>
               </ul>
             </li>

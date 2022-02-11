@@ -50,15 +50,6 @@ const ReserverList = ({ figures = [] }: { figures: Array<Figure> }) => {
             <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
               Reserved Historical Figures
             </h2>
-            <input
-              id="search"
-              name="search"
-              autoComplete="off"
-              className="block text-gray-900 w-full h-12 px-5 py-2 border border-gray-600 rounded-3xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
-              placeholder="Search by Name"
-              type="text"
-              onChange={(event) => setSearchTerm(event.target.value)}
-            />
             <div className="mx-auto px-8 max-w-6xl sm:px-6 lg:px-0">
               <p className="text-lg">
                 The future is murky, but it’s easier to see the path forward
@@ -69,6 +60,15 @@ const ReserverList = ({ figures = [] }: { figures: Array<Figure> }) => {
                 <i>Sapien Tribe</i>.
               </p>
             </div>
+            <input
+              id="search"
+              name="search"
+              autoComplete="off"
+              className="block text-gray-900 w-full h-12 px-5 py-2 border border-gray-600 rounded-3xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
+              placeholder="Search by Name"
+              type="text"
+              onChange={(event) => setSearchTerm(event.target.value)}
+            />
             <ul
               role="list"
               className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2"

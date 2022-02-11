@@ -549,4 +549,10 @@ html.has-scroll-dragging {
   }
 }
 
+@media screen and (max-width: 42em) {
+  .zoom-50 {
+    zoom: 50%;
+  }
+}
+
 /*! purgecss end ignore */

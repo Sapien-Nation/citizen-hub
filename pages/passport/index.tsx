@@ -39,7 +39,7 @@ const PassportPage: NextPage = () => {
       <main
         id="main"
         data-scroll-container
-        className="bg-neutral-900 text-white"
+        className="bg-neutral-900 text-white overflow-hidden"
       >
         <section className="tiles tiles--perspective max-w-6xl -mt-10 min-h-screen flex flex-col justify-center align-center mx-auto px-8">
           <div className="tiles__wrap">
@@ -346,7 +346,7 @@ const PassportPage: NextPage = () => {
               <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                   <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                    <table className="min-w-full divide-y divide-gray-200">
+                    <table className="min-w-full divide-y divide-gray-200 zoom-50">
                       <thead className="bg-gray-50">
                         <tr>
                           <th
@@ -440,7 +440,7 @@ const PassportPage: NextPage = () => {
           <p className="text-lg">
             Passport holders will have the opportunity to sign their passports
             with the <i>Declaration of Sovereignty</i>, a seminal document
-            outlining the rights of <i>Sapien Tribe</i> citizens, or at the
+            outlining the rights of <i>Sapien Tribe</i> citizens, or at the{' '}
             <i>Constitutional Convention</i>, a holder exclusive event to ratify
             the governance framework of the <i>Sapien Tribe</i>. Upon signature,
             the holder will become a Founding Member of the Sapien Tribe and the
@@ -448,7 +448,7 @@ const PassportPage: NextPage = () => {
           </p>
           <p className="text-lg">
             Every passport holder will have to choose between the market value
-            of their passport and the social value of participation in the
+            of their passport and the social value of participation in the{' '}
             <i>Sapien Tribe</i>.
           </p>
         </section>
