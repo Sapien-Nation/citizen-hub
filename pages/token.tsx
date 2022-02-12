@@ -78,7 +78,7 @@ const Token: NextPage = () => {
       </div>
 
       <div className="max-w-6xl mx-auto px-8 sm:px-6 lg:px-8 my-12">
-        <h2 className="text-2xl md:text-4xl font-extrabold mb-12">
+        <h2 className="text-2xl md:text-3xl font-extrabold mb-20">
           The{' '}
           <span className=" bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
             STS
