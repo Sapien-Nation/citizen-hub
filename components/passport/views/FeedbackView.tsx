@@ -48,7 +48,6 @@ const ErrorView = ({ code }: Props) => {
             )}
           >
             {renderMessage()}
-            {code === 100 && <Discord />}
           </p>
         </div>
       </div>
