@@ -22,12 +22,12 @@ const Head = ({ children = null, title, image, description }: Props) => {
       openGraph={{
         url: process.browser ? `${window.location.host}${pathname}` : '',
         title: title ? title : 'Create your Sapien Account',
-        description: description ? description : 'Come and join us at Sapien',
+        description: description
+          ? description
+          : 'Sapien is building the world’s first sovereign digital nation, a Republic of DAOs powered by Sapien’s first-of-its-kind NFT passport.',
         images: [
           {
-            url: image
-              ? image
-              : 'https://d1bdmh0gdusw0k.cloudfront.net/images/misc/passport.png',
+            url: image ? image : '/landing/Human.png',
             width: 800,
             height: 600,
             alt: 'Sapien Logo',
