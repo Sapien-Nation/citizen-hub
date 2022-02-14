@@ -15,7 +15,7 @@ const people = [
     name: 'Rob',
     role: 'Co-CEO & Co-Founder',
     imageUrl: '/images/team/Rob.png',
-    bio: 'Founding Member of the Sapien Tribe, Co-Ceo & Co-founder of Sapien Network. Rob is a lifelong student of many disciplines and understands the vital importance of seeing the world through many different perspectives. Never content to let the status quo remain unchallenged, Rob seeks to apply his knowledge of Mathematics, Technology, Culture and History to build tools to empower people and their tribes to achieve their full potential.',
+    bio: 'Founding Member of the Sapien Tribe, Co-Ceo & Co-founder of Sapien Network. Rob graduated from UC Berkeley with a degree in Mathematics and is a lifelong student of many disciplines who understands the vital importance of seeing the world through many different perspectives. Never content to let the status quo remain unchallenged, Rob seeks to apply his knowledge of Mathematics, Technology, Culture and History to build tools to empower people and their tribes to achieve their full potential.',
   },
   {
     name: 'Teja',
