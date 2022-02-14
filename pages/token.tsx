@@ -7,7 +7,7 @@ import { NextPage } from 'next';
 // components
 import { Head, VideoPlayer } from 'components/common';
 
-const News: NextPage = () => {
+const Token: NextPage = () => {
   const playerRef = useRef(null);
 
   const videoJsOptions = {
@@ -42,19 +42,23 @@ const News: NextPage = () => {
   return (
     <>
       <Head
-        title="News"
+        title="Token"
         description="Sapien is doing some groundbreaking work and naturally the news follows. When that news breaks, we’ll keep you updated here."
         image="/images/Sapien_Logo.png"
       />
       <div className="max-w-6xl mx-auto px-8 sm:px-6 lg:px-8 my-12">
-        <h2 className="text-2xl md:text-4xl font-extrabold">
+        <h2
+          className="content__title md:text-8xl text-4xl font-extrabold drop-shadow-lg md:filter-none"
+          data-scroll
+          data-scroll-speed="2"
+        >
           Coming soon:{' '}
           <span className=" bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
             The Sovereign.
           </span>
         </h2>
       </div>
-      <div className="relative py-16 overflow-hidden bg-neutral-900">
+      <div className="relative py-16 overflow-hidden max-w-6xl rounded-xl mx-auto">
         <VideoPlayer options={videoJsOptions} onReady={handlePlayerReady} />
       </div>
       <div className="max-w-6xl flex flex-col gap-6 mx-auto px-8 sm:px-6 lg:px-8 my-24">
@@ -74,7 +78,7 @@ const News: NextPage = () => {
       </div>
 
       <div className="max-w-6xl mx-auto px-8 sm:px-6 lg:px-8 my-12">
-        <h2 className="text-2xl md:text-4xl font-extrabold mb-12">
+        <h2 className="text-2xl md:text-3xl font-extrabold mb-20">
           The{' '}
           <span className=" bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
             STS
@@ -109,4 +113,4 @@ const News: NextPage = () => {
   );
 };
 
-export default News;
+export default Token;

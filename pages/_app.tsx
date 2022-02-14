@@ -17,7 +17,6 @@ import { ToastProvider } from 'context/toast';
 // styles
 import '../styles/index.css';
 import '../styles/aos.scss';
-import 'video.js/dist/video-js.css';
 
 // providers
 import { AuthenticationProvider } from 'context/user';
