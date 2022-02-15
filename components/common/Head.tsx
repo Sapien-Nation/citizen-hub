@@ -27,7 +27,9 @@ const Head = ({ children = null, title, image, description }: Props) => {
           : 'Sapien is building the world’s first sovereign digital nation, a Republic of DAOs powered by Sapien’s first-of-its-kind NFT passport.',
         images: [
           {
-            url: image ? image : '/landing/Human.png',
+            url: image
+              ? image
+              : 'https://sapien-poc.s3.us-east-2.amazonaws.com/docs/Sapien_Litepaper.pdf',
             width: 800,
             height: 600,
             alt: 'Sapien Logo',

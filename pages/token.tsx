@@ -1,44 +1,12 @@
 import Link from 'next/link';
-import { useRef } from 'react';
 
 // types
 import { NextPage } from 'next';
 
 // components
-import { Head, VideoPlayer } from 'components/common';
+import { Head } from 'components/common';
 
 const Token: NextPage = () => {
-  const playerRef = useRef(null);
-
-  const videoJsOptions = {
-    // lookup the options in the docs for more options
-    autoplay: true,
-    controls: true,
-    responsive: true,
-    fluid: true,
-    muted: true,
-    poster: '/landing/3dCoin.jpeg',
-    sources: [
-      {
-        src: '/landing/TokenVideo.mp4',
-        type: 'video/mp4',
-      },
-    ],
-  };
-
-  const handlePlayerReady = (player) => {
-    playerRef.current = player;
-
-    // you can handle player events here
-    player.on('waiting', () => {
-      console.log('player is waiting');
-    });
-
-    player.on('dispose', () => {
-      console.log('player will dispose');
-    });
-  };
-
   return (
     <>
       <Head
@@ -48,57 +16,54 @@ const Token: NextPage = () => {
       />
       <div className="max-w-6xl mx-auto px-8 sm:px-6 lg:px-8 my-12">
         <h2
-          className="content__title md:text-8xl text-4xl font-extrabold drop-shadow-lg md:filter-none"
+          className="content__title md:text-7xl text-4xl font-extrabold drop-shadow-lg md:filter-none"
           data-scroll
           data-scroll-speed="2"
         >
-          Coming soon:{' '}
+          Coming soon: <br />
           <span className=" bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
-            The Sovereign.
+            The Sapien Tribe Token
           </span>
         </h2>
       </div>
       <div className="relative py-16 overflow-hidden max-w-6xl rounded-xl mx-auto">
-        <VideoPlayer options={videoJsOptions} onReady={handlePlayerReady} />
+        <img
+          src="/landing/STT.png"
+          alt="Sapien Tribe Token"
+          width="100%"
+          height="100%"
+        />
       </div>
-      <div className="max-w-6xl flex flex-col gap-6 mx-auto px-8 sm:px-6 lg:px-8 my-24">
+      <div className="max-w-6xl flex flex-col gap-6 mx-auto px-8 sm:px-6 lg:px-8 my-12">
         <p className="text-xl sm:text-2xl">
-          Sapien is finalizing plans to introduce a new token, as an evolution
-          of the SPN token, based on the Tribe Treasury Token standard outlined
-          in the Purple Paper.
-        </p>
-        <p className="text-xl sm:text-2xl">
-          This planned new token, the Sapien Tribe Sovereign (STS), will serve
-          as a replacement for the existing Sapien Token (SPN) and SPN will no
-          longer be supported once STS is launched. All existing Sapien Token
-          (SPN) holders will have the opportunity to convert SPN to STS at a
-          conversion rate to be determined. All SPN in inventory will be
-          converted to STS.
+          Sapien is finalizing plans to introduce an evolution of the SPN
+          utility token, based on the Tribe Treasury Token standard outlined in
+          the{' '}
+          <Link href="/The_Purple_Paper_v1.1.pdf">
+            <a target="_blank" className="text-sapien-80 font-extrabold">
+              Purple Paper
+            </a>
+          </Link>{' '}
+          – the Sapien Tribe Token (STT).
         </p>
       </div>
 
       <div className="max-w-6xl mx-auto px-8 sm:px-6 lg:px-8 my-12">
-        <h2 className="text-2xl md:text-3xl font-extrabold mb-20">
-          The{' '}
-          <span className=" bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
-            STS
-          </span>{' '}
-          will then serve as the sovereign currency for the
-          <span className=" bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
-            {' '}
-            Sapien Tribe.
-          </span>
+        <h2 className="text-2xl md:text-3xl font-extrabold mb-12 italic">
+          All SPN holders will receive notification regarding the conversion of
+          SPN to STT, which will occur at a date and rate to be determined. All
+          SPN held and in inventory will be converted to STT.
         </h2>
         <p className="text-xl sm:text-2xl mb-12">
-          STS will be the primary currency for goods and services within the
-          Sapien Tribe, and will be utilized for Venture Governance: a token
-          model that simplifies internal governance and enables the Nation to
-          fund other Tribes within the ecosystem.
+          The STT will be used within the ecosystem as the sovereign currency
+          for the Sapien Tribe. STT will also be used for Venture Governance: a
+          token model that simplifies internal governance within the ecosystem
+          enabling the Nation to fund other ecosystem Tribes.
         </p>
         <p className="text-xl sm:text-2xl mb-12">
-          The Sovereign launch date is tentatively scheduled for Q2 of 2022.
-          Join our community, or continue to check this site to stay up to date
-          on all public announcements regarding the STS!
+          The SPN to STT conversion data is tentatively scheduled for Q2 of
+          2022. Join our community, or continue to check this site and stay up
+          to date on all public announcements regarding the STT!
         </p>
         <Link href="https://discord.gg/DVDe3ZwuYR">
           <a
