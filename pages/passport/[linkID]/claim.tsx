@@ -80,12 +80,7 @@ const ClaimPassportPage = () => {
 
     if (code || statusCode) {
       const responseCode = code || statusCode;
-      switch (responseCode) {
-        case Status.UserAlreadyHavePassport:
-          return <Discord />;
-        default:
-          return <FeedbackView code={responseCode} />;
-      }
+      return <FeedbackView code={responseCode} />;
     }
 
     switch (view) {
