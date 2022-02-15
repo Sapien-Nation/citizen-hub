@@ -338,7 +338,7 @@ const PassportPage: NextPage = () => {
                   <div className="overflow-hidden sm:rounded-lg">
                     <table className="w-full flex flex-row flex-no-wrap bg-white rounded-lg overflow-hidden my-5">
                       <thead className="text-black">
-                        <tr className="bg-gray-200 font-extrabold flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
+                        <tr className="bg-gray-200 font-extrabold flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none">
                           <th className="p-3 text-left">INITIAL BATCH</th>
                           <th className="p-3 text-left">MAX SUPPLY </th>
                           <th className="p-3 text-left">INITIAL PRICE</th>
@@ -347,7 +347,7 @@ const PassportPage: NextPage = () => {
                         </tr>
                       </thead>
                       <tbody className="flex-1 sm:flex-none text-black">
-                        <tr className="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
+                        <tr className="flex flex-col flex-no wrap sm:table-row">
                           <td className="border-grey-light border hover:bg-gray-100 p-3">
                             1,500
                           </td>
