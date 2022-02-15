@@ -15,19 +15,9 @@ const Token: NextPage = () => {
         image="/images/Sapien_Logo.png"
       />
       <div className="max-w-6xl mx-auto px-8 sm:px-6 lg:px-8 my-12">
-        <h2
-          className="md:text-7xl text-4xl font-extrabold drop-shadow-lg md:filter-none"
-          data-scroll
-          data-scroll-speed="2"
-        >
+        <h2 className="md:text-7xl text-4xl font-extrabold drop-shadow-lg md:filter-none">
           Coming soon: <br />
-          <span className=" bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
-            The Sapien
-          </span>
-          {'  '}
-          <span className=" bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
-            Tribe Token
-          </span>
+          The Sapien Tribe Token
         </h2>
       </div>
       <div className="relative py-16 overflow-hidden max-w-6xl rounded-xl mx-auto">
