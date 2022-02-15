@@ -24,6 +24,7 @@ import {
 const IndexPage: NextPage = () => {
   return (
     <>
+      <Globe />
       <Head
         title="Homepage"
         description="Sapien is building the world’s first sovereign digital nation, a Republic of DAOs powered by Sapien’s first-of-its-kind NFT passport."
@@ -32,7 +33,6 @@ const IndexPage: NextPage = () => {
       <div data-scroll-section className="m-auto overflow-hidden relative">
         <section className="max-w-6xl -mt-10 min-h-screen flex flex-col justify-center align-center mx-auto px-8">
           <div>
-            <Globe />
             <h2
               className="content__title md:text-8xl text-4xl font-extrabold drop-shadow-lg md:filter-none"
               data-scroll
@@ -50,7 +50,7 @@ const IndexPage: NextPage = () => {
                 </a>
               </Link>
             </div>
-            <p className="text-lg md:text-3xl font-bold drop-shadow-xl md:filter-none">
+            <p className="text-lg md:text-3xl font-bold drop-shadow-xl md:filter-none z-10">
               Find Your Tribes. Launch Your Own Tokens. Shape the New
               Renaissance.
             </p>
