@@ -16,13 +16,17 @@ const Token: NextPage = () => {
       />
       <div className="max-w-6xl mx-auto px-8 sm:px-6 lg:px-8 my-12">
         <h2
-          className="content__title md:text-7xl text-4xl font-extrabold drop-shadow-lg md:filter-none"
+          className="md:text-7xl text-4xl font-extrabold drop-shadow-lg md:filter-none"
           data-scroll
           data-scroll-speed="2"
         >
           Coming soon: <br />
           <span className=" bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
-            The Sapien Tribe Token
+            The Sapien
+          </span>
+          {'  '}
+          <span className=" bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
+            Tribe Token
           </span>
         </h2>
       </div>
