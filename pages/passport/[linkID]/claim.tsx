@@ -68,7 +68,7 @@ const ClaimPassportPage = () => {
     statusCode,
   }: LinkCheckResponse) => {
     if (!reservedFigure) {
-      <Redirect path={`/${query.linkID}/reserve`} />;
+      return <Redirect path={`/${query.linkID}/reserve`} />;
     }
 
     const handleConfirm = async () => {
