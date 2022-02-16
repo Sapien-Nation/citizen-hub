@@ -15,16 +15,6 @@ import { preloadImages } from 'utils/homepage';
 // components
 import { Footer } from 'components/navigation';
 
-const roadMap = [
-  {
-    initialBatch: '1,500',
-    maxSupply: '10,000',
-    initialPrice: '0.25 ETH',
-    nftSale: 'March 14, 2022',
-    mintDate: 'April 13, 2022',
-  },
-];
-
 // types
 import type { NextPage } from 'next';
 
@@ -345,62 +335,35 @@ const PassportPage: NextPage = () => {
             <div className="flex flex-col mb-12">
               <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                  <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                    <table className="min-w-full divide-y divide-gray-200 zoom-50">
-                      <thead className="bg-gray-50">
-                        <tr>
-                          <th
-                            scope="col"
-                            className="px-6 py-3 text-left text-xs font-extrabold text-black uppercase tracking-wider"
-                          >
-                            Initial Batch
-                          </th>
-                          <th
-                            scope="col"
-                            className="px-6 py-3 text-left text-xs font-extrabold text-black uppercase tracking-wider"
-                          >
-                            Max Supply
-                          </th>
-                          <th
-                            scope="col"
-                            className="px-6 py-3 text-left text-xs font-extrabold text-black uppercase tracking-wider"
-                          >
-                            Initial Price
-                          </th>
-                          <th
-                            scope="col"
-                            className="px-6 py-3 text-left text-xs font-extrabold text-black uppercase tracking-wider"
-                          >
-                            NFT Sale
-                          </th>
-                          <th
-                            scope="col"
-                            className="px-6 py-3 text-left text-xs font-extrabold text-black uppercase tracking-wider"
-                          >
-                            Mint Date
-                          </th>
+                  <div className="overflow-hidden sm:rounded-lg">
+                    <table className="w-full flex flex-row flex-no-wrap bg-white rounded-lg overflow-hidden my-5">
+                      <thead className="text-black">
+                        <tr className="bg-gray-200 font-extrabold flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none">
+                          <th className="p-3 text-left">INITIAL BATCH</th>
+                          <th className="p-3 text-left">MAX SUPPLY </th>
+                          <th className="p-3 text-left">INITIAL PRICE</th>
+                          <th className="p-3 text-left">NFT SALE </th>
+                          <th className="p-3 text-left">MINT DATE</th>
                         </tr>
                       </thead>
-                      <tbody className="bg-white divide-y divide-gray-200">
-                        {roadMap.map((date, index) => (
-                          <tr key={index}>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                              {date.initialBatch}
-                            </td>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                              {date.maxSupply}
-                            </td>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                              {date.initialPrice}
-                            </td>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                              {date.nftSale}
-                            </td>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                              {date.mintDate}
-                            </td>
-                          </tr>
-                        ))}
+                      <tbody className="flex-1 sm:flex-none text-black">
+                        <tr className="flex flex-col flex-no wrap sm:table-row">
+                          <td className="border-grey-light border hover:bg-gray-100 p-3">
+                            1,500
+                          </td>
+                          <td className="border-grey-light border hover:bg-gray-100 p-3">
+                            10,000
+                          </td>
+                          <td className="border-grey-light border hover:bg-gray-100 p-3">
+                            0.25 ETH
+                          </td>
+                          <td className="border-grey-light border hover:bg-gray-100 p-3">
+                            March 14, 2022
+                          </td>
+                          <td className="border-grey-light border hover:bg-gray-100 p-3">
+                            April 13, 2022
+                          </td>
+                        </tr>
                       </tbody>
                     </table>
                   </div>
