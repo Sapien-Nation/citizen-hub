@@ -1,8 +1,4 @@
-import Image from 'next/image';
 import { useTheme } from 'next-themes';
-
-// assets
-import { FullLogo } from 'assets';
 
 // components
 import { Redirect } from 'components/common';

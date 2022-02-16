@@ -2,11 +2,14 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useTheme } from 'next-themes';
 
+// api
+import { claimFigureName } from 'api/passport/claim';
+
 // utils
 import { mergeClassNames } from 'utils/styles';
 
 // components
-import { Head, Query } from 'components/common';
+import { Head, Query, Redirect } from 'components/common';
 import { Auth, Confirm, Discord, FeedbackView } from 'components/passport';
 
 // context
@@ -15,7 +18,6 @@ import { useToast } from 'context/toast';
 
 // types
 import type { ISOString } from 'tools/types/common';
-import { claimFigureName } from 'api/passport/claim';
 
 interface LinkCheckResponse {
   allowedPassports: number;
@@ -65,6 +67,10 @@ const ClaimPassportPage = () => {
     expiresAt,
     statusCode,
   }: LinkCheckResponse) => {
+    if (!reservedFigure) {
+      <Redirect path={`/${query.linkID}/reserve`} />;
+    }
+
     const handleConfirm = async () => {
       try {
         await claimFigureName(distributionId);
