@@ -27,7 +27,7 @@ const AppLayout = ({ children }: Props) => {
 
   if (pathname === '/' || pathname === '/passport') {
     return (
-      <div className="relative flex flex-col min-h-screen bg-neutral-900 text-white">
+      <div className="relative flex flex-col min-h-screen">
         <Banner
           title="The Sapien Tribe NFT Passport sale will begin on March 14, 2022. "
           message="The Sapien Tribe NFT Passport sale will begin on March 14, 2022. "
@@ -53,7 +53,7 @@ const AppLayout = ({ children }: Props) => {
   }
 
   return (
-    <div className="relative flex flex-col min-h-screen bg-neutral-900 text-white">
+    <div className="relative flex flex-col min-h-screen">
       <Banner
         title="The Sapien Tribe NFT Passport sale will begin on March 14, 2022. "
         message="The Sapien Tribe NFT Passport sale will begin on March 14, 2022. "

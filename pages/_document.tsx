@@ -30,7 +30,7 @@ class MyDocument extends Document {
           <meta name="theme-color" content="#6200eaf" />
           <link href="/static/favicon.ico" rel="icon" type="image/png" />
         </Head>
-        <body>
+        <body className="bg-neutral-900 text-white">
           <Main />
           <NextScript />
         </body>

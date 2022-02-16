@@ -174,7 +174,7 @@ const IndexPage: NextPage = () => {
                 <div
                   data-aos="zoom-y-out"
                   data-aos-delay="450"
-                  className="bg-black px-8 py-12 rounded-3xl flex-col overflow-hidden text-white dark:text-black"
+                  className="bg-black px-8 py-12 rounded-3xl flex-col overflow-hidden text-white bg-gradient-to-r from-sapien to-sapien-40 shadow-xl shadow-sapien/50"
                 >
                   <h4 className="text-2xl sm:text-3xl dark:text-white font-extrabold">
                     Community
@@ -188,7 +188,7 @@ const IndexPage: NextPage = () => {
                 <div
                   data-aos="zoom-y-out"
                   data-aos-delay="850"
-                  className="bg-black px-8 py-12 rounded-3xl flex-col overflow-hidden text-white dark:text-black"
+                  className="bg-black px-8 py-12 rounded-3xl flex-col overflow-hidden text-white bg-gradient-to-r from-sapien to-sapien-40 shadow-xl shadow-sapien/50"
                 >
                   <h4 className="text-2xl sm:text-3xl dark:text-white font-extrabold ">
                     Team
@@ -202,7 +202,7 @@ const IndexPage: NextPage = () => {
                 <div
                   data-aos="zoom-y-out"
                   data-aos-delay="1250"
-                  className="bg-black px-8 py-12 rounded-3xl flex-col overflow-hidden text-white dark:text-black"
+                  className="bg-black px-8 py-12 rounded-3xl flex-col overflow-hidden text-white bg-gradient-to-r from-sapien to-sapien-40 shadow-xl shadow-sapien/50"
                 >
                   <h4 className="text-2xl sm:text-3xl dark:text-white font-extrabold">
                     Governance
