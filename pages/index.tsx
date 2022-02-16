@@ -79,7 +79,10 @@ const IndexPage: NextPage = () => {
         >
           <div className="relative sm:py-16 lg:py-0 lg:col-span-2">
             <div className="lg:inset-y-0 lg:right-0">
-              <img src="https://d1bdmh0gdusw0k.cloudfront.net/images/misc/asset2.jpeg" />
+              <img
+                src="https://d1bdmh0gdusw0k.cloudfront.net/images/misc/asset2.jpeg"
+                alt="Passport image"
+              />
             </div>
           </div>
           <div className="relative m-8 lg:m-0 mt-8 lg:mr-8 lg:px-0">
