@@ -76,7 +76,6 @@ const RegisterForm = () => {
     }
   };
 
-  console.log(errors);
   const termsError = errors.terms?.message;
   const passwordError = errors.password?.message;
   const walletError = errors.wallet?.message;

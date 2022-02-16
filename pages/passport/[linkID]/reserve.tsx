@@ -10,7 +10,7 @@ import { reserveFigure, resubmitReserveFigure } from 'api/passport/reserve';
 import { mergeClassNames } from 'utils/styles';
 
 // components
-import { Head, Query } from 'components/common';
+import { Head, Query, Redirect } from 'components/common';
 import {
   Auth,
   Discord,
@@ -67,8 +67,13 @@ const ClaimPassportPage = () => {
     code,
     distributionId,
     statusCode,
+    reservedFigure,
     passportId,
   }: LinkCheckResponse) => {
+    if (reservedFigure) {
+      <Redirect path={`/${query.linkID}/claim`} />;
+    }
+
     const handleConfirm = async () => {
       try {
         let isPending = false;
