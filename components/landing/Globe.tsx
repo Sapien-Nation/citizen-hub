@@ -67,7 +67,6 @@ const Globe = () => {
     clock = new THREE.Clock();
     //    Add canvas
     canvas.classList.add('webgl');
-    //     console.log('renderer', renderer, document.body);
 
     const renderDom = document.getElementById('globe');
     renderDom.appendChild(canvas);
@@ -258,13 +257,6 @@ const Globe = () => {
         width: window.innerWidth,
         height: window.innerHeight,
       };
-
-      // if (viewport.width < viewport.height) {
-      //   console.log('entro!');
-      //   mesh.scale.set(0.75, 0.75, 0.75);
-      // } else {
-      //   mesh.scale.set(0.85, 0.85, 0.85);
-      // }
 
       camera.aspect = viewport.width / viewport.height;
       camera.updateProjectionMatrix();
