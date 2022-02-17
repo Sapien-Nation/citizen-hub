@@ -61,6 +61,7 @@ body > div {
 }
 
 #globe > canvas {
+  z-index: -1;
   top: -2rem;
   width: 100%;
   height: 100vw;
