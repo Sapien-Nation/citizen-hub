@@ -24,13 +24,13 @@ import {
 const IndexPage: NextPage = () => {
   return (
     <>
-      <Globe />
       <Head
         title="Homepage"
         description="Sapien is building the world’s first sovereign digital nation, a Republic of DAOs powered by Sapien’s first-of-its-kind NFT passport."
         image="/landing/Human.png"
       />
       <div data-scroll-section className="m-auto overflow-hidden relative">
+        <Globe />
         <section className="max-w-6xl -mt-10 min-h-screen flex flex-col justify-center align-center mx-auto px-8">
           <div>
             <h2
