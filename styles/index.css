@@ -253,7 +253,6 @@ body > div {
 .tiles--perspective {
   overflow: visible;
   perspective: 1000px;
-  --tiles-height: 500px;
 }
 
 .tiles__wrap {
