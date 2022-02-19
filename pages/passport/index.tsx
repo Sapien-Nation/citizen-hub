@@ -31,7 +31,7 @@ const PassportPage: NextPage = () => {
         data-scroll-container
         className="bg-neutral-900 text-white overflow-hidden"
       >
-        <section className="tiles tiles--perspective max-w-6xl -mt-10 min-h-screen flex flex-col justify-center align-center mx-auto px-8">
+        <section className="tiles tiles--perspective max-w-6xl -mt-10 sm:min-h-screen flex flex-col justify-center align-center mx-auto px-8">
           <div className="tiles__wrap">
             <div
               className="tiles__line"
@@ -269,7 +269,7 @@ const PassportPage: NextPage = () => {
         <section
           data-scroll
           data-scroll-speed="2"
-          className="max-w-6xl relative gap-6 flex flex-col mx-auto justify-center mt-24 mb-36 px-8"
+          className="max-w-6xl relative gap-6 flex flex-col mx-auto justify-center sm:mt-24 mb-36 px-8"
         >
           <p className="sm:text-2xl text-xl">
             The future is murky, but it’s easier to see the path forward when
