@@ -55,7 +55,7 @@ const PassportPage = () => {
       }
 
       if (responseCode === 105) {
-        return <h1>TODO Code 105 View</h1>;
+        return <></>;
       }
 
       return <FeedbackView code={responseCode} />;
