@@ -31,7 +31,7 @@ const Roadmap: NextPage = () => {
                   Development of the NFT Passport primitive
                 </li>
                 <li className="ml-6 mb-2">
-                  <i>First Congress of the Sapien Tribe</i> (see our{' '}
+                  <i>First Congress of the Sapien Nation</i> (see our{' '}
                   <Link
                     href="https://twitter.com/sapien_network/status/1459204059068518403"
                     passHref
@@ -65,16 +65,22 @@ const Roadmap: NextPage = () => {
               <span className="font-extrabold">March 14, 2022</span>
               <ul className="list-disc sm:text-2xl text-xl mb-12">
                 <li className="ml-6 mb-2">
-                  Passport picks can be claimed with ETH
+                  NFT Passport Whitelist Presale Begins
                 </li>
               </ul>
             </li>
             <li className="ml-6 mb-2">
-              <span className="font-extrabold">April 13, 2022</span>
+              <span className="font-extrabold">March 15, 2022</span>
+              <ul className="list-disc sm:text-2xl text-xl mb-12">
+                <li className="ml-6 mb-2">NFT Passport Public Sale Begins</li>
+              </ul>
+            </li>
+            <li className="ml-6 mb-2">
+              <span className="font-extrabold">April 20, 2022</span>
               <ul className="list-disc sm:text-2xl text-xl mb-12">
                 <li className="ml-6 mb-2">Sapien NFT Passport Mint Day</li>
                 <li className="ml-6 mb-2">
-                  Early Access to the Sapien Tribe Protocol
+                  Early Access to the Tribe Protocol
                 </li>
               </ul>
             </li>
@@ -88,10 +94,10 @@ const Roadmap: NextPage = () => {
                   Declaration of Sovereignty release{' '}
                 </li>
                 <li className="ml-6 mb-2">
-                  Second Congress of the Sapien Tribe (Exclusive for holders)
+                  Second Congress of the Sapien Nation (Exclusive for holders)
                 </li>
                 <li className="ml-6 mb-2">
-                  Development of the <i>Sapien Tribe Sovereign</i> (Token)
+                  Development of the <i>Sapien Nation Sovereign</i> (Token)
                 </li>
               </ul>
             </li>
@@ -116,7 +122,7 @@ const Roadmap: NextPage = () => {
                   The founding of the first Tribe Hall
                 </li>
                 <li className="ml-6 mb-2">
-                  <i>Sapien Tribe Constitutional Convention</i> (Exclusive for
+                  <i>Sapien Nation Constitutional Convention</i> (Exclusive for
                   holders)
                 </li>
                 <li className="ml-6 mb-2">

@@ -57,7 +57,7 @@ const ReserverList = ({ figures = [] }: { figures: Array<Figure> }) => {
                 achievements and contributions of our heroes from history have
                 brought us to where we stand now. It is time to choose your
                 avatar and be their champion as we blaze a new path with the{' '}
-                <i>Sapien Tribe</i>.
+                <i>Sapien Nation</i>.
               </p>
             </div>
             <input

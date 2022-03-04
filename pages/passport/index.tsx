@@ -302,6 +302,11 @@ const PassportPage: NextPage = () => {
             </Link>
             ).
           </p>
+          <p className="sm:text-2xl text-xl">
+            Sapien NFT Passport resales have a 5% fee that is sent to the Sapien
+            Nation Treasury to fund internal operations, public goods, and build
+            the Republic of DAOs.
+          </p>
         </section>
         <div
           data-scroll
@@ -310,7 +315,7 @@ const PassportPage: NextPage = () => {
         >
           <div className="px-8 py-12 lg:max-w-6xl rounded-xl bg-gradient-to-r from-sapien to-sapien-40 shadow-xl shadow-sapien/50">
             <h2 className="text-xl font-bold sm:text-3xl mb-12">
-              The Sapien Tribe Passport is a unique NFT with unparalleled
+              The Sapien Nation Passport is a unique NFT with unparalleled
               utility. As a holder, you will have the opportunity to:
             </h2>
             <ul className="list-disc sm:text-2xl text-xl mb-12">
@@ -327,7 +332,7 @@ const PassportPage: NextPage = () => {
                 within the ecosystem
               </li>
               <li className="ml-6 mb-2">
-                Become a Founding Member of the Sapien Tribe when you sign your
+                Become a Founding Member of the Sapien Nation when you sign your
                 passport
               </li>
             </ul>
@@ -342,14 +347,15 @@ const PassportPage: NextPage = () => {
                           <th className="p-3 text-left">INITIAL BATCH</th>
                           <th className="p-3 text-left">MAX SUPPLY </th>
                           <th className="p-3 text-left">INITIAL PRICE</th>
-                          <th className="p-3 text-left">NFT SALE </th>
+                          <th className="p-3 text-left">WHITELIST PRESALE </th>
+                          <th className="p-3 text-left">PUBLIC SALE </th>
                           <th className="p-3 text-left">MINT DATE</th>
                         </tr>
                       </thead>
                       <tbody className="flex-1 sm:flex-none text-black">
                         <tr className="flex flex-col flex-no wrap sm:table-row">
                           <td className="border-grey-light border hover:bg-gray-100 p-3">
-                            1,500
+                            1,000
                           </td>
                           <td className="border-grey-light border hover:bg-gray-100 p-3">
                             10,000
@@ -361,7 +367,10 @@ const PassportPage: NextPage = () => {
                             March 14, 2022
                           </td>
                           <td className="border-grey-light border hover:bg-gray-100 p-3">
-                            April 13, 2022
+                            March 15, 2022
+                          </td>
+                          <td className="border-grey-light border hover:bg-gray-100 p-3">
+                            April 20, 2022
                           </td>
                         </tr>
                       </tbody>
@@ -394,25 +403,25 @@ const PassportPage: NextPage = () => {
             .
           </h2>
           <p className="text-lg">
-            The Sapien Tribe Passport is an essential tool for finding the right
-            people around the globe to unite and lead the first digital nation
-            in the metaverse. NFT Passports can be signed or unsigned: Unsigned
-            Passports are free to transfer or trade, whereas Signed Passports
-            are non-transferable and tied to a wallet address.
+            The Sapien Nation Passport is an essential tool for finding the
+            right people around the globe to unite and lead the first digital
+            nation in the metaverse. NFT Passports can be signed or unsigned:
+            Unsigned Passports are free to transfer or trade, whereas Signed
+            Passports are non-transferable and tied to a wallet address.
           </p>
           <p className="text-lg">
             Passport holders will have the opportunity to sign their passports
             with the <i>Declaration of Sovereignty</i>, a seminal document
-            outlining the rights of <i>Sapien Tribe</i> citizens, or at the{' '}
+            outlining the rights of <i>Sapien Nation</i> citizens, or at the{' '}
             <i>Constitutional Convention</i>, a holder exclusive event to ratify
-            the governance framework of the <i>Sapien Tribe</i>. Upon signature,
-            the holder will become a Founding Member of the Sapien Tribe and the
-            passport will become non-transferable.
+            the governance framework of the <i>Sapien Nation</i>. Upon
+            signature, the holder will become a Founding Member of the Sapien
+            Nation and the passport will become non-transferable.
           </p>
           <p className="text-lg">
             Every passport holder will have to choose between the market value
             of their passport and the social value of participation in the{' '}
-            <i>Sapien Tribe</i>.
+            <i>Sapien Nation</i>.
           </p>
         </section>
 
