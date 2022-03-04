@@ -186,12 +186,13 @@ const ClaimPassportPage = () => {
   );
 };
 
-const RedirectProxy = () => {
-  const { query } = useRouter();
+export default ClaimPassportPage;
+// const RedirectProxy = () => {
+//   const { query } = useRouter();
 
-  if (!query.linkID) return null;
+//   if (!query.linkID) return null;
 
-  return <Redirect path={`/passport/${query.linkID}`} />;
-};
+//   return <Redirect path={`/passport/${query.linkID}`} />;
+// };
 
-export default RedirectProxy;
+// export default RedirectProxy;
