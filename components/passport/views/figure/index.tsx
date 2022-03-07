@@ -32,7 +32,7 @@ const FigureView = ({ setAvatar, setPassportView }: Props) => {
   const [isManual, setIsManual] = useState(false);
   const [isFetching, setIsFetching] = useState(false);
   const [isSearching, setSearching] = useState(false);
-  const [passportFile, setPassportFile] = useState<File | null>(null);
+  const [passportFile, setPassportFile] = useState<Blob | null>(null);
 
   const toast = useToast();
 

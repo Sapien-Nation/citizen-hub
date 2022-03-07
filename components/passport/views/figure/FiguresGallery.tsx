@@ -1,4 +1,5 @@
-import { RefreshIcon, XIcon, CheckCircleIcon } from '@heroicons/react/solid';
+import { RefreshIcon, CheckCircleIcon } from '@heroicons/react/solid';
+import axios from 'axios';
 import { useEffect, useRef, useState } from 'react';
 import useSWR, { useSWRConfig } from 'swr';
 
@@ -16,7 +17,7 @@ import { mergeClassNames } from 'utils/styles';
 
 interface Props {
   name: string;
-  onSelect: (file: File) => void;
+  onSelect: (file: Blob) => void;
   setIsFetching: (isFetching: boolean) => void;
   setIsManual: (isManual: boolean) => void;
 }
@@ -25,6 +26,26 @@ interface ManualFile {
   file: File;
   preview: string;
 }
+
+const b64toBlob = (b64Data, contentType = '', sliceSize = 512) => {
+  const byteCharacters = atob(b64Data);
+  const byteArrays = [];
+
+  for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+    const slice = byteCharacters.slice(offset, offset + sliceSize);
+
+    const byteNumbers = new Array(slice.length);
+    for (let i = 0; i < slice.length; i++) {
+      byteNumbers[i] = slice.charCodeAt(i);
+    }
+
+    const byteArray = new Uint8Array(byteNumbers);
+    byteArrays.push(byteArray);
+  }
+
+  const blob = new Blob(byteArrays, { type: contentType });
+  return blob;
+};
 
 const FiguresGallery = ({
   name,
@@ -48,14 +69,13 @@ const FiguresGallery = ({
 
   const generateImageFile = async (image: string) => {
     try {
-      const fetchedImage = await fetch(image);
-      const blob: Blob = await fetchedImage.blob();
-      return new File([blob], name, { type: 'image/png' });
+      const response = await axios.get(image, { responseType: 'arraybuffer' });
+      return b64toBlob(
+        Buffer.from(response.data).toString('base64'),
+        response.headers['content-type']
+      );
     } catch (err) {
-      toast({
-        message:
-          'This image is not available to select, please try another one.',
-      });
+      return Promise.reject(err);
     }
   };
 
@@ -188,6 +208,7 @@ const FiguresGallery = ({
                 </button>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
+                  id={`image-${image}`}
                   src={image}
                   alt={`Search Image result for search term ${name}`}
                   className="object-cover h-full w-full pointer-events-none group-hover:sm:opacity-75"
