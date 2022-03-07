@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 
 // components
-import { Head, Query } from 'components/common';
+import { Head, Redirect, Query } from 'components/common';
 import {
   Auth,
   Avatar,
@@ -122,4 +122,10 @@ const PassportPage = () => {
   );
 };
 
-export default PassportPage;
+// export default PassportPage;
+
+const RedirectProxy = () => {
+  return <Redirect path="/" />;
+};
+
+export default RedirectProxy;
