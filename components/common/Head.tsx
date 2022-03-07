@@ -36,7 +36,7 @@ const Head = ({ children = null, title, image, description }: Props) => {
             type: 'image/png',
           },
         ],
-        site_name: 'Sapien Tribe',
+        site_name: 'Sapien Nation',
       }}
       twitter={{
         handle: '@sapien_network',

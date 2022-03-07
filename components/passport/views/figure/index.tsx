@@ -18,10 +18,11 @@ import type { Figure } from 'types/figure';
 
 interface Props {
   linkID: string;
+  setAvatar: (avatar: { id: string }) => void;
   setPassportView: (view: PassportViews) => void;
 }
 
-const FigureView = ({ linkID, setPassportView }: Props) => {
+const FigureView = ({ linkID, setAvatar, setPassportView }: Props) => {
   const [figure, setFigure] = useState<Figure | null>(null);
   const [isManual, setIsManual] = useState(false);
   const [isFetching, setIsFetching] = useState(false);
@@ -40,8 +41,9 @@ const FigureView = ({ linkID, setPassportView }: Props) => {
       formData.append('figureName', figure.name);
       formData.append('isManual', isManual ? 'true' : 'false');
 
-      // await createPassport(formData);
+      const avatar = await createPassport(formData);
 
+      setAvatar(avatar);
       setPassportView(PassportViews.Avatar);
     } catch (error) {
       toast({
