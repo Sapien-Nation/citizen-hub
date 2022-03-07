@@ -37,7 +37,7 @@ const News: NextPage = () => {
           </div>
           <div className="mt-6 px-8 sm:px-0 font-light text-lg leading-9 tracking-wide gap-12 flex flex-col text-white mx-auto sm:px-6 max-w-6xl">
             <p>
-              <span className="font-extrabold text-xl">
+              <span className="font-extrabold text-xl block mb-2">
                 San Francisco, CA. February 2, 2022.
               </span>{' '}
               Sapien.Network, a Web 3.0 social network for the next generation

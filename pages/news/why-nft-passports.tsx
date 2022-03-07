@@ -29,12 +29,15 @@ const News: NextPage = () => {
             </blockquote>
             <img
               className="max-w-sm mx-auto rounded-xl my-12"
-              src="/images/team/Latif.jpeg"
-              alt="Latif Nathani"
+              src="/images/news/Avatars-Transition.gif"
+              alt="Sapien Avatar Transition"
             />
           </div>
           <div className="mt-6 px-8 sm:px-0 font-light text-lg leading-9 tracking-wide gap-12 flex flex-col text-white mx-auto sm:px-6 max-w-6xl">
             <p>
+              <span className="font-extrabold text-xl block mb-2">
+                San Francisco, CA. March 7, 2022.
+              </span>{' '}
               The Tribe Protocol (outlined in the
               <Link href="/The_Purple_Paper_v1.1.pdf">
                 <a
