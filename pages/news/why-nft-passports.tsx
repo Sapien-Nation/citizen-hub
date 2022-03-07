@@ -35,10 +35,17 @@ const News: NextPage = () => {
           </div>
           <div className="mt-6 px-8 sm:px-0 font-light text-lg leading-9 tracking-wide gap-12 flex flex-col text-white mx-auto sm:px-6 max-w-6xl">
             <p>
-              <span className="font-extrabold text-xl">
-                The Tribe Protocol (outlined in the Purple Paper)
-              </span>{' '}
-              is a holistic solution designed to address a variety of social,
+              The Tribe Protocol (outlined in the
+              <Link href="/The_Purple_Paper_v1.1.pdf">
+                <a
+                  target="_blank"
+                  className="text-base font-semibold text-sapien-60 hover:text-sapien-80"
+                >
+                  {' '}
+                  Purple Paper
+                </a>
+              </Link>
+              ) is a holistic solution designed to address a variety of social,
               economic, and digital issues that we face today. In the Purple
               Paper, this holistic solution is broken down into three key layers
               (or primitives), the social, the informational, and the economic.

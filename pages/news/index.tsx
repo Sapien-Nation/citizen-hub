@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
 
 const people = [
@@ -66,15 +67,6 @@ export default function Example() {
                       activities including product, operations, marketing,
                       organizational development and culture.
                     </p>
-                    <p>
-                      Sapien is designed to enable people to reclaim control of
-                      their individual and collective digital personas through a
-                      system that is human-centric instead of algorithmically
-                      determined. Once fully launched, the Sapien platform will
-                      include community groups (‘tribes”) composed of “citizens”
-                      — collectively the Sapien Nation – which will be governed
-                      by first-of-its-kind NFT passport-holders.
-                    </p>
                     <Link href="/news/latif-joins-sapien">
                       <a className="text-base font-semibold text-sapien-60 hover:text-sapien-80 mt-5 block">
                         Read full story
@@ -119,17 +111,7 @@ export default function Example() {
                       three key layers (or primitives), the social, the
                       informational, and the economic.
                     </p>
-                    <p>
-                      Sapien’s NFT Passport constitutes the foundation of the
-                      social layer and, by extension, helps lay the foundation
-                      of the protocol as a whole. As a foundational pillar of
-                      the ecosystem, Passport sales help us fund operations of
-                      the nation as well as investment into communities part of
-                      the Republic. As such, a 5% fee on all secondary sales
-                      goes to The Sapien Nation Treasury to help sustain the
-                      ecosystem.
-                    </p>
-                    <Link href="/news/why-nft">
+                    <Link href="/news/why-nft-passports">
                       <a className="text-base font-semibold text-sapien-60 hover:text-sapien-80 mt-5 block">
                         Read full story
                       </a>
