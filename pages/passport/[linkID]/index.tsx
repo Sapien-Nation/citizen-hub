@@ -6,6 +6,7 @@ import { Head, Query } from 'components/common';
 import {
   Auth,
   Avatar,
+  Discord,
   FeedbackView,
   Figure as FigureView,
   Loading,
@@ -34,11 +35,13 @@ export enum View {
   Figure,
   Start,
   Loading,
+  Success,
 }
 
 // TODO export
 interface Avatar extends Figure {
   image: File;
+  isManual: string;
 }
 
 const PassportPage = () => {
@@ -53,7 +56,11 @@ const PassportPage = () => {
   if (me === null)
     return <Auth redirect={`/passport/${query.linkID as string}`} />;
 
-  const renderView = ({ code, statusCode }: LinkCheckResponse) => {
+  const renderView = ({
+    code,
+    statusCode,
+    distributionId,
+  }: LinkCheckResponse) => {
     const responseCode = code || statusCode;
 
     if (responseCode) {
@@ -82,7 +89,15 @@ const PassportPage = () => {
       case View.Loading:
         return <Loading />;
       case View.Avatar:
-        return <Avatar avatar={avatar} />;
+        return (
+          <Avatar
+            avatar={avatar}
+            setDiscordView={() => setView(View.Success)}
+            distributionId={distributionId}
+          />
+        );
+      case View.Success:
+        return <Discord />;
     }
   };
 

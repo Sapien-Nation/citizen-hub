@@ -16,7 +16,7 @@ export const uploadManualFigure = (body: FormData) =>
     .then(({ data }) => data)
     .catch(({ response }) => Promise.reject(response.data.message));
 
-export const createPassport = (body: FormData) =>
+export const createPassport = (body: any) =>
   axios
     .post('/api/v3/passport', body)
     .then(({ data }) => data)

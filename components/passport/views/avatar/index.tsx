@@ -1,25 +1,30 @@
 import { useState } from 'react';
-import { CheckCircleIcon } from '@heroicons/react/solid';
-import Image from 'next/image';
+
+// api
+import { createPassport } from 'api/passport/reserve';
 
 // context
 import { useToast } from 'context/toast';
-
-// components
-import { Query } from 'components/common';
 
 // types
 import type { Figure } from 'types/figure';
 
 interface Avatar extends Figure {
   image: File;
+  isManual: string;
 }
 
 interface Props {
   avatar: Avatar;
+  distributionId: string;
+  setDiscordView: () => void;
 }
 
-const HistoricalFiguresSearch = ({ avatar }: Props) => {
+const HistoricalFiguresSearch = ({
+  avatar,
+  setDiscordView,
+  distributionId,
+}: Props) => {
   const [isFetching, setIsFetching] = useState(false);
 
   const toast = useToast();
@@ -27,7 +32,14 @@ const HistoricalFiguresSearch = ({ avatar }: Props) => {
   const handleCreatePassport = async () => {
     setIsFetching(true);
     try {
-      // TODO
+      const formData = new FormData();
+      formData.append('image', avatar.image);
+      formData.append('figureName', avatar.name);
+      formData.append('isManual', avatar.isManual);
+      formData.append('distributionId', distributionId);
+
+      await createPassport(formData);
+      setDiscordView();
     } catch (error) {
       toast({
         message: error,

@@ -18,6 +18,7 @@ import type { Figure } from 'types/figure';
 
 interface Avatar extends Figure {
   image: File;
+  isManual: string;
 }
 
 interface Props {
@@ -49,6 +50,7 @@ const FigureView = ({ setAvatar, setPassportView }: Props) => {
       const file = new File([blob], fileName, { type: mimeType });
       setAvatar({
         image: file,
+        isManual: isManual === true ? 'true' : 'false',
         ...figure,
       });
       setPassportView(PassportViews.Avatar);
