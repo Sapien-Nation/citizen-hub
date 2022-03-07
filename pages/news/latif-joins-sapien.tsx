@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
 
 // types
@@ -18,9 +19,6 @@ const News: NextPage = () => {
         <div className="relative px-4 sm:px-8 lg:px-8">
           <div className="text-lg max-w-4xl mx-auto mb-12">
             <h1>
-              <span className="block m-auto mb-12 text-base w-24 text-center text-sapien bg-white p-2 rounded-full font-extrabold tracking-wide uppercase">
-                News
-              </span>
               <span className="mt-2 max-w-prose block text-3xl text-center leading-8 font-extrabold tracking-tight text-white sm:text-4xl">
                 Microsoft and eBay Veteran Latif Nathani Joins Sapien.Network as
                 Chief Operating Officer

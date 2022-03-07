@@ -37,6 +37,8 @@ const Navbar = () => {
   const router = useRouter();
   const { theme, setTheme } = useTheme();
 
+  console.log(router.asPath);
+
   return (
     <Disclosure
       as="nav"
@@ -67,7 +69,7 @@ const Navbar = () => {
                           <a
                             target="_blank"
                             className={mergeClassNames(
-                              router.asPath === nav.href
+                              router.asPath.includes(nav.href)
                                 ? 'underline decoration-2 decoration-sapien'
                                 : 'hover:text-gray-500',
                               'inline-flex items-center text-lg px-1 pt-1 font-extrabold'
@@ -80,7 +82,7 @@ const Navbar = () => {
                         <Link href={nav.href}>
                           <a
                             className={mergeClassNames(
-                              router.asPath === nav.href
+                              router.asPath.includes(nav.href)
                                 ? 'underline decoration-2 decoration-sapien'
                                 : 'hover:text-gray-500',
                               'inline-flex items-center text-lg px-1 pt-1 font-extrabold'
