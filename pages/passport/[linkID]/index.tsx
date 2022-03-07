@@ -1,4 +1,3 @@
-import Error from 'next/error';
 import { useRouter } from 'next/router';
 import { Fragment, useState } from 'react';
 import { Transition } from '@headlessui/react';
@@ -11,6 +10,7 @@ import {
   FeedbackView,
   Figure as FigureView,
   Loading,
+  Pending,
   StartView,
 } from 'components/passport';
 
@@ -23,6 +23,7 @@ interface LinkCheckResponse {
   code?: number;
   distributionId?: string;
   message?: string;
+  statusCode?: number;
 }
 
 export enum View {
@@ -35,6 +36,7 @@ export enum View {
 
 const PassportPage = () => {
   const [view, setView] = useState(View.Start);
+  const [avatar, setAvatar] = useState<{ id: string } | null>(null);
 
   const { query } = useRouter();
   const { me, isLoggingIn } = useAuth();
@@ -44,9 +46,19 @@ const PassportPage = () => {
   if (me === null)
     return <Auth redirect={`/passport/${query.linkID as string}`} />;
 
-  const renderView = ({ code }: LinkCheckResponse) => {
-    if (code) {
-      return <FeedbackView code={code} />;
+  const renderView = ({ code, statusCode }: LinkCheckResponse) => {
+    const responseCode = code || statusCode;
+
+    if (responseCode) {
+      if (responseCode === 104) {
+        return <Pending />;
+      }
+
+      if (responseCode === 105) {
+        return <></>;
+      }
+
+      return <FeedbackView code={responseCode} />;
     }
 
     switch (view) {
@@ -54,7 +66,11 @@ const PassportPage = () => {
         return <StartView setPassportView={setView} />;
       case View.Figure:
         return (
-          <FigureView linkID={String(query.linkID)} setPassportView={setView} />
+          <FigureView
+            linkID={String(query.linkID)}
+            setPassportView={setView}
+            setAvatar={setAvatar}
+          />
         );
       case View.Loading:
         return <Loading />;
@@ -70,9 +86,7 @@ const PassportPage = () => {
             leaveFrom="transform opacity-100"
             leaveTo="transform opacity-0"
           >
-            <div>
-              <Avatar linkID={String(query.linkID)} />
-            </div>
+            <Avatar avatar={avatar} />
           </Transition>
         );
     }
@@ -95,7 +109,4 @@ const PassportPage = () => {
   );
 };
 
-const WIPPage = () => {
-  return <Error statusCode={404} />;
-};
-export default WIPPage;
+export default PassportPage;

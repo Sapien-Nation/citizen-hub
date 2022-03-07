@@ -29,8 +29,8 @@ const AppLayout = ({ children }: Props) => {
     return (
       <div className="relative flex flex-col min-h-screen">
         <Banner
-          title="The Sapien Tribe NFT Passport sale will begin on March 14, 2022. "
-          message="The Sapien Tribe NFT Passport sale will begin on March 14, 2022. "
+          title="The Sapien Nation NFT Passport presale will begin on March 14, 2022. "
+          message="The Sapien Nation NFT Passport presale will begin on March 14, 2022. "
         />
         <Navbar />{' '}
         <LocomotiveScrollProvider
@@ -55,8 +55,8 @@ const AppLayout = ({ children }: Props) => {
   return (
     <div className="relative flex flex-col min-h-screen">
       <Banner
-        title="The Sapien Tribe NFT Passport sale will begin on March 14, 2022. "
-        message="The Sapien Tribe NFT Passport sale will begin on March 14, 2022. "
+        title="The Sapien Nation NFT Passport sale will begin on March 14, 2022. "
+        message="The Sapien Nation NFT Passport sale will begin on March 14, 2022. "
       />
       <Navbar />
       <main className="flex-1 flex flex-col">
