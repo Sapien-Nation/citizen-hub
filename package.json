@@ -20,6 +20,7 @@
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "aos": "^2.3.4",
     "axios": "^0.26.0",
+    "form-data": "^4.0.0",
     "glslify": "^7.1.1",
     "imagesloaded": "^4.1.4",
     "js-cookie": "^3.0.1",

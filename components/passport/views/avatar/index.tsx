@@ -8,11 +8,15 @@ import { useToast } from 'context/toast';
 // components
 import { Query } from 'components/common';
 
-// utils
-import { mergeClassNames } from 'utils/styles';
+// types
+import type { Figure } from 'types/figure';
+
+interface Avatar extends Figure {
+  image: File;
+}
 
 interface Props {
-  avatar: { id: string };
+  avatar: Avatar;
 }
 
 const HistoricalFiguresSearch = ({ avatar }: Props) => {
@@ -36,13 +40,15 @@ const HistoricalFiguresSearch = ({ avatar }: Props) => {
     <>
       <div className="px-4 xl:px-0">
         <p className="mt-3 max-w-lg mx-auto text-md font-light py-4 text-gray-500 sm:text-xl md:mt-5">
-          We’ve produced several stylizations for you. Whichever you choose will
-          be your new passport avatar
+          We’ve produced an stylizated version of the image you provide.
         </p>
       </div>
       <main className="lg:relative">
         <div className="mx-auto max-w-6xl w-full pt-16 px-4 xl:px-0">
-          <div>TODO show Avatar here</div>
+          <div className="flex justify-center">
+            {/* // eslint-disable-next-line @next/next/no-img-element */}
+            <img src={URL.createObjectURL(avatar.image)} alt={avatar.name} />
+          </div>
           <div className="mt-20 sticky bottom-10 flex flex-col justify-center items-center">
             <button
               disabled={isFetching}

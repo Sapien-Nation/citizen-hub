@@ -17,7 +17,7 @@ const Loading = () => (
           tracking-wide
         "
     >
-      Generating your avatars . . .
+      Styling your avatar.
     </span>
   </div>
 );

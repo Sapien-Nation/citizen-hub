@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 // api
-import { createPassport } from 'api/passport';
+import { createStyledAvatar } from 'api/passport';
 
 // components
 import FiguresGallery from './FiguresGallery';
@@ -16,13 +16,17 @@ import { useToast } from 'context/toast';
 // types
 import type { Figure } from 'types/figure';
 
+interface Avatar extends Figure {
+  image: File;
+}
+
 interface Props {
   linkID: string;
-  setAvatar: (avatar: { id: string }) => void;
+  setAvatar: (data: Avatar) => void;
   setPassportView: (view: PassportViews) => void;
 }
 
-const FigureView = ({ linkID, setAvatar, setPassportView }: Props) => {
+const FigureView = ({ setAvatar, setPassportView }: Props) => {
   const [figure, setFigure] = useState<Figure | null>(null);
   const [isManual, setIsManual] = useState(false);
   const [isFetching, setIsFetching] = useState(false);
@@ -35,15 +39,18 @@ const FigureView = ({ linkID, setAvatar, setPassportView }: Props) => {
     setPassportView(PassportViews.Loading);
     try {
       const formData = new FormData();
+      formData.append('IMAGE', passportFile);
+      const [{ fileName, imageData, mimeType }] = await createStyledAvatar(
+        formData
+      );
 
-      formData.append('distributionId', linkID);
-      formData.append('image', passportFile);
-      formData.append('figureName', figure.name);
-      formData.append('isManual', isManual ? 'true' : 'false');
-
-      const avatar = await createPassport(formData);
-
-      setAvatar(avatar);
+      const res = await fetch(imageData);
+      const blob = await res.blob();
+      const file = new File([blob], fileName, { type: mimeType });
+      setAvatar({
+        image: file,
+        ...figure,
+      });
       setPassportView(PassportViews.Avatar);
     } catch (error) {
       toast({
@@ -77,7 +84,7 @@ const FigureView = ({ linkID, setAvatar, setPassportView }: Props) => {
         <FiguresLookup
           onFigureSelect={(selectedFigure) => setFigure(selectedFigure)}
           setSearching={setSearching}
-          onSelect={setPassportFile}
+          onSelect={(file) => setPassportFile(file)}
         />
         <main className="lg:relative">
           <div className="mx-auto max-w-6xl w-full pt-16 px-4 xl:px-0">

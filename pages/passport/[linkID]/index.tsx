@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router';
-import { Fragment, useState } from 'react';
-import { Transition } from '@headlessui/react';
+import { useState } from 'react';
 
 // components
 import { Head, Query } from 'components/common';
@@ -16,6 +15,9 @@ import {
 
 // context
 import { useAuth } from 'context/user';
+
+// types
+import type { Figure } from 'types/figure';
 
 interface LinkCheckResponse {
   allowedPassports?: number;
@@ -34,9 +36,14 @@ export enum View {
   Loading,
 }
 
+// TODO export
+interface Avatar extends Figure {
+  image: File;
+}
+
 const PassportPage = () => {
   const [view, setView] = useState(View.Start);
-  const [avatar, setAvatar] = useState<{ id: string } | null>(null);
+  const [avatar, setAvatar] = useState<Avatar | null>(null);
 
   const { query } = useRouter();
   const { me, isLoggingIn } = useAuth();
@@ -75,20 +82,7 @@ const PassportPage = () => {
       case View.Loading:
         return <Loading />;
       case View.Avatar:
-        return (
-          <Transition
-            as={Fragment}
-            show
-            enter="transition ease-out duration-100"
-            enterFrom="transform opacity-0"
-            enterTo="transform opacity-100"
-            leave="transition ease-in duration-75"
-            leaveFrom="transform opacity-100"
-            leaveTo="transform opacity-0"
-          >
-            <Avatar avatar={avatar} />
-          </Transition>
-        );
+        return <Avatar avatar={avatar} />;
     }
   };
 
