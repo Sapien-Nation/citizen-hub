@@ -36,7 +36,7 @@ const HistoricalFiguresSearch = ({
       formData.append('figureName', avatar.name);
       formData.append('isManual', avatar.isManual);
       formData.append('distributionId', distributionId);
-      formData.append('image', avatar.image);
+      formData.append('image', avatar.image); // Keep image at last
 
       await createPassport(formData);
       setDiscordView();

@@ -53,7 +53,8 @@ const FiguresGallery = ({
       return new File([blob], name, { type: 'image/png' });
     } catch (err) {
       toast({
-        message: error.message,
+        message:
+          'This image is not available to select, please try another one.',
       });
     }
   };
