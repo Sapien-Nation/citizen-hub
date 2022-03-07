@@ -36,18 +36,18 @@ const FiguresLookup = ({ onFigureSelect, onSelect, setSearching }: Props) => {
   const isLoading = (searchTerm && !error && !data) || isValidating;
   let suggestions: Array<Figure> = [];
 
-  if (isLoading) {
-    setSearching(true);
-  }
-
   useEffect(() => {
+    if (isLoading) {
+      setSearching(true);
+    }
+
     if (searchTerm === '') {
       setSearching(false);
       onSelect(null);
       onFigureSelect(null);
       inputRef.current.value = '';
     }
-  }, [onFigureSelect, onSelect, searchTerm, setSearching]);
+  }, [onFigureSelect, onSelect, searchTerm, setSearching, isLoading]);
 
   //---------------------------------------------------------------------------------------------
   const clearSuggestions = () => cache.set(apiKey, () => []);
