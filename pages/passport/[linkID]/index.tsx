@@ -36,6 +36,7 @@ export enum View {
   Start,
   Loading,
   Success,
+  Pending,
 }
 
 // TODO export
@@ -86,6 +87,8 @@ const PassportPage = () => {
             setAvatar={setAvatar}
           />
         );
+      case View.Pending:
+        return <Pending />;
       case View.Loading:
         return <Loading />;
       case View.Avatar:
@@ -93,6 +96,7 @@ const PassportPage = () => {
           <Avatar
             avatar={avatar}
             setDiscordView={() => setView(View.Success)}
+            setPendingView={() => setView(View.Pending)}
             distributionId={distributionId}
           />
         );

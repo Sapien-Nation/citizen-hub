@@ -18,11 +18,13 @@ interface Props {
   avatar: Avatar;
   distributionId: string;
   setDiscordView: () => void;
+  setPendingView: () => void;
 }
 
 const HistoricalFiguresSearch = ({
   avatar,
   setDiscordView,
+  setPendingView,
   distributionId,
 }: Props) => {
   const [isFetching, setIsFetching] = useState(false);
@@ -38,8 +40,13 @@ const HistoricalFiguresSearch = ({
       formData.append('distributionId', distributionId);
       formData.append('image', avatar.image); // Keep image at last
 
-      await createPassport(formData);
-      setDiscordView();
+      const { isPending } = await createPassport(formData);
+
+      if (isPending) {
+        setPendingView();
+      } else {
+        setDiscordView();
+      }
     } catch (error) {
       toast({
         message: error,
