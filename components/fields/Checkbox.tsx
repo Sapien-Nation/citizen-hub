@@ -16,7 +16,7 @@ const Checkbox = ({ id, name, label, ...rest }: Props) => {
         type="checkbox"
         {...register(name, {
           validate: {
-            required: (value) => value || 'Please check',
+            required: (value) => value || ' ',
           },
         })}
         {...rest}

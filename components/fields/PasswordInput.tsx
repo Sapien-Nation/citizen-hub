@@ -8,7 +8,7 @@ import { mergeClassNames } from 'utils/styles';
 
 interface Props {
   autoComplete?: string;
-  control: Control<any>;
+  control?: Control<any>;
   name?: string;
   inputProps?: InputHTMLAttributes<HTMLInputElement>;
   required?: boolean;
@@ -16,22 +16,22 @@ interface Props {
   validate?: (value: string) => boolean | string;
 }
 
-const softPasswords = [
-  '12345678',
-  'qwertyui',
-  'qwertzui',
-  'asdfghjk',
-  'abcdefgh',
-  '09876543',
-  '98765432',
-  '1q2w3e4r',
-  '12345asd',
-  'test1234',
-  'Test1234',
-  'password',
-  'sapien',
-  'passw0rd',
-];
+// const softPasswords = [
+//   '12345678',
+//   'qwertyui',
+//   'qwertzui',
+//   'asdfghjk',
+//   'abcdefgh',
+//   '09876543',
+//   '98765432',
+//   '1q2w3e4r',
+//   '12345asd',
+//   'test1234',
+//   'Test1234',
+//   'password',
+//   'sapien',
+//   'passw0rd',
+// ];
 
 const PasswordInput = ({
   autoComplete,
@@ -51,12 +51,12 @@ const PasswordInput = ({
     name,
     rules: {
       minLength: { value: 8, message: 'should be at least 8 characters long' },
-      maxLength: { value: 100, message: 'is to long' },
+      maxLength: { value: 100, message: 'is too long' },
       validate: shouldValidate
         ? (value) => {
             if (!required && value.length === 0) return true;
 
-            if (softPasswords.includes(value!)) return 'is to Weak';
+            // if (softPasswords.includes(value!)) return 'is too Weak';
 
             if (
               !/[A-Z]/.test(value) ||
@@ -65,9 +65,11 @@ const PasswordInput = ({
             ) {
               if (!/\d/.test(value)) return 'should have a number';
 
-              if (!/[A-Z]/.test(value!)) return 'should have an uppercase';
+              if (!/[A-Z]/.test(value!))
+                return 'should have an uppercase character';
 
-              if (!/[a-z]/.test(value!)) return 'should have a lowercase';
+              if (!/[a-z]/.test(value!))
+                return 'should have a lowercase character';
             }
 
             return validate?.(value) || true;

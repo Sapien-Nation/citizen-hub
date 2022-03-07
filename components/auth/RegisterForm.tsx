@@ -21,6 +21,7 @@ interface RegisterFormValues {
   email: string;
   firstName: string;
   password: string;
+  confirm: string;
   username: string;
   lastName: string;
   terms: boolean;
@@ -33,6 +34,7 @@ const RegisterForm = () => {
       email: '',
       firstName: '',
       password: '',
+      confirm: '',
       username: '',
       lastName: '',
       terms: false,
@@ -44,6 +46,7 @@ const RegisterForm = () => {
     control,
     handleSubmit,
     formState: { errors, isSubmitting },
+    setError,
   } = methods;
 
   const toast = useToast();
@@ -55,9 +58,20 @@ const RegisterForm = () => {
     firstName,
     lastName,
     password,
+    confirm,
     username,
   }: RegisterFormValues) => {
     try {
+      if (confirm !== password) {
+        setError('password', { message: 'Passwords must match' });
+        setError(
+          'confirm',
+          { message: 'Passwords must match' },
+          { shouldFocus: true }
+        );
+        return false;
+      }
+
       const response = await registerAction({
         firstName,
         lastName,
@@ -133,7 +147,7 @@ const RegisterForm = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-6 gap-6">
+        {/* <div className="grid grid-cols-6 gap-6">
           <div className="col-span-6 sm:col-span-3">
             <TextInputLabel
               label="First Name"
@@ -179,7 +193,7 @@ const RegisterForm = () => {
               />
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div className="space-y-1">
           <TextInputLabel
@@ -189,8 +203,27 @@ const RegisterForm = () => {
           />
           <div className="mt-1">
             <PasswordInput
+              name="password"
               control={control}
               validate={(value) => value.length > 0 || 'is required'}
+              inputProps={{
+                'aria-invalid': Boolean(passwordError),
+                'aria-describedby': `password-error`,
+              }}
+            />
+          </div>
+        </div>
+
+        <div className="space-y-1">
+          <TextInputLabel
+            label="Confirm Password"
+            name="confirm"
+            error={errors.confirm?.message}
+          />
+          <div className="mt-1">
+            <PasswordInput
+              name="confirm"
+              shouldValidate={false}
               inputProps={{
                 'aria-invalid': Boolean(passwordError),
                 'aria-describedby': `password-error`,
@@ -230,7 +263,7 @@ const RegisterForm = () => {
           </div>
         </div>
 
-        <div className="flex items-center justify-between">
+        {/* <div className="flex items-center justify-between">
           <div className="flex items-center">
             <Checkbox
               name="wallet"
@@ -251,7 +284,7 @@ const RegisterForm = () => {
               }
             />
           </div>
-        </div>
+        </div> */}
 
         <div className="mt-8">
           <button
