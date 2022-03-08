@@ -42,7 +42,7 @@ const News: NextPage = () => {
               <Link href="/The_Purple_Paper_v1.1.pdf">
                 <a
                   target="_blank"
-                  className="text-base font-semibold text-sapien-60 hover:text-sapien-80"
+                  className="text-lg font-semibold text-sapien-60 hover:text-sapien-80"
                 >
                   {' '}
                   Purple Paper

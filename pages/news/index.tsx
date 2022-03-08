@@ -30,6 +30,55 @@ export default function Example() {
               <div className="aspect-w-3 aspect-h-2 sm:aspect-w-3 sm:aspect-h-4">
                 <img
                   className="object-cover shadow-lg rounded-lg max-w-sm mx-auto rounded-xl"
+                  src="/images/news/whitelist-cover.png"
+                  alt="Whitelist guide"
+                />
+              </div>
+              <div className="sm:col-span-3">
+                <div className="space-y-4">
+                  <div className="text-lg leading-6 font-medium space-y-1">
+                    <h2>
+                      <span className="max-w-prose block text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl">
+                        How Do I Join the Whitelist?
+                      </span>
+                    </h2>
+                  </div>
+                  <div className="text-lg">
+                    <blockquote className="italic mt-4 text-xl tracking-wide text-white leading-8">
+                      Guarantee Yourself an Opportunity to Purchase a Sapien NFT
+                      Passport
+                    </blockquote>
+                  </div>
+                  <div className="mt-3">
+                    <p>
+                      We’re so excited to be launching our “Founding Members”
+                      edition of the Sapien Nation NFT passport. This edition is
+                      part of an exclusive batch of 1,000 NFT passports that
+                      will be sold at 0.25 ETH each. Each passport will contain
+                      a unique historical avatar to celebrate our shared past
+                      and blaze a new path forward.
+                    </p>
+                    <p className="text-sm text-gray-500 mt-2">
+                      <time dateTime="March 7, 2022">
+                        San Francisco, CA. March 8, 2022.
+                      </time>
+                    </p>
+                    <Link href="/news/how-do-I-join-the-whitelist">
+                      <a className="text-base font-semibold text-sapien-60 hover:text-sapien-80 mt-5 block">
+                        Read full story
+                      </a>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li className="sm:py-8">
+            <div className="space-y-4 sm:grid sm:grid-cols-4 sm:items-start sm:gap-6 sm:space-y-0">
+              <div className="aspect-w-3 aspect-h-2 sm:aspect-w-3 sm:aspect-h-4">
+                <img
+                  className="object-cover shadow-lg rounded-lg max-w-sm mx-auto rounded-xl"
                   src="/images/news/Avatars-Transition.gif"
                   alt="Sapien Avatar Transition"
                 />
