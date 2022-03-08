@@ -107,15 +107,14 @@ const News: NextPage = () => {
             </p>
 
             <iframe
-              className="flex flex-col mx-auto sm:px-6 max-w-6xl mt-6 px-8 sm:px-0"
+              className="mt-6 aspect-video w-full h-80 lg:h-[40rem]"
               width="1045"
-              height="588"
               src="https://www.youtube.com/embed/i5h7GxrntqU"
               title="YouTube video player"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
-            ></iframe>
+            />
 
             <div className="mt-10">
               <h5 className="font-extrabold">About Sapien Network</h5>
