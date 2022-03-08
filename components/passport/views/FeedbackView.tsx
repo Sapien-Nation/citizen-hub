@@ -34,11 +34,32 @@ const ErrorView = ({ code }: Props) => {
     }
   };
 
+  const renderLottie = () => {
+    switch (code) {
+      case 101:
+      case 102:
+      case 100:
+      case 409:
+      case 103:
+      case 403:
+      case 407:
+      case 408:
+      case 404:
+        return (
+          <LottiePlayer lottie="https://assets2.lottiefiles.com/packages/lf20_8gd5woxm.json" />
+        );
+      default:
+        return (
+          <LottiePlayer lottie="https://assets7.lottiefiles.com/packages/lf20_3dw8ed6q.json" />
+        );
+    }
+  };
+
   return (
     <div className={theme && theme === 'light' ? 'bg-gray-50' : ''}>
       <div className="lg:relative py-12 lg:h-full sm:h-72">
         <div className="w-full py-12 h-64 flex items-center justify-center">
-          <LottiePlayer lottie="https://assets2.lottiefiles.com/packages/lf20_8gd5woxm.json" />
+          {renderLottie()}
         </div>
         <div className=" w-full pb-16 text-center">
           <p
