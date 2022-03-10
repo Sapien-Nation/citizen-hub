@@ -100,6 +100,7 @@ const PurchaseView = ({ onBuy, isSoldOut, distributionId }: Props) => {
             message: 'Operation successful',
             type: ToastType.Success,
           });
+          onBuy();
         }
       } catch (e) {
         if (e.code === 'INSUFFICIENT_FUNDS') {
@@ -114,7 +115,6 @@ const PurchaseView = ({ onBuy, isSoldOut, distributionId }: Props) => {
       }
 
       setIsFetching(false);
-      onBuy();
     } catch (e) {
       toast({
         message: e.message || 'error',
