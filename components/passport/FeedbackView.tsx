@@ -1,7 +1,6 @@
 // components
 import { LottiePlayer } from 'components/common';
 import { useTheme } from 'next-themes';
-import { Discord } from 'components/passport';
 
 // utils
 import { mergeClassNames } from 'utils/styles';
@@ -15,39 +14,45 @@ const ErrorView = ({ code }: Props) => {
 
   const renderMessage = () => {
     switch (code) {
-      case 101:
-        return 'This Link its not active yet, please try in 24hrs';
-      case 102:
-        return 'This link has expired';
+      // Link Status
       case 100:
-      case 409:
-        return 'There is already a Passport linked to this account';
+        return 'Link is not active yet';
+      case 101:
+        return 'Expired Link';
+      case 102:
+        return 'No passports available for this link';
       case 103:
-      case 403:
-        return 'No more passports available for this link, please try a new one';
-      case 407:
-        return 'There seems to be an error with the selected historical figure, please try again, if the error persist, please contact support';
-      case 408:
-        return 'The Historical Figure you selected is not valid, please try with a different one';
-      case 404:
-        return 'Invalid Link';
+        return 'Link not found';
+
+      // User already have a passport
+      case 201:
+        return 'Historic figure name pending for review';
+      case 202:
+        return 'Image pending for review';
+      case 204:
+        return 'You already have a passport';
+
+      case 300:
+        return 'Listing is closed for now';
+
+      default:
+        return 'Please try again in 30mins';
     }
   };
 
   const renderLottie = () => {
     switch (code) {
+      case 100:
       case 101:
       case 102:
-      case 100:
-      case 409:
       case 103:
-      case 403:
-      case 407:
-      case 408:
-      case 404:
         return (
           <LottiePlayer lottie="https://assets2.lottiefiles.com/packages/lf20_8gd5woxm.json" />
         );
+      case 201:
+      case 202:
+      case 203:
+      case 300:
       default:
         return (
           <LottiePlayer lottie="https://assets7.lottiefiles.com/packages/lf20_3dw8ed6q.json" />

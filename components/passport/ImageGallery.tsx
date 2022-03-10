@@ -7,7 +7,7 @@ import useSWR, { useSWRConfig } from 'swr';
 import { replaceFigure } from 'api/passport';
 
 // components
-import ErrorView from '../FeedbackView';
+import FeedbackView from './FeedbackView';
 
 // context
 import { useToast } from 'context/toast';
@@ -47,7 +47,7 @@ const b64toBlob = (b64Data, contentType = '', sliceSize = 512) => {
   return blob;
 };
 
-const FiguresGallery = ({
+const ImageGallery = ({
   name,
   onSelect,
   setIsFetching,
@@ -142,10 +142,10 @@ const FiguresGallery = ({
 
   if (error) {
     if (error === 'Historic Figure is not valid') {
-      return <ErrorView code={408} />;
+      return <FeedbackView code={408} />;
     }
 
-    return <ErrorView code={407} />;
+    return <FeedbackView code={407} />;
   }
 
   if (loadingData) {
@@ -313,4 +313,4 @@ const FiguresGallery = ({
   );
 };
 
-export default FiguresGallery;
+export default ImageGallery;

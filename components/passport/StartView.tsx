@@ -5,10 +5,10 @@ import { LottiePlayer } from 'components/common';
 import { View as PassportViews } from 'pages/passport/[linkID]';
 
 interface Props {
-  setPassportView: (view: PassportViews) => void;
+  setView: (view: PassportViews) => void;
 }
 
-const StartView = ({ setPassportView }: Props) => {
+const StartView = ({ setView }: Props) => {
   return (
     <div className="w-full h-full flex items-center justify-center">
       <div className="lg:relative">
@@ -20,7 +20,7 @@ const StartView = ({ setPassportView }: Props) => {
             <br /> the Sapien tribe!
           </h2>
           <button
-            onClick={() => setPassportView(PassportViews.Figure)}
+            onClick={() => setView(PassportViews.Lookup)}
             className="animate-bounce bg-sapien py-2 px-8 border border-transparent rounded-md shadow-sm text-xl font-bold text-white bg-sapien-purple hover:bg-sapien-purple-light focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
           >
             Start

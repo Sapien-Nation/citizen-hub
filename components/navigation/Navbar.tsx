@@ -37,8 +37,6 @@ const Navbar = () => {
   const router = useRouter();
   const { theme, setTheme } = useTheme();
 
-  console.log(router.asPath);
-
   return (
     <Disclosure
       as="nav"

@@ -11,6 +11,7 @@
     "type-check": "tsc"
   },
   "dependencies": {
+    "@ethersproject/providers": "^5.5.3",
     "@headlessui/react": "^1.4.3",
     "@heroicons/react": "^1.0.5",
     "@hookform/resolvers": "^2.8.8",
@@ -18,8 +19,12 @@
     "@lottiefiles/lottie-player": "^1.5.5",
     "@react-three/fiber": "^7.0.26",
     "@tailwindcss/aspect-ratio": "^0.4.0",
+    "@web3-react/core": "^6.1.9",
+    "@web3-react/injected-connector": "^6.0.7",
+    "@web3-react/network-connector": "^6.2.9",
     "aos": "^2.3.4",
     "axios": "^0.26.0",
+    "ethers": "^5.6.0",
     "form-data": "^4.0.0",
     "glslify": "^7.1.1",
     "imagesloaded": "^4.1.4",
@@ -31,6 +36,7 @@
     "next-seo": "^5.1.0",
     "next-themes": "^0.0.15",
     "react": "^17.0.2",
+    "react-device-detect": "^2.1.2",
     "react-dom": "^17.0.2",
     "react-error-boundary": "^3.1.4",
     "react-hook-form": "^7.27.0",

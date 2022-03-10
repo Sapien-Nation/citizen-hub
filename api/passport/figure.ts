@@ -18,13 +18,13 @@ export const uploadManualFigure = (body: FormData) =>
 
 export const createPassport = (body: any) =>
   axios
-    .post('/api/v3/passport', body)
+    .post('/api/v3/passport/avatar', body)
     .then(({ data }) => data)
     .catch(({ response }) => Promise.reject(response.data.message));
 
 export const createStyledAvatar = (formData: any) =>
   axios
-    .post('/api/v3/passport/avatar', formData, {
+    .post('/api/v3/ml/avatar', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },

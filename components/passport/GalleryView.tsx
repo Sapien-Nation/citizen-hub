@@ -4,8 +4,7 @@ import { useState } from 'react';
 import { createStyledAvatar } from 'api/passport';
 
 // components
-import FiguresGallery from './FiguresGallery';
-import FiguresLookup from './FiguresLookup';
+import ImageGallery from './ImageGallery';
 
 // constants
 import { View as PassportViews } from 'pages/passport/[linkID]';
@@ -13,31 +12,33 @@ import { View as PassportViews } from 'pages/passport/[linkID]';
 // context
 import { useToast } from 'context/toast';
 
-// types
-import type { Figure } from 'types/figure';
-
-interface Avatar extends Figure {
+interface Avatar {
   image: File;
   isManual: string;
 }
 
 interface Props {
-  linkID: string;
+  figureName: string;
   setAvatar: (data: Avatar) => void;
-  setPassportView: (view: PassportViews) => void;
+  setView: (view: PassportViews) => void;
+  setResponseCode: (code: number) => void;
 }
 
-const FigureView = ({ setAvatar, setPassportView }: Props) => {
-  const [figure, setFigure] = useState<Figure | null>(null);
+const GalleryView = ({
+  setAvatar,
+  setView,
+  figureName,
+  setResponseCode,
+}: Props) => {
   const [isManual, setIsManual] = useState(false);
   const [isFetching, setIsFetching] = useState(false);
-  const [isSearching, setSearching] = useState(false);
   const [passportFile, setPassportFile] = useState<Blob | null>(null);
 
   const toast = useToast();
 
   const handleContinue = async () => {
-    setPassportView(PassportViews.Loading);
+    setResponseCode(undefined);
+    setView(PassportViews.Loading);
     try {
       const formData = new FormData();
       formData.append('IMAGE', passportFile);
@@ -51,53 +52,37 @@ const FigureView = ({ setAvatar, setPassportView }: Props) => {
       setAvatar({
         image: file,
         isManual: isManual === true ? 'true' : 'false',
-        ...figure,
       });
-      setPassportView(PassportViews.Avatar);
+      setView(PassportViews.Avatar);
     } catch (error) {
       toast({
         message: error ?? 'Error Creating Passport, please try another figure',
       });
-      setPassportView(PassportViews.Figure);
+      setView(PassportViews.Gallery);
     }
     setIsFetching(false);
   };
 
   return (
     <>
-      <div
-        className={`transition delay-150 duration-300 ease-in-out ${
-          isSearching ? 'scale-75 -translate-y-1/4' : 'px-4 xl:px-0 '
-        }`}
-      >
-        <p
-          className={`max-w-lg mx-auto text-md font-light text-gray-500 sm:text-xl md:mt-5 transition delay-150 duration-300 ease-in-out ${
-            isSearching ? 'scale-75' : ''
-          }`}
-        >
-          To claim your passport please input your favorite historical figure.
-        </p>
-      </div>
-      <div
-        className={`transition delay-150 duration-300 ease-in-out ${
-          isSearching ? '-translate-y-20' : ''
-        }`}
-      >
-        <FiguresLookup
-          onFigureSelect={(selectedFigure) => setFigure(selectedFigure)}
-          setSearching={setSearching}
-          onSelect={(file) => setPassportFile(file)}
-        />
+      <div className="transition delay-150 duration-300 ease-in-out px-4 xl:px-0"></div>
+      <div className="transition delay-150 duration-300 ease-in-out">
+        <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+          <span className="block text-white">
+            Now lets choose an image for {figureName}
+          </span>
+        </h1>
+        <h2 className="text-lg mt-5 text-white mb-5">
+          Remember that you can upload your own image.
+        </h2>
         <main className="lg:relative">
           <div className="mx-auto max-w-6xl w-full pt-16 px-4 xl:px-0">
-            {figure && (
-              <FiguresGallery
-                name={figure.name}
-                onSelect={(file) => setPassportFile(file)}
-                setIsFetching={setIsFetching}
-                setIsManual={setIsManual}
-              />
-            )}
+            <ImageGallery
+              name={figureName}
+              onSelect={(file) => setPassportFile(file)}
+              setIsFetching={setIsFetching}
+              setIsManual={setIsManual}
+            />
             <div className="mt-20 sticky -bottom-10 flex flex-col justify-center items-center">
               {Boolean(passportFile) && (
                 <button
@@ -119,4 +104,4 @@ const FigureView = ({ setAvatar, setPassportView }: Props) => {
   );
 };
 
-export default FigureView;
+export default GalleryView;

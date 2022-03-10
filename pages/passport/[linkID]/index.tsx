@@ -1,110 +1,202 @@
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // components
-import { Head, Redirect, Query } from 'components/common';
+import { Head, Query } from 'components/common';
 import {
-  Auth,
-  Avatar,
-  Discord,
+  AuthView,
+  AvatarView,
+  DiscordView,
   FeedbackView,
-  Figure as FigureView,
-  Loading,
-  Pending,
+  LookupView,
+  GalleryView,
+  LoadingView,
+  PendingView,
+  PurchaseView,
   StartView,
+  SuccessView,
 } from 'components/passport';
 
 // context
 import { useAuth } from 'context/user';
 
-// types
-import type { Figure } from 'types/figure';
+export enum View {
+  // Not LoggedIn
+  AuthView,
+
+  // Last Step
+  Avatar,
+
+  // This view is where we show the Autocomplete, so they can confirm the historical figure
+  Lookup,
+
+  // Already Selected an HistoricalFigure View A.K.A Google images Grid
+  Gallery,
+
+  // Initial View
+  Start,
+
+  // View to render when calling ML (take up to 10 seconds)
+  Loading,
+
+  // Discord View, when the user Finish all the flow
+  Success,
+
+  // Status Pending, means Admins need to approve submission
+  Pending,
+
+  // Purchase Views
+  Purchase,
+
+  Feedback,
+}
+
+// TODO export
+interface Avatar {
+  image: File;
+  isManual: string;
+}
 
 interface LinkCheckResponse {
   allowedPassports?: number;
   availablePassports?: number;
   code?: number;
+  isSoldOut?: boolean;
   distributionId?: string;
+  reservedFigure?: string | null;
   message?: string;
   statusCode?: number;
+  passportId?: string;
 }
 
-export enum View {
-  AuthView,
-  Avatar,
-  Figure,
-  Start,
-  Loading,
-  Success,
-  Pending,
-}
-
-// TODO export
-interface Avatar extends Figure {
-  image: File;
-  isManual: string;
-}
-
-const PassportPage = () => {
+const PassportPage = ({
+  code,
+  isSoldOut,
+  statusCode,
+  distributionId,
+  reservedFigure,
+  passportId,
+}: LinkCheckResponse) => {
   const [view, setView] = useState(View.Start);
   const [avatar, setAvatar] = useState<Avatar | null>(null);
+  const [figureName, setFigureName] = useState('');
+  const [responseCode, setResponseCode] = useState<number | undefined>(
+    code || statusCode
+  );
+  const [styledAvatar, setStyledAvatar] = useState<string | null>(null);
 
+  if (responseCode === 104) {
+    return (
+      <PurchaseView
+        onBuy={() => {
+          setView(View.Start);
+          setResponseCode(undefined);
+        }}
+        distributionId={distributionId}
+        isSoldOut={isSoldOut}
+      />
+    );
+  }
+
+  if (responseCode) {
+    if (responseCode === 201 || responseCode === 202) {
+      return <PendingView />;
+    }
+
+    if (responseCode === 203) {
+      return (
+        <GalleryView
+          figureName={reservedFigure}
+          setView={setView}
+          setAvatar={setAvatar}
+          setResponseCode={setResponseCode}
+        />
+      );
+    }
+
+    return <FeedbackView code={responseCode} />;
+  }
+
+  // the order of this views are in order of appearance
+  switch (view) {
+    case View.Start:
+      return <StartView setView={setView} />;
+
+    case View.Lookup:
+      return (
+        <LookupView
+          setView={setView}
+          distributionId={distributionId}
+          setFigureName={setFigureName}
+        />
+      );
+
+    case View.Gallery:
+      return (
+        <GalleryView
+          figureName={figureName}
+          setView={setView}
+          setAvatar={setAvatar}
+          setResponseCode={setResponseCode}
+        />
+      );
+
+    case View.Loading:
+      return <LoadingView />;
+
+    // Could be Pending or Avatar
+    case View.Pending:
+      return <PendingView />;
+
+    // Last Steps
+    case View.Avatar:
+      return (
+        <AvatarView
+          passportId={passportId}
+          setView={setView}
+          figureName={figureName}
+          avatarImage={avatar.image}
+          isManual={avatar.isManual}
+          onBack={() => {
+            setAvatar(null);
+            setFigureName(figureName || reservedFigure);
+            setView(View.Gallery);
+          }}
+          setStyledAvatar={setStyledAvatar}
+        />
+      );
+
+    case View.Success:
+      return (
+        <SuccessView styledAvatar={styledAvatar} reservedFigure={figureName} />
+      );
+  }
+};
+
+const PassportPageProxy = () => {
   const { query } = useRouter();
   const { me, isLoggingIn } = useAuth();
 
   if (isLoggingIn === true || !query.linkID) return null;
 
   if (me === null)
-    return <Auth redirect={`/passport/${query.linkID as string}`} />;
+    return <AuthView redirect={`/passport/${query.linkID as string}`} />;
 
-  const renderView = ({
-    code,
-    statusCode,
-    distributionId,
-  }: LinkCheckResponse) => {
-    const responseCode = code || statusCode;
+  const { linkID } = query;
 
-    if (responseCode) {
-      if (responseCode === 104) {
-        return <Pending />;
-      }
+  const isPurchase = linkID === 'purchase';
 
-      if (responseCode === 105) {
-        return <></>;
-      }
+  if (isPurchase) {
+    return (
+      <>
+        <Head title="WhiteList Only" />
 
-      return <FeedbackView code={responseCode} />;
-    }
+        <FeedbackView code={300} />
+      </>
+    );
+  }
 
-    switch (view) {
-      case View.Start:
-        return <StartView setPassportView={setView} />;
-      case View.Figure:
-        return (
-          <FigureView
-            linkID={String(query.linkID)}
-            setPassportView={setView}
-            setAvatar={setAvatar}
-          />
-        );
-      case View.Pending:
-        return <Pending />;
-      case View.Loading:
-        return <Loading />;
-      case View.Avatar:
-        return (
-          <Avatar
-            avatar={avatar}
-            setDiscordView={() => setView(View.Success)}
-            setPendingView={() => setView(View.Pending)}
-            distributionId={distributionId}
-          />
-        );
-      case View.Success:
-        return <Discord />;
-    }
-  };
-
+  const queryParams = isPurchase ? '' : `?linkId=${linkID}`;
   return (
     <>
       <Head title="Create Passport" />
@@ -112,8 +204,8 @@ const PassportPage = () => {
       <div className="flex-1 flex flex-row items-center justify-center">
         <main className="lg:relative h-full w-full">
           <div className="mx-auto max-w-6xl w-full pt-16 pb-20 text-center h-full lg:text-center">
-            <Query api={`/api/v3/passport/check-link?linkId=${query.linkID}`}>
-              {(response: LinkCheckResponse) => <>{renderView(response)}</>}
+            <Query api={`/api/v3/passport/status${queryParams}`}>
+              {(response: LinkCheckResponse) => <PassportPage {...response} />}
             </Query>
           </div>
         </main>
@@ -122,10 +214,4 @@ const PassportPage = () => {
   );
 };
 
-// export default PassportPage;
-
-const RedirectProxy = () => {
-  return <Redirect path="/" />;
-};
-
-export default RedirectProxy;
+export default PassportPageProxy;
