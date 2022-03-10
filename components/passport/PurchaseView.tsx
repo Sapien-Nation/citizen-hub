@@ -45,36 +45,38 @@ const PurchaseView = ({ onBuy, isSoldOut, distributionId }: Props) => {
   const handleConnectWallet = () =>
     active ? deactivate() : activate(injected);
 
+  const canPurchase = (): boolean => {
+    if (
+      process.env.NEXT_PUBLIC_WALLET_IS_MAINNET === 'false' &&
+      chainId !== 3 &&
+      chainId !== 4
+    ) {
+      toast({
+        message: 'Switch Network to Ropsten or Rinkeby',
+      });
+
+      return false;
+    } else if (
+      process.env.NEXT_PUBLIC_WALLET_IS_MAINNET === 'true' &&
+      chainId != 1
+    ) {
+      toast({
+        message: 'Switch Network to MainNet',
+      });
+
+      return false;
+    }
+
+    return true;
+  };
+
   const handleBuyPassport = async () => {
-    setIsFetching(true);
-    try {
-      if (
-        process.env.NEXT_PUBLIC_WALLET_IS_MAINNET === 'false' &&
-        chainId !== 3 &&
-        chainId !== 4
-      ) {
-        toast({
-          message: 'Switch Network to Ropsten or Rinkeby',
-        });
-
-        return;
-      } else if (
-        process.env.NEXT_PUBLIC_WALLET_IS_MAINNET === 'true' &&
-        chainId != 1
-      ) {
-        toast({
-          message: 'Switch Network to MainNet',
-        });
-
-        return;
-      }
-
+    if (canPurchase()) {
       setIsFetching(true);
       const provider = new ethers.providers.Web3Provider(
         (window as any).ethereum
       );
       const signer = provider.getSigner();
-
       try {
         const tx = await signer.sendTransaction({
           to: process.env.NEXT_PUBLIC_SAPIEN_WALLET_ADDRESS,
@@ -83,21 +85,16 @@ const PurchaseView = ({ onBuy, isSoldOut, distributionId }: Props) => {
         const receipt = await tx.wait();
 
         if (receipt.transactionHash && receipt.status) {
-          toast({
-            message: 'Transaction successful',
-            type: ToastType.Success,
-          });
-          const body = {
+          await reservePassport({
             amount: 0.25,
             units: 'ETHER',
             type: 'METAMASK',
             address: account,
             distributionId: distributionId,
-          };
+          });
 
-          await reservePassport(body);
           toast({
-            message: 'Operation successful',
+            message: 'Transaction successful',
             type: ToastType.Success,
           });
           onBuy();
@@ -113,15 +110,8 @@ const PurchaseView = ({ onBuy, isSoldOut, distributionId }: Props) => {
           });
         }
       }
-
       setIsFetching(false);
-    } catch (e) {
-      toast({
-        message: e.message || 'error',
-      });
     }
-
-    setIsFetching(false);
   };
 
   return (
