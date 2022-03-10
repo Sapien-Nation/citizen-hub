@@ -1,3 +1,25 @@
 {
-  "cSpell.words": ["Sapien"]
+  "cSpell.words": [
+    "Sapien"
+  ],
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#a58c4a",
+    "activityBar.activeBorder": "#a7d8ca",
+    "activityBar.background": "#a58c4a",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#15202b99",
+    "activityBarBadge.background": "#a7d8ca",
+    "activityBarBadge.foreground": "#15202b",
+    "sash.hoverBorder": "#a58c4a",
+    "statusBar.background": "#826e3a",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#a58c4a",
+    "statusBarItem.remoteBackground": "#826e3a",
+    "statusBarItem.remoteForeground": "#e7e7e7",
+    "titleBar.activeBackground": "#826e3a",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#826e3a99",
+    "titleBar.inactiveForeground": "#e7e7e799"
+  },
+  "peacock.color": "#826e3a"
 }

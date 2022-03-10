@@ -29,6 +29,9 @@ build-sandbox:
     - export KUBECONFIG=~/.kube/kubeconfig_sapien-sandbox-cluster
     - export AWS_PROFILE=sapien-sandbox
     - export AWS_REGION=us-east-2
+    - export ENV=SANDBOX
+    - export NODE_ENV=SANDBOX
+    - envsubst < .env.example > .env
     ### login to ecr
     - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 994750220687.dkr.ecr.us-east-2.amazonaws.com
     - docker build -t passport:$CI_COMMIT_SHORT_SHA .
@@ -50,6 +53,9 @@ build-qat:
     - export KUBECONFIG=~/.kube/kubeconfig_sapien-qat-cluster
     - export AWS_PROFILE=sapien-qat
     - export AWS_REGION=us-east-2
+    - export ENV=QAT
+    - export NODE_ENV=QAT
+    - envsubst < .env.example > .env
     ### login to ecr
     - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 081984521558.dkr.ecr.us-east-2.amazonaws.com
     - docker build -t passport:$CI_COMMIT_SHORT_SHA .
@@ -71,6 +77,9 @@ build-poc:
     - export KUBECONFIG=~/.kube/kubeconfig_sapien-poc-cluster
     - export AWS_PROFILE=sapien-poc
     - export AWS_REGION=us-east-2
+    - export ENV=POC
+    - export NODE_ENV=POC
+    - envsubst < .env.example > .env
     ### login to ecr
     - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 081984521558.dkr.ecr.us-east-2.amazonaws.com
     - docker build -t passport:$CI_COMMIT_SHORT_SHA .
