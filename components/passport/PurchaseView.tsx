@@ -318,7 +318,7 @@ const PurchaseView = ({ onBuy, isSoldOut, distributionId }: Props) => {
                         disabled={isFetching}
                         type="button"
                         className={mergeClassNames(
-                          isFetching ? 'cursor-not-allowed' : 'cursor-auto',
+                          isFetching ? 'cursor-not-allowed' : 'cursor-pointer',
                           'w-full bg-sapien border border-transparent rounded-md shadow-sm py-3 px-4 text-base font-medium text-white hover:bg-sapien-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-sapien-80'
                         )}
                         onClick={handleBuyPassport}
