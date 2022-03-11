@@ -319,23 +319,6 @@ const PurchaseView = ({
                       <Ethereum width={15} />
                     </dd>
                   </div>
-                  <div className="border-gray-200 pt-4">
-                    <dt className="flex items-center justify-end text-sm text-gray-600">
-                      <span className="text-gray-400">Disclaimer here</span>
-                      <a
-                        href="#"
-                        className="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500"
-                      >
-                        <span className="sr-only">
-                          Learn more about sapien passport
-                        </span>
-                        <QuestionMarkCircleIcon
-                          className="h-5 w-5"
-                          aria-hidden="true"
-                        />
-                      </a>
-                    </dt>
-                  </div>
                 </dl>
 
                 {active && (
