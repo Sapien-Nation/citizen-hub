@@ -27,6 +27,11 @@ const News: NextPage = () => {
               old Python notebooks from when he first started getting into deep
               learning.
             </blockquote>
+            <img
+              className="max-w-lg mx-auto rounded-xl my-12"
+              src="/images/news/trippy-psychedelic.gif"
+              alt="Sapien Avatar Transition"
+            />
           </div>
           <div className="mt-6 px-8 sm:px-0 font-light text-lg leading-9 tracking-wide gap-12 flex flex-col text-white mx-auto sm:px-6 max-w-6xl">
             <p>

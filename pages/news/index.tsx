@@ -9,7 +9,7 @@ const news = [
     excerpt: `When I joined Sapien, my first task was to create artwork for the first passport NFT collection (https://www.sapien.network/passport). While most NFT projects drop randomly generated, fairly homogenous collections, Sapien aspired to make each avatar highly individualized and meaningful. Unlike other projects, each person gets to be involved in the avatar creation process through selecting their historical figure as well as their avatar’s picture.`,
     date: 'San Francisco, CA. March 11, 2022.',
     source: '/news/a-trip-through-time',
-    image: '/images/news/sapien_mlk_image_1.png',
+    image: '/images/news/trippy-psychedelic.gif',
     imageAlt: 'Sapien Avatar',
   },
   {
