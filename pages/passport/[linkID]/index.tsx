@@ -67,6 +67,7 @@ interface LinkCheckResponse {
   message?: string;
   statusCode?: number;
   passportId?: string;
+  amount: number;
 }
 
 const PassportPage = ({
@@ -76,6 +77,7 @@ const PassportPage = ({
   distributionId,
   reservedFigure,
   passportId,
+  amount,
 }: LinkCheckResponse) => {
   const [view, setView] = useState(View.Start);
   const [avatar, setAvatar] = useState<Avatar | null>(null);
@@ -94,6 +96,7 @@ const PassportPage = ({
         }}
         distributionId={distributionId}
         isSoldOut={isSoldOut}
+        amount={amount}
       />
     );
   }

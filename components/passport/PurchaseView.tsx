@@ -35,17 +35,31 @@ interface Props {
   onBuy: () => void;
   isSoldOut: boolean;
   distributionId: string;
+  amount?: number;
 }
 
-const PurchaseView = ({ onBuy, isSoldOut, distributionId }: Props) => {
+const PurchaseView = ({
+  onBuy,
+  isSoldOut,
+  distributionId,
+  amount = 0.15,
+}: Props) => {
   const toast = useToast();
   const [isFetching, setIsFetching] = useState(false);
 
   const { me } = useAuth();
   const { deactivate, account, activate, active, chainId } = useWeb3React();
 
-  const handleConnectWallet = () =>
+  const handleConnectWallet = () => {
+    if (typeof window.ethereum === 'undefined') {
+      toast({
+        message: 'Please install MetaMask',
+      });
+
+      return;
+    }
     active ? deactivate() : activate(injected);
+  };
 
   const canPurchase = (): boolean => {
     if (
@@ -82,13 +96,13 @@ const PurchaseView = ({ onBuy, isSoldOut, distributionId }: Props) => {
       try {
         const tx = await signer.sendTransaction({
           to: process.env.NEXT_PUBLIC_SAPIEN_WALLET_ADDRESS,
-          value: ethers.utils.parseEther('0.15'),
+          value: ethers.utils.parseEther(amount.toString()),
         });
         const receipt = await tx.wait();
 
         if (receipt.transactionHash && receipt.status) {
           await reservePassport({
-            amount: 0.15,
+            amount: amount,
             units: 'ETHER',
             type: 'METAMASK',
             address: account,
