@@ -2,8 +2,10 @@ import { useState } from 'react';
 // tailwind ui
 import { Disclosure } from '@headlessui/react';
 import {
+  CheckCircleIcon,
   ChevronDownIcon,
   QuestionMarkCircleIcon,
+  XIcon,
 } from '@heroicons/react/solid';
 import { ethers } from 'ethers';
 
@@ -118,6 +120,30 @@ const PurchaseView = ({ onBuy, isSoldOut, distributionId }: Props) => {
     <>
       <div className="bg-gray text-left">
         <div className="max-w-2xl mx-auto pb-24 px-4 sm:px-6 lg:max-w-6xl lg:px-8">
+          {active && (
+            <div className="rounded-md bg-green-50 p-4">
+              <div className="flex">
+                <div className="flex-shrink-0">
+                  <CheckCircleIcon
+                    className="h-5 w-5 text-sapien"
+                    aria-hidden="true"
+                  />
+                </div>
+                <div className="ml-3">
+                  <p className="text-sm font-medium text-green-800">
+                    You wallet address is:{' '}
+                    {active ? (
+                      <span className="font-bold">
+                        {displayAddress(account)}
+                      </span>
+                    ) : (
+                      ''
+                    )}
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
           <form className="mt-12 lg:grid lg:grid-cols-12 lg:gap-x-12 lg:items-start xl:gap-x-16">
             <section
               aria-labelledby="cart-heading"
@@ -326,7 +352,7 @@ const PurchaseView = ({ onBuy, isSoldOut, distributionId }: Props) => {
                   onClick={handleConnectWallet}
                 >
                   {active ? (
-                    displayAddress(account)
+                    'Disconnect Wallet'
                   ) : (
                     <>
                       <Metamask width={30} className="mr-2" />
