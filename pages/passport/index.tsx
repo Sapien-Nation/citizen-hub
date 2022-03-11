@@ -361,7 +361,7 @@ const PassportPage: NextPage = () => {
                             10,000
                           </td>
                           <td className="border-grey-light border hover:bg-gray-100 p-3">
-                            0.25 ETH
+                            0.15 ETH
                           </td>
                           <td className="border-grey-light border hover:bg-gray-100 p-3">
                             March 14, 2022
