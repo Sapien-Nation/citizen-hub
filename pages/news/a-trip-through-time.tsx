@@ -21,6 +21,7 @@ const News: NextPage = () => {
             <h1 className="mt-2 max-w-prose block text-3xl text-center leading-8 font-extrabold tracking-tight text-white sm:text-4xl">
               A Trip Through Time
             </h1>
+            <span className="text-center block text-gray-400">Teja Aluru</span>
             <blockquote className="italic text-center mt-4 text-xl tracking-wide text-white leading-8">
               We made the first avatars in a WeWork with my friend Kalani, using
               old Python notebooks from when he first started getting into deep
@@ -188,8 +189,7 @@ const News: NextPage = () => {
                 </a>
               </Link>{' '}
               As opposed to other NFTs that simply sit in a wallet, these are
-              works of technoart you can be proud of and use it as your
-              signature!
+              works of technoart you can be proud of and use as your signature!
             </p>
 
             <p>
