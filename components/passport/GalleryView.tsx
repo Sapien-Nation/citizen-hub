@@ -14,7 +14,7 @@ import { useToast } from 'context/toast';
 
 interface Avatar {
   image: File;
-  isManual: string;
+  isManual: boolean;
 }
 
 interface Props {
@@ -49,9 +49,10 @@ const GalleryView = ({
       const res = await fetch(imageData);
       const blob = await res.blob();
       const file = new File([blob], fileName, { type: mimeType });
+
       setAvatar({
         image: file,
-        isManual: isManual === true ? 'true' : 'false',
+        isManual,
       });
       setView(PassportViews.Avatar);
     } catch (error) {

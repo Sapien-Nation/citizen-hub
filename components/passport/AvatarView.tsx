@@ -13,7 +13,7 @@ interface Props {
   avatarImage: any;
   figureName: string;
   passportId: string;
-  isManual: string;
+  isManual: boolean;
   onBack: () => void;
   setView: (view: PassportViews) => void;
   setStyledAvatar: (styledAvatar: string) => void;
@@ -39,7 +39,7 @@ const HistoricalFiguresSearch = ({
 
       formData.append('passportId', passportId);
       formData.append('figureName', figureName);
-      formData.append('isManual', isManual);
+      formData.append('isManual', JSON.stringify(isManual));
       formData.append('image', avatarImage); // Keep image at last
 
       const { isPending, avatarURL } = await createPassport(formData);

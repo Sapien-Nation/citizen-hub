@@ -54,7 +54,7 @@ export enum View {
 // TODO export
 interface Avatar {
   image: File;
-  isManual: string;
+  isManual: boolean;
 }
 
 interface LinkCheckResponse {
