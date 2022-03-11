@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useState } from 'react';
 // tailwind ui
 import { Disclosure } from '@headlessui/react';
@@ -346,14 +347,15 @@ const PurchaseView = ({
                               className={`ml-2 block text-xs`}
                             >
                               I have read and agree to the{' '}
-                              <a
-                                className="text-blue-500"
-                                href="https://common.sapien.network/terms.html"
-                                target="_blank"
-                                rel="noreferrer"
-                              >
-                                Terms & Conditions
-                              </a>{' '}
+                              <Link passHref href="/terms">
+                                <a
+                                  className="text-blue-500"
+                                  target="_blank"
+                                  rel="noreferrer"
+                                >
+                                  Terms & Conditions
+                                </a>
+                              </Link>{' '}
                             </label>
                           </div>
                         </div>

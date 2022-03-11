@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { useRef } from 'react';
 
 // types
 import { NextPage } from 'next';

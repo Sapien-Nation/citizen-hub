@@ -248,14 +248,15 @@ const RegisterForm = () => {
                   id={termsError ? 'terms-error' : ''}
                 >
                   I have read and agree to the{' '}
-                  <a
-                    className="text-blue-500"
-                    href="https://common.sapien.network/terms.html"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Terms & Conditions
-                  </a>{' '}
+                  <Link passHref href="/terms">
+                    <a
+                      className="text-blue-500"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Terms & Conditions
+                    </a>
+                  </Link>{' '}
                   {termsError}
                 </label>
               }
