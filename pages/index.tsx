@@ -22,10 +22,6 @@ import {
 } from '@heroicons/react/outline';
 
 const IndexPage: NextPage = () => {
-  console.log('NEXT_PUBLIC_API_URL is:');
-  console.log(process.env.NEXT_PUBLIC_API_URL);
-  console.log('NEXT_PUBLIC_SAPIEN_WALLET_ADDRESS is');
-  console.log(process.env.NEXT_PUBLIC_SAPIEN_WALLET_ADDRESS);
   return (
     <>
       <Head
