@@ -40,7 +40,7 @@ const News: NextPage = () => {
               </span>{' '}
               We’re so excited to be launching our “Founding Members” edition of
               the Sapien Nation NFT passport. This edition is part of an
-              exclusive batch of 1,000 NFT passports that will be sold at 0.25
+              exclusive batch of 1,000 NFT passports that will be sold at 0.15
               ETH each. Each passport will contain a unique historical avatar to
               celebrate our shared past and blaze a new path forward. To learn
               more about the passport’s utility check out
