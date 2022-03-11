@@ -41,13 +41,13 @@ const News: NextPage = () => {
                 className="text-sapien-60"
               >
                 passport NFT collection
-              </a>{' '}
-              (https://www.sapien.network/passport). While most NFT projects
-              drop randomly generated, fairly homogenous collections, Sapien
-              aspired to make each avatar highly individualized and meaningful.
-              Unlike other projects, each person gets to be involved in the
-              avatar creation process through selecting their historical figure
-              as well as their avatar’s picture.
+              </a>
+              . While most NFT projects drop randomly generated, fairly
+              homogenous collections, Sapien aspired to make each avatar highly
+              individualized and meaningful. Unlike other projects, each person
+              gets to be involved in the avatar creation process through
+              selecting their historical figure as well as their avatar’s
+              picture.
             </p>
             <p>
               We made the first avatars in a WeWork with my friend Kalani, using
@@ -162,7 +162,6 @@ const News: NextPage = () => {
               >
                 edge-preserving image smoothing technique
               </a>{' '}
-              (https://en.wikipedia.org/wiki/Edge-preserving_smoothing).
               Luckily, there was an{' '}
               <a
                 href="https://docs.opencv.org/4.x/df/dac/group__photo__render.html#gafaee2977597029bc8e35da6e67bd31f7"
@@ -172,18 +171,9 @@ const News: NextPage = () => {
               >
                 edge-preserving filter in OpenCV
               </a>{' '}
-              (
-              <a
-                href="https://docs.opencv.org/4.x/df/dac/group__photo__render.html#gafaee2977597029bc8e35da6e67bd31f7"
-                target="_blank"
-                rel="noreferrer"
-                className="text-sapien-60"
-              >
-                https://docs.opencv.org/4.x/df/dac/group__photo__render.html#gafaee2977597029bc8e35da6e67bd31f7
-              </a>{' '}
-              ) that provided similar results to the Photoshop noise reduction.
-              I was also able to automate the brightness/contrast adjustment
-              with OpenCV functions.
+              that provided similar results to the Photoshop noise reduction. I
+              was also able to automate the brightness/contrast adjustment with
+              OpenCV functions.
             </p>
             <p>
               If you like the art style and want to create your own, our
