@@ -5,7 +5,6 @@ import {
   CheckCircleIcon,
   ChevronDownIcon,
   QuestionMarkCircleIcon,
-  XIcon,
 } from '@heroicons/react/solid';
 import { ethers } from 'ethers';
 
@@ -21,7 +20,6 @@ import { ToastType } from 'constants/toast';
 import { injected } from 'connectors';
 
 // context
-import { useAuth } from 'context/user';
 import { useToast } from 'context/toast';
 
 // hooks
@@ -30,6 +28,7 @@ import { useWeb3React } from 'hooks/web3';
 // utils
 import { displayAddress } from 'utils/web3';
 import { mergeClassNames } from 'utils/styles';
+import { Checkbox } from 'components/fields';
 
 interface Props {
   onBuy: () => void;
@@ -44,10 +43,11 @@ const PurchaseView = ({
   distributionId,
   amount = 0.15,
 }: Props) => {
+  const [checked, setChecked] = useState(false);
+
   const toast = useToast();
   const [isFetching, setIsFetching] = useState(false);
 
-  const { me } = useAuth();
   const { deactivate, account, activate, active, chainId } = useWeb3React();
 
   const handleConnectWallet = () => {
@@ -189,12 +189,13 @@ const PurchaseView = ({
                   >
                     here
                   </a>
-                  . Join ranks of builders, innovators, entrepreneurs, and
-                  leaders who are already on board as Founding Members of the
-                  Sapien Nation. You will have direct access to bring your voice
-                  to the foundation of the first digital nation in the world.
-                  This is your opportunity to make your mark and make a
-                  difference.
+                </p>
+                <p className="text-gray-400 text-lg pt-4">
+                  Join ranks of builders, innovators, entrepreneurs, and leaders
+                  who are already on board as Founding Members of the Sapien
+                  Nation. You will have direct access to bring your voice to the
+                  foundation of the first digital nation in the world. This is
+                  your opportunity to make your mark and make a difference.
                 </p>
                 <div className="w-full">
                   <div className="w-full mt-5 mx-auto bg-neutral-800 text-white rounded-2xl">
@@ -344,17 +345,50 @@ const PurchaseView = ({
                         Passports are sold out.
                       </h1>
                     ) : (
-                      <button
-                        disabled={isFetching}
-                        type="button"
-                        className={mergeClassNames(
-                          isFetching ? 'cursor-not-allowed' : 'cursor-pointer',
-                          'w-full bg-sapien border border-transparent rounded-md shadow-sm py-3 px-4 text-base font-medium text-white hover:bg-sapien-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-sapien-80'
-                        )}
-                        onClick={handleBuyPassport}
-                      >
-                        {isFetching ? 'Purchasing...' : 'Purchase'}
-                      </button>
+                      <div>
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center mb-4">
+                            <input
+                              name="terms"
+                              type="checkbox"
+                              onChange={(event) => {
+                                setChecked(event.target.checked);
+                              }}
+                              checked={checked}
+                              className="h-4 w-4 text-sapien focus:ring-purple-500 border-gray-600 rounded"
+                              aria-invalid="true"
+                            />
+                            <label
+                              htmlFor="terms"
+                              className={`ml-2 block text-xs`}
+                            >
+                              I have read and agree to the{' '}
+                              <a
+                                className="text-blue-500"
+                                href="https://common.sapien.network/terms.html"
+                                target="_blank"
+                                rel="noreferrer"
+                              >
+                                Terms & Conditions
+                              </a>{' '}
+                            </label>
+                          </div>
+                        </div>
+                        <button
+                          disabled={isFetching || checked === false}
+                          type="button"
+                          className={mergeClassNames(
+                            checked === false ? 'cursor-not-allowed' : '',
+                            isFetching
+                              ? 'cursor-not-allowed'
+                              : 'cursor-pointer',
+                            'w-full bg-sapien border border-transparent rounded-md shadow-sm py-3 px-4 text-base font-medium text-white hover:bg-sapien-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-sapien-80'
+                          )}
+                          onClick={handleBuyPassport}
+                        >
+                          {isFetching ? 'Purchasing...' : `Purchase`}
+                        </button>
+                      </div>
                     )}
                   </div>
                 )}

@@ -59,9 +59,7 @@ const AppLayout = ({ children }: Props) => {
         message="The Sapien Nation NFT Passport sale will begin on March 14, 2022. "
       />
       <Navbar />
-      <main className="flex-1 flex flex-col">
-        <div className="flex-1">{children}</div>
-      </main>
+      <main className="flex-1 flex flex-col">{children}</main>
       <Footer />
     </div>
   );

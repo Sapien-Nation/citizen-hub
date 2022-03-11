@@ -41,7 +41,7 @@ const IndexPage: NextPage = () => {
               Become a Freshly Minted Citizen of the Metaverse
             </h2>
             <div className="my-12">
-              <Link href="https://discord.gg/DVDe3ZwuYR">
+              <Link href="https://discord.gg/DgUfraghMW">
                 <a
                   className="relative shine bg-gradient-to-r from-sapien to-sapien-40 font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8"
                   target="_blank"
@@ -119,7 +119,7 @@ const IndexPage: NextPage = () => {
               </li>
               <p className="text-lg mb-12">
                 Join our{' '}
-                <Link href="https://discord.gg/DVDe3ZwuYR">
+                <Link href="https://discord.gg/DgUfraghMW">
                   <a target="_blank">
                     <span className="underline underline-offset-4 cursor-pointer">
                       Discord
@@ -151,7 +151,7 @@ const IndexPage: NextPage = () => {
               their favorite figures from history to celebrate our diverse
               histories and unite to build our shared future.
             </h2>
-            <Link href="https://discord.gg/DVDe3ZwuYR">
+            <Link href="https://discord.gg/DgUfraghMW">
               <a
                 target="_blank"
                 className="border font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8"
@@ -293,7 +293,7 @@ const IndexPage: NextPage = () => {
                 <p className="text-xl mb-12">
                   Join the first social network of DAOs
                 </p>
-                <Link href="https://discord.gg/DVDe3ZwuYR">
+                <Link href="https://discord.gg/DgUfraghMW">
                   <a
                     target="_blank"
                     className="mt-12 border font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8"
@@ -343,7 +343,7 @@ const IndexPage: NextPage = () => {
               </p>
             </div>
           </div>
-          <Link href="https://discord.gg/DVDe3ZwuYR">
+          <Link href="https://discord.gg/DgUfraghMW">
             <a
               target="_blank"
               className="mt-12 border font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8"

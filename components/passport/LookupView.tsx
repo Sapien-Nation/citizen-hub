@@ -156,8 +156,8 @@ const Lookup = ({ distributionId, setView, setFigureName }: Props) => {
         <span className="block text-white">Welcome to the Sapien Nation.</span>
       </h1>
       <h2 className="text-lg mt-5 text-gray-500 mb-5">
-        First step to access the digital nation will be to choose an historical
-        figure.
+        The first step to join the digital nation will be to choose an
+        historical figure. Who inspires you?
       </h2>
       <div className="flex justify-center items-center">
         <div className="relative mt-6 max-w-sm w-full">

@@ -16,15 +16,15 @@ const Discord = ({ reservedFigure }: Props) => {
       </div>
       <div className="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
         <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-          <span className="block text-white">One more step!</span>
+          <span className="block text-white">Your avatar is under review!</span>
         </h1>
         <p className="mt-6 max-w-lg text-xl text-white font-semibold sm:max-w-3xl">
           We need to review your Historical Figure pick. You will be contacted
-          when we&apos;ve reached a decision about next steps
+          when we&apos;ve reached a decision about next steps.
         </p>
         <div className="mt-10 max-w-sm sm:max-w-none sm:flex">
           <a
-            href="https://discord.gg/DVDe3ZwuYR"
+            href="https://discord.gg/DgUfraghMW "
             rel="noopener noreferrer"
             target="_blank"
             className="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-sapien bg-white hover:bg-indigo-50 sm:px-8"

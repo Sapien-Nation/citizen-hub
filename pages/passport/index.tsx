@@ -380,7 +380,7 @@ const PassportPage: NextPage = () => {
               </div>
             </div>
 
-            <Link href="https://discord.gg/DVDe3ZwuYR">
+            <Link href="https://discord.gg/DgUfraghMW">
               <a
                 target="_blank"
                 className="border font-extrabold justify-center px-2 py-3 mt-12 rounded-md text-white md:py-3 md:text-xl md:px-8"
@@ -576,7 +576,7 @@ const PassportPage: NextPage = () => {
             individual or organization looking to make an impact, email us at{' '}
             <b>passports@sapien.network</b> to see how we can collaborate.
           </p>
-          <Link href="https://discord.gg/DVDe3ZwuYR">
+          <Link href="https://discord.gg/DgUfraghMW">
             <a
               target="_blank"
               className="mt-12 border font-extrabold justify-center px-2 py-3 rounded-md text-white md:py-3 md:text-xl md:px-8"

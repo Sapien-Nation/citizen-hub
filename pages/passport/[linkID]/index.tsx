@@ -183,7 +183,11 @@ const PassportPageProxy = () => {
   if (isLoggingIn === true || !query.linkID) return null;
 
   if (me === null)
-    return <AuthView redirect={`/passport/${query.linkID as string}`} />;
+    return (
+      <div className="flex flex-col justify-center flex-1">
+        <AuthView redirect={`/passport/${query.linkID as string}`} />
+      </div>
+    );
 
   const { linkID } = query;
 

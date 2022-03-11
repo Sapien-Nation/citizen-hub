@@ -59,7 +59,7 @@ const Token: NextPage = () => {
           2022. Join our community, or continue to check this site and stay up
           to date on all public announcements regarding the STT!
         </p>
-        <Link href="https://discord.gg/DVDe3ZwuYR">
+        <Link href="https://discord.gg/DgUfraghMW">
           <a
             target="_blank"
             className="mt-12 border font-extrabold justify-center px-2 py-3 rounded-md text-white md:py-3 md:text-xl md:px-8"
