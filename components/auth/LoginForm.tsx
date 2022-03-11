@@ -88,7 +88,7 @@ const LoginForm = () => {
           <div className="mt-1">
             <PasswordInput
               control={control}
-              validate={(value) => value.length > 0 || 'is required'}
+              shouldValidate={false}
               inputProps={{
                 'aria-invalid': Boolean(passwordError),
                 'aria-describedby': 'password-error',
