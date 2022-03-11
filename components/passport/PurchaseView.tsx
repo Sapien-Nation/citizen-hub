@@ -82,13 +82,13 @@ const PurchaseView = ({ onBuy, isSoldOut, distributionId }: Props) => {
       try {
         const tx = await signer.sendTransaction({
           to: process.env.NEXT_PUBLIC_SAPIEN_WALLET_ADDRESS,
-          value: ethers.utils.parseEther('0.25'),
+          value: ethers.utils.parseEther('0.15'),
         });
         const receipt = await tx.wait();
 
         if (receipt.transactionHash && receipt.status) {
           await reservePassport({
-            amount: 0.25,
+            amount: 0.15,
             units: 'ETHER',
             type: 'METAMASK',
             address: account,
@@ -160,7 +160,7 @@ const PurchaseView = ({ onBuy, isSoldOut, distributionId }: Props) => {
                   </h2>
                   <span className="text-xl font-medium text-white flex items-center">
                     {' '}
-                    <span className="mr-2">0.25 ETH</span> <Ethereum />
+                    <span className="mr-2">0.15 ETH</span> <Ethereum />
                   </span>
                 </div>
                 <p className="text-gray-400 text-lg pt-4">
@@ -300,7 +300,7 @@ const PurchaseView = ({ onBuy, isSoldOut, distributionId }: Props) => {
                     </dt>
                     <dd className="text-base font-medium text-white flex items-center">
                       {' '}
-                      <span className="mr-2">0.25 ETH</span>{' '}
+                      <span className="mr-2">0.15 ETH</span>{' '}
                       <Ethereum width={15} />
                     </dd>
                   </div>
