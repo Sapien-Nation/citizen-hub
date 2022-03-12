@@ -70,11 +70,12 @@ const GalleryView = ({
       <div className="transition delay-150 duration-300 ease-in-out">
         <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
           <span className="block text-white">
-            Now lets choose an image for {figureName}
+            Now let&apos;s choose a portrait for {figureName}
           </span>
         </h1>
         <h2 className="text-lg mt-5 text-white mb-5">
-          Remember that you can upload your own image.
+          Remember that if you upload your own photo, it must be copyright free
+          or open source.
         </h2>
         <main className="lg:relative">
           <div className="mx-auto max-w-6xl w-full pt-16 px-4 xl:px-0">

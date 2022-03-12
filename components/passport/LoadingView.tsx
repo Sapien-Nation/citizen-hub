@@ -3,7 +3,7 @@ interface Props {
 }
 
 const Loading = ({
-  message = 'Almost there! we are Styling your avatar.',
+  message = 'Almost there! We are stylizing your avatar.',
 }: Props) => (
   <div className="flex-col flex justify-center items-center">
     <img

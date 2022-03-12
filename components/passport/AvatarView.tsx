@@ -61,12 +61,12 @@ const HistoricalFiguresSearch = ({
   return (
     <>
       <div className="px-4 xl:px-0">
-        <h1 className="mt-3 max-w-lg mx-auto text-md font-light py-4 text-white sm:text-xl md:mt-5">
-          We’ve produced an stylized version of the image you provide.
+        <h1 className="mt-3 mx-auto text-md font-light py-4 text-white sm:text-xl md:mt-5">
+          We’ve created a stylized version of the portrait you provided.
         </h1>
         <h2 className="text-lg text-white">
-          By clicking generate passport we will associate this image to your
-          account and will be used to generate your passport.
+          By clicking “Generate Passport” we will associate this image with your
+          account and mint it on your NFT.
         </h2>
       </div>
       <main className="lg:relative">
