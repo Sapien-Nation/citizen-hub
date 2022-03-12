@@ -211,7 +211,7 @@ const PassportPageProxy = () => {
       <div className="flex-1 flex flex-row items-center justify-center">
         <main className="lg:relative h-full w-full">
           <div className="mx-auto max-w-6xl w-full pt-16 pb-20 text-center h-full lg:text-center">
-            <Query api={`/api/v3/passport/status${queryParams}`}>
+            <Query api={`/passport-api/status${queryParams}`}>
               {(response: LinkCheckResponse) => <PassportPage {...response} />}
             </Query>
           </div>

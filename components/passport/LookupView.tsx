@@ -38,7 +38,7 @@ const Lookup = ({ distributionId, setView, setFigureName }: Props) => {
   const { cache } = useSWRConfig();
 
   const apiKey = searchTerm
-    ? `/api/v3/passport/figure-lookup?term=${searchTerm}`
+    ? `/passport-api/figure-lookup?term=${searchTerm}`
     : '';
   const { data, error, isValidating } = useSWR<Array<Figure>>(apiKey);
   const isLoading = (searchTerm && !error && !data) || isValidating;

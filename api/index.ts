@@ -8,11 +8,11 @@ enum Envs {
 }
 
 const instance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL,
+  baseURL: '',
 });
 
 export const authInstance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_AUTH_URL,
+  baseURL: '',
 });
 
 instance.interceptors.request.use((config) => {

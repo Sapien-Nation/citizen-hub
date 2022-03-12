@@ -8,7 +8,7 @@ export const reservePassport = (body: {
   distributionId: string;
 }) =>
   axios
-    .post('/api/v3/passportPurchase/reserve', body)
+    .post('/purchase-api/reserve', body)
     .then(({ data }) => {
       return data;
     })

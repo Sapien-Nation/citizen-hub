@@ -6,25 +6,25 @@ export const replaceFigure = (body: {
   ignoreUrls: Array<string>;
 }) =>
   axios
-    .post('/api/v3/passport/avatar-refresh', body)
+    .post('/passport-api/avatar-refresh', body)
     .then(({ data }) => data)
     .catch(({ response }) => Promise.reject(response.data.message));
 
 export const uploadManualFigure = (body: FormData) =>
   axios
-    .post('/api/v3/passport/figure-upload', body)
+    .post('/passport-api/figure-upload', body)
     .then(({ data }) => data)
     .catch(({ response }) => Promise.reject(response.data.message));
 
 export const createPassport = (body: any) =>
   axios
-    .post('/api/v3/passport/avatar', body)
+    .post('/passport-api/avatar', body)
     .then(({ data }) => data)
     .catch(({ response }) => Promise.reject(response.data.message));
 
 export const createStyledAvatar = (formData: any) =>
   axios
-    .post('/api/v3/ml/avatar', formData, {
+    .post('/ml-api/avatar', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },

@@ -7,7 +7,7 @@ export const reserveFigure = (body: {
   distributionId: string;
 }) =>
   axios
-    .post('/api/v3/passport/figure', body)
+    .post('/passport-api/figure', body)
     .then(({ data }) => data)
     .catch(({ response }) => Promise.reject(response.data.message));
 
@@ -16,6 +16,6 @@ export const resubmitReserveFigure = (body: {
   passportId: string;
 }) =>
   axios
-    .patch('/api/v3/passport/figure', body)
+    .patch('/passport-api/figure', body)
     .then(({ data }) => data)
     .catch(({ response }) => Promise.reject(response.data.message));

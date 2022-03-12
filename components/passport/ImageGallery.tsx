@@ -62,7 +62,7 @@ const ImageGallery = ({
   const fileRef = useRef();
   const { mutate } = useSWRConfig();
 
-  const apiKey = `/api/v3/passport/avatar-lookup?term=${name}`;
+  const apiKey = `/passport-api/avatar-lookup?term=${name}`;
   const { data, error } = useSWR<{ images: Array<string> }>(apiKey);
 
   const loadingData = !error && !data;
