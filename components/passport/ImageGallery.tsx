@@ -64,8 +64,8 @@ const ImageGallery = ({
 
   const apiKey = `/passport-api/avatar-lookup?term=${name}`;
   const { data, error } = useSWR<{ images: Array<string> }>(apiKey);
-
-  const loadingData = !error && !data;
+  const loadingData = error === undefined && !data;
+  const isError = error !== undefined;
 
   const generateImageFile = async (image: string) => {
     try {
@@ -148,35 +148,13 @@ const ImageGallery = ({
     return <FeedbackView code={407} />;
   }
 
-  if (loadingData) {
-    return (
-      <ul
-        role="list"
-        className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8"
-      >
-        <li className="animate-pulse relative">
-          <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gradient-to-r from-purple-900 to-indigo-800 mix-blend-multiply focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden"></div>
-        </li>
-        <li className="animate-pulse relative">
-          <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gradient-to-r from-purple-900 to-indigo-800 mix-blend-multiply focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden"></div>
-        </li>
-        <li className="animate-pulse relative">
-          <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gradient-to-r from-purple-900 to-indigo-800 mix-blend-multiply focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden"></div>
-        </li>
-        <li className="animate-pulse relative">
-          <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gradient-to-r from-purple-900 to-indigo-800 mix-blend-multiply focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden"></div>
-        </li>
-      </ul>
-    );
-  }
-
   return (
     <>
       <ul
         role="list"
         className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-5 xl:gap-x-8"
       >
-        {data.images.map((image, index) => (
+        {data?.images.map((image, index) => (
           <li key={index} className="relative transition ease-in-out">
             {isRefreshing && image === selectedImage ? (
               <div className="flex justify-center items-center animate-pulse group w-full h-56 rounded-lg bg-gray-200 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
@@ -221,6 +199,22 @@ const ImageGallery = ({
             )}
           </li>
         ))}
+        {loadingData && (
+          <>
+            <li className="animate-pulse relative">
+              <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gradient-to-r from-purple-900 to-indigo-800 mix-blend-multiply focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden"></div>
+            </li>
+            <li className="animate-pulse relative">
+              <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gradient-to-r from-purple-900 to-indigo-800 mix-blend-multiply focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden"></div>
+            </li>
+            <li className="animate-pulse relative">
+              <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gradient-to-r from-purple-900 to-indigo-800 mix-blend-multiply focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden"></div>
+            </li>
+            <li className="animate-pulse relative">
+              <div className="group block w-full h-72 aspect-w-10 aspect-h-7 rounded-lg bg-gradient-to-r from-purple-900 to-indigo-800 mix-blend-multiply focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden"></div>
+            </li>
+          </>
+        )}
         {manualFiles.map(({ file, preview }, index) => (
           <li
             key={index}
@@ -309,6 +303,14 @@ const ImageGallery = ({
           </div>
         </li>
       </ul>
+      {isError && (
+        <h1 className="text-xl font-extrabold tracking-tight mt-8">
+          <span className="block text-white">
+            Seems like there was en error with our image provider, but you can
+            still upload the image manually
+          </span>
+        </h1>
+      )}
     </>
   );
 };
