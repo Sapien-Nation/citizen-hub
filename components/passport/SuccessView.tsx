@@ -82,14 +82,14 @@ const SuccessView = ({ reservedFigure, styledAvatar }: Props) => {
                 Download your picture, share on twitter and discord!
               </p>
               <div className="flex1 mt-2 gap-3 items-center max-w-md m-auto">
-                <button
+                {/* <button
                   type="button"
                   className="relative flex items-center w-full shine bg-gradient-to-r from-sapien to-sapien-40 font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:px-8"
                   onClick={downloadImage}
                 >
                   <DownloadIcon className="text-white w-6 h-6 mr-2" /> Download
                   Portrait
-                </button>
+                </button> */}
                 <a
                   href={`https://twitter.com/share?ref_src=twsrc%5Etfw&text=${prefilledTweet}&hashtags=HumansFirst,DigitialNation`}
                   className="relative flex items-center mt-4 shine bg-gradient-to-r from-white to-sky-300 font-extrabold justify-center px-2 rounded-md text-sky-700 h-12 py-2 md:px-8"
