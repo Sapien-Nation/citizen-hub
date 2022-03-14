@@ -73,7 +73,7 @@ const SuccessView = ({ reservedFigure, styledAvatar }: Props) => {
             <div className="aspect-w-1 aspect-h-1 sm:aspect-w-3 sm:aspect-h-2">
               <img
                 className="object-cover shadow-lg max-w-sm mx-auto rounded-xl shadow-lg shadow-white/50 border-double border-4 border-sky-500"
-                src="https://images.newindianexpress.com/uploads/user/imagelibrary/2021/11/27/w1200X800/Metaverse_is_Coming.jpg"
+                src={styledAvatar}
                 alt="Sapien Avatar Transition"
               />
             </div>
@@ -88,7 +88,7 @@ const SuccessView = ({ reservedFigure, styledAvatar }: Props) => {
                   onClick={downloadImage}
                 >
                   <DownloadIcon className="text-white w-6 h-6 mr-2" /> Download
-                  Passport
+                  Portrait
                 </button>
                 <a
                   href="https://twitter.com/share?ref_src=twsrc%5Etfw"
