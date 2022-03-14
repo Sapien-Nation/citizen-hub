@@ -57,6 +57,7 @@ interface Avatar {
 }
 
 interface LinkCheckResponse {
+  avatarURL?: string;
   allowedPassports?: number;
   availablePassports?: number;
   code?: number;
@@ -70,6 +71,7 @@ interface LinkCheckResponse {
 }
 
 const PassportPage = ({
+  avatarURL,
   code,
   isSoldOut,
   statusCode,
@@ -102,7 +104,13 @@ const PassportPage = ({
 
   if (responseCode) {
     if (responseCode === 201 || responseCode === 202) {
-      return <PendingView />;
+      return <PendingView responseCode={responseCode} />;
+    }
+
+    if (responseCode === 204) {
+      return (
+        <SuccessView reservedFigure={reservedFigure} styledAvatar={avatarURL} />
+      );
     }
 
     if (responseCode === 203) {

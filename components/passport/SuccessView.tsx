@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { Twitter } from 'assets';
 import { DownloadIcon } from '@heroicons/react/outline';
 
@@ -10,14 +9,15 @@ interface Props {
 
 const SuccessView = ({ reservedFigure, styledAvatar }: Props) => {
   const prefilledTweet = `🎉 Proud to share that I'm one of the first founding members of the Sapien Nation, the first digital nation in the metaverse! I chose ${reservedFigure} to represent me as my avatar and I'm excited to bring their spirit to everything we do as a nation. 
-  ${styledAvatar}
-  Go Sapien! #HumansFirst
+  Go Sapien!
   `;
 
+  console.log(
+    `https://twitter.com/share?ref_src=twsrc%5Etfw&text=${prefilledTweet}&hashtags=HumansFirst,DigitialNation`
+  );
+
   const downloadImage = () => {
-    fetch(styledAvatar, {
-      mode: 'no-cors',
-    })
+    fetch(styledAvatar, { mode: 'no-cors' })
       .then((response) => response.blob())
       .then((blob) => {
         let blobUrl = window.URL.createObjectURL(blob);
@@ -72,7 +72,7 @@ const SuccessView = ({ reservedFigure, styledAvatar }: Props) => {
           <div>
             <div className="aspect-w-1 aspect-h-1 sm:aspect-w-3 sm:aspect-h-2">
               <img
-                className="object-cover shadow-lg max-w-sm mx-auto rounded-xl shadow-lg shadow-white/50 border-double border-4 border-sky-500"
+                className="object-cover max-w-sm mx-auto rounded-xl shadow-lg shadow-white/50 border-double border-4 border-sky-500"
                 src={styledAvatar}
                 alt="Sapien Avatar Transition"
               />
@@ -91,11 +91,10 @@ const SuccessView = ({ reservedFigure, styledAvatar }: Props) => {
                   Portrait
                 </button>
                 <a
-                  href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+                  href={`https://twitter.com/share?ref_src=twsrc%5Etfw&text=${prefilledTweet}&hashtags=HumansFirst,DigitialNation`}
                   className="relative flex items-center mt-4 shine bg-gradient-to-r from-white to-sky-300 font-extrabold justify-center px-2 rounded-md text-sky-700 h-12 py-2 md:px-8"
-                  data-size="large"
-                  data-text={prefilledTweet}
-                  data-show-count="false"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   <Twitter width={30} />
                   Tweet

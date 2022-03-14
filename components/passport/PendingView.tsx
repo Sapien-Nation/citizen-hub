@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 interface Props {
-  reservedFigure?: string;
+  responseCode?: number;
 }
 
-const Discord = ({ reservedFigure }: Props) => {
+const Discord = ({ responseCode }: Props) => {
   return (
     <div className="relative shadow-xl sm:rounded-2xl sm:overflow-hidden text-left">
       <div className="absolute inset-0">
@@ -16,11 +16,16 @@ const Discord = ({ reservedFigure }: Props) => {
       </div>
       <div className="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
         <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-          <span className="block text-white">Your avatar is under review!</span>
+          <span className="block text-white">
+            {responseCode === 201
+              ? 'Your Historical Pick is under review'
+              : 'Your avatar is under review!'}
+          </span>
         </h1>
         <p className="mt-6 max-w-lg text-xl text-white font-semibold sm:max-w-3xl">
-          We need to review your Historical Figure pick. You will be contacted
-          when we&apos;ve reached a decision about next steps.
+          {responseCode === 201
+            ? 'We need to review your Historical pick. You will be contacted when we&apos;ve reached a decision about next steps.'
+            : 'We need to review your Historical Figure pick. You will be contacted when we&apos;ve reached a decision about next steps.'}
         </p>
         <div className="mt-10 max-w-sm sm:max-w-none sm:flex">
           <a
