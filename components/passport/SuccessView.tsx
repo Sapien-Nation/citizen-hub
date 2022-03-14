@@ -12,23 +12,19 @@ const SuccessView = ({ reservedFigure, styledAvatar }: Props) => {
   Go Sapien!
   `;
 
-  console.log(
-    `https://twitter.com/share?ref_src=twsrc%5Etfw&text=${prefilledTweet}&hashtags=HumansFirst,DigitialNation`
-  );
-
-  const downloadImage = () => {
-    fetch(styledAvatar, { mode: 'no-cors' })
-      .then((response) => response.blob())
-      .then((blob) => {
-        let blobUrl = window.URL.createObjectURL(blob);
-        let a = document.createElement('a');
-        a.download = `${reservedFigure}-SapienNation-Avatar.png`;
-        a.href = blobUrl;
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-      });
-  };
+  // const downloadImage = () => {
+  //   fetch(styledAvatar, { mode: 'no-cors' })
+  //     .then((response) => response.blob())
+  //     .then((blob) => {
+  //       let blobUrl = window.URL.createObjectURL(blob);
+  //       let a = document.createElement('a');
+  //       a.download = `${reservedFigure}-SapienNation-Avatar.png`;
+  //       a.href = blobUrl;
+  //       document.body.appendChild(a);
+  //       a.click();
+  //       a.remove();
+  //     });
+  // };
 
   return (
     <div className="relative shadow-xl sm:rounded-2xl sm:overflow-hidden text-left">
@@ -91,7 +87,7 @@ const SuccessView = ({ reservedFigure, styledAvatar }: Props) => {
                   Portrait
                 </button> */}
                 <a
-                  href={`https://twitter.com/share?ref_src=twsrc%5Etfw&text=${prefilledTweet}&hashtags=HumansFirst,DigitialNation`}
+                  href={`https://twitter.com/share?ref_src=twsrc%5Etfw&text=${prefilledTweet}&hashtags=DigitialNation`}
                   className="relative flex items-center mt-4 shine bg-gradient-to-r from-white to-sky-300 font-extrabold justify-center px-2 rounded-md text-sky-700 h-12 py-2 md:px-8"
                   target="_blank"
                   rel="noreferrer"
