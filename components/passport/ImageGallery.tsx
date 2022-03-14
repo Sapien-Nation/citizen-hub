@@ -279,6 +279,7 @@ const ImageGallery = ({
                 className="hidden"
                 ref={fileRef}
                 onChange={async (event) => {
+                  if (event.target.files.length === 0) return;
                   const file = event.target.files[0];
                   const preview = URL.createObjectURL(file);
                   try {
