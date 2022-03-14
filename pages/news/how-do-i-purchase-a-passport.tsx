@@ -81,7 +81,7 @@ const News: NextPage = () => {
                   className="text-sapien-60"
                 >
                   {' '}
-                  Coinbase
+                  Coinbase{' '}
                 </a>
                 or
                 <a
@@ -147,7 +147,7 @@ const News: NextPage = () => {
                 <a rel="noreferrer" className="text-sapien-60">
                   read more
                 </a>
-              </Link>{' '}
+              </Link>
               ).
             </p>
 
