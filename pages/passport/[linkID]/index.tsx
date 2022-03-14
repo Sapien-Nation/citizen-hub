@@ -1,12 +1,11 @@
 import { useRouter } from 'next/router';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 // components
 import { Head, Query } from 'components/common';
 import {
   AuthView,
   AvatarView,
-  DiscordView,
   FeedbackView,
   LookupView,
   GalleryView,
