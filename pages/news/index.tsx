@@ -3,6 +3,15 @@ import Link from 'next/link';
 
 const news = [
   {
+    title: 'How Do I Purchase a Passport? ',
+    quote: 'A simple guide to purchasing your first NFT Passport',
+    excerpt: `Hey Sapiens, we know you’re excited to grab your passport and we wanted to make sure that process was as easy to understand as possible for our community, so we wrote up some simple steps to make sure you know what to expect when buying your Sapien NFT passport.`,
+    date: 'San Francisco, CA. March 14, 2022.',
+    source: '/news/how-do-i-purchase-a-passport',
+    image: '/images/news/sapien-passport-cover.png',
+    imageAlt: 'Sapien Passport Cover',
+  },
+  {
     title: 'A Trip Through Time',
     quote:
       'We made the first avatars in a WeWork with my friend Kalani, using old Python notebooks from when he first started getting into deep learning.',
