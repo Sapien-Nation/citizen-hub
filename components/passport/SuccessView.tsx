@@ -41,31 +41,63 @@ const SuccessView = ({ reservedFigure, styledAvatar }: Props) => {
         <div className="absolute inset-0 bg-gradient-to-r from-gray-900 to-purple-900 mix-blend-multiply" />
       </div>
       <div className="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
-        <div className="space-y-4 sm:grid sm:grid-cols-4 sm:items-start sm:gap-6 sm:space-y-0">
+        <div className="text-lg leading-6 font-medium space-y-1 text-center">
+          <h2 className="mb-12 block text-2xl leading-8 font-extrabold tracking-tight text-white sm:text-3xl">
+            {`Congratulations! You've chosen ${reservedFigure} as your
+            historical avatar! 🎉`}
+          </h2>
+        </div>
+        <div className="space-y-4 max-w-3xl text-center m-auto">
+          <div className="mt-3">
+            <p className="text-gray-300 text-lg mt-5">
+              Champion their values and bring your unique voice to the founding
+              of the <span className="italic">Sapien Nation</span>.
+            </p>
+
+            <p className="text-gray-300 text-lg mt-2">
+              Your passport will be available to mint on{' '}
+              <span className="underline">April 20, 2022</span>. An email has
+              been sent to <span className="underline">email@website.com</span>{' '}
+              with further details on minting your passport. If you have any
+              questions send an email to{' '}
+              <a
+                href="mailto:passports@sapien.network"
+                className="text-sapien-60"
+              >
+                passports@sapien.network
+              </a>
+              .
+            </p>
+          </div>
           <div>
-            <div className="aspect-w-3 aspect-h-2 sm:aspect-w-3 sm:aspect-h-4">
+            <div className="aspect-w-1 aspect-h-1 sm:aspect-w-3 sm:aspect-h-2">
               <img
-                className="object-cover shadow-lg max-w-sm mx-auto rounded-xl"
-                src={styledAvatar}
+                className="object-cover shadow-lg max-w-sm mx-auto rounded-xl shadow-lg shadow-white/50 border-double border-4 border-sky-500"
+                src="https://images.newindianexpress.com/uploads/user/imagelibrary/2021/11/27/w1200X800/Metaverse_is_Coming.jpg"
                 alt="Sapien Avatar Transition"
               />
             </div>
             <div>
-              <p className="text-xs mt-5 text-gray-400">
+              <p className="text-xs mt-8 text-gray-400">
                 Download your picture, share on twitter and discord!
               </p>
-              <div className="flex mt-2 gap-3 items-center">
-                <button onClick={downloadImage}>
-                  <DownloadIcon className="text-white w-8 h-8" />
+              <div className="flex1 mt-2 gap-3 items-center max-w-md m-auto">
+                <button
+                  type="button"
+                  className="relative flex items-center w-full shine bg-gradient-to-r from-sapien to-sapien-40 font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:px-8"
+                  onClick={downloadImage}
+                >
+                  <DownloadIcon className="text-white w-6 h-6 mr-2" /> Download
+                  Passport
                 </button>
                 <a
                   href="https://twitter.com/share?ref_src=twsrc%5Etfw"
-                  className="flex items-center"
+                  className="relative flex items-center mt-4 shine bg-gradient-to-r from-white to-sky-300 font-extrabold justify-center px-2 rounded-md text-sky-700 h-12 py-2 md:px-8"
                   data-size="large"
                   data-text={prefilledTweet}
                   data-show-count="false"
                 >
-                  <Twitter width={40} />
+                  <Twitter width={30} />
                   Tweet
                 </a>
                 <script
@@ -73,39 +105,6 @@ const SuccessView = ({ reservedFigure, styledAvatar }: Props) => {
                   src="https://platform.twitter.com/widgets.js"
                   charSet="utf-8"
                 ></script>
-              </div>
-            </div>
-          </div>
-          <div className="sm:col-span-3">
-            <div className="space-y-4 max-w-xl">
-              <div className="text-lg leading-6 font-medium space-y-1">
-                <h2 className="max-w-prose block text-2xl leading-8 font-extrabold tracking-tight text-white sm:text-2xl">
-                  {`Congratulations! You've chosen ${reservedFigure} as your
-                  historical avatar! 🎉`}
-                </h2>
-              </div>
-
-              <div className="mt-3">
-                <p className="text-gray-300 text-lg mt-5">
-                  Champion their values and bring your unique voice to the
-                  founding of the <span className="italic">Sapien Nation</span>.
-                </p>
-
-                <p className="text-gray-300 text-lg mt-2">
-                  Your passport will be available to mint on{' '}
-                  <span className="underline">April 20, 2022</span>. An email
-                  has been sent to{' '}
-                  <span className="underline">email@website.com</span> with
-                  further details on minting your passport. If you have any
-                  questions send an email to{' '}
-                  <a
-                    href="mailto:passports@sapien.network"
-                    className="text-sapien-60"
-                  >
-                    passports@sapien.network
-                  </a>
-                  .
-                </p>
               </div>
             </div>
           </div>
