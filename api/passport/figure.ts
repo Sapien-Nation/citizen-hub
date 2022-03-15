@@ -35,9 +35,7 @@ export const createStyledAvatar = (formData: any) =>
     .then(({ data }) => data)
     .catch(({ response }) => {
       if (response.status === 413) {
-        return Promise.reject(
-          'Image is to large, the limit is 1mb, Please try with another one'
-        );
+        return Promise.reject('Image is to large, Please try with another one');
       }
 
       return Promise.reject(response.statusText);

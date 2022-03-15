@@ -171,7 +171,7 @@ const PassportPage = ({
     case View.Gallery:
       return (
         <GalleryView
-          figureName={figureName}
+          figureName={reservedFigure || figureName}
           setView={setView}
           setAvatar={setAvatar}
           setResponseCode={setResponseCode}
@@ -196,7 +196,7 @@ const PassportPage = ({
           isManual={avatar.isManual}
           onBack={() => {
             setAvatar(null);
-            setFigureName(figureName || reservedFigure);
+            setFigureName(reservedFigure || figureName);
             setView(View.Gallery);
           }}
           setStyledAvatar={setStyledAvatar}
@@ -205,7 +205,10 @@ const PassportPage = ({
 
     case View.Success:
       return (
-        <SuccessView styledAvatar={styledAvatar} reservedFigure={figureName} />
+        <SuccessView
+          styledAvatar={styledAvatar}
+          reservedFigure={reservedFigure || figureName}
+        />
       );
   }
 };
