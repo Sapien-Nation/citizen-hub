@@ -14,10 +14,12 @@ import {
   PurchaseView,
   StartView,
   SuccessView,
+  ConfirmView,
 } from 'components/passport';
 
 // context
 import { useAuth } from 'context/user';
+import { useToast } from 'context/toast';
 
 export enum View {
   // Not LoggedIn
@@ -31,6 +33,9 @@ export enum View {
 
   // Already Selected an HistoricalFigure View A.K.A Google images Grid
   Gallery,
+
+  // Show Gallery from a Claim Figure
+  GalleryClaim,
 
   // Initial View
   Start,
@@ -88,6 +93,8 @@ const PassportPage = ({
   );
   const [styledAvatar, setStyledAvatar] = useState<string | null>(null);
 
+  const toast = useToast();
+
   if (responseCode === 104) {
     return (
       <PurchaseView
@@ -127,6 +134,16 @@ const PassportPage = ({
     return <FeedbackView code={responseCode} />;
   }
 
+  if (!passportId && view === View.Start) {
+    return (
+      <ConfirmView
+        reservedFigure={reservedFigure}
+        setView={setView}
+        distributionId={distributionId}
+      />
+    );
+  }
+
   // the order of this views are in order of appearance
   switch (view) {
     case View.Start:
@@ -138,6 +155,16 @@ const PassportPage = ({
           setView={setView}
           distributionId={distributionId}
           setFigureName={setFigureName}
+        />
+      );
+
+    case View.GalleryClaim:
+      return (
+        <GalleryView
+          figureName={reservedFigure}
+          setView={setView}
+          setAvatar={setAvatar}
+          setResponseCode={setResponseCode}
         />
       );
 
