@@ -92,8 +92,6 @@ const PassportPage = ({
   );
   const [styledAvatar, setStyledAvatar] = useState<string | null>(null);
 
-  const { query } = useRouter();
-
   if (responseCode === 104) {
     return (
       <PurchaseView
@@ -138,7 +136,7 @@ const PassportPage = ({
       <ConfirmView
         reservedFigure={reservedFigure}
         setView={setView}
-        distributionId={query.linkID as string}
+        distributionId={distributionId}
       />
     );
   }
