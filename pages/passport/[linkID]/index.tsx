@@ -92,21 +92,34 @@ const PassportPage = ({
   );
   const [styledAvatar, setStyledAvatar] = useState<string | null>(null);
 
-  if (responseCode === 104) {
-    return (
-      <PurchaseView
-        onBuy={() => {
-          setView(View.Start);
-          setResponseCode(undefined);
-        }}
-        distributionId={distributionId}
-        isSoldOut={isSoldOut}
-        amount={amount}
-      />
-    );
-  }
-
   if (responseCode) {
+    if (responseCode === 1000) {
+      return (
+        <ConfirmView
+          reservedFigure={reservedFigure}
+          onSuccess={() => {
+            setView(View.GalleryClaim);
+            setResponseCode(undefined);
+          }}
+          distributionId={distributionId}
+        />
+      );
+    }
+
+    if (responseCode === 104) {
+      return (
+        <PurchaseView
+          onBuy={() => {
+            setView(View.Start);
+            setResponseCode(undefined);
+          }}
+          distributionId={distributionId}
+          isSoldOut={isSoldOut}
+          amount={amount}
+        />
+      );
+    }
+
     if (responseCode === 201 || responseCode === 202) {
       return <PendingView responseCode={responseCode} />;
     }
@@ -129,16 +142,6 @@ const PassportPage = ({
     }
 
     return <FeedbackView code={responseCode} />;
-  }
-
-  if (!passportId && view === View.Start) {
-    return (
-      <ConfirmView
-        reservedFigure={reservedFigure}
-        setView={setView}
-        distributionId={distributionId}
-      />
-    );
   }
 
   // the order of this views are in order of appearance

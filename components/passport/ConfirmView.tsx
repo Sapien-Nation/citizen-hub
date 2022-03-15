@@ -3,28 +3,23 @@
 // api
 import { claimFigureName } from 'api/passport/claim';
 
-// constants
-import { View as PassportViews } from 'pages/passport/[linkID]';
-
 // context
 import { useToast } from 'context/toast';
-
-// types
-import type { ISOString } from 'tools/types/common';
 
 interface Props {
   distributionId: string;
   reservedFigure: string | null;
-  setView: (view: PassportViews) => void;
+  onSuccess: () => void;
 }
 
-const Confirm = ({ distributionId, reservedFigure, setView }: Props) => {
+const Confirm = ({ distributionId, reservedFigure, onSuccess }: Props) => {
   const toast = useToast();
 
   const handleConfirm = async () => {
     try {
       await claimFigureName({ distributionId, figureName: reservedFigure });
-      setView(PassportViews.GalleryClaim);
+
+      onSuccess();
     } catch (error) {
       toast({
         message:
