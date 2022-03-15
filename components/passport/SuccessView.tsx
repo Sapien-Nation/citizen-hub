@@ -1,6 +1,12 @@
 import { Twitter } from 'assets';
 import { DownloadIcon } from '@heroicons/react/outline';
 
+// components
+import { Redirect } from 'components/common';
+
+// hooks
+import { useAuth } from 'context/user';
+
 /* eslint-disable @next/next/no-img-element */
 interface Props {
   reservedFigure: string;
@@ -8,6 +14,12 @@ interface Props {
 }
 
 const SuccessView = ({ reservedFigure, styledAvatar }: Props) => {
+  const { me, isLoggingIn } = useAuth();
+
+  if (isLoggingIn) return null;
+
+  if (me === null) return <Redirect path="/" />;
+
   const prefilledTweet = `🎉 Proud to share that I'm one of the first founding members of the Sapien Nation, the first digital nation in the metaverse! I chose ${reservedFigure} to represent me as my avatar and I'm excited to bring their spirit to everything we do as a nation. 
   Go Sapien!
   `;
@@ -53,8 +65,8 @@ const SuccessView = ({ reservedFigure, styledAvatar }: Props) => {
             <p className="text-gray-300 text-lg mt-2">
               Your passport will be available to mint on{' '}
               <span className="underline">April 20, 2022</span>. An email has
-              been sent to <span className="underline">email@website.com</span>{' '}
-              with further details on minting your passport. If you have any
+              been sent to <span className="underline">{me.email}</span> with
+              further details on minting your passport. If you have any
               questions send an email to{' '}
               <a
                 href="mailto:passports@sapien.network"

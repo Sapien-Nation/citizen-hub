@@ -13,7 +13,6 @@ interface Props {
 
 const Layout = ({ children, title }: Props) => {
   const { me, isLoggingIn } = useAuth();
-  const { theme } = useTheme();
 
   if (isLoggingIn) return null;
 
