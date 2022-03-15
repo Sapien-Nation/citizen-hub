@@ -23,7 +23,7 @@ const Confirm = ({ distributionId, reservedFigure, setView }: Props) => {
 
   const handleConfirm = async () => {
     try {
-      await claimFigureName(distributionId);
+      await claimFigureName({ distributionId, figureName: reservedFigure });
       setView(PassportViews.GalleryClaim);
     } catch (error) {
       toast({

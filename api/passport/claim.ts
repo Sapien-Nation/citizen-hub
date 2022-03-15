@@ -1,6 +1,9 @@
 import axios from '..';
 
-export const claimFigureName = (linkID: string) =>
+export const claimFigureName = (body: {
+  distributionId: string;
+  figureName: string;
+}) =>
   axios
-    .post(`/passport-api/${linkID}/claim`)
+    .post(`/passport-api/figure`, body)
     .catch(({ response }) => Promise.reject(response.data.message));
