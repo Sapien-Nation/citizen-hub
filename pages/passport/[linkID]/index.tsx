@@ -19,7 +19,6 @@ import {
 
 // context
 import { useAuth } from 'context/user';
-import { useToast } from 'context/toast';
 
 export enum View {
   // Not LoggedIn
@@ -93,7 +92,7 @@ const PassportPage = ({
   );
   const [styledAvatar, setStyledAvatar] = useState<string | null>(null);
 
-  const toast = useToast();
+  const { query } = useRouter();
 
   if (responseCode === 104) {
     return (
@@ -139,7 +138,7 @@ const PassportPage = ({
       <ConfirmView
         reservedFigure={reservedFigure}
         setView={setView}
-        distributionId={distributionId}
+        distributionId={query.linkID as string}
       />
     );
   }
