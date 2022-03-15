@@ -57,7 +57,8 @@ const GalleryView = ({
       setView(PassportViews.Avatar);
     } catch (error) {
       toast({
-        message: error ?? 'Error Creating Passport, please try another figure',
+        message:
+          error ?? 'Error Creating Passport, please try with a different image',
       });
       setView(PassportViews.Gallery);
     }
