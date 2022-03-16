@@ -31,6 +31,8 @@ const Lookup = ({ distributionId, setView, setFigureName }: Props) => {
   const [isFetching, setIsFetching] = useState(false);
   const [showSuggestions, setShowSuggestions] = useState(true);
   const [historicalFigure, setHistoricalFigure] = useState('');
+  const [isManualHistoricalFigure, setIsManualHistoricalFigure] =
+    useState(false);
 
   const toast = useToast();
   const inputRef = useRef<HTMLInputElement>(null);
@@ -88,6 +90,7 @@ const Lookup = ({ distributionId, setView, setFigureName }: Props) => {
       setHistoricalFigure(searchTerm);
       inputRef.current.value = selectedFigure?.name || searchTerm;
     }
+    setIsManualHistoricalFigure(selectedFigure.isManual);
   });
 
   const onSuggestionHover = (cursor: number) => setCurrentCursor(cursor);
@@ -121,6 +124,8 @@ const Lookup = ({ distributionId, setView, setFigureName }: Props) => {
       setShowSuggestions(false);
       setHistoricalFigure(figure.name);
 
+      setIsManualHistoricalFigure(figure.isManual);
+
       inputRef.current.value = figure?.name;
     }
   };
@@ -141,6 +146,7 @@ const Lookup = ({ distributionId, setView, setFigureName }: Props) => {
         id: searchTerm,
         name: searchTerm,
         passportId: null,
+        isManual: true,
         isTaken: false, // TODO backend to fix this field
       },
     ];
@@ -186,24 +192,36 @@ const Lookup = ({ distributionId, setView, setFigureName }: Props) => {
               className="bg-white rounded-lg w-full mt-1 z-10 absolute py-1 border-b border-gray-200"
             >
               {suggestions.map((suggestion, index) => (
-                <li
-                  key={suggestion.id}
-                  className={`w-full flex justify-between rounder-md text-left py-2 px-5 cursor-pointer text-gray-900 ${
-                    cursor === index ? 'bg-gray-100' : null
-                  } ${suggestion.isTaken ? 'cursor-not-allowed' : ''}`}
-                  onMouseDown={() => onSuggestionClick(suggestion)}
-                  onMouseEnter={() => onSuggestionHover(index)}
-                >
-                  <span>{suggestion.name}</span>
-                  {suggestion.isTaken ? (
-                    <span className="text-xs text-gray-400">Not Available</span>
+                <>
+                  <li
+                    key={suggestion.id}
+                    className={`w-full flex justify-between rounder-md text-left py-2 px-5 cursor-pointer text-gray-900 ${
+                      cursor === index ? 'bg-gray-100' : null
+                    } ${suggestion.isTaken ? 'cursor-not-allowed' : ''}`}
+                    onMouseDown={() => onSuggestionClick(suggestion)}
+                    onMouseEnter={() => onSuggestionHover(index)}
+                  >
+                    <span>{suggestion.name}</span>
+                    {suggestion.isTaken ? (
+                      <span className="text-xs text-gray-400">
+                        Not Available
+                      </span>
+                    ) : null}
+                    {suggestion.isManual ? (
+                      <span className="text-xs text-gray-400 font-extrabold animate-pulse">
+                        Typing...
+                      </span>
+                    ) : null}
+                  </li>
+                  {suggestion.isManual && suggestions.length > 1 ? (
+                    <div className="border-b border-neutral-300 w-full h-1"></div>
                   ) : null}
-                </li>
+                </>
               ))}
             </ul>
           )}
           {historicalFigure && (
-            <div className="mt-20 sticky bottom-10 flex flex-col justify-center items-center">
+            <div className="mt-8 sticky bottom-10 flex flex-col justify-center items-center">
               <button
                 disabled={isFetching}
                 type="button"
@@ -212,8 +230,14 @@ const Lookup = ({ distributionId, setView, setFigureName }: Props) => {
                 }`}
                 onClick={handleFigureConfirm}
               >
-                Confirm {historicalFigure}
+                {isManualHistoricalFigure ? 'Submit ' : 'Confirm '}{' '}
+                {historicalFigure}{' '}
               </button>
+              {isManualHistoricalFigure ? (
+                <span className="mt-4 font-extrabold text-xs">
+                  Your historical pick will have to go through manual review
+                </span>
+              ) : null}
             </div>
           )}
         </div>

@@ -3,4 +3,5 @@ export interface Figure {
   name: string;
   isTaken: boolean;
   passportId: string | null;
+  isManual: boolean;
 }
