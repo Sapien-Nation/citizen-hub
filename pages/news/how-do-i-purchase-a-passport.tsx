@@ -42,7 +42,7 @@ const News: NextPage = () => {
               passport. If you want some more information on the Passport
               itself, click
               <a
-                href="https://docs.google.com/document/u/1/d/19Zuzl1WbkgE5GxxtZmI2oQ5h48I5GjQ-mJcYm4nc_38/edit#heading=h.e5rmizzh1sp"
+                href="https://www.sapien.network/news/why-nft-passports"
                 target="_blank"
                 rel="noreferrer"
                 className="text-sapien-60"
