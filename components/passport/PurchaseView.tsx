@@ -146,7 +146,7 @@ const PurchaseView = ({
                 </div>
                 <div className="ml-3">
                   <p className="text-sm font-medium text-green-800">
-                    You wallet address is:{' '}
+                    Your wallet address is:{' '}
                     {active ? (
                       <span className="font-bold">
                         {displayAddress(account)}

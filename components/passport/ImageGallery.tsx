@@ -109,6 +109,7 @@ const ImageGallery = ({
       const newRefreshedImages = [...refreshedImages, url];
       const newFigure = await replaceFigure({
         term: name,
+        // @ts-ignore
         ignoreUrls: [...newRefreshedImages, ...data!.images],
       });
 

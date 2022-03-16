@@ -17,7 +17,7 @@ const StartView = ({ setView }: Props) => {
             <span className="underline decoration-4 decoration-sapien text-7xl">
               Welcome to
             </span>{' '}
-            <br /> the Sapien tribe!
+            <br /> the Sapien Nation!
           </h2>
           <img src="/images/Avatar-full-size.gif" className="h-96" alt="" />
 

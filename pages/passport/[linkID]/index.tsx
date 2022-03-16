@@ -12,10 +12,10 @@ import {
   LoadingView,
   PendingView,
   PurchaseView,
-  StartView,
   SuccessView,
   ConfirmView,
 } from 'components/passport';
+import { Steps } from 'components/navigation';
 
 // context
 import { useAuth } from 'context/user';
@@ -35,9 +35,6 @@ export enum View {
 
   // Show Gallery from a Claim Figure
   GalleryClaim,
-
-  // Initial View
-  Start,
 
   // View to render when calling ML (take up to 10 seconds)
   Loading,
@@ -84,7 +81,7 @@ const PassportPage = ({
   passportId,
   amount,
 }: LinkCheckResponse) => {
-  const [view, setView] = useState(View.Start);
+  const [view, setView] = useState(View.Lookup);
   const [avatar, setAvatar] = useState<Avatar | null>(null);
   const [figureName, setFigureName] = useState('');
   const [responseCode, setResponseCode] = useState<number | undefined>(
@@ -92,31 +89,65 @@ const PassportPage = ({
   );
   const [styledAvatar, setStyledAvatar] = useState<string | null>(null);
 
+  const steps = [
+    {
+      id: 1,
+      name: 'Purchase Your Passport',
+      view: View.Purchase,
+      status: 'current',
+    },
+    {
+      id: 2,
+      name: 'Select Your Avatar',
+      view: View.Lookup,
+      status: 'upcoming',
+    },
+    {
+      id: 3,
+      name: 'Stylize Your Avatar',
+      view: View.Gallery,
+      status: 'upcoming',
+    },
+    {
+      id: 4,
+      name: 'Save Your Avatar',
+      view: View.Success,
+      status: 'upcoming',
+    },
+    { id: 5, name: 'Mint Your Passport', status: 'upcoming' },
+  ];
+
   if (responseCode) {
     if (responseCode === 1000) {
       return (
-        <ConfirmView
-          reservedFigure={reservedFigure}
-          onSuccess={() => {
-            setView(View.GalleryClaim);
-            setResponseCode(undefined);
-          }}
-          distributionId={distributionId}
-        />
+        <>
+          <Steps steps={steps} setView={setView} active={2} />
+          <ConfirmView
+            reservedFigure={reservedFigure}
+            onSuccess={() => {
+              setView(View.GalleryClaim);
+              setResponseCode(undefined);
+            }}
+            distributionId={distributionId}
+          />
+        </>
       );
     }
 
     if (responseCode === 104) {
       return (
-        <PurchaseView
-          onBuy={() => {
-            setView(View.Start);
-            setResponseCode(undefined);
-          }}
-          distributionId={distributionId}
-          isSoldOut={isSoldOut}
-          amount={amount}
-        />
+        <>
+          <Steps steps={steps} setView={setView} active={1} />
+          <PurchaseView
+            onBuy={() => {
+              setView(View.Lookup);
+              setResponseCode(undefined);
+            }}
+            distributionId={distributionId}
+            isSoldOut={isSoldOut}
+            amount={amount}
+          />
+        </>
       );
     }
 
@@ -126,18 +157,27 @@ const PassportPage = ({
 
     if (responseCode === 204) {
       return (
-        <SuccessView reservedFigure={reservedFigure} styledAvatar={avatarURL} />
+        <>
+          <Steps steps={steps} setView={setView} active={4} />
+          <SuccessView
+            reservedFigure={reservedFigure}
+            styledAvatar={avatarURL}
+          />
+        </>
       );
     }
 
     if (responseCode === 203) {
       return (
-        <GalleryView
-          figureName={reservedFigure}
-          setView={setView}
-          setAvatar={setAvatar}
-          setResponseCode={setResponseCode}
-        />
+        <>
+          <Steps steps={steps} setView={setView} active={3} />
+          <GalleryView
+            figureName={reservedFigure}
+            setView={setView}
+            setAvatar={setAvatar}
+            setResponseCode={setResponseCode}
+          />
+        </>
       );
     }
 
@@ -146,40 +186,51 @@ const PassportPage = ({
 
   // the order of this views are in order of appearance
   switch (view) {
-    case View.Start:
-      return <StartView setView={setView} />;
-
     case View.Lookup:
       return (
-        <LookupView
-          setView={setView}
-          distributionId={distributionId}
-          setFigureName={setFigureName}
-        />
+        <>
+          <Steps steps={steps} setView={setView} active={2} />
+          <LookupView
+            setView={setView}
+            distributionId={distributionId}
+            setFigureName={setFigureName}
+          />
+        </>
       );
 
     case View.GalleryClaim:
       return (
-        <GalleryView
-          figureName={reservedFigure}
-          setView={setView}
-          setAvatar={setAvatar}
-          setResponseCode={setResponseCode}
-        />
+        <>
+          <Steps steps={steps} setView={setView} active={3} />
+          <GalleryView
+            figureName={reservedFigure}
+            setView={setView}
+            setAvatar={setAvatar}
+            setResponseCode={setResponseCode}
+          />
+        </>
       );
 
     case View.Gallery:
       return (
-        <GalleryView
-          figureName={reservedFigure || figureName}
-          setView={setView}
-          setAvatar={setAvatar}
-          setResponseCode={setResponseCode}
-        />
+        <>
+          <Steps steps={steps} setView={setView} active={3} />
+          <GalleryView
+            figureName={reservedFigure || figureName}
+            setView={setView}
+            setAvatar={setAvatar}
+            setResponseCode={setResponseCode}
+          />
+        </>
       );
 
     case View.Loading:
-      return <LoadingView />;
+      return (
+        <>
+          <Steps steps={steps} setView={setView} active={3} />
+          <LoadingView />
+        </>
+      );
 
     // Could be Pending or Avatar
     case View.Pending:
@@ -188,27 +239,33 @@ const PassportPage = ({
     // Last Steps
     case View.Avatar:
       return (
-        <AvatarView
-          passportId={passportId}
-          setView={setView}
-          figureName={figureName}
-          avatarImage={avatar.image}
-          isManual={avatar.isManual}
-          onBack={() => {
-            setAvatar(null);
-            setFigureName(reservedFigure || figureName);
-            setView(View.Gallery);
-          }}
-          setStyledAvatar={setStyledAvatar}
-        />
+        <>
+          <Steps steps={steps} setView={setView} active={3} />
+          <AvatarView
+            passportId={passportId}
+            setView={setView}
+            figureName={figureName}
+            avatarImage={avatar.image}
+            isManual={avatar.isManual}
+            onBack={() => {
+              setAvatar(null);
+              setFigureName(reservedFigure || figureName);
+              setView(View.Gallery);
+            }}
+            setStyledAvatar={setStyledAvatar}
+          />
+        </>
       );
 
     case View.Success:
       return (
-        <SuccessView
-          styledAvatar={styledAvatar}
-          reservedFigure={reservedFigure || figureName}
-        />
+        <>
+          <Steps steps={steps} setView={setView} active={4} />
+          <SuccessView
+            styledAvatar={styledAvatar}
+            reservedFigure={reservedFigure || figureName}
+          />
+        </>
       );
   }
 };
@@ -241,6 +298,7 @@ const PassportPageProxy = () => {
   }
 
   const queryParams = isPurchase ? '' : `?linkId=${linkID}`;
+
   return (
     <>
       <Head title="Create Passport" />
