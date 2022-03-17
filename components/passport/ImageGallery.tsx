@@ -63,7 +63,8 @@ const ImageGallery = ({
   const { mutate } = useSWRConfig();
 
   const apiKey = `/passport-api/avatar-lookup?term=${name}`;
-  const { data, error } = useSWR<{ images: Array<string> }>(apiKey);
+  const { data, error } =
+    useSWR<{ images: Array<{ site: string; link: string }> }>(apiKey);
   const loadingData = error === undefined && !data;
   const isError = error !== undefined;
 
@@ -108,7 +109,10 @@ const ImageGallery = ({
       const newRefreshedImages = [...refreshedImages, url];
       const newFigure = await replaceFigure({
         term: name,
-        ignoreUrls: [...newRefreshedImages, ...data!.images],
+        ignoreUrls: [
+          ...newRefreshedImages,
+          ...data!.images.map(({ link }) => link),
+        ],
       });
 
       await handleImageSelect(newFigure, false);
@@ -150,27 +154,34 @@ const ImageGallery = ({
 
   return (
     <>
+      {data?.images.length === 0 && (
+        <h1 className="text-xl font-extrabold tracking-tight sm:text-xl lg:text-3xl text-center my-4">
+          <span className="block text-white">
+            Ups there are no images to show...
+          </span>
+        </h1>
+      )}
       <ul
         role="list"
         className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-5 xl:gap-x-8"
       >
-        {data?.images.map((image, index) => (
+        {data?.images.map(({ link, site }, index) => (
           <li key={index} className="relative transition ease-in-out">
-            {isRefreshing && image === selectedImage ? (
+            {isRefreshing && link === selectedImage ? (
               <div className="flex justify-center items-center animate-pulse group w-full h-56 rounded-lg bg-gray-200 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
                 <RefreshIcon className="animate-spin h-5 w-5 text-gray-700" />
               </div>
             ) : (
               <div
                 className={mergeClassNames(
-                  image === selectedImage ? 'ring-2 ring-indigo-500' : '',
+                  link === selectedImage ? 'ring-2 ring-indigo-500' : '',
                   'group flex cursor-pointer justify-center items-center w-full aspect-w-10 h-56 aspect-h-7 rounded-lg bg-gray-100 overflow-hidden after:absolute hover:after:sm:bg-black hover:after:sm:bg-opacity-30 hover:after:w-full hover:after:h-full hover:after:top-0'
                 )}
                 onClick={async () => {
-                  await handleImageSelect(image);
+                  await handleImageSelect(link);
                 }}
               >
-                {image === selectedImage && (
+                {link === selectedImage && (
                   <CheckCircleIcon className="h-5 w-5 text-purple-900 absolute right-2 top-2 left-auto z-10 drop-shadow-lg" />
                 )}
 
@@ -178,17 +189,17 @@ const ImageGallery = ({
                   className="text-white z-10 w-12 text-center h-12 absolute inset-y-1/2 inset-x-1/2 -translate-x-1/2 -translate-y-1/2 hidden flex-row justify-center items-center bg-black bg-opacity-30 rounded-md group-hover:flex"
                   onClick={(event) => {
                     event.stopPropagation();
-                    setSelectedImage(image);
-                    handleRefresh(image);
+                    setSelectedImage(link);
+                    handleRefresh(link);
                   }}
                 >
                   <RefreshIcon className="h-5 w-5 text-white" />
                 </button>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  id={`image-${image}`}
-                  src={image}
-                  alt={`Search Image result for search term ${name}`}
+                  id={`image-${link}`}
+                  src={link}
+                  alt={site}
                   className="object-cover h-full w-full pointer-events-none group-hover:sm:opacity-75"
                   onError={(event) => {
                     (event.target as HTMLImageElement).src =
