@@ -63,8 +63,7 @@ const ImageGallery = ({
   const { mutate } = useSWRConfig();
 
   const apiKey = `/passport-api/avatar-lookup?term=${name}`;
-  const { data, error } =
-    useSWR<{ images: Array<{ site: string; link: string }> }>(apiKey);
+  const { data, error } = useSWR<{ images: Array<string> }>(apiKey);
   const loadingData = error === undefined && !data;
   const isError = error !== undefined;
 
@@ -109,7 +108,6 @@ const ImageGallery = ({
       const newRefreshedImages = [...refreshedImages, url];
       const newFigure = await replaceFigure({
         term: name,
-        // @ts-ignore
         ignoreUrls: [...newRefreshedImages, ...data!.images],
       });
 
@@ -156,53 +154,51 @@ const ImageGallery = ({
         role="list"
         className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-5 xl:gap-x-8"
       >
-        {data?.images.map(
-          ({ site, link }: { site: string; link: string }, index) => (
-            <li key={index} className="relative transition ease-in-out">
-              {isRefreshing && link === selectedImage ? (
-                <div className="flex justify-center items-center animate-pulse group w-full h-56 rounded-lg bg-gray-200 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
-                  <RefreshIcon className="animate-spin h-5 w-5 text-gray-700" />
-                </div>
-              ) : (
-                <div
-                  className={mergeClassNames(
-                    link === selectedImage ? 'ring-2 ring-indigo-500' : '',
-                    'group flex cursor-pointer justify-center items-center w-full aspect-w-10 h-56 aspect-h-7 rounded-lg bg-gray-100 overflow-hidden after:absolute hover:after:sm:bg-black hover:after:sm:bg-opacity-30 hover:after:w-full hover:after:h-full hover:after:top-0'
-                  )}
-                  onClick={async () => {
-                    await handleImageSelect(link);
+        {data?.images.map((image, index) => (
+          <li key={index} className="relative transition ease-in-out">
+            {isRefreshing && image === selectedImage ? (
+              <div className="flex justify-center items-center animate-pulse group w-full h-56 rounded-lg bg-gray-200 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
+                <RefreshIcon className="animate-spin h-5 w-5 text-gray-700" />
+              </div>
+            ) : (
+              <div
+                className={mergeClassNames(
+                  image === selectedImage ? 'ring-2 ring-indigo-500' : '',
+                  'group flex cursor-pointer justify-center items-center w-full aspect-w-10 h-56 aspect-h-7 rounded-lg bg-gray-100 overflow-hidden after:absolute hover:after:sm:bg-black hover:after:sm:bg-opacity-30 hover:after:w-full hover:after:h-full hover:after:top-0'
+                )}
+                onClick={async () => {
+                  await handleImageSelect(image);
+                }}
+              >
+                {image === selectedImage && (
+                  <CheckCircleIcon className="h-5 w-5 text-purple-900 absolute right-2 top-2 left-auto z-10 drop-shadow-lg" />
+                )}
+
+                <button
+                  className="text-white z-10 w-12 text-center h-12 absolute inset-y-1/2 inset-x-1/2 -translate-x-1/2 -translate-y-1/2 hidden flex-row justify-center items-center bg-black bg-opacity-30 rounded-md group-hover:flex"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    setSelectedImage(image);
+                    handleRefresh(image);
                   }}
                 >
-                  {link === selectedImage && (
-                    <CheckCircleIcon className="h-5 w-5 text-purple-900 absolute right-2 top-2 left-auto z-10 drop-shadow-lg" />
-                  )}
-
-                  <button
-                    className="text-white z-10 w-12 text-center h-12 absolute inset-y-1/2 inset-x-1/2 -translate-x-1/2 -translate-y-1/2 hidden flex-row justify-center items-center bg-black bg-opacity-30 rounded-md group-hover:flex"
-                    onClick={(event) => {
-                      event.stopPropagation();
-                      setSelectedImage(link);
-                      handleRefresh(link);
-                    }}
-                  >
-                    <RefreshIcon className="h-5 w-5 text-white" />
-                  </button>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    id={`image-${link}`}
-                    src={site}
-                    alt={`Search Image result for search term ${name}`}
-                    className="object-cover h-full w-full pointer-events-none group-hover:sm:opacity-75"
-                    onError={(event) => {
-                      (event.target as HTMLImageElement).src =
-                        'https://d151dmflpumpzp.cloudfront.net/images/tribes/default_temp.jpeg';
-                    }}
-                  />
-                </div>
-              )}
-            </li>
-          )
-        )}
+                  <RefreshIcon className="h-5 w-5 text-white" />
+                </button>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  id={`image-${image}`}
+                  src={image}
+                  alt={`Search Image result for search term ${name}`}
+                  className="object-cover h-full w-full pointer-events-none group-hover:sm:opacity-75"
+                  onError={(event) => {
+                    (event.target as HTMLImageElement).src =
+                      'https://d151dmflpumpzp.cloudfront.net/images/tribes/default_temp.jpeg';
+                  }}
+                />
+              </div>
+            )}
+          </li>
+        ))}
         {loadingData && (
           <>
             <li className="animate-pulse relative">
