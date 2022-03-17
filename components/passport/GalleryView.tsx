@@ -46,7 +46,7 @@ const GalleryView = ({
         formData
       );
 
-      const res = await fetch(`data:image/png;base64,${imageData}`);
+      const res = await fetch(imageData);
       const blob = await res.blob();
       const file = new File([blob], fileName, { type: mimeType });
 
@@ -56,17 +56,10 @@ const GalleryView = ({
       });
       setView(PassportViews.Avatar);
     } catch (error) {
-      if (error.message) {
-        toast({
-          message: error.message,
-        });
-      } else {
-        toast({
-          message:
-            error ??
-            'Error Creating Passport, please try with a different image',
-        });
-      }
+      toast({
+        message:
+          error ?? 'Error Creating Passport, please try with a different image',
+      });
       setView(PassportViews.Gallery);
     }
     setIsFetching(false);

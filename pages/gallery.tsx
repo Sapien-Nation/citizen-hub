@@ -4,13 +4,14 @@ import { useEffect, useRef, useState } from 'react';
 import useSWR, { useSWRConfig } from 'swr';
 
 // api
-import { replaceFigure } from 'api/passport';
+import { createStyledAvatar, replaceFigure } from 'api/passport';
 
 // components
-import FeedbackView from './FeedbackView';
+import { FeedbackView } from 'components/passport';
 
 // context
 import { useToast } from 'context/toast';
+import { useRouter } from 'next/router';
 
 // utils
 import { mergeClassNames } from 'utils/styles';
@@ -62,8 +63,9 @@ const ImageGallery = ({
   const fileRef = useRef();
   const { mutate } = useSWRConfig();
 
-  const apiKey = `/passport-api/avatar-lookup?term=${name}`;
-  const { data, error } = useSWR<{ images: Array<string> }>(apiKey);
+  const apiKey = `/passport-api/image/gallery?term=${name}`;
+  const { data, error } =
+    useSWR<{ images: Array<{ site: string; link: string }> }>(apiKey);
   const loadingData = error === undefined && !data;
   const isError = error !== undefined;
 
@@ -108,6 +110,7 @@ const ImageGallery = ({
       const newRefreshedImages = [...refreshedImages, url];
       const newFigure = await replaceFigure({
         term: name,
+        // @ts-ignore
         ignoreUrls: [...newRefreshedImages, ...data!.images],
       });
 
@@ -154,51 +157,53 @@ const ImageGallery = ({
         role="list"
         className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-5 xl:gap-x-8"
       >
-        {data?.images.map((image, index) => (
-          <li key={index} className="relative transition ease-in-out">
-            {isRefreshing && image === selectedImage ? (
-              <div className="flex justify-center items-center animate-pulse group w-full h-56 rounded-lg bg-gray-200 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
-                <RefreshIcon className="animate-spin h-5 w-5 text-gray-700" />
-              </div>
-            ) : (
-              <div
-                className={mergeClassNames(
-                  image === selectedImage ? 'ring-2 ring-indigo-500' : '',
-                  'group flex cursor-pointer justify-center items-center w-full aspect-w-10 h-56 aspect-h-7 rounded-lg bg-gray-100 overflow-hidden after:absolute hover:after:sm:bg-black hover:after:sm:bg-opacity-30 hover:after:w-full hover:after:h-full hover:after:top-0'
-                )}
-                onClick={async () => {
-                  await handleImageSelect(image);
-                }}
-              >
-                {image === selectedImage && (
-                  <CheckCircleIcon className="h-5 w-5 text-purple-900 absolute right-2 top-2 left-auto z-10 drop-shadow-lg" />
-                )}
-
-                <button
-                  className="text-white z-10 w-12 text-center h-12 absolute inset-y-1/2 inset-x-1/2 -translate-x-1/2 -translate-y-1/2 hidden flex-row justify-center items-center bg-black bg-opacity-30 rounded-md group-hover:flex"
-                  onClick={(event) => {
-                    event.stopPropagation();
-                    setSelectedImage(image);
-                    handleRefresh(image);
+        {data?.images.map(
+          ({ site, link }: { site: string; link: string }, index) => (
+            <li key={index} className="relative transition ease-in-out">
+              {isRefreshing && link === selectedImage ? (
+                <div className="flex justify-center items-center animate-pulse group w-full h-56 rounded-lg bg-gray-200 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
+                  <RefreshIcon className="animate-spin h-5 w-5 text-gray-700" />
+                </div>
+              ) : (
+                <div
+                  className={mergeClassNames(
+                    link === selectedImage ? 'ring-2 ring-indigo-500' : '',
+                    'group flex cursor-pointer justify-center items-center w-full aspect-w-10 h-56 aspect-h-7 rounded-lg bg-gray-100 overflow-hidden after:absolute hover:after:sm:bg-black hover:after:sm:bg-opacity-30 hover:after:w-full hover:after:h-full hover:after:top-0'
+                  )}
+                  onClick={async () => {
+                    await handleImageSelect(link);
                   }}
                 >
-                  <RefreshIcon className="h-5 w-5 text-white" />
-                </button>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  id={`image-${image}`}
-                  src={image}
-                  alt={`Search Image result for search term ${name}`}
-                  className="object-cover h-full w-full pointer-events-none group-hover:sm:opacity-75"
-                  onError={(event) => {
-                    (event.target as HTMLImageElement).src =
-                      'https://d151dmflpumpzp.cloudfront.net/images/tribes/default_temp.jpeg';
-                  }}
-                />
-              </div>
-            )}
-          </li>
-        ))}
+                  {link === selectedImage && (
+                    <CheckCircleIcon className="h-5 w-5 text-purple-900 absolute right-2 top-2 left-auto z-10 drop-shadow-lg" />
+                  )}
+
+                  <button
+                    className="text-white z-10 w-12 text-center h-12 absolute inset-y-1/2 inset-x-1/2 -translate-x-1/2 -translate-y-1/2 hidden flex-row justify-center items-center bg-black bg-opacity-30 rounded-md group-hover:flex"
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      setSelectedImage(link);
+                      handleRefresh(link);
+                    }}
+                  >
+                    <RefreshIcon className="h-5 w-5 text-white" />
+                  </button>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    id={`image-${link}`}
+                    src={link}
+                    alt={site}
+                    className="object-cover h-full w-full pointer-events-none group-hover:sm:opacity-75"
+                    onError={(event) => {
+                      (event.target as HTMLImageElement).src =
+                        'https://d151dmflpumpzp.cloudfront.net/images/tribes/default_temp.jpeg';
+                    }}
+                  />
+                </div>
+              )}
+            </li>
+          )
+        )}
         {loadingData && (
           <>
             <li className="animate-pulse relative">
@@ -316,4 +321,76 @@ const ImageGallery = ({
   );
 };
 
-export default ImageGallery;
+const GalleryView = () => {
+  const { query } = useRouter();
+  const [isManual, setIsManual] = useState(false);
+  const [isFetching, setIsFetching] = useState(false);
+  const [passportFile, setPassportFile] = useState<Blob | null>(null);
+  const { figureName } = query;
+  const toast = useToast();
+
+  const handleContinue = async () => {
+    try {
+      const formData = new FormData();
+      formData.append('IMAGE', passportFile);
+      const [{ fileName, imageData, mimeType }] = await createStyledAvatar(
+        formData
+      );
+
+      const res = await fetch(imageData);
+      const blob = await res.blob();
+      const file = new File([blob], fileName, { type: mimeType });
+    } catch (error) {
+      toast({
+        message:
+          error ?? 'Error Creating Passport, please try with a different image',
+      });
+    }
+    setIsFetching(false);
+  };
+
+  return (
+    <>
+      <div className="transition delay-150 duration-300 ease-in-out px-4 xl:px-0"></div>
+      <div className="transition delay-150 duration-300 ease-in-out">
+        <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+          <span className="block text-white">
+            Now let&apos;s choose a portrait for {figureName}
+          </span>
+        </h1>
+        <h2 className="text-lg mt-5 text-white mb-5">
+          Remember that if you upload your own photo, it must be copyright free
+          or open source.
+        </h2>
+        <main className="lg:relative">
+          <div className="mx-auto max-w-6xl w-full pt-16 px-4 xl:px-0">
+            {figureName && (
+              <ImageGallery
+                name={figureName as string}
+                onSelect={(file) => setPassportFile(file)}
+                setIsFetching={setIsFetching}
+                setIsManual={setIsManual}
+              />
+            )}
+            <div className="mt-20 sticky -bottom-10 flex flex-col justify-center items-center">
+              {Boolean(passportFile) && (
+                <button
+                  disabled={isFetching}
+                  type="button"
+                  className={`inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-sapien hover:bg-sapien-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 ${
+                    isFetching ? 'animate-pulse' : ''
+                  }`}
+                  onClick={handleContinue}
+                >
+                  Generate Avatar
+                </button>
+              )}
+            </div>
+          </div>
+        </main>
+      </div>
+    </>
+  );
+};
+
+export default GalleryView;
