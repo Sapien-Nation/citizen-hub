@@ -40,3 +40,11 @@ export const createStyledAvatar = (formData: any) =>
 
       return Promise.reject(response.statusText);
     });
+
+export const downloadAvatar = (url: string) =>
+  axios
+    .post('/passport-api/download-image', { url })
+    .then(({ data }) => data)
+    .catch(({ response }) => {
+      return Promise.reject(response.statusText);
+    });
