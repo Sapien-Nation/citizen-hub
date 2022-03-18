@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+const { withSentryConfig } = require('@sentry/nextjs');
 
 const ContentSecurityPolicy = `
   default-src 'self';
@@ -10,7 +11,7 @@ const ContentSecurityPolicy = `
   connect-src * 'self' blob: data:;
   media-src 'none';
   font-src data: 'self' *.gstatic.com *.amazonaws.com;
-`
+`;
 const securityHeaders = [
   {
     key: 'Content-Security-Policy',
@@ -18,31 +19,31 @@ const securityHeaders = [
   },
   {
     key: 'X-DNS-Prefetch-Control',
-    value: 'on'
+    value: 'on',
   },
   {
     key: 'Strict-Transport-Security',
-    value: 'max-age=63072000; includeSubDomains; preload'
+    value: 'max-age=63072000; includeSubDomains; preload',
   },
   {
     key: 'X-XSS-Protection',
-    value: '1; mode=block'
+    value: '1; mode=block',
   },
   {
     key: 'X-Frame-Options',
-    value: 'DENY'
+    value: 'DENY',
   },
   {
     key: 'X-Content-Type-Options',
-    value: 'nosniff'
+    value: 'nosniff',
   },
   {
     key: 'Referrer-Policy',
-    value: 'same-origin'
-  }
-]
+    value: 'same-origin',
+  },
+];
 
-module.exports = {
+const moduleExports = {
   reactStrictMode: true,
   poweredByHeader: false,
   images: {
@@ -55,32 +56,41 @@ module.exports = {
         source: '/(.*)',
         headers: securityHeaders,
       },
-    ]
- 
+    ];
   },
 
   async rewrites() {
     return [
       {
         source: '/purchase-api/:path*',
-        destination: `${process.env.NEXT_PUBLIC_API_URL}/api/v3/passportPurchase/:path*`
+        destination: `${process.env.NEXT_PUBLIC_API_URL}/api/v3/passportPurchase/:path*`,
       },
       {
         source: '/passport-api/:path*',
-        destination: `${process.env.NEXT_PUBLIC_API_URL}/api/v3/passport/:path*`
+        destination: `${process.env.NEXT_PUBLIC_API_URL}/api/v3/passport/:path*`,
       },
       {
         source: '/ml-api/:path*',
-        destination: `${process.env.NEXT_PUBLIC_API_URL}/api/v3/ml/:path*`
+        destination: `${process.env.NEXT_PUBLIC_API_URL}/api/v3/ml/:path*`,
       },
       {
         source: '/user-api/:path*',
-        destination: `${process.env.NEXT_PUBLIC_API_AUTH_URL}/api/v3/user/:path*`
+        destination: `${process.env.NEXT_PUBLIC_API_AUTH_URL}/api/v3/user/:path*`,
       },
       {
         source: '/auth-api/:path*',
-        destination: `${process.env.NEXT_PUBLIC_API_AUTH_URL}/api/v3/auth/:path*`
+        destination: `${process.env.NEXT_PUBLIC_API_AUTH_URL}/api/v3/auth/:path*`,
       },
-    ]
-  }
-}
+    ];
+  },
+};
+
+const sentryWebpackPluginOptions = {
+  release: 'Public Release',
+  org: 'sapien-network',
+  project: 'passport-app',
+  authToken: 'be41075bb199461180003f41cf271034e2da122743594fa8b127adac9e6e467c',
+  silent: true, // Suppresses all logs
+};
+
+module.exports = withSentryConfig(moduleExports, sentryWebpackPluginOptions);

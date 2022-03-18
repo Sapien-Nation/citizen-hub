@@ -1,3 +1,4 @@
+import * as Sentry from '@sentry/nextjs';
 import { useEffect } from 'react';
 
 // api
@@ -17,6 +18,7 @@ const LogoutPage: NextPage = () => {
       if (me) {
         try {
           await logout({ email: me.email });
+          Sentry.configureScope((scope) => scope.setUser(null));
         } catch (err) {
           // err
         }

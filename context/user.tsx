@@ -1,7 +1,8 @@
 import { useRouter } from 'next/router';
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import { useLocalStorage } from 'react-use';
 import useSWR, { useSWRConfig } from 'swr';
+import * as Sentry from '@sentry/nextjs';
 
 // types
 import { User } from 'tools/types/user';
@@ -43,7 +44,16 @@ const AuthenticationProvider = ({ children }: Props) => {
   });
 
   const isLoggingIn = data === undefined;
-
+  console.log(data);
+  useEffect(() => {
+    if (data) {
+      Sentry.setUser({
+        email: data.email,
+        id: data.id,
+        username: data.username,
+      });
+    }
+  }, [data]);
   const clearSession = () => {
     removeTokens();
     mutate('/user-api/me', null, false);
