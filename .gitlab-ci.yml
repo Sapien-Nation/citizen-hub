@@ -95,7 +95,7 @@ build-poc:
     - cat passport-dep.yml
     - kubectl apply -f passport-dep.yml
   environment:
-    name: sandbox
+    name: poc
     url: https://www.sapien.network
   only:
     <<: *poc_triggers
