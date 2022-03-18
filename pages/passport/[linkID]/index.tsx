@@ -114,7 +114,7 @@ const PassportPage = ({
       view: View.Success,
       status: 'upcoming',
     },
-    { id: 5, name: 'Mint Your Passport', status: 'upcoming' },
+    // { id: 5, name: 'Mint Your Passport', status: 'upcoming' },
   ];
 
   if (responseCode) {
