@@ -90,7 +90,7 @@ const Lookup = ({ distributionId, setView, setFigureName }: Props) => {
       setHistoricalFigure(searchTerm);
       inputRef.current.value = selectedFigure?.name || searchTerm;
     }
-    setIsManualHistoricalFigure(selectedFigure.isManual);
+    setIsManualHistoricalFigure(selectedFigure?.isManual);
   });
 
   const onSuggestionHover = (cursor: number) => setCurrentCursor(cursor);
@@ -124,7 +124,7 @@ const Lookup = ({ distributionId, setView, setFigureName }: Props) => {
       setShowSuggestions(false);
       setHistoricalFigure(figure.name);
 
-      setIsManualHistoricalFigure(figure.isManual);
+      setIsManualHistoricalFigure(figure?.isManual);
 
       inputRef.current.value = figure?.name;
     }
@@ -207,13 +207,13 @@ const Lookup = ({ distributionId, setView, setFigureName }: Props) => {
                         Not Available
                       </span>
                     ) : null}
-                    {suggestion.isManual ? (
+                    {suggestion?.isManual ? (
                       <span className="text-xs text-gray-400 font-extrabold animate-pulse">
                         Typing...
                       </span>
                     ) : null}
                   </li>
-                  {suggestion.isManual && suggestions.length > 1 ? (
+                  {suggestion?.isManual && suggestions.length > 1 ? (
                     <div className="border-b border-neutral-300 w-full h-1"></div>
                   ) : null}
                 </>

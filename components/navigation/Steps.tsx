@@ -1,4 +1,6 @@
 import { CheckIcon } from '@heroicons/react/solid';
+import { useAuth } from 'context/user';
+import Link from 'next/link';
 
 // constants
 import { View as PassportViews } from 'pages/passport/[linkID]';
@@ -21,6 +23,8 @@ function classNames(...classes) {
 }
 
 const Steps = ({ steps, setView, active }: Props) => {
+  const { me } = useAuth();
+
   steps.forEach((step) => {
     if (step.id === active) {
       step.status = 'current';
@@ -33,6 +37,15 @@ const Steps = ({ steps, setView, active }: Props) => {
 
   return (
     <div className="">
+      <div className="flex justify-center flex-col">
+        <p className="text-xs">
+          Logged in as{' '}
+          <span className="font-extrabold underline">{me.email}</span>{' '}
+        </p>
+        <Link passHref href="/logout">
+          <a className="text-blue-600 text-sm">Logout</a>
+        </Link>
+      </div>
       <nav
         className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-8"
         aria-label="Progress"

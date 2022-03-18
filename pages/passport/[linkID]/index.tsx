@@ -118,7 +118,7 @@ const PassportPage = ({
     },
   ];
 
-  if (responseCode) {
+  if (responseCode && responseCode !== 300) {
     if (responseCode === 1000) {
       return (
         <>
@@ -296,15 +296,15 @@ const PassportPageProxy = () => {
 
   const isPurchase = linkID === 'purchase';
 
-  if (isPurchase) {
-    return (
-      <>
-        <Head title="WhiteList Only" />
+  // if (isPurchase) {
+  //   return (
+  //     <>
+  //       <Head title="WhiteList Only" />
 
-        <FeedbackView code={300} />
-      </>
-    );
-  }
+  //       <FeedbackView code={300} />
+  //     </>
+  //   );
+  // }
 
   const queryParams = isPurchase ? '' : `?linkId=${linkID}`;
 
