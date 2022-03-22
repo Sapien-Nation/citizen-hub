@@ -25,7 +25,7 @@ const Discord = ({ responseCode }: Props) => {
         <p className="mt-6 max-w-lg text-xl text-white font-semibold sm:max-w-3xl">
           {responseCode === 201
             ? "We need to review your Historical pick. You will be contacted when we've reached a decision about next steps."
-            : 'We need to review your Historical Figure pick. You will be contacted when we&apos;ve reached a decision about next steps.'}
+            : "We need to review your Historical Figure pick. You will be contacted when we've reached a decision about next steps."}
         </p>
         <div className="mt-10 max-w-sm sm:max-w-none sm:flex">
           <a
