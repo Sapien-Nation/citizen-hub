@@ -13,9 +13,10 @@ import { useToast } from 'context/toast';
 interface Props {
   reservedFigure: string;
   styledAvatar: string;
+  onDownload: () => void;
 }
 
-const SuccessView = ({ reservedFigure, styledAvatar }: Props) => {
+const SuccessView = ({ reservedFigure, styledAvatar, onDownload }: Props) => {
   const toast = useToast();
   const { me, isLoggingIn } = useAuth();
 
@@ -36,6 +37,7 @@ const SuccessView = ({ reservedFigure, styledAvatar }: Props) => {
       document.body.appendChild(a);
       a.click();
       a.remove();
+      onDownload();
     } catch (err) {
       toast({
         message: err,

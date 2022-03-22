@@ -89,6 +89,7 @@ const PassportPage = ({
     code || statusCode
   );
   const [styledAvatar, setStyledAvatar] = useState<string | null>(null);
+  const [didUserDownloadAvatar, setDidUserDownloadAvatar] = useState(false);
 
   const steps = [
     {
@@ -115,7 +116,6 @@ const PassportPage = ({
       view: View.Success,
       status: 'upcoming',
     },
-    // { id: 5, name: 'Mint Your Passport', status: 'upcoming' },
   ];
 
   if (responseCode) {
@@ -159,10 +159,11 @@ const PassportPage = ({
     if (responseCode === 204) {
       return (
         <>
-          <Steps steps={steps} setView={setView} active={4} />
+          <Steps steps={steps} setView={setView} active={5} />
           <SuccessView
             reservedFigure={reservedFigure}
             styledAvatar={avatarURL}
+            onDownload={() => {}}
           />
         </>
       );
@@ -261,10 +262,17 @@ const PassportPage = ({
     case View.Success:
       return (
         <>
-          <Steps steps={steps} setView={setView} active={4} />
+          <Steps
+            steps={steps}
+            setView={setView}
+            active={didUserDownloadAvatar ? 5 : 4}
+          />
           <SuccessView
             styledAvatar={styledAvatar}
             reservedFigure={reservedFigure || figureName}
+            onDownload={() => {
+              setDidUserDownloadAvatar(true);
+            }}
           />
         </>
       );
@@ -300,7 +308,7 @@ const PassportPageProxy = () => {
 
   const queryParams = isPurchase ? '' : `?linkId=${linkID}`;
 
-  const myErrorHandler = (error: Error, info: { componentStack: string }) => {
+  const myErrorHandler = (error: Error) => {
     console.log(error.message);
   };
 
