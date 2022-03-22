@@ -1,11 +1,12 @@
 import useSWR, { mutate } from 'swr';
 
 // components
-import ErrorView from './views/ErrorView';
+import { ErrorFallback } from './views';
 import Spinner from './Spinner';
 
 // types
 import type { SWRConfiguration, Key } from 'swr';
+import Redirect from './Redirect';
 
 interface Props {
   api: Key;
@@ -39,7 +40,16 @@ const Query = ({
     }
   }
   if (error) {
-    return <ErrorView error={error as Error} onClick={() => mutate(api)} />;
+    if (error === 'Your session expired') {
+      return <Redirect path="/logout" />;
+    }
+
+    return (
+      <ErrorFallback
+        error={error as Error}
+        resetErrorBoundary={() => mutate(api)}
+      />
+    );
   }
 
   return children ? (children as Function)(data) : null;
