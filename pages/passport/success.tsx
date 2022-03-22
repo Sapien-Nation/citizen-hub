@@ -43,6 +43,7 @@ const Success = () => {
                 <SuccessView
                   styledAvatar={avatarURL}
                   reservedFigure={figureName}
+                  onDownload={() => {}}
                 />
               )}
             </Query>
