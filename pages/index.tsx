@@ -148,12 +148,9 @@ const IndexPage: NextPage = () => {
               their favorite figures from history to celebrate our diverse
               histories and unite to build our shared future.
             </h2>
-            <Link href="https://discord.gg/DgUfraghMW">
-              <a
-                target="_blank"
-                className="border font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8"
-              >
-                Join the Whitelist
+            <Link href="/passport/purchase">
+              <a className="border font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:text-xl md:px-8">
+                Purchase Passport
               </a>
             </Link>
           </div>
