@@ -3,6 +3,7 @@ import { useState } from 'react';
 // tailwind ui
 import { Disclosure } from '@headlessui/react';
 import { CheckCircleIcon, ChevronDownIcon } from '@heroicons/react/solid';
+import { ShieldExclamationIcon } from '@heroicons/react/outline';
 import { ethers } from 'ethers';
 
 // assets
@@ -10,6 +11,9 @@ import { Ethereum, Metamask } from 'assets';
 
 // api
 import { reservePassport } from 'api/passportPurchase';
+
+// components
+import { LottiePlayer } from 'components/common';
 
 //constants
 import { ToastType } from 'constants/toast';
@@ -138,13 +142,13 @@ const PurchaseView = ({
           />
           <div className="absolute inset-0 bg-gradient-to-r from-gray-900 to-purple-900 mix-blend-multiply" />
         </div>
-        <div className="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8 text-center">
-          <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-            <span className="block text-white">
-              Don&lsquo;t reload this screen
-            </span>
+        <div className="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8 flex flex-col items-center">
+          <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl flex items-center">
+            <ShieldExclamationIcon className="w-16 mr-2 text-red-500" />{' '}
+            Don&lsquo;t reload this screen
           </h1>
-          <p className="mt-6 max-w-lg text-xl text-white font-semibold sm:max-w-3xl animate-pulse">
+          <LottiePlayer lottie="https://assets9.lottiefiles.com/packages/lf20_crp2jplv.json" />
+          <p className="mt-6 text-xl text-white font-semibold animate-pulse">
             Purchase in process...
           </p>
         </div>
