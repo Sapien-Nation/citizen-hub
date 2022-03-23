@@ -9,7 +9,6 @@ const ContentSecurityPolicy = `
   style-src 'self' 'unsafe-inline' *.googleapis.com;
   img-src * blob: data:;
   connect-src * 'self' blob: data:;
-  media-src 'none';
   font-src data: 'self' *.gstatic.com *.amazonaws.com;
 `;
 const securityHeaders = [

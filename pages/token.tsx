@@ -21,12 +21,9 @@ const Token: NextPage = () => {
         </h2>
       </div>
       <div className="relative py-16 overflow-hidden max-w-6xl rounded-xl mx-auto">
-        <img
-          src="/landing/STT.png"
-          alt="Sapien Tribe Token"
-          width="100%"
-          height="100%"
-        />
+        <video controls autoPlay>
+          <source src={'/landing/TokenVideo.mp4'} type="video/mp4" />
+        </video>
       </div>
       <div className="max-w-6xl flex flex-col gap-6 mx-auto px-8 sm:px-6 lg:px-8 my-12">
         <p className="text-xl sm:text-2xl">
