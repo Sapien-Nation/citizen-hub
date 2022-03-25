@@ -8,7 +8,11 @@ import { useToast } from 'context/toast';
 
 // constants
 import { View as PassportViews } from 'pages/passport/[linkID]';
+import { ConfirmDialog } from '.';
 
+enum Dialog {
+  Confirm,
+}
 interface Props {
   avatarImage: any;
   figureName: string;
@@ -28,11 +32,13 @@ const HistoricalFiguresSearch = ({
   setView,
   setStyledAvatar,
 }: Props) => {
+  const [dialog, setDialog] = useState<Dialog | null>(null);
   const [isFetching, setIsFetching] = useState(false);
 
   const toast = useToast();
 
   const handleCreatePassport = async () => {
+    setDialog(null);
     setIsFetching(true);
     try {
       const formData = new FormData();
@@ -92,13 +98,26 @@ const HistoricalFiguresSearch = ({
               className={`inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-sapien hover:bg-sapien-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 ${
                 isFetching ? 'animate-pulse' : ''
               }`}
-              onClick={handleCreatePassport}
+              onClick={() => setDialog(Dialog.Confirm)}
             >
               {isFetching ? 'Generating Passport...' : 'Generate Passport'}
             </button>
           </div>
         </div>
       </main>
+
+      {/* Dialogs */}
+      {dialog === Dialog.Confirm && (
+        <ConfirmDialog
+          avatarImage={avatarImage}
+          onClose={() => {
+            setDialog(null);
+            onBack();
+          }}
+          onConfirm={handleCreatePassport}
+          figureName={figureName}
+        />
+      )}
     </>
   );
 };

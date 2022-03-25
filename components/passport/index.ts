@@ -1,6 +1,7 @@
 export { default as AuthView } from './AuthView';
 export { default as AvatarView } from './AvatarView';
 export { default as ConfirmView } from './ConfirmView';
+export { default as ConfirmDialog } from './ConfirmDialog';
 export { default as DiscordView } from './DiscordView';
 export { default as FeedbackView } from './FeedbackView';
 export { default as LookupView } from './LookupView';

@@ -5,6 +5,7 @@ export * from '../fields';
 export { default as Animation } from './animations';
 export { default as AnimatedAvatar } from './AnimatedAvatar';
 export { default as Cookies } from './Cookies';
+export { default as Dialog } from './Dialog';
 export { default as Dropdown } from './Dropdown';
 export { default as Head } from './Head';
 export { default as Redirect } from './Redirect';
