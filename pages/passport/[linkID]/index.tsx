@@ -308,10 +308,6 @@ const PassportPageProxy = () => {
 
   const queryParams = isPurchase ? '' : `?linkId=${linkID}`;
 
-  const myErrorHandler = (error: Error) => {
-    console.log(error.message);
-  };
-
   return (
     <>
       <Head title="Create Passport" />
@@ -326,7 +322,6 @@ const PassportPageProxy = () => {
                   onReset={() => {
                     replace(asPath);
                   }}
-                  onError={myErrorHandler}
                 >
                   <PassportPage {...response} />
                 </ErrorBoundary>

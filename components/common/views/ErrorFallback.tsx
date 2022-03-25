@@ -1,4 +1,19 @@
-function ErrorFallback({ resetErrorBoundary }: any) {
+import { useEffect } from 'react';
+import * as Sentry from '@sentry/nextjs';
+
+// context
+import { useAuth } from 'context/user';
+
+function ErrorFallback({ error, resetErrorBoundary }: any) {
+  const { me } = useAuth();
+  useEffect(() => {
+    if (error) {
+      Sentry.captureException(error);
+    } else {
+      Sentry.captureException(`Error for user: ${me.email}`);
+    }
+  }, [error, me.email]);
+
   return (
     <div className="relative shadow-xl sm:rounded-2xl sm:overflow-hidden text-left">
       <div className="absolute inset-0">
