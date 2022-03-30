@@ -86,7 +86,7 @@ const IndexPage: NextPage = () => {
             {/* Content area */}
             <p className="text-lg mb-4">
               The Passport will be a unique NFT that grants citizenship to the
-              Sapien Tribe.
+              Sapien Nation.
             </p>
             <p className="text-lg mb-4">
               The NFT Passport will include powerful utilities to navigate the
