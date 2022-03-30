@@ -22,7 +22,7 @@ const Token: NextPage = () => {
       </div>
       <div className="relative py-16 overflow-hidden max-w-6xl rounded-xl mx-auto">
         <video controls autoPlay>
-          <source src={'/landing/TokenVideo.mp4'} type="video/mp4" />
+          <source src={'/landing/3dcoin.mp4'} type="video/mp4" />
         </video>
       </div>
       <div className="max-w-6xl flex flex-col gap-6 mx-auto px-8 sm:px-6 lg:px-8 my-12">
