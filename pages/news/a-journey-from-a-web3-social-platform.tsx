@@ -155,7 +155,7 @@ const News: NextPage = () => {
               prototype of the platform. We had standard functionality for
               posting and voting, but we tested two new value propositions:
               pseudonymous identity and end-to-end encryption.{' '}
-              <span className="font-semibold">
+              <span className="font-semibold underline">
                 Our thesis was (and still is to this day) that people would
                 benefit from having complete control over what parts of their
                 online presence should be public or private
@@ -207,7 +207,7 @@ const News: NextPage = () => {
               Feed sorts, feed weights, shortcuts, custom folders, and a host of
               other powerful tools gave people the ability to tweak their feeds
               and organize their media content to use the platform intentfully.{' '}
-              <span className="font-semibold">
+              <span className="font-semibold underline">
                 Our thesis was expanded to incorporate the notion that people
                 should have complete transparency in the flow of information and
                 control over what they are consuming
@@ -713,7 +713,7 @@ const News: NextPage = () => {
             </p>
             <p>
               It was no surprise that the answer lies with the tribe.
-              <span className="font-semibold">
+              <span className="font-semibold underline">
                 We embraced the idea that “reputation” must be simple, emergent,
                 and driven by people in communities.
               </span>
@@ -843,7 +843,7 @@ const News: NextPage = () => {
               A lot of builders and VCs hopped on that hype train but we were
               resolute that the true problem was not in creation, but in
               curation.{' '}
-              <span className="font-semibold">
+              <span className="font-semibold underline">
                 Solving curation is essential to replacing algorithmic curation
                 with human-centric curation
               </span>
@@ -1034,7 +1034,9 @@ const News: NextPage = () => {
               Like a single tree, a single DAO is limited by its local
               resources.
             </p>
-            <p className="font-semibold">We had to grow the forest.</p>
+            <p className="font-semibold underline">
+              We had to grow the forest.
+            </p>
             <img
               className="max-w-2xl w-full mx-auto rounded-xl my-12"
               src="/images/news/grow_the_forest.png"
@@ -1072,7 +1074,7 @@ const News: NextPage = () => {
               Democratizing the power of minting with an optionally inflationary
               model means that DAOs can convert their social capital into real
               value.{' '}
-              <span className="font-semibold">
+              <span className="font-semibold underline">
                 We can now choose to build on a transparent foundation of trust,
                 and all it takes is the snap of our fingers to manifest new fiat
                 currencies, backed by a vault of digital assets in a broader
@@ -1177,7 +1179,7 @@ const News: NextPage = () => {
               metadata. Token transactions should be public or private if
               desired.
             </p>
-            <p className="font-semibold">
+            <p className="font-semibold underline">
               With a level playing field, we can reclaim our agency — how we
               choose to allocate our time, money, and resources. We unleash our
               collective creative capacities to tackle the most pressing
