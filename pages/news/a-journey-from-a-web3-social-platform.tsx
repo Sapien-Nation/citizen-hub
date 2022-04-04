@@ -17,15 +17,18 @@ const News: NextPage = () => {
       />
       <div className="relative py-16 overflow-hidden bg-neutral-900 break-words">
         <div className="relative px-4 sm:px-8 lg:px-8">
-          <div className="text-lg max-w-4xl mx-auto mb-12">
+          <div className="text-lg max-w-5xl mx-auto mb-12">
             <h1 className="mt-2 max-w-prose block text-3xl text-center leading-8 font-extrabold tracking-tight text-white sm:text-4xl">
               A Journey from a Web3 Social Platform to Web3 Social Protocol
             </h1>
             <blockquote className="italic text-center mt-4 text-xl tracking-wide text-white leading-8">
-              Enter the Blockchain and the Tokenization of Sapien
+              From Bitcoin to Bananas: The Evolution of Sapien
             </blockquote>
+            <span className="text-center block text-gray-400">
+              — Ankit Bhatia
+            </span>
             <img
-              className="max-w-lg mx-auto rounded-xl my-12"
+              className="max-w-3xl w-full mx-auto rounded-xl my-12"
               src="/images/news/harambe.png"
               alt="Harambe Statue"
             />
@@ -54,7 +57,7 @@ const News: NextPage = () => {
                 rel="noreferrer"
               >
                 {' '}
-                Purple Paper
+                Purple Paper{' '}
               </a>
               as token primitives that can empower a network of tribes, from a
               group of friends to cooperative
@@ -71,8 +74,8 @@ const News: NextPage = () => {
             </p>
             <p>
               And we’re putting it to the test. We are in the process of
-              launching the Sapien Nation, the first Republic of DAOs, beginning
-              with the issuance of our
+              launching the Sapien Nation, a Republic of DAOs, beginning with
+              the issuance of our
               <a
                 href="https://www.sapien.network/news/why-nft-passports"
                 className="text-sapien-60"
@@ -96,7 +99,7 @@ const News: NextPage = () => {
               A trek through the Fire Trails
             </h2>
             <img
-              className="max-w-lg mx-auto rounded-xl my-12"
+              className="max-w-md w-full mx-auto rounded-xl my-12"
               src="/images/news/a_trek_through_the_fire_trails.png"
               alt="A trek through the Fire Trails"
             />
@@ -142,7 +145,7 @@ const News: NextPage = () => {
             </h2>
 
             <img
-              className="max-w-lg mx-auto rounded-xl my-12"
+              className="max-w-2xl w-full mx-auto rounded-xl my-12"
               src="/images/news/sapien_poc_explores_the_nature.png"
               alt="The Sapien PoC explores the nature of identity and privacy"
             />
@@ -193,7 +196,7 @@ const News: NextPage = () => {
             </h2>
 
             <img
-              className="max-w-lg mx-auto rounded-xl my-12"
+              className="max-w-2xl w-full mx-auto rounded-xl my-12"
               src="/images/news/the_sapien_alpha_piles_on_features_to_take_back_control.png"
               alt="The Sapien Alpha piles on features to take back control"
             />
@@ -248,7 +251,7 @@ const News: NextPage = () => {
             </p>
 
             <img
-              className="max-w-lg mx-auto rounded-xl my-12"
+              className="max-w-2xl w-full mx-auto rounded-xl my-12"
               src="/images/news/enter_the_blockchain_and_the_tokenization_of_sapien.png"
               alt="Enter the Blockchain and the Tokenization of Sapien"
             />
@@ -267,7 +270,7 @@ const News: NextPage = () => {
               The original white paper for Sapien advanced the thesis in several
               key areas:
             </p>
-            <ol className="list-decimal list-inside">
+            <ol className="list-decimal list-inside pl-10">
               <li>
                 Pseudonymous reputation is essential to reflect expertise while
                 preserving privacy.
@@ -283,7 +286,7 @@ const News: NextPage = () => {
             </ol>
 
             <img
-              className="max-w-lg mx-auto rounded-xl my-12"
+              className="max-w-2xl w-full mx-auto rounded-xl my-12"
               src="/images/news/democratized_autonomous_platform_proposals.png"
               alt="Democratized Autonomous Platform (DAP) Proposals"
             />
@@ -315,7 +318,7 @@ const News: NextPage = () => {
             </h2>
 
             <img
-              className="max-w-lg mx-auto rounded-xl my-12"
+              className="max-w-2xl w-full mx-auto rounded-xl my-12"
               src="/images/news/sapien_beta.png"
               alt="Sapien Beta"
             />
@@ -344,9 +347,9 @@ const News: NextPage = () => {
                 rel="noreferrer"
               >
                 {' '}
-                Purple Paper
+                Purple Paper{' '}
               </a>
-              . today.
+              today.
             </p>
 
             <p>
@@ -687,7 +690,7 @@ const News: NextPage = () => {
             </p>
 
             <img
-              className="max-w-lg mx-auto rounded-xl my-12"
+              className="max-w-2xl w-full mx-auto rounded-xl my-12"
               src="/images/news/sapien_simulations.png"
               alt="Sapien Simulations"
             />
@@ -734,7 +737,7 @@ const News: NextPage = () => {
             </p>
 
             <img
-              className="max-w-lg mx-auto rounded-xl my-12"
+              className="max-w-2xl w-full mx-auto rounded-xl my-12"
               src="/images/news/rob_ankit.png"
               alt="Rob and Ankit"
             />
@@ -914,7 +917,7 @@ const News: NextPage = () => {
               contributions.
             </p>
             <img
-              className="max-w-lg mx-auto rounded-xl my-12"
+              className="max-w-lg scale-150 mx-auto rounded-xl my-12"
               src="/images/news/sapien_weekly_rewards.png"
               alt="Sapien Weekly Rewards"
             />
@@ -987,7 +990,7 @@ const News: NextPage = () => {
             </ul>
 
             <img
-              className="max-w-lg mx-auto rounded-xl my-12"
+              className="max-w-2xl w-full mx-auto rounded-xl my-12"
               src="/images/news/ankit_rob.png"
               alt="Ankit Rob"
             />
@@ -1031,11 +1034,9 @@ const News: NextPage = () => {
               Like a single tree, a single DAO is limited by its local
               resources.
             </p>
-            <h3 className="mt-2 max-w-prose text-xl leading-8 font-extrabold tracking-tight text-white sm:text-2xl">
-              We had to grow the forest.
-            </h3>
+            <p className="font-semibold">We had to grow the forest.</p>
             <img
-              className="max-w-lg mx-auto rounded-xl my-12"
+              className="max-w-2xl w-full mx-auto rounded-xl my-12"
               src="/images/news/grow_the_forest.png"
               alt="We had to grow the forest."
             />
@@ -1087,7 +1088,7 @@ const News: NextPage = () => {
               Apes Together Strong 🦍 🤝 💪
             </h2>
             <img
-              className="max-w-lg mx-auto rounded-xl my-12"
+              className="max-w-2xl w-full mx-auto rounded-xl my-12"
               src="/images/news/apes_together_strong.png"
               alt="Apes Together Strong"
             />
@@ -1113,7 +1114,7 @@ const News: NextPage = () => {
               A Brief Summary of the Tribe Protocol
             </h2>
             <img
-              className="max-w-lg mx-auto rounded-xl my-12"
+              className="max-w-lg w-full mx-auto rounded-xl my-12"
               src="/images/news/tribe_protocol_summary.png"
               alt="A Brief Summary of the Tribe Protocol"
             />
@@ -1154,7 +1155,7 @@ const News: NextPage = () => {
                 rel="noreferrer"
               >
                 {' '}
-                Metcalf’s law,
+                Metcalf’s law
               </a>
               , the number of connected users of the system n2. Within a broader
               social network, DAOs bound together socially, culturally, and
@@ -1188,6 +1189,8 @@ const News: NextPage = () => {
             <p>
               Well if you read this far, I’m sure you’re still curious about our
               400 lb gorilla statue?
+            </p>
+            <p>
               <a
                 href="https://www.bbc.com/travel/article/20201004-harambee-the-kenyan-word-that-birthed-a-nation"
                 className="text-sapien-60"
@@ -1212,8 +1215,9 @@ const News: NextPage = () => {
                 rel="noreferrer"
               >
                 {' '}
-                source
+                (source)
               </a>
+              .
             </p>
             <p>
               In the burgeoning industry of Web3, we too have an opportunity to
@@ -1231,10 +1235,20 @@ const News: NextPage = () => {
             </p>
 
             <img
-              className="max-w-lg mx-auto rounded-xl my-12"
+              className="max-w-2xl w-full mx-auto rounded-xl my-12"
               src="/images/news/harambe_all_together.png"
               alt="Harambe ('All pull together')"
             />
+
+            <p className="text-base border-[1px] border-gray-800 rounded-md p-5">
+              NOTE: The views and opinions expressed in this article are those
+              of the authors and do not necessarily represent official policy or
+              position of Sapien Network, Inc. The information in this article
+              was compiled from sources believed to be reliable and is for
+              informational purposes only. Sapien Network, Inc. does not
+              guarantee the accuracy of this information or any results and
+              further assumes no liability in connection with this article.
+            </p>
 
             <div className="mt-10">
               <h5 className="font-extrabold">About Sapien Network</h5>
