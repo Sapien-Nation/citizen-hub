@@ -3,8 +3,8 @@ import Link from 'next/link';
 
 const news = [
   {
-    title: 'A Journey from a Web3 Social Platform to Web3 Social Protocol',
-    quote: 'From Bitcoin to Bananas: The Evolution of Sapien',
+    title: 'From Bitcoin to Bananas: The Evolution of Sapien',
+    quote: 'A Journey from a Web3 Social Platform to Web3 Social Protocol',
     excerpt: `20,000 ETH worth of R&D, multiple product releases, many late nights, and one giant, bronze Harambe statue later, we’ve charted a path for a novel full-stack social protocol. We present our solution in the Purple Paper as token primitives that can empower a network of tribes, from a group of friends to cooperative DAOs to sovereign digital nations.`,
     date: 'San Francisco, CA. April 04, 2022.',
     source: '/news/from-bitcoin-to-bananas',

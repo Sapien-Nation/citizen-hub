@@ -11,8 +11,8 @@ const News: NextPage = () => {
   return (
     <>
       <Head
-        title="News"
-        description="A Journey from a Web3 Social Platform to Web3 Social Protocol"
+        title="From Bitcoin to Bananas: The Evolution of Sapien"
+        description="20,000 ETH worth of R&D, multiple product releases, many late nights, and one giant, bronze Harambe statue later, we’ve charted a path for a novel full-stack social protocol. We present our solution in the Purple Paper as token primitives that can empower a network of tribes, from a group of friends to cooperative DAOs to sovereign digital nations."
         image="https://www.sapien.network/images/news/harambe.png"
       />
       <div className="relative py-16 overflow-hidden bg-neutral-900 break-words">
