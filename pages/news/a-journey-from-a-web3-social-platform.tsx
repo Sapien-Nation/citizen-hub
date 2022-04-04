@@ -25,7 +25,7 @@ const News: NextPage = () => {
               From Bitcoin to Bananas: The Evolution of Sapien
             </blockquote>
             <span className="text-center block text-gray-400">
-              — Ankit Bhatia
+              Ankit Bhatia
             </span>
             <img
               className="max-w-3xl w-full mx-auto rounded-xl my-12"
