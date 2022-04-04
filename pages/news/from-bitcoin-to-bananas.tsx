@@ -13,7 +13,7 @@ const News: NextPage = () => {
       <Head
         title="News"
         description="A Journey from a Web3 Social Platform to Web3 Social Protocol"
-        image="/images/Sapien_Logo.png"
+        image="/images/news/harambe.png"
       />
       <div className="relative py-16 overflow-hidden bg-neutral-900 break-words">
         <div className="relative px-4 sm:px-8 lg:px-8">

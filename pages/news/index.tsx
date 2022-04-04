@@ -7,7 +7,7 @@ const news = [
     quote: 'From Bitcoin to Bananas: The Evolution of Sapien',
     excerpt: `20,000 ETH worth of R&D, multiple product releases, many late nights, and one giant, bronze Harambe statue later, we’ve charted a path for a novel full-stack social protocol. We present our solution in the Purple Paper as token primitives that can empower a network of tribes, from a group of friends to cooperative DAOs to sovereign digital nations.`,
     date: 'San Francisco, CA. April 04, 2022.',
-    source: '/news/a-journey-from-a-web3-social-platform',
+    source: '/news/from-bitcoin-to-bananas',
     image: '/images/news/harambe_thumbnail.png',
     imageAlt: 'Harambe Statue',
   },
