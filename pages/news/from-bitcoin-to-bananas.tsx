@@ -13,16 +13,16 @@ const News: NextPage = () => {
       <Head
         title="News"
         description="A Journey from a Web3 Social Platform to Web3 Social Protocol"
-        image="/images/news/harambe.png"
+        image="https://www.sapien.network/images/news/harambe.png"
       />
       <div className="relative py-16 overflow-hidden bg-neutral-900 break-words">
         <div className="relative px-4 sm:px-8 lg:px-8">
           <div className="text-lg max-w-5xl mx-auto mb-12">
             <h1 className="mt-2 max-w-prose block text-3xl text-center leading-8 font-extrabold tracking-tight text-white sm:text-4xl">
-              A Journey from a Web3 Social Platform to Web3 Social Protocol
+              From Bitcoin to Bananas: The Evolution of Sapien
             </h1>
             <blockquote className="italic text-center mt-4 text-xl tracking-wide text-white leading-8">
-              From Bitcoin to Bananas: The Evolution of Sapien
+              A Journey from a Web3 Social Platform to Web3 Social Protocol
             </blockquote>
             <span className="text-center block text-gray-400">
               Ankit Bhatia
@@ -51,14 +51,12 @@ const News: NextPage = () => {
               </a>{' '}
               later, we’ve charted a path for a novel full-stack social
               protocol. We present our solution in the
-              <a
-                href="https://www.sapien.network/The_Purple_Paper_v1.1.pdf"
-                className="text-sapien-60"
-                rel="noreferrer"
-              >
-                {' '}
-                Purple Paper{' '}
-              </a>
+              <Link href="/The_Purple_Paper_v1.1.pdf">
+                <a className="text-sapien-60" rel="noreferrer">
+                  {' '}
+                  Purple Paper{' '}
+                </a>
+              </Link>
               as token primitives that can empower a network of tribes, from a
               group of friends to cooperative
               <a
@@ -76,14 +74,12 @@ const News: NextPage = () => {
               And we’re putting it to the test. We are in the process of
               launching the Sapien Nation, a Republic of DAOs, beginning with
               the issuance of our
-              <a
-                href="https://www.sapien.network/news/why-nft-passports"
-                className="text-sapien-60"
-                rel="noreferrer"
-              >
-                {' '}
-                NFT Passports
-              </a>
+              <Link href="/news/why-nft-passports">
+                <a className="text-sapien-60" rel="noreferrer">
+                  {' '}
+                  NFT Passports
+                </a>
+              </Link>
               .
             </p>
 
@@ -341,14 +337,12 @@ const News: NextPage = () => {
               product, we were reading, debating, and theorizing what tools a
               tribe needs to truly flourish. Our R&D was defining the Sapien
               Tribe Protocol outlined in the
-              <a
-                href="https://www.sapien.network/The_Purple_Paper_v1.1.pdf"
-                className="text-sapien-60"
-                rel="noreferrer"
-              >
-                {' '}
-                Purple Paper{' '}
-              </a>
+              <Link href="/The_Purple_Paper_v1.1.pdf">
+                <a className="text-sapien-60" rel="noreferrer">
+                  {' '}
+                  Purple Paper{' '}
+                </a>
+              </Link>
               today.
             </p>
 
@@ -1096,13 +1090,9 @@ const News: NextPage = () => {
             />
             <p>
               {`The last few months have shed tremendous light on how the pieces of the protocol fit together. And we couldn’t have done this without the addition of key team members, including Teja Aluru. Teja dropped out of his PhD in Machine Learning to help us launch the Sapien Nation. He is also the artist and lead programmer behind`}
-              <a
-                href="https://www.sapien.network/news/a-trip-through-time"
-                className="text-sapien-60"
-              >
-                {' '}
-                A Trip Through Time
-              </a>{' '}
+              <Link href="/news/a-trip-through-time">
+                <a className="text-sapien-60"> A Trip Through Time</a>
+              </Link>{' '}
               NFT Passport art collection. And as a fully awake ape, he joined
               Rob and me to form the first tribe (Tri = 3) of the{' '}
               <span className="italic">Sapien Nation</span>.
@@ -1123,13 +1113,9 @@ const News: NextPage = () => {
 
             <p>
               The three token primitives proposed in the
-              <a
-                href="https://www.sapien.network/The_Purple_Paper_v1.1.pdf"
-                className="text-sapien-60"
-              >
-                {' '}
-                Purple Paper
-              </a>{' '}
+              <Link href="/The_Purple_Paper_v1.1.pdf">
+                <a className="text-sapien-60"> Purple Paper</a>
+              </Link>{' '}
               are the minimal viable axioms to support a social network of
               self-sovereign communities:
             </p>
