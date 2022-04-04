@@ -3,7 +3,16 @@ import Link from 'next/link';
 
 const news = [
   {
-    title: 'How Do I Purchase a Passport? ',
+    title: 'A Journey from a Web3 Social Platform to Web3 Social Protocol',
+    quote: 'Enter the Blockchain and the Tokenization of Sapien',
+    excerpt: `20,000 ETH worth of R&D, multiple product releases, many late nights, and one giant, bronze Harambe statue later, we’ve charted a path for a novel full-stack social protocol. We present our solution in the Purple Paper as token primitives that can empower a network of tribes, from a group of friends to cooperative DAOs to sovereign digital nations.`,
+    date: 'San Francisco, CA. April 04, 2022.',
+    source: '/news/a-journey-from-a-web3-social-platform',
+    image: '/images/news/harambe.png',
+    imageAlt: 'Harambe Statue',
+  },
+  {
+    title: 'How Do I Purchase a Passport?',
     quote: 'A simple guide to purchasing your first NFT Passport',
     excerpt: `Hey Sapiens, we know you’re excited to grab your passport and we wanted to make sure that process was as easy to understand as possible for our community, so we wrote up some simple steps to make sure you know what to expect when buying your Sapien NFT passport.`,
     date: 'San Francisco, CA. March 14, 2022.',
