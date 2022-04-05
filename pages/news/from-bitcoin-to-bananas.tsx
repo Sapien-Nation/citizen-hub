@@ -1263,7 +1263,7 @@ const News: NextPage = () => {
                 </a>
               </Link>{' '}
               and{' '}
-              <Link href="https://discord.com/invite/AtGS2pe" passHref>
+              <Link href="https://discord.gg/DgUfraghMW" passHref>
                 <a target="_blank" className="underline">
                   Discord
                 </a>
