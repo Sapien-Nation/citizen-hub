@@ -35,26 +35,26 @@ const Token: NextPage = () => {
               Purple Paper
             </a>
           </Link>{' '}
-          – the Sapien Tribe Token (STT).
+          – the Sapien Tribe Sovereign (STS).
         </p>
       </div>
 
       <div className="max-w-6xl mx-auto px-8 sm:px-6 lg:px-8 my-12">
         <h2 className="text-2xl md:text-3xl font-extrabold mb-12 italic">
           All SPN holders will receive notification regarding the conversion of
-          SPN to STT, which will occur at a date and rate to be determined. All
-          SPN held and in inventory will be converted to STT.
+          SPN to STS, which will occur at a date and rate to be determined. All
+          SPN held and in inventory will be converted to STS.
         </h2>
         <p className="text-xl sm:text-2xl mb-12">
-          The STT will be used within the ecosystem as the sovereign currency
-          for the Sapien Tribe. STT will also be used for Venture Governance: a
+          The STS will be used within the ecosystem as the sovereign currency
+          for the Sapien Tribe. STS will also be used for Venture Governance: a
           token model that simplifies internal governance within the ecosystem
           enabling the Nation to fund other ecosystem Tribes.
         </p>
         <p className="text-xl sm:text-2xl mb-12">
-          The SPN to STT conversion data is tentatively scheduled for Q2 of
+          The SPN to STS conversion data is tentatively scheduled for Q2 of
           2022. Join our community, or continue to check this site and stay up
-          to date on all public announcements regarding the STT!
+          to date on all public announcements regarding the STS!
         </p>
         <Link href="https://discord.gg/DgUfraghMW">
           <a
