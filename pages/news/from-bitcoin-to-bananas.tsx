@@ -1072,11 +1072,14 @@ const News: NextPage = () => {
                 We can now choose to build on a transparent foundation of trust,
                 and all it takes is the snap of our fingers to manifest new fiat
                 currencies, backed by a vault of digital assets in a broader
-                economic substrate. We believe that giving this power, typically
-                reserved to governments, to communities empowers them to extend
-                their collective time horizon to fund public goods, cooperate
-                more effectively, and invest in a shared future.
+                economic substrate.
               </span>
+            </p>
+            <p>
+              We believe that giving this power, typically reserved to
+              governments, to communities empowers them to extend their
+              collective time horizon to fund public goods, cooperate more
+              effectively, and invest in a shared future.
             </p>
             <p className="italic">Let it be done, by and for communities.</p>
 
