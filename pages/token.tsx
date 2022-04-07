@@ -17,7 +17,7 @@ const Token: NextPage = () => {
       <div className="max-w-6xl mx-auto px-8 sm:px-6 lg:px-8 my-12">
         <h2 className="md:text-7xl text-4xl font-extrabold drop-shadow-lg md:filter-none">
           Coming soon: <br />
-          The Sapien Tribe Sovereign
+          The Sapien Nation Sovereign
         </h2>
       </div>
       <div className="relative py-16 overflow-hidden max-w-6xl rounded-xl mx-auto">
@@ -35,26 +35,26 @@ const Token: NextPage = () => {
               Purple Paper
             </a>
           </Link>{' '}
-          – the Sapien Tribe Sovereign (STS).
+          – the Sapien Nation Sovereign (SNS).
         </p>
       </div>
 
       <div className="max-w-6xl mx-auto px-8 sm:px-6 lg:px-8 my-12">
         <h2 className="text-2xl md:text-3xl font-extrabold mb-12 italic">
           All SPN holders will receive notification regarding the conversion of
-          SPN to STS, which will occur at a date and rate to be determined. All
-          SPN held and in inventory will be converted to STS.
+          SPN to SNS, which will occur at a date and rate to be determined. All
+          SPN held and in inventory will be converted to SNS.
         </h2>
         <p className="text-xl sm:text-2xl mb-12">
-          The STS will be used within the ecosystem as the sovereign currency
-          for the Sapien Tribe. STS will also be used for Venture Governance: a
+          The SNS will be used within the ecosystem as the sovereign currency
+          for the Sapien Tribe. SNS will also be used for Venture Governance: a
           token model that simplifies internal governance within the ecosystem
           enabling the Nation to fund other ecosystem Tribes.
         </p>
         <p className="text-xl sm:text-2xl mb-12">
-          The SPN to STS conversion data is tentatively scheduled for Q2 of
+          The SPN to SNS conversion data is tentatively scheduled for Q2 of
           2022. Join our community, or continue to check this site and stay up
-          to date on all public announcements regarding the STS!
+          to date on all public announcements regarding the SNS!
         </p>
         <Link href="https://discord.gg/DgUfraghMW">
           <a
