@@ -17,7 +17,7 @@ const Token: NextPage = () => {
       <div className="max-w-6xl mx-auto px-8 sm:px-6 lg:px-8 my-12">
         <h2 className="md:text-7xl text-4xl font-extrabold drop-shadow-lg md:filter-none">
           Coming soon: <br />
-          The Sapien Tribe Token
+          The Sapien Tribe Sovereign
         </h2>
       </div>
       <div className="relative py-16 overflow-hidden max-w-6xl rounded-xl mx-auto">
