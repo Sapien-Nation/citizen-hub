@@ -9,10 +9,12 @@ enum Envs {
 
 const instance = axios.create({
   baseURL: '',
+  withCredentials: true,
 });
 
 export const authInstance = axios.create({
   baseURL: '',
+  withCredentials: true,
 });
 
 instance.interceptors.request.use((config) => {
