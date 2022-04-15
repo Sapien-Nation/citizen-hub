@@ -19,7 +19,8 @@ export default function Banner({ title, message, action }: IBanner) {
 
         if (host === 'https://passport-sandbox.sapien.network')
           return `https://front-sandbox.sapien.network/${path}`;
-        if (host === 'localhost:3000') return `http://localhost:3000/${path}`;
+        else if (host === 'localhost:3000')
+          return `http://localhost:3000/${path}`;
         else if (host === 'https://passport-qat.sapien.network')
           return `https://front-qat.sapien.network/${path}`;
 
@@ -61,7 +62,7 @@ export default function Banner({ title, message, action }: IBanner) {
       return (
         <Link href="/passport/purchase">
           <a className="flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-extrabold text-indigo-600 bg-white hover:bg-indigo-50">
-            Continue Purchase
+            Continue to Passport Flow
           </a>
         </Link>
       );
