@@ -86,7 +86,7 @@ export default function Banner({ title, message, action }: IBanner) {
           </div>
           <div className="order-3 mt-2 flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto">
             <Query api="/passport-api/mint-checker">
-              {({ code }: { code: number | null }) => renderView(null)}
+              {({ code }: { code: number | null }) => renderView(code)}
             </Query>
           </div>
           {/* <div className="order-2 flex-shrink-0 sm:order-3 sm:ml-3">
