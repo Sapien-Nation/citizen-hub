@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { SpeakerphoneIcon, XIcon } from '@heroicons/react/outline';
+import { Query } from 'components/common';
 
 interface IBanner {
   title: string;
@@ -8,6 +9,64 @@ interface IBanner {
 }
 
 export default function Banner({ title, message, action }: IBanner) {
+  const renderView = (code: number) => {
+    const handleRedirectToProtocol = (path = '') => {
+      const getURL = () => {
+        if (typeof window === 'undefined')
+          return 'https://www.sapien.network/passport/purchase';
+
+        const { host } = window.location;
+
+        if (host === 'https://passport-sandbox.sapien.network')
+          return `https://front-sandbox.sapien.network/${path}`;
+        if (host === 'localhost:3000') return `http://localhost:3000/${path}`;
+        else if (host === 'https://passport-qat.sapien.network')
+          return `https://front-qat.sapien.network/${path}`;
+
+        return `https://protocol.sapien.network/${path}`;
+      };
+
+      return window.location.replace(getURL());
+    };
+
+    if (code === null)
+      return (
+        <button
+          onClick={() => handleRedirectToProtocol()}
+          className="flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-extrabold text-indigo-600 bg-white hover:bg-indigo-50"
+        >
+          Go to the Protocol
+        </button>
+      );
+    if (code === 100)
+      return (
+        <button
+          onClick={() => handleRedirectToProtocol('mint')}
+          className="flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-extrabold text-indigo-600 bg-white hover:bg-indigo-50"
+        >
+          Time to mint your passport
+        </button>
+      );
+
+    if (code === 101)
+      return (
+        <Link href="/passport/purchase">
+          <a className="flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-extrabold text-indigo-600 bg-white hover:bg-indigo-50">
+            Purchase Passport
+          </a>
+        </Link>
+      );
+
+    if (code === 102)
+      return (
+        <Link href="/passport/purchase">
+          <a className="flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-extrabold text-indigo-600 bg-white hover:bg-indigo-50">
+            Continue Purchase
+          </a>
+        </Link>
+      );
+  };
+
   return (
     <div className="bg-sapien z-10">
       <div className="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
@@ -25,11 +84,9 @@ export default function Banner({ title, message, action }: IBanner) {
             </p>
           </div>
           <div className="order-3 mt-2 flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto">
-            <Link href="/passport/purchase">
-              <a className="flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-extrabold text-indigo-600 bg-white hover:bg-indigo-50">
-                Purchase Passport
-              </a>
-            </Link>
+            <Query api="/passport-api/mint-checker">
+              {({ code }: { code: number | null }) => renderView(null)}
+            </Query>
           </div>
           {/* <div className="order-2 flex-shrink-0 sm:order-3 sm:ml-3">
             <button
