@@ -8,23 +8,14 @@ interface IBanner {
   action?: () => void;
 }
 
+const ProtocolURL = process.env.NEXT_PUBLIC_PROTOCOL_URL;
 export default function Banner({ title, message, action }: IBanner) {
   const renderView = (code: number) => {
     const handleRedirectToProtocol = (path = '') => {
       const getURL = () => {
-        if (typeof window === 'undefined')
-          return 'https://www.sapien.network/passport/purchase';
+        if (typeof window === 'undefined') return `${ProtocolURL}/mint`;
 
-        const { host } = window.location;
-
-        if (host === 'https://passport-sandbox.sapien.network')
-          return `https://front-sandbox.sapien.network/${path}`;
-        else if (host === 'localhost:3000')
-          return `http://localhost:3000/${path}`;
-        else if (host === 'https://passport-qat.sapien.network')
-          return `https://front-qat.sapien.network/${path}`;
-
-        return `https://protocol.sapien.network/${path}`;
+        return `${ProtocolURL}/${path}`;
       };
 
       return window.location.replace(getURL());
