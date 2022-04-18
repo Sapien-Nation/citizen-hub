@@ -90,7 +90,7 @@ export default function Banner({ title, message, action }: IBanner) {
                 </a>
               </Link>
             ) : (
-              <Query api="/passport-api/mint-checker">
+              <Query api="/passport-api/mint-checker" ignoreError>
                 {({ code }: { code: number | null }) => renderView(code)}
               </Query>
             )}

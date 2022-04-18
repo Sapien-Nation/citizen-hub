@@ -12,6 +12,7 @@ interface Props {
   api: Key;
   children?: Function | null;
   empty?: React.ReactNode;
+  ignoreError?: boolean;
   loader?: React.ReactNode;
   showValidating?: boolean;
   options?: SWRConfiguration;
@@ -26,6 +27,7 @@ const Query = ({
   children,
   empty,
   loader = <Spinner />,
+  ignoreError = false,
   showValidating = false,
   options,
 }: Props) => {
@@ -43,6 +45,8 @@ const Query = ({
     if (error === 'Your session expired') {
       return <Redirect path="/logout" />;
     }
+
+    if (ignoreError === true) return <></>;
 
     return (
       <ErrorFallback
