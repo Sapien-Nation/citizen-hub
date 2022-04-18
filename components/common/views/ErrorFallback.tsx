@@ -10,9 +10,11 @@ function ErrorFallback({ error, resetErrorBoundary }: any) {
     if (error) {
       Sentry.captureException(error);
     } else {
-      Sentry.captureException(`Error for user: ${me.email}`);
+      if (me) {
+        Sentry.captureException(`Error for user: ${me.email}`);
+      }
     }
-  }, [error, me.email]);
+  }, [error, me?.email]);
 
   return (
     <div className="relative shadow-xl sm:rounded-2xl sm:overflow-hidden text-left">
