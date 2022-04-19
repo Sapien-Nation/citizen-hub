@@ -184,7 +184,7 @@ const PassportPage = ({
       return (
         <>
           <Steps steps={steps} setView={setView} active={6} />
-          <Mintview styledAvatar={avatarURL} />
+          <Mintview />
         </>
       );
     }
