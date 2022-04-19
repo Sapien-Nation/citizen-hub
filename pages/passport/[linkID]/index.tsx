@@ -10,6 +10,7 @@ import {
   FeedbackView,
   LookupView,
   GalleryView,
+  Mintview,
   LoadingView,
   PendingView,
   PurchaseView,
@@ -50,6 +51,9 @@ export enum View {
   Purchase,
 
   Feedback,
+
+  // Mint
+  Mint,
 }
 
 // TODO export
@@ -82,7 +86,7 @@ const PassportPage = ({
   passportId,
   amount,
 }: LinkCheckResponse) => {
-  const [view, setView] = useState(View.Lookup);
+  const [view, setView] = useState(View.Mint);
   const [avatar, setAvatar] = useState<Avatar | null>(null);
   const [figureName, setFigureName] = useState('');
   const [responseCode, setResponseCode] = useState<number | undefined>(
@@ -114,6 +118,12 @@ const PassportPage = ({
       id: 4,
       name: 'Save Your Avatar',
       view: View.Success,
+      status: 'upcoming',
+    },
+    {
+      id: 5,
+      name: 'Mint Your Avatar',
+      view: View.Mint,
       status: 'upcoming',
     },
   ];
@@ -156,19 +166,6 @@ const PassportPage = ({
       return <PendingView responseCode={responseCode} />;
     }
 
-    if (responseCode === 204) {
-      return (
-        <>
-          <Steps steps={steps} setView={setView} active={5} />
-          <SuccessView
-            reservedFigure={reservedFigure}
-            styledAvatar={avatarURL}
-            onDownload={() => {}}
-          />
-        </>
-      );
-    }
-
     if (responseCode === 203) {
       return (
         <>
@@ -179,6 +176,15 @@ const PassportPage = ({
             setAvatar={setAvatar}
             setResponseCode={setResponseCode}
           />
+        </>
+      );
+    }
+
+    if (responseCode === 204) {
+      return (
+        <>
+          <Steps steps={steps} setView={setView} active={6} />
+          <Mintview styledAvatar={avatarURL} />
         </>
       );
     }
@@ -295,16 +301,6 @@ const PassportPageProxy = () => {
   const { linkID } = query;
 
   const isPurchase = linkID === 'purchase';
-
-  // if (isPurchase) {
-  //   return (
-  //     <>
-  //       <Head title="WhiteList Only" />
-
-  //       <FeedbackView code={300} />
-  //     </>
-  //   );
-  // }
 
   const queryParams = isPurchase ? '' : `?linkId=${linkID}`;
 

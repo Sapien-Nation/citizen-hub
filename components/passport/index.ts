@@ -6,6 +6,7 @@ export { default as DiscordView } from './DiscordView';
 export { default as FeedbackView } from './FeedbackView';
 export { default as LookupView } from './LookupView';
 export { default as GalleryView } from './GalleryView';
+export { default as Mintview } from './Mintview';
 export { default as LoadingView } from './LoadingView';
 export { default as PendingView } from './PendingView';
 export { default as PurchaseView } from './PurchaseView';

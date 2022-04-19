@@ -22,7 +22,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-const Steps = ({ steps, setView, active }: Props) => {
+const Steps = ({ steps, active }: Props) => {
   const { me } = useAuth();
 
   steps.forEach((step) => {
