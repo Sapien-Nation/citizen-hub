@@ -41,6 +41,10 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       once: true,
       offset: 50,
     });
+
+    // https://github.com/mdbootstrap/Tailwind-Elements/issues/1033#issuecomment-1014980805
+    // @ts-ignore
+    import('tw-elements');
   }, []);
 
   return (

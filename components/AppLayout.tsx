@@ -29,8 +29,8 @@ const AppLayout = ({ children }: Props) => {
     return (
       <div className="relative flex flex-col min-h-screen">
         <Banner
-          title="The Sapien NFT Passport public sale is now LIVE! "
-          message="The Sapien NFT Passport public sale is now LIVE! "
+          title="The Sapien Network is live!"
+          message="The Sapien Network is live!"
         />
         <Navbar />{' '}
         <LocomotiveScrollProvider
@@ -55,8 +55,8 @@ const AppLayout = ({ children }: Props) => {
   return (
     <div className="relative flex flex-col min-h-screen">
       <Banner
-        title="The Sapien NFT Passport public sale is now LIVE! "
-        message="The Sapien NFT Passport public sale is now LIVE! "
+        title="The Sapien Network is live!"
+        message="The Sapien Network is live!"
       />
       <Navbar />
       <main

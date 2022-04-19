@@ -117,7 +117,7 @@ export default function Example() {
                         </blockquote>
                       </div>
                       <div className="mt-3">
-                        <p>{excerpt}</p>
+                        <p className="text-justify">{excerpt}</p>
                         <p className="text-sm text-gray-500 mt-2">
                           <time dateTime={date}>{date}</time>
                         </p>

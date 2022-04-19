@@ -9,25 +9,25 @@ const people = [
     name: 'Ankit',
     role: 'Co-CEO & Co-Founder',
     imageUrl: '/images/team/Ankit.png',
-    bio: 'Founding Member of the Sapien Tribe, Co-CEO & Co-Founder of Sapien Network. Ankit has a passion for understanding the status quo and shaping social systems to be more aligned with nature, culture, and human-centered technology. He graduated with a degree in Electrical Engineering and Computer Science from UC Berkeley and quickly fell in love with the ethos, design, and potential of decentralized technologies to revolutionize the way we connect with each other. As an Indian immigrant and a believer in equal opportunity, he seeks the truth in order to create and live a mindful life that harmonizes his story with the story of his tribes.',
+    bio: 'Founding Member of the Sapien Network, Co-CEO & Co-Founder of Sapien Network. Ankit has a passion for understanding the status quo and shaping social systems to be more aligned with nature, culture, and human-centered technology. He graduated with a degree in Electrical Engineering and Computer Science from UC Berkeley and quickly fell in love with the ethos, design, and potential of decentralized technologies to revolutionize the way we connect with each other. As an Indian immigrant and a believer in equal opportunity, he seeks the truth in order to create and live a mindful life that harmonizes his story with the story of his tribes.',
   },
   {
     name: 'Rob',
     role: 'Co-CEO & Co-Founder',
     imageUrl: '/images/team/Rob.png',
-    bio: 'Founding Member of the Sapien Tribe, Co-Ceo & Co-founder of Sapien Network. Rob graduated from UC Berkeley with a degree in Mathematics and is a lifelong student of many disciplines who understands the vital importance of seeing the world through many different perspectives. Never content to let the status quo remain unchallenged, Rob seeks to apply his knowledge of Mathematics, Technology, Culture and History to build tools to empower people and their tribes to achieve their full potential.',
+    bio: 'Founding Member of the Sapien Network, Co-Ceo & Co-founder of Sapien Network. Rob graduated from UC Berkeley with a degree in Mathematics and is a lifelong student of many disciplines who understands the vital importance of seeing the world through many different perspectives. Never content to let the status quo remain unchallenged, Rob seeks to apply his knowledge of Mathematics, Technology, Culture and History to build tools to empower people and their tribes to achieve their full potential.',
   },
   {
     name: 'Teja',
     role: 'CCO',
     imageUrl: '/images/team/Teja.jpeg',
-    bio: `Founding member of the Sapien Tribe, Chief Communications Officer of the Sapien Network. Teja is dedicated to the learning process and seeks to foster curiosity in himself and others. Teja earned his <span class='underline decoration-indigo-500 decoration-2 font-bold dark:text-white font-medium'>BS in Computer Engineering from UC Davis in 2017</span>. Prior to joining the Sapien Tribe, Teja was a graduate student in Computer Engineering at UC Davis, before taking a leave of absence. He has previously <span class='underline decoration-indigo-500 decoration-2 font-bold dark:text-white font-medium'>worked at Tesla, Xpeng Motors, and Lyft</span> on projects in robotics and the autonomous vehicle space. Raised in Colorado, he seeks to find a synthesis between technology and nature.`,
+    bio: `Founding member of the Sapien Network, Chief Communications Officer of the Sapien Network. Teja is dedicated to the learning process and seeks to foster curiosity in himself and others. Teja earned his <span class='underline decoration-indigo-500 decoration-2 font-bold dark:text-white font-medium'>BS in Computer Engineering from UC Davis in 2017</span>. Prior to joining the Sapien Network, Teja was a graduate student in Computer Engineering at UC Davis, before taking a leave of absence. He has previously <span class='underline decoration-indigo-500 decoration-2 font-bold dark:text-white font-medium'>worked at Tesla, Xpeng Motors, and Lyft</span> on projects in robotics and the autonomous vehicle space. Raised in Colorado, he seeks to find a synthesis between technology and nature.`,
   },
   {
     name: 'Greg',
     role: 'CTO',
     imageUrl: '/images/team/Greg.png',
-    bio: `Chief Technology Officer at Sapien Network. In Greg’s endeavors throughout his career, he has strived to change the status quo, to make it better, easier to understand, accessible by everyone and, importantly, decentralized. Greg approaches complexities of life and systems, and distills them into beautiful solutions (“there is elegance in simplicity” – Greg). <span class='underline decoration-indigo-500 decoration-2 font-bold dark:text-white font-medium'>Astrophysics, Computer Science and Mathematics form the basis of his academic learnings</span>. His patent in peer to peer networks, extensive work in cryptography, and his gaming technologies form the basis of his beliefs and support of the crypto world. Bringing his learnings, Greg joined the Sapien tribe to contribute to create a new, better place for humans.`,
+    bio: `Chief Technology Officer at Sapien Network. In Greg’s endeavors throughout his career, he has strived to change the status quo, to make it better, easier to understand, accessible by everyone and, importantly, decentralized. Greg approaches complexities of life and systems, and distills them into beautiful solutions (“there is elegance in simplicity” – Greg). <span class='underline decoration-indigo-500 decoration-2 font-bold dark:text-white font-medium'>Astrophysics, Computer Science and Mathematics form the basis of his academic learnings</span>. His patent in peer to peer networks, extensive work in cryptography, and his gaming technologies form the basis of his beliefs and support of the crypto world. Bringing his learnings, Greg joined the Sapien Network to contribute to create a new, better place for humans.`,
   },
   {
     name: 'Latif',
@@ -91,7 +91,7 @@ const TeamPage: NextPage = () => {
                         </div>
                         <div className="text-lg">
                           <p
-                            className="text-white"
+                            className="text-white text-justify"
                             dangerouslySetInnerHTML={{ __html: person.bio }}
                           />
                         </div>

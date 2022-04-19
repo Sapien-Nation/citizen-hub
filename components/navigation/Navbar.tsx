@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useTheme } from 'next-themes';
 
 // next
@@ -15,22 +15,114 @@ import { MenuIcon, XIcon, SunIcon, MoonIcon } from '@heroicons/react/outline';
 
 // utils
 import { mergeClassNames } from 'utils/styles';
+import { string } from 'yup';
 
 const navigation = [
-  { name: 'Passport', href: '/passport', visible: true },
-  { name: 'Protocol', href: '/protocol', visible: true },
-  { name: 'Reserved List', href: '/reserved-list', visible: true },
-  { name: 'Token', href: '/token', visible: false },
+  { section: 'Home', href: '/' },
   {
-    name: 'Purple Paper',
-    href: '/The_Purple_Paper_v1.1.pdf',
-    target: true,
-    visible: true,
+    section: 'Sapien Protocol',
+    links: [
+      { name: 'Overview', href: '/overview' },
+      {
+        name: 'Purple Paper',
+        href: '/purple-paper',
+      },
+      { name: 'Roadmap', href: '/roadmap' },
+    ],
   },
-  { name: 'Roadmap', href: '/roadmap', visible: true },
-  { name: 'News', href: '/news', visible: true },
-  { name: 'Team', href: '/team', visible: true },
+  {
+    section: 'Sapien Nation',
+    links: [
+      { name: 'Passport', href: '/passport' },
+      { name: 'Token', href: '/token' },
+      { name: 'The Tetrahedron', href: '' },
+    ],
+  },
+  {
+    section: 'For DAOs',
+    links: [
+      {
+        name: 'View DAOs',
+        href: '/dao',
+      },
+      {
+        name: 'Join the Nation',
+        href: 'https://4cnw27iuk8s.typeform.com/to/f8wIuHU7?typeform-source=www.google.com',
+        target: '_blank',
+      },
+    ],
+  },
+  {
+    section: 'About Us',
+    links: [{ name: 'Team', href: '/team' }],
+  },
+  { section: 'News', href: '/news' },
 ];
+
+interface NavbarDropdown {
+  section: string;
+  links: Array<{ name: string; href: string; target?: string }>;
+}
+
+const NavbarDropdown = ({ section, links }: NavbarDropdown) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    const checkIfClickedOutside = (e: any) => {
+      if (isOpen && ref.current && !ref.current.contains(e.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', checkIfClickedOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', checkIfClickedOutside);
+    };
+  }, [isOpen]);
+
+  return (
+    <div className="flex items-center" ref={ref}>
+      <div className="w-full">
+        <button
+          className="text-base lg:text-lg px-1 pt-1  hover:text-gray-500 w-full text-left pl-4 lg:pl-0 font-medium lg:font-extrabold"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <span>{section}</span>
+          <svg
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            className={`inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1 rotate-${
+              isOpen[section] ? 180 : 0
+            }`}
+          >
+            <path
+              clipRule="evenodd"
+              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+              fillRule="evenodd"
+            ></path>
+          </svg>
+        </button>
+        {isOpen && (
+          <div className="absolute py-2 mt-2 bg-white rounded-md z-10 w-full lg:w-48">
+            {links.map((link) => (
+              <Link key={link.name} href={link.href}>
+                <a
+                  className="block px-4 py-2 mt-2 text-sm font-semibold md:mt-0 text-indigo-600 bg-white hover:bg-indigo-50 cursor-pointer"
+                  target={link.target ?? '_self'}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.name}
+                </a>
+              </Link>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
 
 const Navbar = () => {
   const { me } = useAuth();
@@ -60,38 +152,24 @@ const Navbar = () => {
                   </Link>
                 </div>
                 <div className="hidden lg:ml-6 lg:flex lg:space-x-8">
-                  {navigation.map((nav) => (
-                    <Fragment key={nav.href}>
-                      {nav.target ? (
-                        <Link href={nav.href}>
-                          <a
-                            target="_blank"
-                            className={mergeClassNames(
-                              router.asPath.includes(nav.href)
-                                ? 'underline decoration-2 decoration-sapien'
-                                : 'hover:text-gray-500',
-                              'inline-flex items-center text-lg px-1 pt-1 font-extrabold'
-                            )}
-                          >
-                            {nav.name}
-                          </a>
-                        </Link>
-                      ) : (
-                        <Link href={nav.href}>
-                          <a
-                            className={mergeClassNames(
-                              router.asPath.includes(nav.href)
-                                ? 'underline decoration-2 decoration-sapien'
-                                : 'hover:text-gray-500',
-                              'inline-flex items-center text-lg px-1 pt-1 font-extrabold'
-                            )}
-                          >
-                            {nav.name}
-                          </a>
-                        </Link>
-                      )}
-                    </Fragment>
-                  ))}
+                  {navigation.map((nav) => {
+                    return nav.links ? (
+                      <NavbarDropdown section={nav.section} links={nav.links} />
+                    ) : (
+                      <Link href={nav.href} key={nav.href}>
+                        <a
+                          className={mergeClassNames(
+                            router.asPath.includes(nav.href)
+                              ? 'underline decoration-2 decoration-sapien'
+                              : 'hover:text-gray-500',
+                            'inline-flex items-center text-lg px-1 pt-1 font-extrabold'
+                          )}
+                        >
+                          {nav.section}
+                        </a>
+                      </Link>
+                    );
+                  })}
                 </div>
               </div>
               <div className="flex items-center lg:hidden">
@@ -147,6 +225,7 @@ const Navbar = () => {
                     </svg>
                   </a>
                 </Link>
+
                 {/*<button
                   id="theme-toggle"
                   type="button"
@@ -243,38 +322,25 @@ const Navbar = () => {
 
           <Disclosure.Panel className="lg:hidden">
             <div className="pt-2 pb-3 space-y-1">
-              {navigation.map((nav) => (
-                <Fragment key={nav.name}>
-                  {nav.target ? (
-                    <Disclosure.Button
-                      as="a"
-                      href={nav.href}
-                      target="_blank"
-                      className={mergeClassNames(
-                        router.asPath === nav.href
-                          ? 'bg-purple-50 border-purple-500 text-sapien-60'
-                          : 'border-transparent text-white hover:bg-gray-800',
-                        'block pl-3 pr-4 py-2 border-l-4 text-base font-medium'
-                      )}
-                    >
-                      {nav.name}
-                    </Disclosure.Button>
-                  ) : (
-                    <Disclosure.Button
-                      as="a"
-                      href={nav.href}
-                      className={mergeClassNames(
-                        router.asPath === nav.href
-                          ? 'bg-purple-50 border-purple-500 text-sapien-60'
-                          : 'border-transparent text-white hover:bg-gray-800',
-                        'block pl-3 pr-4 py-2 border-l-4 text-base font-medium'
-                      )}
-                    >
-                      {nav.name}
-                    </Disclosure.Button>
-                  )}
-                </Fragment>
-              ))}
+              {navigation.map((nav) => {
+                return nav.links ? (
+                  <NavbarDropdown section={nav.section} links={nav.links} />
+                ) : (
+                  <Disclosure.Button
+                    as="a"
+                    href={nav.href}
+                    key={nav.href}
+                    className={mergeClassNames(
+                      router.asPath === nav.href
+                        ? 'bg-purple-50 border-purple-500 text-sapien-60'
+                        : 'border-transparent text-white hover:bg-gray-800',
+                      'block pl-3 pr-4 py-2 border-l-4 text-base font-medium'
+                    )}
+                  >
+                    {nav.section}
+                  </Disclosure.Button>
+                );
+              })}
             </div>
             <div className="pt-4 pb-3 border-t border-gray-200">
               {me ? (

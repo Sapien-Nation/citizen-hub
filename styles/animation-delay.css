@@ -1,0 +1,15 @@
+.delay {
+  opacity: 0;
+  animation: fadeIn 500ms;
+  animation-delay: 150ms;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
