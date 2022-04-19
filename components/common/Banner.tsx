@@ -13,16 +13,16 @@ interface IBanner {
   action?: () => void;
 }
 
-const ProtocolURL = process.env.NEXT_PUBLIC_PROTOCOL_URL;
+const protocolURL = process.env.NEXT_PUBLIC_PROTOCOL_URL;
 export default function Banner({ title, message, action }: IBanner) {
   const { me } = useAuth();
 
   const renderView = (code: number) => {
     const handleRedirectToProtocol = (path = '') => {
       const getURL = () => {
-        if (typeof window === 'undefined') return `${ProtocolURL}/mint`;
+        if (typeof window === 'undefined') return `${protocolURL}mint`;
 
-        return `${ProtocolURL}/${path}`;
+        return `${protocolURL}${path}`;
       };
 
       return window.location.replace(getURL());
