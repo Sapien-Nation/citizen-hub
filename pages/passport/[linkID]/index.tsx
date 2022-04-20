@@ -86,7 +86,7 @@ const PassportPage = ({
   passportId,
   amount,
 }: LinkCheckResponse) => {
-  const [view, setView] = useState(View.Mint);
+  const [view, setView] = useState(View.Lookup);
   const [avatar, setAvatar] = useState<Avatar | null>(null);
   const [figureName, setFigureName] = useState('');
   const [responseCode, setResponseCode] = useState<number | undefined>(
@@ -268,11 +268,7 @@ const PassportPage = ({
     case View.Success:
       return (
         <>
-          <Steps
-            steps={steps}
-            setView={setView}
-            active={didUserDownloadAvatar ? 5 : 4}
-          />
+          <Steps steps={steps} setView={setView} active={6} />
           <SuccessView
             styledAvatar={styledAvatar}
             reservedFigure={reservedFigure || figureName}

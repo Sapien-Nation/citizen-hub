@@ -1,8 +1,8 @@
 import { ExternalLinkIcon } from '@heroicons/react/outline';
 
-const MintView = () => {
-  const protocolURL = process.env.NEXT_PUBLIC_PROTOCOL_URL;
+const protocolURL = process.env.NEXT_PUBLIC_PROTOCOL_URL;
 
+const MintView = () => {
   return (
     <div className="relative shadow-xl sm:rounded-2xl sm:overflow-hidden text-left">
       <div className="absolute inset-0">

@@ -8,6 +8,7 @@ import { Redirect } from 'components/common';
 import { useAuth } from 'context/user';
 import { downloadAvatar } from 'api/passport';
 import { useToast } from 'context/toast';
+import { ExternalLinkIcon } from '@heroicons/react/solid';
 
 /* eslint-disable @next/next/no-img-element */
 interface Props {
@@ -15,6 +16,8 @@ interface Props {
   styledAvatar: string;
   onDownload: () => void;
 }
+
+const protocolURL = process.env.NEXT_PUBLIC_PROTOCOL_URL;
 
 const SuccessView = ({ reservedFigure, styledAvatar, onDownload }: Props) => {
   const toast = useToast();
@@ -96,7 +99,16 @@ const SuccessView = ({ reservedFigure, styledAvatar, onDownload }: Props) => {
               <p className="text-xs mt-8 text-gray-400">
                 Download your picture, share on twitter and discord!
               </p>
-              <div className="flex1 mt-2 gap-3 items-center max-w-md m-auto">
+              <div className="flex justify-center mt-4 mb-6 gap-3 items-center max-w-md m-auto">
+                <a
+                  href={`${protocolURL}mint`}
+                  className="relative flex items-center w-full shine bg-gradient-to-r from-sapien to-sapien-40 font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:px-8"
+                >
+                  Launch the App{' '}
+                  <ExternalLinkIcon className="text-white w-6 h-6 mr-2" />
+                </a>
+              </div>
+              <div className="flex justify-center mt-2 gap-3 items-center max-w-md m-auto">
                 <button
                   type="button"
                   className="relative flex items-center w-full shine bg-gradient-to-r from-sapien to-sapien-40 font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:px-8"
@@ -107,7 +119,7 @@ const SuccessView = ({ reservedFigure, styledAvatar, onDownload }: Props) => {
                 </button>
                 <a
                   href={`https://twitter.com/share?ref_src=twsrc%5Etfw&text=${prefilledTweet}&hashtags=DigitalNation`}
-                  className="relative flex items-center mt-4 shine bg-gradient-to-r from-white to-sky-300 font-extrabold justify-center px-2 rounded-md text-sky-700 h-12 py-2 md:px-8"
+                  className="relative flex items-center shine bg-gradient-to-r from-white to-sky-300 font-extrabold justify-center px-2 rounded-md text-sky-700 h-12 py-2 md:px-8"
                   target="_blank"
                   rel="noreferrer"
                 >
