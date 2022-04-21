@@ -62,73 +62,46 @@ const PurchaseView = ({
     active ? deactivate() : activate(injected);
   };
 
-  const canPurchase = (): boolean => {
-    if (
-      process.env.NEXT_PUBLIC_WALLET_IS_MAINNET === 'false' &&
-      chainId !== 3 &&
-      chainId !== 4
-    ) {
-      toast({
-        message: 'Switch Network to Ropsten or Rinkeby',
-      });
-
-      return false;
-    } else if (
-      process.env.NEXT_PUBLIC_WALLET_IS_MAINNET === 'true' &&
-      chainId != 1
-    ) {
-      toast({
-        message: 'Switch Network to MainNet',
-      });
-
-      return false;
-    }
-
-    return true;
-  };
-
   const handleBuyPassport = async () => {
-    if (canPurchase()) {
-      setIsFetching(true);
-      const provider = new ethers.providers.Web3Provider(
-        (window as any).ethereum
-      );
-      const signer = provider.getSigner();
-      try {
-        const tx = await signer.sendTransaction({
-          to: process.env.NEXT_PUBLIC_SAPIEN_WALLET_ADDRESS,
-          value: ethers.utils.parseEther(amount.toString()),
+    setIsFetching(true);
+    const provider = new ethers.providers.Web3Provider(
+      (window as any).ethereum
+    );
+    const signer = provider.getSigner();
+    try {
+      const tx = await signer.sendTransaction({
+        to: process.env.NEXT_PUBLIC_SAPIEN_WALLET_ADDRESS,
+        value: ethers.utils.parseEther(amount.toString()),
+      });
+      const receipt = await tx.wait();
+
+      if (receipt.transactionHash && receipt.status) {
+        await reservePassport({
+          amount: amount,
+          units: 'ETHER',
+          type: 'METAMASK',
+          address: account,
+          distributionId: distributionId,
         });
-        const receipt = await tx.wait();
 
-        if (receipt.transactionHash && receipt.status) {
-          await reservePassport({
-            amount: amount,
-            units: 'ETHER',
-            type: 'METAMASK',
-            address: account,
-            distributionId: distributionId,
-          });
-
-          toast({
-            message: 'Transaction successful',
-            type: ToastType.Success,
-          });
-          onBuy();
-        }
-      } catch (e) {
-        if (e.code === 'INSUFFICIENT_FUNDS') {
-          toast({
-            message: 'Not enough balance in the wallet!',
-          });
-        } else {
-          toast({
-            message: e.message || 'error',
-          });
-        }
+        toast({
+          message: 'Transaction successful',
+          type: ToastType.Success,
+        });
+        onBuy();
       }
-      setIsFetching(false);
+    } catch (e) {
+      if (e.code === 'INSUFFICIENT_FUNDS') {
+        toast({
+          message: 'Not enough balance in the wallet!',
+        });
+      } else {
+        toast({
+          message: e.message || 'error',
+        });
+      }
     }
+    setIsFetching(false);
   };
 
   if (isFetching) {
