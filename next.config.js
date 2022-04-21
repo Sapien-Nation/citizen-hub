@@ -85,10 +85,12 @@ const moduleExports = {
 };
 
 const sentryWebpackPluginOptions = {
-  release: 'Protocol Release',
   org: 'sapien-network',
-  project: 'protocol',
-  authToken: 'be41075bb199461180003f41cf271034e2da122743594fa8b127adac9e6e467c',
+  project: process.env.NEXT_PUBLIC_SENTRY_PROJECT_NAME,
+  authToken: process.env.NEXT_PUBLIC_SENTRY_AUTH_TOKEN,
+  silent: true,
 };
 
-module.exports = withSentryConfig(moduleExports, sentryWebpackPluginOptions);
+module.exports = process.env.NEXT_PUBLIC_SENTRY_AUTH_TOKEN
+  ? withSentryConfig(moduleExports, sentryWebpackPluginOptions)
+  : moduleExports;
