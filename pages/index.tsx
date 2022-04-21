@@ -455,8 +455,8 @@ const IndexPage: NextPage = () => {
               <div className="delay">
                 <ul className="list-disc text-xl ml-4">
                   <li>
-                    Sapien Passport: A privacy focused DID with social ledger
-                    that helps enable shared networks of trust.
+                    Cross-DAO permissions in the passport for easy
+                    collaboration.
                   </li>
                   <li>
                     Native content tokenization and curation within and among

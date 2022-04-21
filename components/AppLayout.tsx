@@ -29,8 +29,8 @@ const AppLayout = ({ children }: Props) => {
     return (
       <div className="relative flex flex-col min-h-screen">
         <Banner
-          title="The Sapien Network is live!"
-          message="The Sapien Network is live!"
+          title="The Sapien Network private beta is live for existing users, passport holders and select DAOs!"
+          message="The Sapien Network private beta is live for existing users, passport holders and select DAOs!"
         />
         <Navbar />{' '}
         <LocomotiveScrollProvider
@@ -55,8 +55,8 @@ const AppLayout = ({ children }: Props) => {
   return (
     <div className="relative flex flex-col min-h-screen">
       <Banner
-        title="The Sapien Network is live!"
-        message="The Sapien Network is live!"
+        title="The Sapien Network private beta is live for existing users, passport holders and select DAOs!"
+        message="The Sapien Network private beta is live for existing users, passport holders and select DAOs!"
       />
       <Navbar />
       <main
