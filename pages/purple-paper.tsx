@@ -10,7 +10,7 @@ import { NextPage } from 'next';
 const links = [
   { label: 'Download PDF', href: '/The_Purple_Paper_v1.1.pdf' },
   { label: 'Join our Community', href: 'https://discord.gg/DgUfraghMW' },
-  { label: 'Contribute', href: 'https://github.com' },
+  { label: 'Contribute', href: 'https://bit.ly/3xGGAHW' },
 ];
 
 const PurplePaper: NextPage = () => {
@@ -20,7 +20,7 @@ const PurplePaper: NextPage = () => {
       <div className="w-11/12 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-8">
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl pt-12 lg:pt-24">
-            Learn about the Sapien vision for the Metaverse
+            Learn about the Sapien Vision for the Metaverse
           </h2>
           <div className="w-96 mx-auto">
             <div className="shadow-2xl shadow-yellow-500/60">

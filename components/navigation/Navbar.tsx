@@ -35,7 +35,11 @@ const navigation = [
     links: [
       { name: 'Passport', href: '/passport' },
       { name: 'Token', href: '/token' },
-      { name: 'The Tetrahedron', href: '' },
+      {
+        name: 'The Tetrahedron',
+        href: 'https://bit.ly/3xGGAHW',
+        target: '_blank',
+      },
     ],
   },
   {
