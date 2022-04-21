@@ -17,19 +17,20 @@ const CreateRoomDialog = ({
     <Dialog
       isFetching={false}
       onClose={onClose}
-      title="Confirm Styled Avatar (irreversible action)"
-      confirmLabel="Confirm, create Avatar"
+      title="Confirm Styled Avatar (Irreversible Action)"
+      confirmLabel="Confirm"
       onConfirm={onConfirm}
-      cancelLabel="Try another"
+      cancelLabel="Take me back!"
     >
       <div className="py-4">
         <div className="mb-4">
           <img src={URL.createObjectURL(avatarImage)} alt={figureName} />
         </div>
         <p className="block text-white">
-          By clicking we are going to generate an styled avatar for your pick{' '}
-          <span className="underline text-white">{figureName}</span>
-          Confirm, this actions is irreversible
+          Clicking this button will confirm{' '}
+          <span className="underline text-white">{figureName}</span> to be
+          minted in your Sapien Nation Passport. (Note: This action is
+          IRREVERSIBLE!)
         </p>
       </div>
     </Dialog>
