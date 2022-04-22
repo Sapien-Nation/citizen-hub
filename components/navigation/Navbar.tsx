@@ -229,97 +229,6 @@ const Navbar = () => {
                     </svg>
                   </a>
                 </Link>
-
-                {/*<button
-                  id="theme-toggle"
-                  type="button"
-                  onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                  className="mr-4 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2"
-                >
-                  {theme === 'light' ? (
-                    <MoonIcon className="h-5 w-5" aria-hidden="true" />
-                  ) : (
-                    <SunIcon className="h-5 w-5" aria-hidden="true" />
-                  )}
-                  </button>*/}
-                {/* Profile dropdown */}
-                {/* {me === null && (
-                  <>
-                    <Link href="/login">
-                      <a className="inline-flex items-center px-4 py-2 font-extrabold text-md font-medium text-xl rounded-full shadow-sm shadow-[4px_4px_#eaeaea] dark:shadow-[4px_4px_#27272a] rounded-full border border-gray-400 hover:bg-gray-100 focus:outline-none">
-                        Sign in
-                      </a>
-                    </Link>
-                  </>
-                )}
-                {me && (
-                  <>
-                    <Menu as="div" className="relative ml-2 shrink-0">
-                      <div>
-                        <Menu.Button className="bg-white dark:bg-black rounded-full flex text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
-                          <span className="sr-only">Open user menu</span>
-                          {me.avatar ? (
-                            <Image
-                              alt={me.displayName}
-                              src={me.avatar}
-                              width={30}
-                              height={30}
-                              className="h-8 w-8 rounded-full"
-                            />
-                          ) : (
-                            <span className="inline-flex items-center justify-center h-8 w-8 rounded-full bg-gray-500">
-                              <span className="text-sm font-medium leading-none">
-                                {me.displayName[0]}
-                              </span>
-                            </span>
-                          )}
-                        </Menu.Button>
-                      </div>
-                      <Transition
-                        as={Fragment}
-                        enter="transition ease-out duration-100"
-                        enterFrom="opacity-0 scale-95"
-                        enterTo="opacity-100 scale-100"
-                        leave="transition ease-in duration-75"
-                        leaveFrom="opacity-100 scale-100"
-                        leaveTo="opacity-0 scale-95"
-                      >
-                        <Menu.Items className="origin-top-right absolute right-0 mt-2 rounded-md shadow-lg py-1 bg-white dark:bg-black ring-1 ring-black ring-opacity-5 focus:outline-none">
-                          <Menu.Item>
-                            <div className="border-b border-gray-200 px-4 py-2">
-                              <div className="text-base font-medium">
-                                {me.displayName}
-                              </div>
-                              <div className="text-sm font-medium">
-                                {me.email}
-                              </div>
-                            </div>
-                          </Menu.Item>
-                          <Menu.Item>
-                            {({ active }) => (
-                              <Link href="/logout">
-                                <a
-                                  className={mergeClassNames(
-                                    active ? 'bg-gray-100' : '',
-                                    'block px-4 py-2 text-sm'
-                                  )}
-                                >
-                                  Sign out
-                                </a>
-                              </Link>
-                            )}
-                          </Menu.Item>
-                        </Menu.Items>
-                      </Transition>
-                    </Menu>
-                  </>
-                )} */}
-                {/* {me === undefined && (
-                  <div className="animate-pulse flex items-center space-x-2">
-                    <div className="h-8 w-32 bg-gray-300 rounded-full"></div>
-                    <div className="rounded-full bg-gray-300 h-8 w-8"></div>
-                  </div>
-                )} */}
               </div>
             </div>
           </div>
@@ -353,7 +262,7 @@ const Navbar = () => {
                     <div className="Wshrink-0">
                       {me.avatar ? (
                         <Image
-                          alt={me.displayName}
+                          alt={me.dispusernamelayName}
                           src={me.avatar}
                           width={30}
                           height={30}
@@ -362,14 +271,14 @@ const Navbar = () => {
                       ) : (
                         <span className="inline-flex items-center justify-center h-8 w-8 rounded-full bg-gray-500">
                           <span className="text-sm font-medium leading-none text-white dark:text-black">
-                            {me.displayName[0]}
+                            {me.username[0]}
                           </span>
                         </span>
                       )}
                     </div>
                     <div className="ml-3">
                       <div className="text-base font-medium text-gray-800">
-                        {me.displayName}
+                        {me.username}
                       </div>
                       <div className="text-sm font-medium text-gray-500">
                         {me.email}
