@@ -88,15 +88,13 @@ const DAOPage: NextPage = () => {
                       JournoDAO
                     </a>
                   </Link>{' '}
-                  is an incubator for projects that transforms and rethinks the
-                  journalism ecosystem. They are using tools, such as
+                  JournoDAO is on a mission to buy a newspaper alongside the
+                  communities it serves and use Web3 tools to improve it to
+                  serve those communities better. To prepare for this mission,
+                  we are building an incubator for projects that transform and
+                  rethink the journalism ecosystem using tools such as
                   decentralized newsrooms, on-chain reporting, tokenized
-                  ownership, and peer-to-peer distribution, to harness Web3 to
-                  revitalize journalism. &quot;JournoDAO seeks to enable
-                  journalists across the world to own and monetize their product
-                  without financial mediation, and this mission would benefit
-                  from the social infrastructure being developed by Sapien
-                  Nation.&quot; - Clinamenic, JournoDAO Core Member.
+                  ownership, and peer-to-peer distribution.
                 </p>
               </div>
             </div>

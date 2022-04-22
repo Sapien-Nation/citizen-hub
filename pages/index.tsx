@@ -102,6 +102,22 @@ const Carousel = () => {
             </div>
           </div>
         </div>
+        <div className="carousel-item relative float-left w-full">
+          <div className="flex items-center justify-center">
+            <img alt="" src="/images/noir-united.png" className="h-64 my-3" />
+          </div>
+          <div className="h-32 py-5">
+            <div className="px-20 text-md text-gray-600">
+              <p>
+                &quot;We are happy to join Sapien for the possibility to expand
+                our network and community. We are excited about the future and
+                the ways in which web3 could be used to uplift communities of
+                color to provide equitable access to technology and ideas.&quot;
+              </p>
+              <span>- Nassim Ashford, DAO Founder</span>
+            </div>
+          </div>
+        </div>
       </div>
       <button
         className="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
@@ -158,36 +174,49 @@ const IndexPage: NextPage = () => {
       />
       <div className="m-auto overflow-hidden relative">
         {/* <Globe /> */}
-        <div className="max-w-6xl min-h-screen flex flex-col justify-center align-center mx-auto px-8">
-          <h2 className="text-3xl sm:text-6xl md:text-7xl font-extrabold drop-shadow-lg md:filter-none pb-9">
-            <div className="container">
-              <div className="rotator-wrapper">
-                <h1>
-                  Build your own&nbsp;
-                  <span>
-                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
-                      DAO
+        <div
+          className="min-h-screen mx-auto -m-12"
+          style={{
+            backgroundImage: `url('/images/home-background.png')`,
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+          }}
+        >
+          <div className="pl-6 xl:pl-96 pt-52">
+            <h2 className="text-3xl sm:text-6xl md:text-7xl font-extrabold drop-shadow-lg md:filter-none pb-9">
+              <div className="container">
+                <div className="rotator-wrapper">
+                  <h1>
+                    Build your own&nbsp;
+                    <span>
+                      <span className="bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
+                        DAO
+                      </span>
+                      <span className="bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
+                        Guild
+                      </span>
+                      <span className="bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
+                        City
+                      </span>
+                      <span className="bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
+                        Nation
+                      </span>
                     </span>
-                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
-                      Guild
-                    </span>
-                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
-                      City
-                    </span>
-                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
-                      Nation
-                    </span>
-                  </span>
-                </h1>
+                  </h1>
+                </div>
               </div>
+            </h2>
+            <div className="pb-9">
+              <p className="text-lg md:text-3xl font-bold drop-shadow-xl md:filter-none">
+                The Sapien Protocol lets you build, connect, and invest in
+                networks of DAOs
+              </p>
             </div>
-          </h2>
-          <div className="pb-9">
-            <p className="text-lg md:text-3xl font-bold drop-shadow-xl md:filter-none">
-              The Sapien Protocol lets you build, connect, and invest in
-              networks of DAOs
-            </p>
           </div>
+        </div>
+
+        {/* passport box */}
+        <div className="max-w-6xl flex flex-col justify-center align-center mx-auto pt-10 mt-20">
           <div className="mx-auto grid gap-12 lg:mx-0 lg:grid-cols-3 w-full">
             <div
               className="p-8 rounded-4xl bg-gradient-to-b from-sapien to-sapien-40 shadow-xl shadow-sapien/50 flex flex-col items-center justify-center h-80"
@@ -296,67 +325,88 @@ const IndexPage: NextPage = () => {
           </div>
         </div>
 
-        <div className="my-24 max-w-5xl mx-auto px-8 text-center">
-          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8">
-            <div
-              className="rounded-4xl bg-gradient-to-br from-sapien-blue-60 to-sapien-40 flex flex-col items-center justify-center h-80"
-              onMouseOver={() => setIsHover({ ...isHover, feature_1: true })}
-              onMouseLeave={() => setIsHover({ ...isHover, feature_1: false })}
-            >
-              <div>
-                {isHover.feature_1 ? (
-                  <h2 className="delay text-4xl md:text-5xl px-4 font-extrabold">
-                    Coordinate and collaborate with Channels & Rooms.
+        <div className="my-24 max-w-7xl mx-auto px-8 text-center">
+          <div className="flex flex-col xl:flex-row justify-between">
+            <h1 className="p-5 text-4xl md:text-7xl font-extrabold">
+              Features
+            </h1>
+            <div className="flex flex-col lg:grid lg:grid-cols-2 gap-4">
+              <div
+                className="rounded-4xl bg-gradient-to-br from-sapien-blue-60 to-sapien-40 flex items-center justify-center w-full xl:w-80 h-80"
+                onMouseOver={() => setIsHover({ ...isHover, feature_1: true })}
+                onMouseLeave={() =>
+                  setIsHover({ ...isHover, feature_1: false })
+                }
+              >
+                <div>
+                  {isHover.feature_1 ? (
+                    <h2 className="delay text-4xl md:text-4xl px-4 font-extrabold">
+                      Coordinate and collaborate with Channels & Rooms.
+                    </h2>
+                  ) : (
+                    <img
+                      alt=""
+                      src="/images/coordinate.png"
+                      className="delay w-56"
+                    />
+                  )}
+                </div>
+              </div>
+              <div
+                className="rounded-4xl bg-gradient-to-br from-sapien-blue-60 to-sapien-40 flex items-center justify-center w-full xl:w-80 h-80"
+                onMouseOver={() => setIsHover({ ...isHover, feature_2: true })}
+                onMouseLeave={() =>
+                  setIsHover({ ...isHover, feature_2: false })
+                }
+              >
+                <div>
+                  {isHover.feature_2 ? (
+                    <h2 className="delay text-4xl md:text-4xl px-4 font-extrabold">
+                      Form Tribes around shared interests and passions.
+                    </h2>
+                  ) : (
+                    <img
+                      alt=""
+                      src="/images/tribes.png"
+                      className="delay w-56"
+                    />
+                  )}
+                </div>
+              </div>
+              <div
+                className="rounded-4xl bg-gradient-to-br from-sapien-blue-60 to-sapien-40 flex items-center justify-center w-full xl:w-80 h-80"
+                onMouseOver={() => setIsHover({ ...isHover, feature_3: true })}
+                onMouseLeave={() =>
+                  setIsHover({ ...isHover, feature_3: false })
+                }
+              >
+                {isHover.feature_3 ? (
+                  <h2 className="delay text-4xl md:text-4xl px-4 font-extrabold">
+                    Build reputation in the network with your passport.
                   </h2>
                 ) : (
                   <img
                     alt=""
-                    src="/images/coordinate.png"
-                    className="delay w-80"
+                    src="/images/passport.png"
+                    className="delay w-56"
                   />
                 )}
               </div>
-            </div>
-            <div
-              className="rounded-4xl bg-gradient-to-br from-sapien-blue-60 to-sapien-40 flex flex-col items-center justify-center h-80"
-              onMouseOver={() => setIsHover({ ...isHover, feature_2: true })}
-              onMouseLeave={() => setIsHover({ ...isHover, feature_2: false })}
-            >
-              <div>
-                {isHover.feature_2 ? (
-                  <h2 className="delay text-4xl md:text-5xl px-4 font-extrabold">
-                    Form Tribes around shared interests and passions.
+              <div
+                className="rounded-4xl bg-gradient-to-br from-sapien-blue-60 to-sapien-40 flex items-center justify-center w-full xl:w-80 h-80"
+                onMouseOver={() => setIsHover({ ...isHover, feature_4: true })}
+                onMouseLeave={() =>
+                  setIsHover({ ...isHover, feature_4: false })
+                }
+              >
+                {isHover.feature_4 ? (
+                  <h2 className="delay text-4xl md:text-4xl px-4 font-extrabold">
+                    Automagical Web3 wallet for easy token management.
                   </h2>
                 ) : (
-                  <img alt="" src="/images/tribes.png" className="delay w-80" />
+                  <img alt="" src="/images/wallet.png" className="delay w-56" />
                 )}
               </div>
-            </div>
-            <div
-              className="rounded-4xl bg-gradient-to-br from-sapien-blue-60 to-sapien-40 flex flex-col items-center justify-center h-80"
-              onMouseOver={() => setIsHover({ ...isHover, feature_3: true })}
-              onMouseLeave={() => setIsHover({ ...isHover, feature_3: false })}
-            >
-              {isHover.feature_3 ? (
-                <h2 className="delay text-4xl md:text-5xl px-4 font-extrabold">
-                  Build reputation in the network with your passport.
-                </h2>
-              ) : (
-                <img alt="" src="/images/passport.png" className="delay w-80" />
-              )}
-            </div>
-            <div
-              className="rounded-4xl bg-gradient-to-br from-sapien-blue-60 to-sapien-40 flex flex-col items-center justify-center h-80"
-              onMouseOver={() => setIsHover({ ...isHover, feature_4: true })}
-              onMouseLeave={() => setIsHover({ ...isHover, feature_4: false })}
-            >
-              {isHover.feature_4 ? (
-                <h2 className="delay text-4xl md:text-5xl px-4 font-extrabold">
-                  Automagical Web3 wallet for easy token management.
-                </h2>
-              ) : (
-                <img alt="" src="/images/wallet.png" className="delay w-80" />
-              )}
             </div>
           </div>
         </div>
@@ -436,12 +486,12 @@ const IndexPage: NextPage = () => {
           data-scroll-direction="horizontal"
           className="my-24 flex flex-col px-4 mx-auto lg:grid lg:space-x-8 lg:grid-cols-7 max-w-7xl pb-8"
         >
-          <div className="rounded-4xl mb-8 lg:mb-0 px-8 flex flex-col col-span-4 justify-center bg-sapien-20 hover:bg-sapien-40">
+          <div className="rounded-4xl mb-8 lg:mb-0 px-8 flex flex-col col-span-4 justify-center">
             <div className="max-w-2xl h-full mx-auto flex items-center">
               <img
                 alt="Metavarse is coming"
-                src="https://d1bdmh0gdusw0k.cloudfront.net/images/misc/D3_Modif_2.jpeg"
-                className="rounded-4xl"
+                src="/images/bottom-banner.png"
+                className="rounded-4xl h-96"
               />
             </div>
           </div>
