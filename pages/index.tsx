@@ -175,15 +175,15 @@ const IndexPage: NextPage = () => {
       <div className="m-auto overflow-hidden relative">
         {/* <Globe /> */}
         <div
-          className="min-h-screen mx-auto -m-12"
+          className="min-h-screen mx-auto -m-12 flex justify-center"
           style={{
             backgroundImage: `url('/images/home-background.png')`,
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
           }}
         >
-          <div className="pl-6 xl:pl-96 pt-52">
-            <h2 className="text-3xl sm:text-6xl md:text-7xl font-extrabold drop-shadow-lg md:filter-none pb-9">
+          <div className="max-w-8xl pt-52 flex flex-col gap-9 p-5">
+            <h2 className="text-3xl sm:text-6xl md:text-7xl font-extrabold">
               <div className="container">
                 <div className="rotator-wrapper">
                   <h1>
@@ -206,12 +206,10 @@ const IndexPage: NextPage = () => {
                 </div>
               </div>
             </h2>
-            <div className="pb-9">
-              <p className="text-lg md:text-3xl font-bold drop-shadow-xl md:filter-none">
-                The Sapien Protocol lets you build, connect, and invest in
-                networks of DAOs
-              </p>
-            </div>
+            <p className="text-lg md:text-3xl font-bold drop-shadow-xl md:filter-none">
+              The Sapien Protocol lets you build, connect, and invest in
+              networks of DAOs
+            </p>
           </div>
         </div>
 
