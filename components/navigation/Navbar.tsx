@@ -262,7 +262,7 @@ const Navbar = () => {
                     <div className="Wshrink-0">
                       {me.avatar ? (
                         <Image
-                          alt={me.dispusernamelayName}
+                          alt={me.username}
                           src={me.avatar}
                           width={30}
                           height={30}
