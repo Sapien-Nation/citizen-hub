@@ -208,7 +208,9 @@ const IndexPage: NextPage = () => {
             </h2>
             <p className="text-lg md:text-3xl font-bold drop-shadow-xl md:filter-none">
               <span>The Sapien Protocol lets you build, connect,</span>
-              <span className="block">and invest in networks of DAOs</span>
+              <span className="inline md:block">
+                and invest in networks of DAOs
+              </span>
             </p>
           </div>
         </div>
