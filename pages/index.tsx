@@ -182,7 +182,7 @@ const IndexPage: NextPage = () => {
             backgroundRepeat: 'no-repeat',
           }}
         >
-          <div className="max-w-8xl pt-52 flex flex-col gap-9 p-5">
+          <div className="max-w-8xl pt-52 flex flex-col gap-3 px-5">
             <h2 className="text-3xl sm:text-6xl md:text-7xl font-extrabold">
               <div className="container">
                 <div className="rotator-wrapper">
@@ -202,11 +202,12 @@ const IndexPage: NextPage = () => {
                         Nation
                       </span>
                     </span>
+                    {Array(20).fill(<>&nbsp;</>)}
                   </h1>
                 </div>
               </div>
             </h2>
-            <p className="text-lg md:text-3xl font-bold drop-shadow-xl md:filter-none">
+            <p className="text-lg md:text-3xl font-bold">
               <span>The Sapien Protocol lets you build, connect,</span>
               <span className="inline md:block">
                 and invest in networks of DAOs
@@ -271,7 +272,7 @@ const IndexPage: NextPage = () => {
 
         <div className="flex flex-col px-4 mx-auto mt-8 lg:grid lg:space-x-8 lg:grid-cols-7 max-w-7xl items-center">
           <div
-            className="rounded-4xl mb-8 px-8 py-24 lg:py-12 flex flex-col col-span-3 justify-center md:px-16 bg-gradient-to-b from-sapien-60 to-sapien-blue-100 text-white text-justify h-96"
+            className="rounded-4xl mb-8 px-8 py-24 lg:py-12 flex flex-col col-span-3 justify-center md:px-16 bg-gradient-to-b from-sapien-60 to-sapien-blue-100 text-white h-96"
             onMouseEnter={() => setIsHover({ ...isHover, community: true })}
             onMouseLeave={() => setIsHover({ ...isHover, community: false })}
           >
@@ -448,7 +449,7 @@ const IndexPage: NextPage = () => {
             onMouseLeave={() => setIsHover({ ...isHover, nation: false })}
           >
             {isHover.nation ? (
-              <p className="delay text-2xl mb-4 mt-8 text-justify">
+              <p className="delay text-2xl mb-4 mt-8">
                 The Sapien Nation is the flagship community built on the Sapien
                 Protocol. Our mission is to unite and empower leaders,
                 sensemakers, and builders looking to make lasting change and
