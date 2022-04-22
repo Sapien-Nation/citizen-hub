@@ -44,7 +44,7 @@ const AuthenticationProvider = ({ children }: Props) => {
   });
 
   const isLoggingIn = data === undefined;
-  console.log(data);
+
   useEffect(() => {
     if (data) {
       Sentry.setUser({
