@@ -75,7 +75,7 @@ const Roadmap: NextPage = () => {
               </ul>
             </li>
             <li className="ml-6 mb-2">
-              <span className="font-extrabold">April 20, 2022</span>
+              <span className="font-extrabold">April 22, 2022</span>
               <ul className="list-disc sm:text-2xl text-xl mb-12">
                 <li className="ml-6 mb-2">Sapien NFT Passport Mint Day</li>
                 <li className="ml-6 mb-2">
