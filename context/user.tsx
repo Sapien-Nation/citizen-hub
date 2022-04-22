@@ -56,7 +56,7 @@ const AuthenticationProvider = ({ children }: Props) => {
   }, [data]);
   const clearSession = () => {
     removeTokens();
-    mutate('/user-api/me', null, false);
+    mutate('/user-api/me', null, true);
     push('/');
   };
 
