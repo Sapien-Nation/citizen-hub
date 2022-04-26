@@ -60,7 +60,7 @@ const PassportTokenIDPage = ({ passport }: Props) => {
               animationData={lottieJson}
               play
               loop={false}
-              className="max-w-1100 w-full h-660 m-auto absolute left-0 right-0 bottom-0 top-0"
+              className="max-w-1100 w-full h-660 m-auto"
             />
             {showPassport && (
               <div className="px-8 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
