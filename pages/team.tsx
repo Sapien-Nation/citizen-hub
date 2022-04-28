@@ -91,7 +91,7 @@ const TeamPage: NextPage = () => {
                         </div>
                         <div className="text-lg">
                           <p
-                            className="text-white text-justify"
+                            className="text-white"
                             dangerouslySetInnerHTML={{ __html: person.bio }}
                           />
                         </div>
