@@ -34,6 +34,7 @@ const navigation = [
     section: 'Sapien Nation',
     links: [
       { name: 'Passport', href: '/passport' },
+      { name: 'Reserved List', href: '/reserved-list' },
       { name: 'Token', href: '/token' },
       {
         name: 'The Tetrahedron',
