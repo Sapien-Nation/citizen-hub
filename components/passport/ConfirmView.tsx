@@ -59,7 +59,8 @@ const Confirm = ({ distributionId, reservedFigure, onSuccess }: Props) => {
         </p> */}
         <div className="mt-10 max-w-sm sm:max-w-none sm:flex">
           <button
-            className="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-sapien bg-white hover:bg-indigo-50 sm:px-8"
+            type="button"
+            className="relative flex items-center max-w-sm shine bg-gradient-to-r from-sapien to-sapien-40 font-extrabold justify-center px-2 py-3 m rounded-md text-white md:py-3 md:px-8"
             onClick={handleConfirm}
           >
             Confirm
