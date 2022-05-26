@@ -8,7 +8,7 @@ import { Head } from 'components/common';
 import { NextPage } from 'next';
 
 const links = [
-  { label: 'Download PDF', href: '/The_Purple_Paper_v1.1.pdf' },
+  { label: 'Download PDF', href: '/The_Purple_Paper_v1.2.pdf' },
   { label: 'Join our Community', href: 'https://discord.gg/DgUfraghMW' },
   { label: 'Contribute', href: 'https://bit.ly/3xGGAHW' },
 ];
@@ -24,7 +24,7 @@ const PurplePaper: NextPage = () => {
           </h2>
           <div className="w-96 mx-auto">
             <div className="shadow-2xl shadow-yellow-500/60">
-              <Link href="/The_Purple_Paper_v1.1.pdf">
+              <Link href="/The_Purple_Paper_v1.2.pdf">
                 <a target="_blank">
                   <Image
                     alt={'Purple Paper'}
