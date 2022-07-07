@@ -1,4 +1,5 @@
-import { useTheme } from 'next-themes';
+// assets
+import { SPNLogo } from 'assets';
 
 // components
 import { Redirect } from 'components/common';
@@ -33,11 +34,7 @@ const Layout = ({ children, title }: Props) => {
           <div className="mx-auto w-full max-w-sm lg:w-96">
             <div>
               <div className="flex justify-center items-center">
-                <img
-                  className="pr-1 w-16"
-                  src="/landing/logooutlined.svg"
-                  alt="sapien"
-                />
+                <SPNLogo />
               </div>
               <h2 className="mt-6 text-3xl font-extrabold">{title}</h2>
             </div>
