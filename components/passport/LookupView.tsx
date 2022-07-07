@@ -207,11 +207,6 @@ const Lookup = ({ distributionId, setView, setFigureName }: Props) => {
                         Not Available
                       </span>
                     ) : null}
-                    {suggestion?.isManual ? (
-                      <span className="text-xs text-gray-400 font-extrabold animate-pulse">
-                        Typing...
-                      </span>
-                    ) : null}
                   </li>
                   {suggestion?.isManual && suggestions.length > 1 ? (
                     <div className="border-b border-neutral-300 w-full h-1"></div>
