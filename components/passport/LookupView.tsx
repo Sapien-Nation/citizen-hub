@@ -225,7 +225,7 @@ const Lookup = ({ distributionId, setView, setFigureName }: Props) => {
                 }`}
                 onClick={handleFigureConfirm}
               >
-                {isManualHistoricalFigure ? 'Submit ' : 'Confirm '}{' '}
+                {isManualHistoricalFigure ? 'Select ' : 'Confirm '}{' '}
                 {historicalFigure}{' '}
               </button>
               {isManualHistoricalFigure ? (
