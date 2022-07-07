@@ -71,8 +71,7 @@ const HistoricalFiguresSearch = ({
           We’ve created a stylized version of the portrait you provided.
         </h1>
         <h2 className="text-lg text-white">
-          By clicking “Generate Passport” we will associate this image with your
-          account and mint it on your NFT.
+          By clicking “Generate Passport” we will mint an NFT with this image.
         </h2>
       </div>
       <main className="lg:relative">
