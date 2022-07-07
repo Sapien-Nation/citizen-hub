@@ -37,7 +37,7 @@ const Steps = ({ steps, active }: Props) => {
 
   return (
     <div className="">
-      <div className="flex justify-center flex-col">
+      <div className="flex justify-center flex-col gap-3">
         <p className="text-xs">
           Logged in as{' '}
           <span className="font-extrabold underline">{me.email}</span>{' '}
