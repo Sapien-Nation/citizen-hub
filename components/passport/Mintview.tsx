@@ -16,15 +16,14 @@ const MintView = () => {
       <div className="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
         <div className="text-lg leading-6 font-medium space-y-1 text-center">
           <h2 className="mb-12 block text-2xl leading-8 font-extrabold tracking-tight text-white sm:text-3xl">
-            Continue in the Protocol
+            Continue to the Sapien dApp
           </h2>
         </div>
         <div className="space-y-4 max-w-3xl text-center m-auto">
           <div className="mt-3">
             <p className="text-gray-300 text-lg mt-5">
-              You are now ready to mint your passport!, please click the button
-              below to be redirected to the Sapien Protocol app to continue with
-              the minting.
+              Please click the button below to be redirected to the Sapien
+              Protocol app to continue with the minting.
             </p>
           </div>
           <div>
