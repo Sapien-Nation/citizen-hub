@@ -158,7 +158,7 @@ const Lookup = ({ distributionId, setView, setFigureName }: Props) => {
 
   return (
     <div className="transition delay-150 duration-300 ease-in-out min-h-[300px]">
-      <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+      <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl mt-14">
         <span className="block text-white">Welcome to the Sapien Nation.</span>
       </h1>
       <h2 className="text-lg mt-5 text-gray-500 mb-5">
