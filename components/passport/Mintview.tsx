@@ -16,7 +16,7 @@ const MintView = () => {
       <div className="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
         <div className="text-lg leading-6 font-medium space-y-1 text-center">
           <h2 className="mb-12 block text-2xl leading-8 font-extrabold tracking-tight text-white sm:text-3xl">
-            Continue in the Protocol
+            Continue to the Sapien dApp
           </h2>
         </div>
         <div className="space-y-4 max-w-3xl text-center m-auto">
