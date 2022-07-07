@@ -25,7 +25,7 @@ build-sandbox:
     - pass-sandbox
   script:
     - rm -rf tools
-    - git clone http://$USER:$CI_TOKEN@gitlab.tooling-sapien.network/group-tools/tools.git
+    - git clone https://$USER:$CI_TOKEN@gitlab.tooling-sapien.network/group-tools/tools.git
     - export KUBECONFIG=~/.kube/kubeconfig_sapien-sandbox-cluster
     - export AWS_PROFILE=sapien-sandbox
     - export AWS_REGION=us-east-2
@@ -52,7 +52,7 @@ build-qat:
     - pass-qat
   script:
     - rm -rf tools
-    - git clone http://$USER:$CI_TOKEN@gitlab.tooling-sapien.network/group-tools/tools.git
+    - git clone https://$USER:$CI_TOKEN@gitlab.tooling-sapien.network/group-tools/tools.git
     - export KUBECONFIG=~/.kube/kubeconfig_sapien-qat-cluster
     - export AWS_PROFILE=sapien-qat
     - export AWS_REGION=us-east-2
@@ -79,7 +79,7 @@ build-poc:
     - pass-poc
   script:
     - rm -rf tools
-    - git clone http://$USER:$CI_TOKEN@gitlab.tooling-sapien.network/group-tools/tools.git
+    - git clone https://$USER:$CI_TOKEN@gitlab.tooling-sapien.network/group-tools/tools.git
     - export KUBECONFIG=~/.kube/kubeconfig_sapien-poc-cluster
     - export AWS_PROFILE=sapien-poc
     - export AWS_REGION=us-east-2
