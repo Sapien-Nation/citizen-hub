@@ -95,16 +95,6 @@ export default function Banner({ title, message, action }: IBanner) {
               </Query>
             )}
           </div>
-          <div className="order-4 mt-2 w-full sm:mt-0 sm:w-auto flex justify-center px-1">
-            <Link href="https://v2-app.sapien.network/">
-              <a
-                target="_blank"
-                className="text-base font-semibold text-white underline"
-              >
-                Looking for the old app?
-              </a>
-            </Link>
-          </div>
         </div>
       </div>
     </div>
