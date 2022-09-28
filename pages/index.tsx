@@ -205,7 +205,8 @@ const IndexPage: NextPage = () => {
                 <a
                   href="https://thenetworkstate.com/"
                   className="network-state"
-                  target="_blank" rel="noreferrer"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   {' '}
                   Network State
@@ -286,7 +287,12 @@ const IndexPage: NextPage = () => {
               ) : (
                 <span>
                   <h4 className="delay text-2xl sm:text-6xl dark:text-white font-extrabold text-center">
-                    <CountUp start={10000} end={30000} duration={3} />
+                    <CountUp
+                      start={10000}
+                      end={30000}
+                      duration={3}
+                      separator=","
+                    />
                     <span className="delay">+</span>
                   </h4>
                   <h3 className="delay text-center sm:text-3xl pt-8 font-extrabold">
@@ -315,7 +321,12 @@ const IndexPage: NextPage = () => {
                 <span>
                   <h4 className="delay text-2xl sm:text-6xl dark:text-white font-extrabold text-center">
                     <span className="delay">$</span>
-                    <CountUp start={10000} end={150000} duration={3} />
+                    <CountUp
+                      start={10000}
+                      end={150000}
+                      duration={3}
+                      separator=","
+                    />
                     <span className="delay">+</span>
                   </h4>
                   <h3 className="delay text-center sm:text-3xl pt-8 font-extrabold">
