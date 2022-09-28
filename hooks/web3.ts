@@ -68,7 +68,7 @@ export function useInactiveListener(suppress = false) {
         if (accounts.length > 0) {
           // eat errors
           activate(injected, undefined, true).catch((error) => {
-            console.error('Failed to activate after accounts changed', error);
+            console.error(error, 'Failed to activate after accounts changed');
           });
         }
       };
