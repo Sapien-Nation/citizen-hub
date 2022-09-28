@@ -240,7 +240,7 @@ const IndexPage: NextPage = () => {
         </div>
 
         {/* dao box */}
-        <div className="max-w-6xl flex flex-col justify-center align-center mx-auto pt-10 mt-20">
+        <div className="max-w-6xl flex flex-col justify-center align-center mx-auto pt-24 mt-20 pl-5 pr-5">
           <div className="mx-auto grid gap-12 lg:mx-0 lg:grid-cols-3 w-full">
             <div
               className="p-8 rounded-4xl bg-gradient-to-b from-sapien to-sapien-40 shadow-xl shadow-sapien/50 flex flex-col items-center justify-center h-80"
