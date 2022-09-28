@@ -40,7 +40,7 @@
   }
   2% {
     opacity: 0;
-    transform: translateX(-20px);
+    transform: translateY(40px);
   }
   5% {
     opacity: 1;
@@ -52,7 +52,7 @@
   }
   20% {
     opacity: 0;
-    transform: translateX(30px);
+    transform: translateX(20px);
   }
   80% {
     opacity: 0;
