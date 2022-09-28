@@ -313,8 +313,14 @@ const IndexPage: NextPage = () => {
                     Nation.
                   </h3>
                   <p className="text-xl sm:text-2xl text-center pt-10 font-semibold">
-                    Our Mission: To build the infraculture to unite and empower
-                    DAOs.
+                    <a
+                      className="network-state"
+                      href="https://v2.info.uniswap.org/pair/0x31ca4b5e5ddca54b29e365fc80dadfd8500d290b"
+                      target="_blank" rel="noreferrer"
+                    >
+                      SPN
+                    </a>{' '}
+                    token holders will govern treasury assets in Parliament.
                   </p>
                 </span>
               ) : (
@@ -336,6 +342,17 @@ const IndexPage: NextPage = () => {
               )}
             </div>
           </div>
+        </div>
+
+        <div className="max-w-6xl mx-auto text-center pt-36 pl-4 pr-4 pb-4 md:pl-0 md:pr-0">
+          <span className="text-2xl font-bold sm:text-4xl">
+            Our mission is to build the{' '}
+            <span className="bg-clip-text text-transparent bg-gradient-to-b from-sapien to-sapien-20">
+              {' '}
+              infraculture
+            </span>{' '}
+            to unite & empower DAOs.{' '}
+          </span>
         </div>
 
         <div className="flex flex-col px-4 mx-auto mt-8 lg:grid lg:space-x-8 lg:grid-cols-7 max-w-7xl items-center pt-20">
