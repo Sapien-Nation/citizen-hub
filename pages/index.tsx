@@ -313,8 +313,15 @@ const IndexPage: NextPage = () => {
                     Nation.
                   </h3>
                   <p className="text-xl sm:text-2xl text-center pt-10 font-semibold">
-                    Our Mission: To build the infraculture to unite and empower
-                    DAOs.
+                    <a
+                      className="network-state"
+                      href="https://v2.info.uniswap.org/pair/0x31ca4b5e5ddca54b29e365fc80dadfd8500d290b"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      SPN
+                    </a>{' '}
+                    token holders will govern treasury assets in Parliament.
                   </p>
                 </span>
               ) : (
@@ -338,6 +345,17 @@ const IndexPage: NextPage = () => {
           </div>
         </div>
 
+        <div className="max-w-6xl mx-auto text-center pt-32 pl-4 pr-4 pb-4 md:pl-0 md:pr-0">
+          <span className="text-2xl font-bold sm:text-4xl">
+            Our mission is to build the{' '}
+            <span className="bg-clip-text text-transparent bg-gradient-to-b from-sapien-80 to-sapien-20 shadow-xl shadow-sapien/60 drop-shadow-lg md:filter-none">
+              {' '}
+              infraculture
+            </span>{' '}
+            to unite & empower DAOs.{' '}
+          </span>
+        </div>
+
         <div className="flex flex-col px-4 mx-auto mt-8 lg:grid lg:space-x-8 lg:grid-cols-7 max-w-7xl items-center pt-20">
           <div
             className="rounded-4xl mb-8 px-8 py-24 lg:py-12 flex flex-col col-span-3 justify-center md:px-16 text-white h-96"
@@ -345,7 +363,7 @@ const IndexPage: NextPage = () => {
             onMouseLeave={() => setIsHover({ ...isHover, community: false })}
           >
             <div className="lg:col-start-2 md:pl-2">
-              <h1 className="text-6xl font-extrabold dark:text-white tracking-tight sm:leading-11 w-[20rem] md:w-[40rem] pt-40 md:pt-[0]">
+              <h1 className="relative bottom-6 text-6xl font-extrabold dark:text-white tracking-tight sm:leading-11 w-[20rem] md:w-[40rem] pt-40 md:pt-[0]">
                 A Digital Parliament
               </h1>
               <ul className="mt-10">
