@@ -15,63 +15,13 @@ body > div {
   height: 100%;
 }
 
-@-webkit-keyframes flutter {
-  0% {
-    background-position: -200% 0px;
-  }
-
-  30% {
-    background-position: -60% 5px;
-  }
-
-  70% {
-    background-position: 70% -5px;
-  }
-
-  100% {
-    background-position: 200% 0px;
-  }
+.network-state {
+  text-decoration-line: underline;
+  text-decoration-color: #6200ea;
+  text-decoration-thickness: 5px;
 }
-
-.shine::before {
-  position: absolute;
-  background-image: -webkit-gradient(
-    linear,
-    0 -25%,
-    100% 0%,
-    from(rgba(255, 255, 255, 0)),
-    color-stop(0.2, rgba(255, 255, 255, 0)),
-    color-stop(0.3, rgba(0, 0, 0, 0.04)),
-    color-stop(0.4, rgba(255, 255, 255, 0.2)),
-    color-stop(0.6, rgba(255, 255, 255, 0)),
-    color-stop(0.65, rgba(255, 255, 255, 0.2)),
-    color-stop(0.8, rgba(0, 0, 0, 0.05)),
-    to(rgba(255, 255, 255, 0))
-  );
-  background-size: 200%;
-  animation-name: flutter;
-  animation-duration: 8s;
-  animation-timing-function: cubic-bezier(0.16, 0.14, 0.82, 0.73);
-  animation-iteration-count: infinite;
-  content: ' ';
-  height: 100%;
-  width: 100%;
-  left: 0px;
-  top: 0px;
-}
-
-#globe {
-  overflow: hidden;
-}
-
-#globe > canvas {
-  z-index: -1;
-  top: -2rem;
-  width: 100%;
-  height: 100vw;
-  position: absolute;
-  left: 20%;
-  overflow: hidden;
+.network-state:hover {
+  color: #c8c8c8;
 }
 
 /* Page Loader */

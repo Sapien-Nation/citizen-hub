@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import CountUp from 'react-countup';
+
 import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
@@ -153,9 +155,9 @@ const IndexPage: NextPage = () => {
   });
 
   const [isHover, setIsHover] = useState({
-    passport: false,
-    metaverse: false,
-    tribe: false,
+    daos: false,
+    citizens: false,
+    treasury: false,
     community: false,
     nation: false,
     protocol: false,
@@ -185,86 +187,141 @@ const IndexPage: NextPage = () => {
           <div className="max-w-8xl pt-52 flex flex-col gap-3 px-5">
             <h2 className="text-3xl sm:text-6xl md:text-7xl font-extrabold">
               <div className="container">
-                <div className="rotator-wrapper">
+                <div>
                   <h1>
-                    Build your own&nbsp;
+                    Founding the
                     <span>
-                      <span className="bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
-                        DAO
-                      </span>
-                      <span className="bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
-                        Guild
-                      </span>
-                      <span className="bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
-                        City
-                      </span>
-                      <span className="bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
-                        Nation
+                      <span className="bg-clip-text text-transparent bg-gradient-to-r from-sapien-80 to-sapien-20 pl-3">
+                        Sapien Nation
                       </span>
                     </span>
-                    {Array(20).fill(<>&nbsp;</>)}
                   </h1>
                 </div>
               </div>
             </h2>
             <p className="text-lg md:text-3xl font-bold">
-              <span>The Sapien Protocol lets you build, connect,</span>
-              <span className="inline md:block">
-                and invest in networks of DAOs
+              <span className="inline md:block pt-6 pb-1 pr-1 font-semibold">
+                The Sapien Nation is a{' '}
+                <a
+                  href="https://thenetworkstate.com/"
+                  className="network-state"
+                  target="_blank" rel="noreferrer"
+                >
+                  {' '}
+                  Network State
+                </a>{' '}
+                & Republic of DAOs,
+              </span>
+              <span className="inline pt-2 pr-2 font-semibold">
+                built by and for:
+              </span>
+              <span className="rotator-wrapper flex-wrap md:flex-nowrap">
+                <span>
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-sapien-80 to-sapien-20 font-semibold">
+                    Leaders.
+                  </span>
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-sapien-80 to-sapien-20 font-semibold">
+                    Sensemakers.
+                  </span>
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-sapien-80 to-sapien-20 font-semibold">
+                    Advocates.
+                  </span>
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-sapien-80 to-sapien-20 font-semibold">
+                    Creators.
+                  </span>
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-sapien-80 to-sapien-40 font-extrabold">
+                    You.
+                  </span>
+                </span>
               </span>
             </p>
           </div>
         </div>
 
-        {/* passport box */}
+        {/* dao box */}
         <div className="max-w-6xl flex flex-col justify-center align-center mx-auto pt-10 mt-20">
           <div className="mx-auto grid gap-12 lg:mx-0 lg:grid-cols-3 w-full">
             <div
               className="p-8 rounded-4xl bg-gradient-to-b from-sapien to-sapien-40 shadow-xl shadow-sapien/50 flex flex-col items-center justify-center h-80"
-              onMouseEnter={() => setIsHover({ ...isHover, passport: true })}
-              onMouseLeave={() => setIsHover({ ...isHover, passport: false })}
+              onMouseEnter={() => setIsHover({ ...isHover, daos: true })}
+              onMouseLeave={() => setIsHover({ ...isHover, daos: false })}
             >
-              {isHover.passport ? (
-                <p className="delay text-xl sm:text-2xl text-center">
-                  Interface with DAOs and build networks of trust with
-                  privacy-focused digital identity.
-                </p>
+              {isHover.daos ? (
+                <span className="delay">
+                  <h3 className="text-xl sm:text-2xl text-center font-semibold">
+                    DAOs today are largely built in isolation, limiting scale
+                    and impact.
+                  </h3>
+                  <h3 className="text-xl sm:text-2xl text-center pt-10 font-semibold">
+                    United, we will create so much more than any of us could
+                    alone.
+                  </h3>
+                </span>
               ) : (
-                <h4 className="delay text-2xl sm:text-5xl dark:text-white font-extrabold text-center">
-                  The Passport
-                </h4>
+                <span>
+                  <h4 className="delay text-2xl sm:text-6xl dark:text-white font-extrabold text-center">
+                    <CountUp start={3} end={30} duration={2} />
+                    <span className="delay">+</span>
+                  </h4>
+                  <h3 className="delay sm:text-3xl pt-8 font-extrabold">
+                    Founding DAOs
+                  </h3>
+                </span>
               )}
             </div>
             <div
               className="p-8 rounded-4xl bg-gradient-to-b from-sapien to-sapien-40 shadow-xl shadow-sapien/50 flex flex-col items-center justify-center h-80"
-              onMouseEnter={() => setIsHover({ ...isHover, metaverse: true })}
-              onMouseLeave={() => setIsHover({ ...isHover, metaverse: false })}
+              onMouseEnter={() => setIsHover({ ...isHover, citizens: true })}
+              onMouseLeave={() => setIsHover({ ...isHover, citizens: false })}
             >
-              {isHover.metaverse ? (
-                <p className="delay text-xl sm:text-2xl text-center">
-                  Replace newsfeed algorithms with a community-driven curation
-                  market to make sense of the world together.
-                </p>
+              {isHover.citizens ? (
+                <span className="delay">
+                  <h3 className="text-xl sm:text-2xl text-center font-semibold">
+                    Every registered user receives a NFT passport.
+                  </h3>
+                  <h3 className="text- sm:text-2xl text-center pt-10 font-semibold">
+                    Passports unlock powerful benefits in the Sapien ecosystem.
+                  </h3>
+                </span>
               ) : (
-                <h4 className="delay text-2xl sm:text-5xl dark:text-white font-extrabold text-center">
-                  Metaverse Newspaper
-                </h4>
+                <span>
+                  <h4 className="delay text-2xl sm:text-6xl dark:text-white font-extrabold text-center">
+                    <CountUp start={10000} end={30000} duration={3} />
+                    <span className="delay">+</span>
+                  </h4>
+                  <h3 className="delay text-center sm:text-3xl pt-8 font-extrabold">
+                    Citizens
+                  </h3>
+                </span>
               )}
             </div>
             <div
               className="p-8 rounded-4xl bg-gradient-to-b from-sapien to-sapien-40 shadow-xl shadow-sapien/50 flex flex-col items-center justify-center h-80"
-              onMouseEnter={() => setIsHover({ ...isHover, tribe: true })}
-              onMouseLeave={() => setIsHover({ ...isHover, tribe: false })}
+              onMouseEnter={() => setIsHover({ ...isHover, treasury: true })}
+              onMouseLeave={() => setIsHover({ ...isHover, treasury: false })}
             >
-              {isHover.tribe ? (
-                <p className="delay text-xl sm:text-2xl text-center">
-                  Connect to a network of community tokens and invest in
-                  communities, projects, and people that matter.
-                </p>
+              {isHover.treasury ? (
+                <span className="delay">
+                  <h3 className="text-xl sm:text-2xl text-center font-semibold">
+                    The Sapien DAO develops the dApp and grows the Sapien
+                    Nation.
+                  </h3>
+                  <p className="text-xl sm:text-2xl text-center pt-10 font-semibold">
+                    Our Mission: To build the infraculture to unite and empower
+                    DAOs.
+                  </p>
+                </span>
               ) : (
-                <h4 className="delay text-2xl sm:text-5xl dark:text-white font-extrabold text-center">
-                  Tribe Treasury Token
-                </h4>
+                <span>
+                  <h4 className="delay text-2xl sm:text-6xl dark:text-white font-extrabold text-center">
+                    <span className="delay">$</span>
+                    <CountUp start={10000} end={150000} duration={3} />
+                    <span className="delay">+</span>
+                  </h4>
+                  <h3 className="delay text-center sm:text-3xl pt-8 font-extrabold">
+                    Total Assets
+                  </h3>
+                </span>
               )}
             </div>
           </div>
