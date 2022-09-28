@@ -86,7 +86,7 @@ export default function Example() {
   return (
     <div>
       <div className="mx-auto py-12 px-4 sm:px-6 max-w-6xl lg:px-8 lg:py-24 bg-neutral-900">
-        <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl mb-20 underline decoration-3 decoration-sapien">
+        <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl mb-20 decoration-3">
           News
         </h2>
         <ul
