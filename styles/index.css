@@ -19,6 +19,23 @@ body > div {
   font-weight: 600;
 }
 
+.slide img {
+
+}
+
+.glow {
+  border-radius: 18px;
+  box-shadow:
+    inset 0 0 50px #fff,      /* inner white */
+    inset 20px 0 80px #6200EA,   /* inner left magenta short */
+    inset -20px 0 80px #14C4D7,  /* inner right cyan short */
+    inset 20px 0 300px #6200EA,  /* inner left magenta broad */
+    inset -20px 0 300px #14C4D7, /* inner right cyan broad */
+    0 0 50px #fff,            /* outer white */
+    -10px 0 80px #6200EA,        /* outer left magenta */
+    10px 0 80px #14C4D7;         /* outer right cyan */
+}
+
 .network-state {
   text-decoration-line: underline;
   text-decoration-color: #6200ea;
@@ -211,7 +228,7 @@ body > div {
 .tiles--perspective {
   overflow: visible;
   perspective: 1000px;
-  --tiles-height: 52vw;
+  --tiles-height: 72vw;
 }
 
 .tiles__wrap {

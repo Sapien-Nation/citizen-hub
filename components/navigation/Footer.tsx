@@ -20,12 +20,12 @@ const Footer = () => {
 
   return (
     <footer
-      className="border-t border-gray-600"
+      className="border-t border-gray-600 relative bottom-[8rem]"
       aria-labelledby="footer-heading"
     >
       <div className="py-8 text-center">
         <p className="text-sm">
-          Copyright &copy; {new Date().getFullYear()} Sapien Inc. All rights
+          Copyright &copy; {new Date().getFullYear()} Sapien DAO. All rights
           reserved
         </p>
         {me && (

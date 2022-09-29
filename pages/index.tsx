@@ -7,7 +7,6 @@ import { useInView } from 'react-intersection-observer';
 // components
 import { Head } from 'components/common';
 import { Footer } from 'components/navigation';
-import { Globe } from 'components/landing';
 
 // utils
 import { preloadImages } from 'utils/homepage';
@@ -344,7 +343,33 @@ const IndexPage: NextPage = () => {
             </div>
           </div>
         </div>
+        {/*}
+        <div className="slider">
+          <div className="slide-track">
+            <div className="slide">
+                <img src="/images/dapp.png"/>
+            </div>
+            <div className="slide">
+              <img src="/images/dapp.png"/>
+            </div>
+            <div className="slide">
+              <img src="/images/dapp.png"/>
+            </div>
+            
+            <div className="slide">
+                <img src="/images/dapp.png"/>
+            </div>
+            <div className="slide">
+              <img src="/images/dapp.png"/>
+            </div>
+            <div className="slide">
+              <img src="/images/dapp.png"/>
+            </div>
 
+          </div>
+
+        </div>
+              */}
         <div className="max-w-6xl mx-auto text-center pt-32 pl-4 pr-4 pb-4 md:pl-0 md:pr-0">
           <span className="text-2xl font-bold sm:text-4xl">
             Our mission is to build the{' '}
@@ -540,7 +565,7 @@ const IndexPage: NextPage = () => {
         </div>
 
         <div className="container mx-auto px-2 p-2 border-solid bg-white bg-gradient-to-r from-sapien to-sapien-blue-100 rounded-4xl mt-12">
-          <div className="container mx-auto border-solid bg-neutral-900 rounded-4xl">
+          <div className="container mx-auto pt-2 border-solid bg-neutral-900 rounded-4xl">
             <div className="mb-8 text-center">
               <h2 className="text-base text-grey font-semibold tracking-wide uppercase text-gray-300 pt-5">
                 Sapien Network
@@ -549,7 +574,13 @@ const IndexPage: NextPage = () => {
                 A Social Network of DAOs, powered by an NFT Passport.
               </p>
             </div>
-            <div className="flex flex-wrap dark:text-white">
+            <div className="flex flex-wrap dark:text-white pb-4">
+              <div className="flex w-full justify-center mt-2 mb-6 pt-2">
+                <img
+                  src="/images/dapp_image.png"
+                  className="h-[20rem] glow"
+                ></img>
+              </div>
               <div className="w-full border-b md:w-1/2 md:border-r lg:w-1/3 p-8 border-slate-600">
                 <div className="flex items-center mb-6">
                   <img alt="" src="/images/dapp.png" className="h-7 pr-3" />
@@ -578,7 +609,8 @@ const IndexPage: NextPage = () => {
                     <a
                       className="network-state"
                       href="https://www.coindesk.com/learn/what-are-soulbound-tokens-the-non-transferrable-nft-explained/"
-                      target="_blank" rel="noreferrer"
+                      target="_blank"
+                      rel="noreferrer"
                     >
                       SBTs
                     </a>{' '}
@@ -623,9 +655,283 @@ const IndexPage: NextPage = () => {
                 </p>
               </div>
             </div>
+            <div className="flex justify-evenly">
+              <Link href="https://4cnw27iuk8s.typeform.com/to/f8wIuHU7?typeform-source=www.google.com">
+                <a
+                  target="_blank"
+                  className="mb-8 border font-extrabold justify-center px-6 py-3 rounded-md text-white md:py-3 md:text-xl md:px-8"
+                >
+                  Apply for Early Access
+                </a>
+              </Link>
+
+              <Link href=" https://app.sapien.network/">
+                <a
+                  target="_blank"
+                  className="mb-8 border font-extrabold justify-center px-6 py-3 rounded-md text-white md:py-3 md:text-xl md:px-8"
+                >
+                  Launch dApp
+                </a>
+              </Link>
+              {/*
+            <Link href="/passport/purchase">
+              <a
+                target="_blank"
+                className="mb-12 border font-extrabold justify-center px-2 py-3 rounded-md text-white md:py-3 md:text-xl md:px-8"
+              >
+                Purchase Passport
+              </a>
+            </Link>
+            */}
+            </div>
           </div>
         </div>
 
+        <section className="tiles tiles--perspective max-w-6xl -mt-[15rem] sm:min-h-screen flex flex-col justify-center align-center mx-auto px-8">
+          <div className="tiles__wrap">
+            <div
+              className="tiles__line"
+              data-scroll
+              data-scroll-speed="2"
+              data-scroll-direction="horizontal"
+            >
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Abraham_Lincoln.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Adam_Smith.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Alexander_Hamilton.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Arminius.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Bob_Marley.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Buddha.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Charles_Darwin.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Che_Guevara.png')",
+                }}
+              ></div>
+            </div>
+            <div
+              className="tiles__line"
+              data-scroll
+              data-scroll-speed="-2"
+              data-scroll-direction="horizontal"
+            >
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Clara_Barton.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Diogenes.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Edsger_Dijkstra.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/George_Washington.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Harriet_Tubman.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/John_F_Kennedy.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/John_von_Neumann.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Karl_Marx.png')",
+                }}
+              ></div>
+            </div>
+            <div
+              className="tiles__line"
+              data-scroll
+              data-scroll-speed="2"
+              data-scroll-direction="horizontal"
+            >
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Kobe_Bryant.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Mozart.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Muhammad_Ali.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Nikola_Tesla.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Oda_Nobunaga.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Plato.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Pocahontas.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Rachel-Carson.png')",
+                }}
+              ></div>
+            </div>
+            <div
+              className="tiles__line"
+              data-scroll
+              data-scroll-speed="-2"
+              data-scroll-direction="horizontal"
+            >
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Ruth_Bader_Ginsburg.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Salvador_Dali.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Santiago_Ramon_y_Cajal.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/stephen-hawking.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Terence_Mckenna.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/ts_eliot.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Tupac_Shakur.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Michaelangelo.png')",
+                }}
+              ></div>
+            </div>
+          </div>
+          <h2
+            className="content__title md:text-7xl text-3xl font-extrabold drop-shadow-lg md:filter-none"
+            data-scroll
+            data-scroll-speed="2"
+          >
+            Become a Founding Member of the Sapien Nation today.
+          </h2>
+          <div className="w-full mx-auto text-center text-lg md:text-3xl font-bold z-10 relative top-[13rem] 2xl:top-[40rem]">
+            <span className=" text-lg md:text-3xl font-bold z-10">
+              Learn more on the{' '}
+              <a
+                href="https://www.notion.so/sapienteam/Welcome-to-the-Sapien-Nation-Wiki-533ad4b01e13481799015e67673c0062"
+                target="_blank"
+                className="bg-clip-text network-state" rel="noreferrer"
+              >
+                Sapien Wiki
+              </a>
+            </span>
+          </div>
+        </section>
+
+        {/*
         <div className="my-24 max-w-7xl mx-auto px-8 text-center">
           <div className="flex flex-col xl:flex-row justify-between">
             <h1 className="p-5 text-4xl md:text-7xl font-extrabold">
@@ -711,7 +1017,7 @@ const IndexPage: NextPage = () => {
             </div>
           </div>
         </div>
-
+          
         <div className="my-24 max-w-5xl mx-auto px-8 text-center">
           <h2 className="text-4xl md:text-4xl font-extrabold">
             We&apos;re rolling out early access to the Sapien Network to early
@@ -736,7 +1042,8 @@ const IndexPage: NextPage = () => {
             </Link>
           </div>
         </div>
-
+        */}
+        {/*
         <div
           data-scroll
           data-scroll-speed="-2"
@@ -768,7 +1075,7 @@ const IndexPage: NextPage = () => {
             </h2>
           </div>
         </div>
-
+            
         <div className="mt-24 mb-8 flex items-center justify-center lg:mx-auto px-8 md:px-6 lg:px-10">
           <h2 className="text-4xl md:text-6xl font-extrabold">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
@@ -780,7 +1087,7 @@ const IndexPage: NextPage = () => {
         <div className="flex flex-col px-4 mx-auto mt-8 lg:space-x-8 max-w-5xl">
           <Carousel />
         </div>
-
+        
         <div
           data-scroll
           data-scroll-speed="2"
@@ -821,31 +1128,23 @@ const IndexPage: NextPage = () => {
               </div>
             ) : (
               <h2 className="delay text-3xl md:text-5xl font-extrabold text-center">
-                On the Horizon
+                Want to learn more?
               </h2>
             )}
-            <div className="flex justify-between">
+            <div className="flex justify-center">
               <Link href="https://discord.gg/DVDe3ZwuYR">
                 <a
                   target="_blank"
                   className="text-base font-semibold text-white underline mt-5 block"
                 >
-                  Join Discord
-                </a>
-              </Link>
-              <Link href="https://4cnw27iuk8s.typeform.com/to/f8wIuHU7?typeform-source=www.google.com">
-                <a
-                  target="_blank"
-                  className="text-base font-semibold text-white underline mt-5 block"
-                >
-                  Apply to have access
+                  View Sapien Wiki
                 </a>
               </Link>
             </div>
           </div>
         </div>
-
-        <div className="w-full lg:mb-44">
+        */}
+        <div className="w-full md:mt-30">
           <Footer />
         </div>
       </div>
