@@ -177,7 +177,7 @@ const IndexPage: NextPage = () => {
       <div className="m-auto overflow-hidden relative">
         {/* <Globe /> */}
         <div
-          className="min-h-screen mx-auto -m-12 flex justify-center"
+          className="min-h-screen mx-auto -m-12 flex justify-center backdrop"
           style={{
             backgroundImage: `url('/images/home-background.png')`,
             backgroundSize: 'cover',
@@ -250,8 +250,8 @@ const IndexPage: NextPage = () => {
               {isHover.daos ? (
                 <span className="delay">
                   <h3 className="text-xl sm:text-2xl text-center font-semibold">
-                    DAOs today are largely built in isolation, limiting scale
-                    and impact.
+                    DAOs today are largely built in isolation, limiting scale &
+                    impact.
                   </h3>
                   <h3 className="text-xl sm:text-2xl text-center pt-10 font-semibold">
                     United, we will create so much more than any of us could
@@ -278,7 +278,7 @@ const IndexPage: NextPage = () => {
               {isHover.citizens ? (
                 <span className="delay">
                   <h3 className="text-xl sm:text-2xl text-center font-semibold">
-                    Every registered user receives a NFT passport.
+                    Every user receives a NFT passport + wallet on registration.
                   </h3>
                   <h3 className="text- sm:text-2xl text-center pt-10 font-semibold">
                     Passports unlock powerful benefits in the Sapien ecosystem.
@@ -714,14 +714,14 @@ const IndexPage: NextPage = () => {
             className="rounded-2xl px-8 flex flex-col col-span-4 justify-center bg-transparent mb-8"
             ref={ref}
           >
-            <div className="flex items-center">
+            <div className="flex items-center md:mt-0 mt-[18rem]">
               <div className="flex">
                 <img
                   alt=""
                   src="/images/mycellium.webp"
                   className={`${
                     inView ? 'slider slide-in-1' : ''
-                  } pt-2 max-w-lg md:max-w-l -ml-8 sm:-ml-12 md:-ml-36 lg:-ml-[-5.5rem] rounded-4xl`}
+                  } pt-2 md:w-auto w-[20rem] max-w-lg md:max-w-l sm:-ml-12 md:-ml-36 lg:-ml-[-5.5rem] rounded-4xl`}
                 />
               </div>
             </div>
@@ -729,7 +729,7 @@ const IndexPage: NextPage = () => {
         </div>
 
         <div className="container mx-auto px-2 p-2 border-solid bg-white bg-gradient-to-r from-sapien to-sapien-blue-100 rounded-4xl mt-12">
-          <div className="container mx-auto pt-2 border-solid bg-neutral-900 rounded-4xl">
+          <div className="container mx-auto pt-2 border-solid bg-neutral-900 rounded-4x pr-5 pl-5 rounded-4xl">
             <div className="mb-8 text-center">
               <h2 className="text-base text-grey font-semibold tracking-wide uppercase text-gray-300 pt-5">
                 Sapien Network
@@ -742,7 +742,7 @@ const IndexPage: NextPage = () => {
               <div className="flex w-full justify-center mt-2 mb-6 pt-2">
                 <img
                   src="/images/dapp_image.png"
-                  className="h-[20rem] glow"
+                  className="md:h-[20rem] glow max-h-sm"
                 ></img>
               </div>
               <div className="w-full border-b md:w-1/2 md:border-r lg:w-1/3 p-8 border-slate-600">
@@ -819,11 +819,11 @@ const IndexPage: NextPage = () => {
                 </p>
               </div>
             </div>
-            <div className="flex justify-evenly">
+            <div className="flex justify-evenly text-center">
               <Link href="https://4cnw27iuk8s.typeform.com/to/f8wIuHU7?typeform-source=www.google.com">
                 <a
                   target="_blank"
-                  className="mb-8 border font-extrabold justify-center px-6 py-3 rounded-md text-white md:py-3 md:text-xl md:px-8"
+                  className="mb-8 border font-extrabold justify-center md:px-6 px-2 py-3 rounded-md text-white md:py-3 md:text-xl md:px-8 mr-10"
                 >
                   Apply for Early Access
                 </a>
@@ -851,7 +851,7 @@ const IndexPage: NextPage = () => {
           </div>
         </div>
 
-        <section className="tiles tiles--perspective max-w-6xl -mt-[15rem] sm:min-h-screen flex flex-col justify-center align-center mx-auto px-8">
+        <section className="tiles tiles--perspective max-w-6xl md:-mt-[15rem] mt-[0rem] sm:min-h-screen flex flex-col justify-center align-center mx-auto px-8">
           <div className="tiles__wrap">
             <div
               className="tiles__line"
@@ -1081,7 +1081,7 @@ const IndexPage: NextPage = () => {
           >
             Become a Founding Member of the Sapien Nation today.
           </h2>
-          <div className="w-full mx-auto text-center text-lg md:text-3xl font-bold z-10 relative top-[13rem] 2xl:top-[40rem]">
+          <div className="w-full mx-auto text-center text-lg md:text-3xl font-bold z-10 relative md:top-[13rem] top-[4rem] 2xl:top-[40rem]">
             <span className=" text-lg md:text-3xl font-bold z-10">
               Learn more on the{' '}
               <a
@@ -1309,7 +1309,7 @@ const IndexPage: NextPage = () => {
           </div>
         </div>
         */}
-        <div className="w-full md:mt-30">
+        <div className="w-full md:mt-30 mt-[12rem]">
           <Footer />
         </div>
       </div>

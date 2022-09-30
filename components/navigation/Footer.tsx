@@ -20,7 +20,7 @@ const Footer = () => {
 
   return (
     <footer
-      className="border-t border-gray-600 relative bottom-[8rem]"
+      className="border-t border-gray-600 relative bottom-[10rem]"
       aria-labelledby="footer-heading"
     >
       <div className="py-8 text-center">
