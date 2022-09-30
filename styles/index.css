@@ -19,8 +19,76 @@ body > div {
   font-weight: 600;
 }
 
-.slide img {
+.slider-partners {
+  height: 250px;
+  margin: auto;
+  position: relative;
+  width: 329%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
 
+.slide-track {
+  display: flex;
+  width: calc(250px * 32); /* total slides x individual slide width 250px */
+  animation: scroll 110s linear infinite;
+}
+
+.slide-track:hover {
+  animation-play-state: paused;
+}
+
+.slide {
+  height: 200px;
+  width: 250px;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  perspective: 100px;
+}
+
+.slide a {
+  width: 100%;
+  padding: 30px;
+  max-width: 150px;
+  transition: transform 1s;
+  z-index: 10;
+}
+
+.slide a:hover {
+  transform: translateZ(40px);
+  cursor: pointer;
+}
+
+.slider-partners::before,
+.slider-partners::after {
+  background: linear-gradient(to right,#181818 0%, rgba(18,15,20,0) 100%);
+  content: '';
+  height: 100%;
+  position: absolute;
+  width: 35%;
+  z-index: 4;
+}
+
+.slider-partners::before {
+  left: 0;
+  top: 0;
+}
+
+.slider-partners::after {
+  right: 0;
+  top: 0;
+  transform: rotateZ(180deg);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 16));
+  }
 }
 
 .glow {

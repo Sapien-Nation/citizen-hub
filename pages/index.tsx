@@ -13,6 +13,7 @@ import { preloadImages } from 'utils/homepage';
 
 // types
 import type { NextPage } from 'next';
+import { _base16To36 } from '@ethersproject/bignumber';
 
 const Carousel = () => {
   return (
@@ -341,36 +342,199 @@ const IndexPage: NextPage = () => {
                 </span>
               )}
             </div>
+
+            <div className="slider-partners">
+              <div className="slide-track">
+                <div className="slide">
+                  <a href="https://www.afropolitan.io/" target="_blank" rel="noreferrer">
+                    <img src="/images/partners/afropolitan.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a href="https://www.citydao.io/" target="_blank" rel="noreferrer">
+                    <img src="/images/partners/citydao.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a href="https://polygon.community/#/" target="_blank" rel="noreferrer">
+                    <img src="/images/partners/polygondao.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a href="https://doingud.com/" target="_blank" rel="noreferrer">
+                    <img src="/images/partners/doingud.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a href="https://genomes.io/" target="_blank" rel="noreferrer">
+                    {' '}
+                    <img src="/images/partners/genomesdao.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a href="https://governordao.org/" target="_blank" rel="noreferrer">
+                    <img src="/images/partners/governordao.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a href="https://journodao.xyz/" target="_blank" rel="noreferrer">
+                    <img src="/images/partners/journodao.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a href="https://www.lobby3.io/" target="_blank" rel="noreferrer">
+                    <img src="/images/partners/l3.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a href="https://www.lexdao.coop/" target="_blank" rel="noreferrer">
+                    <img src="/images/partners/lexdao.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a href="https://www.metagencoin.com/" target="_blank" rel="noreferrer">
+                    <img src="/images/partners/metagen.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a href="https://mongolnft.com/" target="_blank" rel="noreferrer">
+                    <img src="/images/partners/mongolnft.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a href="https://www.noirunited.org/" target="_blank" rel="noreferrer">
+                    <img src="/images/partners/noirunited.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a href="https://pubdao.co/" target="_blank" rel="noreferrer">
+                    <img src="/images/partners/pubdao.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a href="https://rabbitholestudios.org/" target="_blank" rel="noreferrer">
+                    <img src="/images/partners/rabbit-hole.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a href="https://www.workingtitledao.com/" target="_blank" rel="noreferrer">
+                    <img src="/images/partners/working-title.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a href="https://www.talentdao.io/" target="_blank" rel="noreferrer">
+                    <img src="/images/partners/talentdao.png" />
+                  </a>
+                </div>
+                {/* Doubled */}
+
+                <div className="slide">
+                  <a href="https://www.afropolitan.io/" target="_blank" rel="noreferrer">
+                    <img src="/images/partners/afropolitan.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a href="https://www.citydao.io/" target="_blank" rel="noreferrer">
+                    <img src="/images/partners/citydao.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a href="https://polygon.community/#/" target="_blank" rel="noreferrer">
+                    <img src="/images/partners/polygondao.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a href="https://doingud.com/" target="_blank" rel="noreferrer">
+                    <img src="/images/partners/doingud.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a href="https://genomes.io/" target="_blank" rel="noreferrer">
+                    {' '}
+                    <img src="/images/partners/genomesdao.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a href="https://governordao.org/" target="_blank" rel="noreferrer">
+                    <img src="/images/partners/governordao.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a href="https://journodao.xyz/" target="_blank" rel="noreferrer">
+                    <img src="/images/partners/journodao.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a href="https://www.lobby3.io/" target="_blank" rel="noreferrer">
+                    <img src="/images/partners/l3.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a href="https://www.lexdao.coop/" target="_blank" rel="noreferrer">
+                    <img src="/images/partners/lexdao.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a href="https://www.metagencoin.com/" target="_blank" rel="noreferrer">
+                    <img src="/images/partners/metagen.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a href="https://mongolnft.com/" target="_blank" rel="noreferrer">
+                    <img src="/images/partners/mongolnft.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a href="https://www.noirunited.org/" target="_blank" rel="noreferrer">
+                    <img src="/images/partners/noirunited.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a href="https://pubdao.co/" target="_blank" rel="noreferrer">
+                    <img src="/images/partners/pubdao.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a href="https://rabbitholestudios.org/" target="_blank" rel="noreferrer">
+                    <img src="/images/partners/rabbit-hole.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a href="https://www.workingtitledao.com/" target="_blank" rel="noreferrer">
+                    <img src="/images/partners/working-title.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a href="https://www.talentdao.io/" target="_blank" rel="noreferrer">
+                    <img src="/images/partners/talentdao.png" />
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        {/*}
-        <div className="slider">
-          <div className="slide-track">
-            <div className="slide">
-                <img src="/images/dapp.png"/>
-            </div>
-            <div className="slide">
-              <img src="/images/dapp.png"/>
-            </div>
-            <div className="slide">
-              <img src="/images/dapp.png"/>
-            </div>
+
+        {/*
+        <div class="marquee">
+          <ul class="marquee-content">
+            <li><i> 0 </i></li>
+            <li><i> 1 </i></li>
+            <li><i> 2 </i></li>
+            <li><i> 3 </i></li>
+            <li><i> 4 </i></li>
+            <li><i> 5 </i></li>
+            <li><i> 0 </i></li>
+            <li><i> 1 </i></li>
+            <li><i> 2 </i></li>
+            <li><i> 3 </i></li>
+            <li><i> 3 </i></li>
+            <li><i> 3 </i></li>
             
-            <div className="slide">
-                <img src="/images/dapp.png"/>
-            </div>
-            <div className="slide">
-              <img src="/images/dapp.png"/>
-            </div>
-            <div className="slide">
-              <img src="/images/dapp.png"/>
-            </div>
-
-          </div>
-
+          </ul>
         </div>
               */}
-        <div className="max-w-6xl mx-auto text-center pt-32 pl-4 pr-4 pb-4 md:pl-0 md:pr-0">
+
+        <div className="flex max-w-6xl mx-auto text-center pl-4 pr-4 md:pb-4 pb-12 md:pl-0 md:pr-0">
           <span className="text-2xl font-bold sm:text-4xl">
             Our mission is to build the{' '}
             <span className="bg-clip-text text-transparent bg-gradient-to-b from-sapien-80 to-sapien-20 shadow-xl shadow-sapien/60 drop-shadow-lg md:filter-none">
@@ -923,7 +1087,8 @@ const IndexPage: NextPage = () => {
               <a
                 href="https://www.notion.so/sapienteam/Welcome-to-the-Sapien-Nation-Wiki-533ad4b01e13481799015e67673c0062"
                 target="_blank"
-                className="bg-clip-text network-state" rel="noreferrer"
+                className="bg-clip-text network-state"
+                rel="noreferrer"
               >
                 Sapien Wiki
               </a>
