@@ -13,6 +13,110 @@ html,
 body,
 body > div {
   height: 100%;
+  background-color: black;
+}
+
+.subtext {
+  font-weight: 600;
+}
+
+.slider-partners {
+  height: 250px;
+  margin: auto;
+  position: relative;
+  width: 329%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.slide-track {
+  display: flex;
+  width: calc(250px * 32); /* total slides x individual slide width 250px */
+  animation: scroll 110s linear infinite;
+}
+
+.slide-track:hover {
+  animation-play-state: paused;
+}
+
+.slide {
+  height: 200px;
+  width: 250px;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  perspective: 100px;
+}
+
+.slide a {
+  width: 100%;
+  padding: 30px;
+  max-width: 150px;
+  transition: transform 1s;
+  z-index: 10;
+}
+
+.slide a:hover {
+  transform: translateZ(40px);
+  cursor: pointer;
+}
+
+.slider-partners::before,
+.slider-partners::after {
+  background: linear-gradient(to right,#000 0%, rgba(18,15,20,0) 100%);
+  content: '';
+  height: 100%;
+  position: absolute;
+  width: 10%;
+  z-index: 4;
+}
+
+@media screen and (min-width: 768px) {
+.backdrop::before {
+  background: linear-gradient(to right,black 0%, rgba(18,15,20,0) 100%);
+  content: '';
+  height: 100%;
+  position: absolute;
+  width: 15%;
+  z-index: 4;
+  transform: rotateZ(270deg);
+  bottom: 96rem;
+  left: 0;
+}
+}
+
+.slider-partners::before {
+  left: 0;
+  top: 0;
+}
+
+.slider-partners::after {
+  right: 0;
+  top: 0;
+  transform: rotateZ(180deg);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 16));
+  }
+}
+
+.glow {
+  border-radius: 18px;
+  box-shadow:
+    inset 0 0 50px #fff,      /* inner white */
+    inset 20px 0 80px #6200EA,   /* inner left magenta short */
+    inset -20px 0 80px #14C4D7,  /* inner right cyan short */
+    inset 20px 0 300px #6200EA,  /* inner left magenta broad */
+    inset -20px 0 300px #14C4D7, /* inner right cyan broad */
+    0 0 50px #fff,            /* outer white */
+    -10px 0 80px #6200EA,        /* outer left magenta */
+    10px 0 80px #14C4D7;         /* outer right cyan */
 }
 
 .network-state {
@@ -207,7 +311,7 @@ body > div {
 .tiles--perspective {
   overflow: visible;
   perspective: 1000px;
-  --tiles-height: 52vw;
+  --tiles-height: 72vw;
 }
 
 .tiles__wrap {

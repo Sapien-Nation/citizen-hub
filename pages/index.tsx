@@ -7,13 +7,13 @@ import { useInView } from 'react-intersection-observer';
 // components
 import { Head } from 'components/common';
 import { Footer } from 'components/navigation';
-import { Globe } from 'components/landing';
 
 // utils
 import { preloadImages } from 'utils/homepage';
 
 // types
 import type { NextPage } from 'next';
+import { _base16To36 } from '@ethersproject/bignumber';
 
 const Carousel = () => {
   return (
@@ -177,7 +177,7 @@ const IndexPage: NextPage = () => {
       <div className="m-auto overflow-hidden relative">
         {/* <Globe /> */}
         <div
-          className="min-h-screen mx-auto -m-12 flex justify-center"
+          className="min-h-screen mx-auto -m-12 flex justify-center backdrop"
           style={{
             backgroundImage: `url('/images/home-background.png')`,
             backgroundSize: 'cover',
@@ -240,7 +240,7 @@ const IndexPage: NextPage = () => {
         </div>
 
         {/* dao box */}
-        <div className="max-w-6xl flex flex-col justify-center align-center mx-auto pt-10 mt-20">
+        <div className="max-w-6xl flex flex-col justify-center align-center mx-auto pt-24 mt-20 pl-5 pr-5">
           <div className="mx-auto grid gap-12 lg:mx-0 lg:grid-cols-3 w-full">
             <div
               className="p-8 rounded-4xl bg-gradient-to-b from-sapien to-sapien-40 shadow-xl shadow-sapien/50 flex flex-col items-center justify-center h-80"
@@ -250,8 +250,8 @@ const IndexPage: NextPage = () => {
               {isHover.daos ? (
                 <span className="delay">
                   <h3 className="text-xl sm:text-2xl text-center font-semibold">
-                    DAOs today are largely built in isolation, limiting scale
-                    and impact.
+                    DAOs today are largely built in isolation, limiting scale &
+                    impact.
                   </h3>
                   <h3 className="text-xl sm:text-2xl text-center pt-10 font-semibold">
                     United, we will create so much more than any of us could
@@ -278,7 +278,7 @@ const IndexPage: NextPage = () => {
               {isHover.citizens ? (
                 <span className="delay">
                   <h3 className="text-xl sm:text-2xl text-center font-semibold">
-                    Every registered user receives a NFT passport.
+                    Every user receives a NFT passport + wallet on registration.
                   </h3>
                   <h3 className="text- sm:text-2xl text-center pt-10 font-semibold">
                     Passports unlock powerful benefits in the Sapien ecosystem.
@@ -316,7 +316,8 @@ const IndexPage: NextPage = () => {
                     <a
                       className="network-state"
                       href="https://v2.info.uniswap.org/pair/0x31ca4b5e5ddca54b29e365fc80dadfd8500d290b"
-                      target="_blank" rel="noreferrer"
+                      target="_blank"
+                      rel="noreferrer"
                     >
                       SPN
                     </a>{' '}
@@ -341,13 +342,322 @@ const IndexPage: NextPage = () => {
                 </span>
               )}
             </div>
+
+            <div className="slider-partners">
+              <div className="slide-track">
+                <div className="slide">
+                  <a
+                    href="https://www.afropolitan.io/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img src="/images/partners/afropolitan.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a
+                    href="https://www.citydao.io/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img src="/images/partners/citydao.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a
+                    href="https://polygon.community/#/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img src="/images/partners/polygondao.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a
+                    href="https://doingud.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img src="/images/partners/doingud.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a
+                    href="https://genomes.io/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {' '}
+                    <img src="/images/partners/genomesdao.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a
+                    href="https://governordao.org/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img src="/images/partners/governordao.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a
+                    href="https://journodao.xyz/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img src="/images/partners/journodao.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a
+                    href="https://www.lobby3.io/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img src="/images/partners/l3.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a
+                    href="https://www.lexdao.coop/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img src="/images/partners/lexdao.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a
+                    href="https://www.metagencoin.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img src="/images/partners/metagen.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a
+                    href="https://mongolnft.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img src="/images/partners/mongolnft.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a
+                    href="https://www.noirunited.org/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img src="/images/partners/noirunited.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a href="https://pubdao.co/" target="_blank" rel="noreferrer">
+                    <img src="/images/partners/pubdao.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a
+                    href="https://rabbitholestudios.org/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img src="/images/partners/rabbit-hole.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a
+                    href="https://www.workingtitledao.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img src="/images/partners/working-title.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a
+                    href="https://www.talentdao.io/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img src="/images/partners/talentdao.png" />
+                  </a>
+                </div>
+                {/* Doubled */}
+
+                <div className="slide">
+                  <a
+                    href="https://www.afropolitan.io/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img src="/images/partners/afropolitan.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a
+                    href="https://www.citydao.io/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img src="/images/partners/citydao.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a
+                    href="https://polygon.community/#/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img src="/images/partners/polygondao.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a
+                    href="https://doingud.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img src="/images/partners/doingud.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a
+                    href="https://genomes.io/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {' '}
+                    <img src="/images/partners/genomesdao.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a
+                    href="https://governordao.org/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img src="/images/partners/governordao.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a
+                    href="https://journodao.xyz/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img src="/images/partners/journodao.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a
+                    href="https://www.lobby3.io/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img src="/images/partners/l3.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a
+                    href="https://www.lexdao.coop/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img src="/images/partners/lexdao.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a
+                    href="https://www.metagencoin.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img src="/images/partners/metagen.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a
+                    href="https://mongolnft.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img src="/images/partners/mongolnft.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a
+                    href="https://www.noirunited.org/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img src="/images/partners/noirunited.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a href="https://pubdao.co/" target="_blank" rel="noreferrer">
+                    <img src="/images/partners/pubdao.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a
+                    href="https://rabbitholestudios.org/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img src="/images/partners/rabbit-hole.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a
+                    href="https://www.workingtitledao.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img src="/images/partners/working-title.png" />
+                  </a>
+                </div>
+                <div className="slide">
+                  <a
+                    href="https://www.talentdao.io/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img src="/images/partners/talentdao.png" />
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="max-w-6xl mx-auto text-center pt-36 pl-4 pr-4 pb-4 md:pl-0 md:pr-0">
+        {/*
+        <div class="marquee">
+          <ul class="marquee-content">
+            <li><i> 0 </i></li>
+            <li><i> 1 </i></li>
+            <li><i> 2 </i></li>
+            <li><i> 3 </i></li>
+            <li><i> 4 </i></li>
+            <li><i> 5 </i></li>
+            <li><i> 0 </i></li>
+            <li><i> 1 </i></li>
+            <li><i> 2 </i></li>
+            <li><i> 3 </i></li>
+            <li><i> 3 </i></li>
+            <li><i> 3 </i></li>
+            
+          </ul>
+        </div>
+              */}
+
+        <div className="flex max-w-6xl mx-auto text-center pl-4 pr-4 md:pb-4 pb-12 md:pl-0 md:pr-0">
           <span className="text-2xl font-bold sm:text-4xl">
             Our mission is to build the{' '}
-            <span className="bg-clip-text text-transparent bg-gradient-to-b from-sapien to-sapien-20">
+            <span className="bg-clip-text text-transparent bg-gradient-to-b from-sapien-80 to-sapien-20 shadow-xl shadow-sapien/60 drop-shadow-lg md:filter-none">
               {' '}
               infraculture
             </span>{' '}
@@ -362,7 +672,7 @@ const IndexPage: NextPage = () => {
             onMouseLeave={() => setIsHover({ ...isHover, community: false })}
           >
             <div className="lg:col-start-2 md:pl-2">
-              <h1 className="text-6xl font-extrabold dark:text-white tracking-tight sm:leading-11 w-[20rem] md:w-[40rem] pt-40 md:pt-[0]">
+              <h1 className="relative bottom-6 text-6xl font-extrabold dark:text-white tracking-tight sm:leading-11 w-[20rem] md:w-[40rem] pt-40 md:pt-[0]">
                 A Digital Parliament
               </h1>
               <ul className="mt-10">
@@ -405,10 +715,10 @@ const IndexPage: NextPage = () => {
                       </div>
                     </div>
                     <div className="ml-4">
-                      <h5 className="text-2xl leading-6 text-gray-900 dark:text-white font-bold leading-7 md:w-[28rem]">
+                      <h5 className="pl-2 text-2xl leading-6 text-gray-900 dark:text-white font-bold leading-7 md:w-[28rem]">
                         Collaborate in committees
                       </h5>
-                      <p className="mt-2 text-lg font-semibold leading-6 text-gray-500 dark:text-gray-300">
+                      <p className="pl-2 mt-2 text-lg font-semibold leading-6 text-gray-500 dark:text-gray-300">
                         From nation-building to technology, find your tribe of
                         changemakers in the Sapien Nation.
                       </p>
@@ -435,10 +745,10 @@ const IndexPage: NextPage = () => {
                       </div>
                     </div>
                     <div className="ml-4">
-                      <h5 className="text-2xl leading-6 text-gray-900 dark:text-white font-bold leading-7 md:w-[28rem]">
+                      <h5 className="pl-2 text-2xl leading-6 text-gray-900 dark:text-white font-bold leading-7 md:w-[28rem]">
                         Submit proposals
                       </h5>
-                      <p className="mt-2 text-lg font-semibold leading-6 text-gray-500 dark:text-gray-300">
+                      <p className="pl-2 mt-2 text-lg font-semibold leading-6 text-gray-500 dark:text-gray-300">
                         Participate in community discussions and lead
                         initiatives that resonate with you.
                       </p>
@@ -488,10 +798,10 @@ const IndexPage: NextPage = () => {
                       </div>
                     </div>
                     <div className="ml-4">
-                      <h5 className="text-2xl leading-6 text-gray-900 dark:text-white font-bold leading-7 md:w-[28rem]">
+                      <h5 className="pl-2 text-2xl leading-6 text-gray-900 dark:text-white font-bold leading-7 md:w-[28rem]">
                         Have your project invested in
                       </h5>
-                      <p className="mt-2 text-lg font-semibold leading-6 text-gray-500 dark:text-gray-300">
+                      <p className="pl-2 mt-2 text-lg font-semibold leading-6 text-gray-500 dark:text-gray-300">
                         Rally the Sapien Nation to get behind your proposals and
                         fund your dream projects.
                       </p>
@@ -524,20 +834,389 @@ const IndexPage: NextPage = () => {
             className="rounded-2xl px-8 flex flex-col col-span-4 justify-center bg-transparent mb-8"
             ref={ref}
           >
-            <div className="flex items-center">
+            <div className="flex items-center md:mt-0 mt-[18rem]">
               <div className="flex">
                 <img
                   alt=""
                   src="/images/mycellium.webp"
                   className={`${
                     inView ? 'slider slide-in-1' : ''
-                  } pt-2 max-w-lg md:max-w-l -ml-8 sm:-ml-12 md:-ml-36 lg:-ml-[-5.5rem] rounded-4xl`}
+                  } pt-2 md:w-auto w-[20rem] max-w-lg md:max-w-l sm:-ml-12 md:-ml-36 lg:-ml-[-5.5rem] rounded-4xl`}
                 />
               </div>
             </div>
           </div>
         </div>
 
+        <div className="container mx-auto px-2 p-2 border-solid bg-white bg-gradient-to-r from-sapien to-sapien-blue-100 rounded-4xl mt-12">
+          <div className="container mx-auto pt-2 border-solid bg-neutral-900 rounded-4x pr-5 pl-5 rounded-4xl">
+            <div className="mb-8 text-center">
+              <h2 className="text-base text-grey font-semibold tracking-wide uppercase text-gray-300 pt-5">
+                Sapien Network
+              </h2>
+              <p className="mt-4 text-4xl leading-10 font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+                A Social Network of DAOs, powered by an NFT Passport.
+              </p>
+            </div>
+            <div className="flex flex-wrap dark:text-white pb-4">
+              <div className="flex w-full justify-center mt-2 mb-6 pt-2">
+                <img
+                  src="/images/dapp_image.png"
+                  className="md:h-[20rem] glow max-h-sm"
+                ></img>
+              </div>
+              <div className="w-full border-b md:w-1/2 md:border-r lg:w-1/3 p-8 border-slate-600">
+                <div className="flex items-center mb-6">
+                  <img alt="" src="/images/dapp.png" className="h-7 pr-3" />
+                  <div className="text-xl font-semibold">Onboard Easily</div>
+                </div>
+                <p className="leading-loose text-gray-500 dark:text-gray-200 text-lg">
+                  Everyone gets an automagical Web3 wallet. No prior crypto
+                  experience needed.
+                </p>
+              </div>
+              <div className="w-full border-b md:w-1/2 lg:w-1/3 lg:border-r p-8 border-slate-600">
+                <div className="flex items-center mb-6">
+                  <img alt="" src="/images/dapp.png" className="h-7 pr-3" />
+                  <div className="text-xl font-semibold">Find Your Tribes</div>
+                </div>
+                <p className="leading-loose text-gray-500 dark:text-gray-200 text-lg">
+                  Join or create a new community. When you&apos;re ready,
+                  upgrade it to a DAO.
+                </p>
+              </div>
+              <div className="w-full border-b md:w-1/2 md:border-r lg:w-1/3 lg:border-r-0 p-8 border-slate-600">
+                <div className="flex items-center mb-6">
+                  <img alt="" src="/images/dapp.png" className="h-7 pr-3" />
+                  <div className="text-xl font-semibold">
+                    Issue Badges ({' '}
+                    <a
+                      className="network-state"
+                      href="https://www.coindesk.com/learn/what-are-soulbound-tokens-the-non-transferrable-nft-explained/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      SBTs
+                    </a>{' '}
+                    )
+                  </div>
+                </div>
+                <p className="leading-loose text-gray-500 dark:text-gray-200 text-lg">
+                  DAOs get a Safe to create badges, tokens that build your
+                  social ledger on Sapien.
+                </p>
+              </div>
+              <div className="w-full border-b md:w-1/2 lg:w-1/3 lg:border-r lg:border-b-0 p-8 border-slate-600">
+                <div className="flex items-center mb-6">
+                  <img alt="" src="/images/dapp.png" className="h-7 pr-3" />
+                  <div className="text-xl font-semibold">Rooms & Channels</div>
+                </div>
+                <p className="leading-loose text-gray-500 dark:text-gray-200 text-lg">
+                  Badges can be used to gate chat rooms or empower contributors
+                  for channel posts.
+                </p>
+              </div>
+              <div className="w-full border-b md:w-1/2 md:border-r md:border-b-0 lg:w-1/3 lg:border-b-0 p-8 border-slate-600">
+                <div className="flex items-center mb-6">
+                  <img alt="" src="/images/dapp.png" className="h-7 pr-3" />
+                  <div className="text-xl font-semibold">
+                    Autonomous Governance
+                  </div>
+                </div>
+                <p className="leading-loose text-gray-500 dark:text-gray-200 text-lg">
+                  Badges can gate voting on Snapshot or can even be issued based
+                  on the results of poll.
+                </p>
+              </div>
+              <div className="w-full md:w-1/2 lg:w-1/3 p-8 border-slate-600">
+                <div className="flex items-center mb-6">
+                  <img alt="" src="/images/dapp.png" className="h-7 pr-3" />
+                  <div className="text-xl font-semibold">Scale Your Impact</div>
+                </div>
+                <p className="leading-loose text-gray-500 dark:text-gray-200 text-lg">
+                  Badges enable DAOs to tap into network effects. Scale, grow,
+                  and operate effortlessly.
+                </p>
+              </div>
+            </div>
+            <div className="flex justify-evenly text-center">
+              <Link href="https://4cnw27iuk8s.typeform.com/to/f8wIuHU7?typeform-source=www.google.com">
+                <a
+                  target="_blank"
+                  className="mb-8 border font-extrabold justify-center md:px-6 px-2 py-3 rounded-md text-white md:py-3 md:text-xl md:px-8 mr-10"
+                >
+                  Apply for Early Access
+                </a>
+              </Link>
+
+              <Link href=" https://app.sapien.network/">
+                <a
+                  target="_blank"
+                  className="mb-8 border font-extrabold justify-center px-6 py-3 rounded-md text-white md:py-3 md:text-xl md:px-8"
+                >
+                  Launch dApp
+                </a>
+              </Link>
+              {/*
+            <Link href="/passport/purchase">
+              <a
+                target="_blank"
+                className="mb-12 border font-extrabold justify-center px-2 py-3 rounded-md text-white md:py-3 md:text-xl md:px-8"
+              >
+                Purchase Passport
+              </a>
+            </Link>
+            */}
+            </div>
+          </div>
+        </div>
+
+        <section className="tiles tiles--perspective max-w-6xl md:-mt-[15rem] mt-[0rem] sm:min-h-screen flex flex-col justify-center align-center mx-auto px-8">
+          <div className="tiles__wrap">
+            <div
+              className="tiles__line"
+              data-scroll
+              data-scroll-speed="2"
+              data-scroll-direction="horizontal"
+            >
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Abraham_Lincoln.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Adam_Smith.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Alexander_Hamilton.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Arminius.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Bob_Marley.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Buddha.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Charles_Darwin.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Che_Guevara.png')",
+                }}
+              ></div>
+            </div>
+            <div
+              className="tiles__line"
+              data-scroll
+              data-scroll-speed="-2"
+              data-scroll-direction="horizontal"
+            >
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Clara_Barton.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Diogenes.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Edsger_Dijkstra.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/George_Washington.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Harriet_Tubman.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/John_F_Kennedy.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/John_von_Neumann.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Karl_Marx.png')",
+                }}
+              ></div>
+            </div>
+            <div
+              className="tiles__line"
+              data-scroll
+              data-scroll-speed="2"
+              data-scroll-direction="horizontal"
+            >
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Kobe_Bryant.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Mozart.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Muhammad_Ali.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Nikola_Tesla.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Oda_Nobunaga.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Plato.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Pocahontas.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Rachel-Carson.png')",
+                }}
+              ></div>
+            </div>
+            <div
+              className="tiles__line"
+              data-scroll
+              data-scroll-speed="-2"
+              data-scroll-direction="horizontal"
+            >
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Ruth_Bader_Ginsburg.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Salvador_Dali.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Santiago_Ramon_y_Cajal.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/stephen-hawking.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Terence_Mckenna.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/ts_eliot.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Tupac_Shakur.png')",
+                }}
+              ></div>
+              <div
+                className="tiles__line-img"
+                style={{
+                  backgroundImage: "url('landing/Michaelangelo.png')",
+                }}
+              ></div>
+            </div>
+          </div>
+          <h2
+            className="content__title md:text-7xl text-3xl font-extrabold drop-shadow-lg md:filter-none"
+            data-scroll
+            data-scroll-speed="2"
+          >
+            Become a Founding Member of the Sapien Nation today.
+          </h2>
+          <div className="w-full mx-auto text-center text-lg md:text-3xl font-bold z-10 relative md:top-[13rem] top-[4rem] 2xl:top-[40rem]">
+            <span className=" text-lg md:text-3xl font-bold z-10">
+              Learn more on the{' '}
+              <a
+                href="https://www.notion.so/sapienteam/Welcome-to-the-Sapien-Nation-Wiki-533ad4b01e13481799015e67673c0062"
+                target="_blank"
+                className="bg-clip-text network-state"
+                rel="noreferrer"
+              >
+                Sapien Wiki
+              </a>
+            </span>
+          </div>
+        </section>
+
+        {/*
         <div className="my-24 max-w-7xl mx-auto px-8 text-center">
           <div className="flex flex-col xl:flex-row justify-between">
             <h1 className="p-5 text-4xl md:text-7xl font-extrabold">
@@ -623,7 +1302,7 @@ const IndexPage: NextPage = () => {
             </div>
           </div>
         </div>
-
+          
         <div className="my-24 max-w-5xl mx-auto px-8 text-center">
           <h2 className="text-4xl md:text-4xl font-extrabold">
             We&apos;re rolling out early access to the Sapien Network to early
@@ -648,7 +1327,8 @@ const IndexPage: NextPage = () => {
             </Link>
           </div>
         </div>
-
+        */}
+        {/*
         <div
           data-scroll
           data-scroll-speed="-2"
@@ -680,7 +1360,7 @@ const IndexPage: NextPage = () => {
             </h2>
           </div>
         </div>
-
+            
         <div className="mt-24 mb-8 flex items-center justify-center lg:mx-auto px-8 md:px-6 lg:px-10">
           <h2 className="text-4xl md:text-6xl font-extrabold">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-sapien to-sapien-40">
@@ -692,7 +1372,7 @@ const IndexPage: NextPage = () => {
         <div className="flex flex-col px-4 mx-auto mt-8 lg:space-x-8 max-w-5xl">
           <Carousel />
         </div>
-
+        
         <div
           data-scroll
           data-scroll-speed="2"
@@ -733,31 +1413,23 @@ const IndexPage: NextPage = () => {
               </div>
             ) : (
               <h2 className="delay text-3xl md:text-5xl font-extrabold text-center">
-                On the Horizon
+                Want to learn more?
               </h2>
             )}
-            <div className="flex justify-between">
+            <div className="flex justify-center">
               <Link href="https://discord.gg/DVDe3ZwuYR">
                 <a
                   target="_blank"
                   className="text-base font-semibold text-white underline mt-5 block"
                 >
-                  Join Discord
-                </a>
-              </Link>
-              <Link href="https://4cnw27iuk8s.typeform.com/to/f8wIuHU7?typeform-source=www.google.com">
-                <a
-                  target="_blank"
-                  className="text-base font-semibold text-white underline mt-5 block"
-                >
-                  Apply to have access
+                  View Sapien Wiki
                 </a>
               </Link>
             </div>
           </div>
         </div>
-
-        <div className="w-full lg:mb-44">
+        */}
+        <div className="w-full md:mt-30 mt-[12rem]">
           <Footer />
         </div>
       </div>
