@@ -40,10 +40,10 @@ module.exports = {
     },
   },
   content: [
-    './pages/**/*.{js,jsx,ts,tsx}',
-    './pages/*.{js,jsx,ts,tsx}',
-    './components/**/*.{js,jsx,ts,tsx}',
-    './components/*.{js,jsx,ts,tsx}',
+    './pages/**/*.tsx',
+    './pages/*.tsx',
+    './components/**/*.tsx',
+    './components/*.tsx',
     './node_modules/tw-elements/dist/js/**/*.js',
   ],
   plugins: [
