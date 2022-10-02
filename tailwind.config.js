@@ -41,7 +41,9 @@ module.exports = {
   },
   content: [
     './pages/**/*.{js,jsx,ts,tsx}',
+    './pages/*.{js,jsx,ts,tsx}',
     './components/**/*.{js,jsx,ts,tsx}',
+    './components/*.{js,jsx,ts,tsx}',
     './node_modules/tw-elements/dist/js/**/*.js',
   ],
   plugins: [
