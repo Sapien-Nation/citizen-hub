@@ -902,30 +902,32 @@ const IndexPage: NextPage = () => {
                   </div>
                 </div>
                 <p className="leading-loose text-gray-500 dark:text-gray-200 text-lg">
-                  DAOs get a Safe to create badges, tokens that build your
-                  social ledger on Sapien.
+                  DAOs can create badges, tokens that build on-chain reputation
+                  and grant permissions.
                 </p>
               </div>
               <div className="w-full border-b md:w-1/2 lg:w-1/3 lg:border-r lg:border-b-0 p-8 border-slate-600">
                 <div className="flex items-center mb-6">
                   <img alt="" src="/images/dapp.png" className="h-7 pr-3" />
-                  <div className="text-xl font-semibold">Rooms & Channels</div>
+                  <div className="text-xl font-semibold">
+                    Gate Rooms & Channels
+                  </div>
                 </div>
                 <p className="leading-loose text-gray-500 dark:text-gray-200 text-lg">
-                  Badges can be used to gate chat rooms or empower contributors
-                  for channel posts.
+                  Badges can gate chat rooms or empower contributors for channel
+                  posts.
                 </p>
               </div>
               <div className="w-full border-b md:w-1/2 md:border-r md:border-b-0 lg:w-1/3 lg:border-b-0 p-8 border-slate-600">
                 <div className="flex items-center mb-6">
                   <img alt="" src="/images/dapp.png" className="h-7 pr-3" />
                   <div className="text-xl font-semibold">
-                    Autonomous Governance
+                    Govern Autonomously
                   </div>
                 </div>
                 <p className="leading-loose text-gray-500 dark:text-gray-200 text-lg">
-                  Badges can gate voting on Snapshot or can even be issued based
-                  on the results of poll.
+                  Badges can gate voting on Snapshot or can be issued based on
+                  the results of poll.
                 </p>
               </div>
               <div className="w-full md:w-1/2 lg:w-1/3 p-8 border-slate-600">
@@ -934,8 +936,8 @@ const IndexPage: NextPage = () => {
                   <div className="text-xl font-semibold">Scale Your Impact</div>
                 </div>
                 <p className="leading-loose text-gray-500 dark:text-gray-200 text-lg">
-                  Badges enable DAOs to tap into network effects. Scale, grow,
-                  and operate effortlessly.
+                  DAOs can leverage badges from other DAOs, enabling powerful
+                  network effects.
                 </p>
               </div>
             </div>
