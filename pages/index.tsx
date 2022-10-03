@@ -177,7 +177,7 @@ const IndexPage: NextPage = () => {
       <div className="m-auto overflow-hidden relative">
         {/* <Globe /> */}
         <div
-          className="min-h-screen mx-auto -m-12 flex justify-center backdrop"
+          className="2xl:min-h-[168vh] min-h-screen mx-auto -m-12 flex justify-center backdrop"
           style={{
             backgroundImage: `url('/images/home-background.png')`,
             backgroundSize: 'cover',
@@ -862,7 +862,7 @@ const IndexPage: NextPage = () => {
               <div className="flex w-full justify-center mt-2 mb-6 pt-2">
                 <img
                   src="/images/dapp_image.png"
-                  className="md:h-[20rem] glow max-h-sm"
+                  className="md:h-[24rem] glow max-h-sm"
                 ></img>
               </div>
               <div className="w-full border-b md:w-1/2 md:border-r lg:w-1/3 p-8 border-slate-600">
