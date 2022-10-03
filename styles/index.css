@@ -72,12 +72,13 @@ body > div {
   z-index: 4;
 }
 
+/*
 @media screen and (min-width: 768px) {
 .backdrop::before {
-  background: linear-gradient(to right,black 0%, rgba(18,15,20,0) 100%);
+  background: linear-gradient(to right,white 0%, rgba(18,15,20,0) 100%);
   content: '';
   height: 100%;
-  position: absolute;
+  position: fixed;
   width: 15%;
   z-index: 4;
   transform: rotateZ(270deg);
@@ -85,6 +86,7 @@ body > div {
   left: 0;
 }
 }
+*/
 
 .slider-partners::before {
   left: 0;
