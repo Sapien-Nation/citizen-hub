@@ -5,11 +5,6 @@ module.exports = {
         sans: ['Averta', 'sans-serif'],
         extrabold: ['Averta Bold', 'sans-serif'],
       },
-      screens: {
-        'sm': '640px',
-        'md': '768px',
-        '2xl': '1536px'
-      },
       colors: {
         sapien: '#6200EA',
         'sapien-80': '#8133EE',
@@ -45,23 +40,13 @@ module.exports = {
     },
   },
   content: [
-    './pages/**',
-    './components/**',
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
-    './pages/*.{js,ts,jsx,tsx}',
-    './components/*.{js,ts,jsx,tsx}',
     './node_modules/tw-elements/dist/js/**/*.js',
   ],
   plugins: [
     require('@tailwindcss/forms'),
     require('@tailwindcss/aspect-ratio'),
     require('tw-elements/dist/plugin'),
-  ],
-  safelist: [
-    {
-      pattern: /./,
-      variants: ['sm', 'md', 'lg', 'xl', '2xl'],
-    }
   ]
 };
