@@ -346,63 +346,111 @@ const IndexPage: NextPage = () => {
             <div className="slider-partners">
               <div className="slide-track">
                 <div className="slide">
-                  <a href="https://www.afropolitan.io/" target="_blank" rel="noreferrer">
+                  <a
+                    href="https://www.afropolitan.io/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <img src="/images/partners/afropolitan.png" />
                   </a>
                 </div>
                 <div className="slide">
-                  <a href="https://www.citydao.io/" target="_blank" rel="noreferrer">
+                  <a
+                    href="https://www.citydao.io/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <img src="/images/partners/citydao.png" />
                   </a>
                 </div>
                 <div className="slide">
-                  <a href="https://polygon.community/#/" target="_blank" rel="noreferrer">
+                  <a
+                    href="https://polygon.community/#/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <img src="/images/partners/polygondao.png" />
                   </a>
                 </div>
                 <div className="slide">
-                  <a href="https://doingud.com/" target="_blank" rel="noreferrer">
+                  <a
+                    href="https://doingud.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <img src="/images/partners/doingud.png" />
                   </a>
                 </div>
                 <div className="slide">
-                  <a href="https://genomes.io/" target="_blank" rel="noreferrer">
+                  <a
+                    href="https://genomes.io/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     {' '}
                     <img src="/images/partners/genomesdao.png" />
                   </a>
                 </div>
                 <div className="slide">
-                  <a href="https://governordao.org/" target="_blank" rel="noreferrer">
+                  <a
+                    href="https://governordao.org/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <img src="/images/partners/governordao.png" />
                   </a>
                 </div>
                 <div className="slide">
-                  <a href="https://journodao.xyz/" target="_blank" rel="noreferrer">
+                  <a
+                    href="https://journodao.xyz/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <img src="/images/partners/journodao.png" />
                   </a>
                 </div>
                 <div className="slide">
-                  <a href="https://www.lobby3.io/" target="_blank" rel="noreferrer">
+                  <a
+                    href="https://www.lobby3.io/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <img src="/images/partners/l3.png" />
                   </a>
                 </div>
                 <div className="slide">
-                  <a href="https://www.lexdao.coop/" target="_blank" rel="noreferrer">
+                  <a
+                    href="https://www.lexdao.coop/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <img src="/images/partners/lexdao.png" />
                   </a>
                 </div>
                 <div className="slide">
-                  <a href="https://www.metagencoin.com/" target="_blank" rel="noreferrer">
+                  <a
+                    href="https://www.metagencoin.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <img src="/images/partners/metagen.png" />
                   </a>
                 </div>
                 <div className="slide">
-                  <a href="https://mongolnft.com/" target="_blank" rel="noreferrer">
+                  <a
+                    href="https://mongolnft.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <img src="/images/partners/mongolnft.png" />
                   </a>
                 </div>
                 <div className="slide">
-                  <a href="https://www.noirunited.org/" target="_blank" rel="noreferrer">
+                  <a
+                    href="https://www.noirunited.org/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <img src="/images/partners/noirunited.png" />
                   </a>
                 </div>
@@ -412,80 +460,140 @@ const IndexPage: NextPage = () => {
                   </a>
                 </div>
                 <div className="slide">
-                  <a href="https://rabbitholestudios.org/" target="_blank" rel="noreferrer">
+                  <a
+                    href="https://rabbitholestudios.org/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <img src="/images/partners/rabbit-hole.png" />
                   </a>
                 </div>
                 <div className="slide">
-                  <a href="https://www.workingtitledao.com/" target="_blank" rel="noreferrer">
+                  <a
+                    href="https://www.workingtitledao.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <img src="/images/partners/working-title.png" />
                   </a>
                 </div>
                 <div className="slide">
-                  <a href="https://www.talentdao.io/" target="_blank" rel="noreferrer">
+                  <a
+                    href="https://www.talentdao.io/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <img src="/images/partners/talentdao.png" />
                   </a>
                 </div>
                 {/* Doubled */}
 
                 <div className="slide">
-                  <a href="https://www.afropolitan.io/" target="_blank" rel="noreferrer">
+                  <a
+                    href="https://www.afropolitan.io/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <img src="/images/partners/afropolitan.png" />
                   </a>
                 </div>
                 <div className="slide">
-                  <a href="https://www.citydao.io/" target="_blank" rel="noreferrer">
+                  <a
+                    href="https://www.citydao.io/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <img src="/images/partners/citydao.png" />
                   </a>
                 </div>
                 <div className="slide">
-                  <a href="https://polygon.community/#/" target="_blank" rel="noreferrer">
+                  <a
+                    href="https://polygon.community/#/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <img src="/images/partners/polygondao.png" />
                   </a>
                 </div>
                 <div className="slide">
-                  <a href="https://doingud.com/" target="_blank" rel="noreferrer">
+                  <a
+                    href="https://doingud.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <img src="/images/partners/doingud.png" />
                   </a>
                 </div>
                 <div className="slide">
-                  <a href="https://genomes.io/" target="_blank" rel="noreferrer">
+                  <a
+                    href="https://genomes.io/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     {' '}
                     <img src="/images/partners/genomesdao.png" />
                   </a>
                 </div>
                 <div className="slide">
-                  <a href="https://governordao.org/" target="_blank" rel="noreferrer">
+                  <a
+                    href="https://governordao.org/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <img src="/images/partners/governordao.png" />
                   </a>
                 </div>
                 <div className="slide">
-                  <a href="https://journodao.xyz/" target="_blank" rel="noreferrer">
+                  <a
+                    href="https://journodao.xyz/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <img src="/images/partners/journodao.png" />
                   </a>
                 </div>
                 <div className="slide">
-                  <a href="https://www.lobby3.io/" target="_blank" rel="noreferrer">
+                  <a
+                    href="https://www.lobby3.io/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <img src="/images/partners/l3.png" />
                   </a>
                 </div>
                 <div className="slide">
-                  <a href="https://www.lexdao.coop/" target="_blank" rel="noreferrer">
+                  <a
+                    href="https://www.lexdao.coop/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <img src="/images/partners/lexdao.png" />
                   </a>
                 </div>
                 <div className="slide">
-                  <a href="https://www.metagencoin.com/" target="_blank" rel="noreferrer">
+                  <a
+                    href="https://www.metagencoin.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <img src="/images/partners/metagen.png" />
                   </a>
                 </div>
                 <div className="slide">
-                  <a href="https://mongolnft.com/" target="_blank" rel="noreferrer">
+                  <a
+                    href="https://mongolnft.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <img src="/images/partners/mongolnft.png" />
                   </a>
                 </div>
                 <div className="slide">
-                  <a href="https://www.noirunited.org/" target="_blank" rel="noreferrer">
+                  <a
+                    href="https://www.noirunited.org/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <img src="/images/partners/noirunited.png" />
                   </a>
                 </div>
@@ -495,17 +603,29 @@ const IndexPage: NextPage = () => {
                   </a>
                 </div>
                 <div className="slide">
-                  <a href="https://rabbitholestudios.org/" target="_blank" rel="noreferrer">
+                  <a
+                    href="https://rabbitholestudios.org/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <img src="/images/partners/rabbit-hole.png" />
                   </a>
                 </div>
                 <div className="slide">
-                  <a href="https://www.workingtitledao.com/" target="_blank" rel="noreferrer">
+                  <a
+                    href="https://www.workingtitledao.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <img src="/images/partners/working-title.png" />
                   </a>
                 </div>
                 <div className="slide">
-                  <a href="https://www.talentdao.io/" target="_blank" rel="noreferrer">
+                  <a
+                    href="https://www.talentdao.io/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <img src="/images/partners/talentdao.png" />
                   </a>
                 </div>
@@ -1081,7 +1201,7 @@ const IndexPage: NextPage = () => {
           >
             Become a Founding Member of the Sapien Nation today.
           </h2>
-          <div className="w-full mx-auto text-center text-lg md:text-3xl font-bold z-10 relative md:top-[13rem] top-[4rem] 2xl:top-[40rem]">
+          <div className="w-full mx-auto text-center text-lg md:text-3xl font-bold z-10 relative md:top-[13rem] top-[4rem]">
             <span className=" text-lg md:text-3xl font-bold z-10">
               Learn more on the{' '}
               <a
@@ -1309,7 +1429,7 @@ const IndexPage: NextPage = () => {
           </div>
         </div>
         */}
-        <div className="w-full md:mt-30 mt-[12rem]">
+        <div className="w-full md:mt-30">
           <Footer />
         </div>
       </div>
