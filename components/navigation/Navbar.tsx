@@ -19,14 +19,15 @@ import { string } from 'yup';
 
 const navigation = [
   { section: 'Home', href: '/' },
+  { section: 'Purple Paper', href: '/The_Purple_Paper_v1.2.pdf' },
   {
     section: 'Sapien Nation',
     links: [
       {
-        name: 'Purple Paper',
-        href: '/purple-paper',
+        name: 'Passport',
+        href: 'https://sapienteam.notion.site/The-Passport-Explained-aef635c4cbe7454cbc0f86ba44b6ffb1',
+        target: '_blank',
       },
-      { name: 'Passport', href: '/passport' },
       { name: 'Reserved List', href: '/reserved-list' },
       //{ name: 'Token', href: '/token' },
       /*
@@ -37,6 +38,10 @@ const navigation = [
       },
       */
     ],
+  },
+  {
+    section: 'logo',
+    href: '/',
   },
   {
     section: 'For DAOs',
@@ -93,7 +98,7 @@ const NavbarDropdown = ({ section, links }: NavbarDropdown) => {
     <div className="flex items-center" ref={ref}>
       <div className="w-full">
         <button
-          className="text-base lg:text-lg px-1 pt-1  hover:text-gray-500 w-full text-left pl-4 lg:pl-0 font-medium lg:font-extrabold"
+          className="text-base lg:text-lg px-1 pt-1  hover:text-gray-500 w-full text-left pl-4 lg:pl-0 font-medium lg:font-extrabold md:mb-0 mb-2"
           onClick={() => setIsOpen(!isOpen)}
         >
           <span>{section}</span>
@@ -144,21 +149,9 @@ const Navbar = () => {
       {({ open }) => (
         <>
           <div className="max-w-6xl mx-auto py-2 px-2 sm:px-4 lg:px-8">
-            <div className="flex justify-between h-16">
+            <div className="flex md:justify-center justify-between h-16">
               <div className="flex px-2 lg:px-0">
-                <div className="shrink-0 flex items-center">
-                  <Link href="/">
-                    <a href="">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        className="pr-1 pt-1 w-16"
-                        src="/landing/logooutlined.svg"
-                        alt="sapien"
-                      />
-                    </a>
-                  </Link>
-                </div>
-                <div className="hidden lg:ml-6 lg:flex lg:space-x-8">
+                <div className="hidden lg:ml-[4.4rem] lg:flex lg:space-x-8">
                   {navigation.map((nav) => {
                     return nav.links ? (
                       <NavbarDropdown section={nav.section} links={nav.links} />
@@ -172,7 +165,14 @@ const Navbar = () => {
                             'inline-flex items-center text-lg px-1 pt-1 font-extrabold'
                           )}
                         >
-                          {nav.section}
+                          {nav.section == 'logo' && (
+                            <img
+                              className="pr-1 pt-1 w-16 relative"
+                              src="/landing/logooutlined.svg"
+                              alt="sapien"
+                            />
+                          )}
+                          {nav.section != 'logo' && nav.section}
                         </a>
                       </Link>
                     );
@@ -261,23 +261,25 @@ const Navbar = () => {
           <Disclosure.Panel className="lg:hidden">
             <div className="pt-2 pb-3 space-y-1">
               {navigation.map((nav) => {
-                return nav.links ? (
-                  <NavbarDropdown section={nav.section} links={nav.links} />
-                ) : (
-                  <Disclosure.Button
-                    as="a"
-                    href={nav.href}
-                    key={nav.href}
-                    className={mergeClassNames(
-                      router.asPath === nav.href
-                        ? 'bg-purple-50 border-purple-500 text-sapien-60'
-                        : 'border-transparent text-white hover:bg-gray-800',
-                      'block pl-3 pr-4 py-2 border-l-4 text-base font-medium'
-                    )}
-                  >
-                    {nav.section}
-                  </Disclosure.Button>
-                );
+                if (nav.section != 'logo') {
+                  return nav.links ? (
+                    <NavbarDropdown section={nav.section} links={nav.links} />
+                  ) : (
+                    <Disclosure.Button
+                      as="a"
+                      href={nav.href}
+                      key={nav.href}
+                      className={mergeClassNames(
+                        router.asPath === nav.href
+                          ? 'bg-purple-50 border-purple-500 text-sapien-60'
+                          : 'border-transparent text-white hover:bg-gray-800',
+                        'block pl-3 pr-4 py-2 border-l-4 text-base font-medium'
+                      )}
+                    >
+                      {nav.section}
+                    </Disclosure.Button>
+                  );
+                }
               })}
             </div>
             <div className="pt-4 pb-3 border-t border-gray-200">

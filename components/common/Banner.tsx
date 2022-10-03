@@ -67,7 +67,7 @@ export default function Banner({ title, message, action }: IBanner) {
   };
 
   return (
-    <div className="bg-sapien z-10">
+    <div className="bg-gradient-to-r from-sapien to-sapien-blue-100 z-10">
       <div className="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between flex-wrap gap-0 sm:gap-2">
           <div className="lg:w-0 flex-1 flex items-center">
