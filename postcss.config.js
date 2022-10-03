@@ -12,7 +12,7 @@ module.exports = {
               "./components/*.tsx",
             ],
             defaultExtractor: (content) =>
-              content.match(/[\w-/:]+(?<!:)/g) || [],
+              content.match(/[\w\-:.\/\[#%\]]+(?<!:)/g) || [],
           },
         ]
       : undefined,
