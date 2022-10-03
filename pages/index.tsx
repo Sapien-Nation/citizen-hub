@@ -177,7 +177,7 @@ const IndexPage: NextPage = () => {
       <div className="m-auto overflow-hidden relative">
         {/* <Globe /> */}
         <div
-          className="2xl:min-h-[168vh] min-h-screen mx-auto -m-12 flex justify-center backdrop"
+          className="2xl:min-h-[168vh] min-h-screen mx-auto -m-12 flex justify-center"
           style={{
             backgroundImage: `url('/images/home-background.png')`,
             backgroundSize: 'cover',
