@@ -74,11 +74,11 @@ const moduleExports = {
       },
       {
         source: '/user-api/:path*',
-        destination: `${process.env.NEXT_PUBLIC_API_AUTH_URL}/api/v3/user/:path*`,
+        destination: `${process.env.NEXT_PUBLIC_API_URL}/api/v3/user/:path*`,
       },
       {
         source: '/auth-api/:path*',
-        destination: `${process.env.NEXT_PUBLIC_API_AUTH_URL}/api/v3/auth/:path*`,
+        destination: `${process.env.NEXT_PUBLIC_API_URL}/api/v3/auth/:path*`,
       },
       {
         source: '/passports-api/:path*',
