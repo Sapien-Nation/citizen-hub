@@ -309,8 +309,7 @@ const IndexPage: NextPage = () => {
               {isHover.treasury ? (
                 <span className="delay">
                   <h3 className="text-xl sm:text-2xl text-center font-semibold">
-                    The Sapien DAO develops the dApp and grows the Sapien
-                    Nation.
+                    The Sapien DAO helps build the dApp and the Sapien Nation.
                   </h3>
                   <p className="text-xl sm:text-2xl text-center pt-10 font-semibold">
                     <a
