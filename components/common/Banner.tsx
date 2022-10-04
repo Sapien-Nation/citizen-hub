@@ -34,7 +34,7 @@ export default function Banner({ title, message, action }: IBanner) {
           onClick={() => handleRedirectToProtocol()}
           className="flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-extrabold text-indigo-600 bg-white hover:bg-indigo-50"
         >
-          Launch App
+          Launch dApp
         </button>
       );
     if (code === 100)
@@ -81,6 +81,16 @@ export default function Banner({ title, message, action }: IBanner) {
               <span className="md:hidden">{title}</span>
               <span className="hidden md:inline">{message}</span>
             </p>
+          </div>
+          <div className="order-2 mt-2 flex-shrink-0 w-full sm:order-1 sm:mt-0 sm:w-auto">
+            <Link href="https://app.dework.xyz/sapien-dao">
+              <a
+                target="_blank"
+                className="flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-extrabold text-indigo-600 bg-white hover:bg-indigo-50"
+              >
+                Contribute to DAO
+              </a>
+            </Link>
           </div>
           <div className="order-3 mt-2 flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto">
             {me === null ? (
