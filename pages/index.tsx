@@ -1430,7 +1430,7 @@ const IndexPage: NextPage = () => {
           </div>
         </div>
         */}
-        <div className="w-full md:mt-0 mt-[15rem]">
+        <div className="w-full md:mb-[8rem]">
           <Footer />
         </div>
       </div>
