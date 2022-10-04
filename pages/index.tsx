@@ -941,16 +941,17 @@ const IndexPage: NextPage = () => {
               </div>
             </div>
             <div className="flex justify-evenly text-center">
-              <Link href="https://4cnw27iuk8s.typeform.com/to/f8wIuHU7?typeform-source=www.google.com">
+              <Link href="https://app.dework.xyz/sapien-dao">
                 <a
+                  href="https://app.dework.xyz/sapien-dao"
                   target="_blank"
-                  className="mb-8 border font-extrabold justify-center md:px-6 px-2 py-3 rounded-md text-white md:py-3 md:text-xl md:px-8 mr-10"
+                  className="mb-8 border font-extrabold justify-center md:px-6 px-2 py-3 rounded-md text-white md:py-3 md:text-xl md:px-8 mr-10" rel="noreferrer"
                 >
-                  Apply for Early Access
+                  Contribute to DAO
                 </a>
               </Link>
 
-              <Link href=" https://app.sapien.network/">
+              <Link href="https://app.sapien.network/">
                 <a
                   target="_blank"
                   className="mb-8 border font-extrabold justify-center px-6 py-3 rounded-md text-white md:py-3 md:text-xl md:px-8"
@@ -972,7 +973,7 @@ const IndexPage: NextPage = () => {
           </div>
         </div>
 
-        <section className="tiles tiles--perspective max-w-6xl md:-mt-[15rem] mt-[0rem] sm:min-h-screen flex flex-col justify-center align-center mx-auto px-8">
+        <section className="tiles tiles--perspective max-w-6xl mt-[0rem] flex flex-col justify-center align-center mx-auto px-8">
           <div className="tiles__wrap">
             <div
               className="tiles__line"
